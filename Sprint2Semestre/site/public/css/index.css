@@ -22,6 +22,10 @@ section {
     border: 5px solid red;
 }
 
+img {
+    border-radius: 25px;
+}
+
 /* ============================================ Global Settings  ====================*/
 
 
@@ -206,7 +210,7 @@ main .about-us .box1 .carousel .image-box{
 }
 
 main .about-us .box1 .carousel .image-box img{
-    width: 80%;
+    width: 100%;
     height: 100%;
 }
 
@@ -221,6 +225,7 @@ main .about-us .box1 .text {
     text-align: center;
     font-size: 2.5em;
     width: 50%;
+    height: 100%;
     border: 5px solid saddlebrown;
 }
 
@@ -244,19 +249,138 @@ main .about-us .box2 .text {
 
 main .about-us .box2 .image-box {
     display: flex;
+    justify-content: center;
     border: 5px solid khaki;
     width: 50%;
     height: 100%;
 }
 
 main .about-us .box2 .image-box .image1 {
-    width: 50%;
+    display: flex;
+    width: 80%;
     border: 5px solid red;
-    margin-left: 5%;
 }
 
-main .about-us .box2 .image-box .image-box2 {
-    width: 50%;
+main .about-us .box2 .image-box .image1 img {
+    width: 100%;
     height: 100%;
-    color: purple;
+}
+
+main .bases {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0000BB;
+    /* border: 5px solid white; */
+}
+
+main .bases .bases-box {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 80%;
+    flex-direction: row;
+    padding: 25px;
+    gap: 5%;
+    /* border: 5px solid rgb(239, 0, 0); */
+}
+
+main .bases .bases-box .base {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 5px solid white;
+    gap: 5%;
+}
+
+main .bases .bases-box .base img {
+    width: 100%;
+    height: 45%;
+    border: 5px solid green;
+}
+
+main .bases .bases-box .base h1 {
+    text-align: center;
+    font-size: 3em;
+    /* border: 5px solid rgb(239, 248, 0); */
+}
+
+main .bases .bases-box .base p {
+    text-align: center;
+    /* border: 5px solid rgb(0, 229, 255); */
+}
+
+main .missions {
+    display: flex;
+    background-color: #000071;
+}
+
+main .missions .missions-box {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+    border: 5px solid white;
+}
+
+main .missions .missions-box .mission {
+    display: flex;
+    width: 70%;
+    height: 25%;
+    border: 5px solid fuchsia;
+    background-color: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+main .missions .missions-box .mission:nth-child(2) {
+    width: 70%;
+    margin-left: 30%;
+    flex-direction: row-reverse;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+main .missions .missions-box .mission img {
+    width: 45%;
+    height: 100%;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 20px;
+}
+
+main .missions .missions-box .mission p {
+    text-align: center;
+    color: #FDAD00;
+    width: 55%;
+    height: 100%;
+    border: 5px solid rgb(37, 249, 0);
+}
+
+main .contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0000BB;
+    gap: 15%;
+}
+
+main .contact .contact-box {
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border: 5px solid darkturquoise;
+    border-radius: 25px;
+    margin-top: 50px;
+}
+
+footer {
+    width: 100%;
+    height: 25%;
+    background-color: #001736;
 }
