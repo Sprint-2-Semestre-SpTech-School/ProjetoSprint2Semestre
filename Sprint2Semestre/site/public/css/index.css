@@ -1,0 +1,262 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-anchor: none;
+    list-style: none;
+    color: white;
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    display: flex;
+    height: 100dvh;
+    width: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border: 5px solid red;
+}
+
+/* ============================================ Global Settings  ====================*/
+
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    z-index: 1;
+    transition: 0.7s ease;
+}
+
+nav .nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    width: 85%;
+}
+
+nav .nav-items a {
+    color: #FDAD00;
+}
+
+/* ================================== NAV ================================ */
+main .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+main .home .main-image {
+    display: flex;
+    width: 85%;
+    height: 65%;
+    border-radius: 25px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    filter: blur(1px);
+}
+
+main .home .main-image img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+main .solution {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .solution .main-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    gap: 5%;
+}
+
+main .solution .main-content .solution-box {
+    display: flex;
+    width: 80%;
+    height: 80%;
+    background-color: #3046F0;
+    border-radius: 25px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+main .solution .main-content .solution-box .box {
+    width: 50%;
+    height: 100%;
+    padding: 1em;
+}
+
+main .solution .main-content .solution-box .box .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+    width: 500px;
+    height: 200px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+main .solution .main-content .solution-box .title h1 {
+    font-size: 6em;
+    color: #FDAD00
+}
+
+main .solution .main-content .solution-box .solution-info {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 5%;
+    width: 500px;
+    height: 200px;
+}
+
+main .solution .main-content .solution-box .image-box  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    gap: 5%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+main .solution .main-content .solution-box .image-box .image1 {
+    display: flex;
+    max-width: 75%;
+    max-height: 50%;    
+}
+
+main .solution .main-content .solution-box .image-box .image2 {
+    display: flex;
+    max-width: 75%;
+    max-height: 25%;
+}
+
+main .solution .main-content .solution-box .image-box img {
+    width: 100%;
+    border-radius: 50px;
+}
+
+main .solution .main-content .buttons-div {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+main .solution .main-content .buttons-div button {
+    width: 15%;
+    height: 75px;
+    background-color: #FDAD00;
+    border-radius: 25px;
+    border: none;
+    font-size: 1.2em;
+}
+
+main .about-us {
+    display: flex;
+    flex-direction: column;
+}
+
+main .about-us .box1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45%;
+    border: 5px solid blue;
+}
+
+main .about-us .box1 .carousel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    gap: 15px;
+}
+
+main .about-us .box1 .carousel .image-box{
+    display: flex;
+    width: 80%;
+    height: 75%;
+    border-radius: 25px;
+    border: 5px solid teal;
+}
+
+main .about-us .box1 .carousel .image-box img{
+    width: 80%;
+    height: 100%;
+}
+
+main .about-us .box1 .carousel .carousel-utils {
+    background-color: whitesmoke;
+    width: 50%;
+    height: 25%;
+    border-radius: 50px;
+}
+
+main .about-us .box1 .text {
+    text-align: center;
+    font-size: 2.5em;
+    width: 50%;
+    border: 5px solid saddlebrown;
+}
+
+main .about-us .box2  {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+    border: 5px solid blue;
+}
+
+main .about-us .box2 .text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5em;
+    width: 50%;
+    height: 100%;
+    border: 5px solid saddlebrown;
+}
+
+main .about-us .box2 .image-box {
+    display: flex;
+    border: 5px solid khaki;
+    width: 50%;
+    height: 100%;
+}
+
+main .about-us .box2 .image-box .image1 {
+    width: 50%;
+    border: 5px solid red;
+    margin-left: 5%;
+}
+
+main .about-us .box2 .image-box .image-box2 {
+    width: 50%;
+    height: 100%;
+    color: purple;
+}
