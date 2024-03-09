@@ -47,6 +47,7 @@ nav .nav-items {
     align-items: center;
     color: white;
     width: 85%;
+    border: 1px solid yellow;
 }
 
 nav .nav-items a {
