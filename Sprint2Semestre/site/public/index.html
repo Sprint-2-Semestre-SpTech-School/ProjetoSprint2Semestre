@@ -8,29 +8,44 @@
   <link rel="stylesheet" href="./css/index.css">
 </head>
 
-<body onload="changeNav()">
+<!-- <body onload="changeNav()"> -->
   <header>
     <nav class="navbar">
+      <div id="image-logo">
+        <img src="./assets/imgs/logotipo.png" alt="" id="logotipo">
+      </div>
       <ul class="nav-items">
         <li class="item">
-          <a href="">Item1</a>
+          <a id="btnmenu" href=""></a>Home</button>
         </li>
         <li class="item">
-          <a href="">Item2</a>
+          <a id="btnmenu" href=""></a>Contatos</button>
         </li>
         <li class="item">
-          <a href="">Item3</a>
+          <a id="btnmenu" href=""></a>Sobre</button>
         </li>
         <li class="item">
-          <a href="">Item4</a>
+          <a id="btnmenu" href=""></a>Serviços</button>
         </li>
       </ul>
+      <div class="btns-login-register">
+      <a id="btn-login" href="login.html">Login</a>
+      <a id="btn-register" href="">Registro</a>
+      </div>
     </nav>
   </header>
   <main>
     <section class="home">
+      <div id="slogan">
+        <p id="slogan1">
+          Para conhecer nossas soluções em nuvem, cadastre-se em nosso site!
+        </p>
+        <p id="slogan2">
+          Sua empresa tem potencial para vender mais!
+        </p>
+      </div>
       <div class="main-image">
-        <img src="https://content.fortune.com/wp-content/uploads/2016/01/att-gnoc-composite.jpg" alt="">
+        <img id="img-principal" src="https://www.parkplacetechnologies.com/wp-content/uploads/2021/09/server-maintenance-company-background.jpg" alt="">
       </div>
     </section>
 
@@ -39,64 +54,43 @@
         <div class="solution-box">
           <div class="box">
             <div class="title">
-              <h1>TÍTULO</h1>
+              <h1 id="solution-title">Solução NOC</h1>
             </div>
             <div class="solution-info">
-              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus laborum, autem enim quae molestiae
-                hic excepturi, veniam et quod maxime, labore eligendi expedita dolores? Molestias adipisci provident
-                beatae dolores atque!</p>
+              <p>A Network Operations Center é uma empresa do ramo da tecnologia, com profissionais capacitados que irão potencializar seus ganhos, independente do seu negócio. Através do monitoramento do seu hardware.</p>
+            </div>
+            <div id="solution-img">
+              <img id="logo-solution" src="./assets/imgs/logotipo.png" alt="">
             </div>
           </div>
-          <div class="image-box">
-            <div class="image1">
-              <img src="https://source.unsplash.com/random/?Bitcoin" alt="">
-            </div>
-            <div class="image2">
-              <img src="https://source.unsplash.com/random/?Cloud" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="buttons-div">
-          <button>BOTÃO</button>
-          <button>BOTÃO</button>
         </div>
       </div>
     </section>
 
-    <section class="about-us">
-      <div class="box1">
-        <div class="carousel">
-          <div class="image-box">
-            <img src="" alt="">
-          </div>
-          <div class="carousel-utils">
+      <div class="containers">
+        <p id="containers-title">Sobre Nós</p>
+      <div class="container1">
+        <div class="container1-img">
+          <img src="https://cdn.greatsoftwares.com.br/arquivos/paginas/552-def3a2b0ec5c239e6e49e36d90e789ab.png" alt="" width="500px">
+        </div>
+        <div class="container1-text">
+          <p>Optamos por visitar a empresa de tecnologia Elera para nossa pesquisa. Foi através dessa visita que adquirimos valioso conhecimento e experiência. Essa imersão nos permitiu desenvolver um projeto inovador de monitoramento de hardware em empresas de cloud service, impulsionando nossas capacidades e compreensão do setor tecnológico.</p>
+        </div>
+      </div>
+      <div class="container2">
+        <div class="container2-text">
+          <p>Somos uma empresa especializada em monitoramento de infraestrutura em nuvem. Nosso foco é garantir a estabilidade, segurança e eficiência das operações em empresas de cloud service. Através de soluções inovadoras e tecnológicas, monitoramos o hardware, identificamos potenciais problemas e proporcionamos uma experiência contínua e confiável aos nossos clientes.</p>
+        </div>
+        <div class="container2-img">
+          <img src="https://www.interop.com.br/wp-content/uploads/2023/05/1396055-InterOP-Artigo02_Capa_Blog.webp" alt="" width="600px">
+        </div>
+      </div>
+    </div>
 
-          </div>
-        </div>
-        <div class="text">
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto cum assumenda consequatur, ullam facere sed
-            expedita quo, dolorum iure dolore animi fugit minus nesciunt, amet harum voluptates officia exercitationem
-            quasi.</p>
-        </div>
-      </div>
-      <div class="box2">
-        <div class="text">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat sunt, fuga debitis odio deleniti eius rem
-            quis? Ipsam veniam, ducimus optio, quibusdam architecto temporibus ex, quam fuga voluptate tempora
-            accusamus!</p>
-        </div>
-        <div class="image-box">
-          <div class="image1">
-            <img src="" alt="">
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
     <section class="bases">
       <div class="bases-box">
         <div class="base">
-          <img src="" alt="">
+          <img src="./assets/imgs/cloud-service-img.jpg" alt="">
           <div class="text">
             <h1>CLOUD</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facilis temporibus doloremque mollitia,
@@ -105,7 +99,7 @@
           </div>
         </div>
         <div class="base">
-          <img src="" alt="">
+          <img src="./assets/imgs/etl.jpg" alt="">
           <div class="text">
             <h1>ETL</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore illum, perspiciatis facere explicabo
@@ -113,7 +107,7 @@
           </div>
         </div>
         <div class="base">
-          <img src="" alt="">
+          <img src="./assets/imgs/noc-monitoring.jpg" alt="">
           <div class="text">
             <h1>NOC</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam dolore doloribus dolorum laborum,
@@ -157,4 +151,4 @@
 
 </html>
 
-<script src="./js/index.js"></script>
+<!-- <script src="./js/index.js"></script> -->
