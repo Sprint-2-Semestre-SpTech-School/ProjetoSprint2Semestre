@@ -38,6 +38,7 @@ nav .nav-items .itemUsuario {
 }
 
 /* Main */
+
 main .login {
     width: 100%;
     height: 100vh;
@@ -113,7 +114,7 @@ main .formulario .inputSenha {
 main .formulario .div_botoes {
     border: 2px solid lawngreen;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 53%;
 }
 
@@ -123,4 +124,63 @@ main .formulario .div_botoes button {
     width: 138%;
     font-size: 20px;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    header .navbar {
+        width: 100%;
+        height: 70px;
+    }
+
+    header .navbar .nav-items .itemUsuario {
+        height: 10px;
+        margin: 0 0 20% 0;
+    }
+
+    main .login {
+        display: block;
+    }
+
+    main .login .logo{
+        height: 60px;
+        width: 100%;
+    }
+
+    main .login .logo p {
+        height: 60px;
+        width: 100%;
+        font-size: 25px;
+        margin: 0 0;
+    }
+
+    main .login .formulario {
+        width: 100%;
+    }
+
+    main .login .formulario p {
+        font-size: 22px;
+    }
+
+    main .login .formulario .usuario .inputUsuario {
+        font-size: 18px;
+    }
+
+    main .login .formulario .senha .inputSenha {
+        font-size: 18px;
+    }
+
+    main .login .formulario input {
+        width: 55%;
+        height: 30px;
+    }
+
+    main .login .formulario .div_botoes {
+        width: 100%;
+    }
+    
+    main .formulario .div_botoes button {
+        height: 5vh;
+        width: 120%;
+        font-size: 15px;
+    }
 }
