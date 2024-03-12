@@ -10,7 +10,7 @@ function changeNav() {
 
             anchors.forEach(anchors => {
                 anchors.style.fontSize = '1em';
-                anchors.style.color= 'white'
+                anchors.style.color = 'white'
             });
 
         } else {
@@ -19,9 +19,21 @@ function changeNav() {
 
             anchors.forEach(anchors => {
                 anchors.style.fontSize = '1.5em';
-                anchors.style.color= '#FDAD00'
+                anchors.style.color = '#FDAD00'
             });
         }
         console.log(window.scrollY);
     });
 }
+
+ScrollReveal().reveal('.home', { delay: 300 });
+ScrollReveal().reveal('img', {
+    delay: 200,
+    reset: true
+});
+
+ScrollReveal().reveal('p, h1', {
+    delay: 400,
+    direction: screenLeft,
+    reset: true
+});
