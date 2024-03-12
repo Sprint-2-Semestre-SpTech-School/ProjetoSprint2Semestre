@@ -5,7 +5,6 @@
     text-decoration: none;
     list-style: none;
     color: white;
-    
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -22,29 +21,14 @@ section {
 
 
 /* ============================================ Global Settings  ====================*/
-#btn-menu {
-    width: 100px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    transition: 0.7s;
-}
-
-
-#btn-menu:hover {
-    transition: 0.7s;
-    border-bottom: 1px solid #FDAD00;
-    color: #FDAD00;
-}
 
 .btns-login-register {
     display: flex;
-    justify-content: center;
-    justify-content: space-between;
-    height: auto;
-    margin-right: -20%;
+    justify-content: space-evenly;
+    width: 40%;
+    /* justify-content: center; */
+    /* justify-content: space-between; */
+    /* border: 5px solid blueviolet; */
 
 }
 
@@ -61,10 +45,11 @@ section {
     cursor: pointer;
     text-transform: uppercase;
     font-weight: bold;
-    transition: 0.7s;
+    transition: 0.4s;
 }
 
 #btn-login:hover {
+    width: 45%;
     background-image: none;
     background-color: transparent;
     border: #5730f0 1px solid;
@@ -88,6 +73,7 @@ section {
 }
 
 #btn-register:hover {
+    width: 45%;
     background-image: none;
     background-color: transparent;
     border: #FDAD00 1px solid;
@@ -95,42 +81,37 @@ section {
 }
 
 nav {
-    position: fixed;
     display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 120px;
-    background-color: #001736;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    z-index: 10;
-    padding: 20px;
+    position: fixed;
     align-items: center;
+    width: 100vw;
+    height: 100px;
+    background-color: transparent;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    z-index: 1;
+    transition: 0.4s;
+    /* border: 5px solid yellow; */
 }
 
-#logotipo {
-    position: absolute;
+.image-logo {
     display: flex;
-    width: 100px;
-    top: 20px;
-    left: 20px;
-    margin-left: 150px;
-    height: auto;
-    
+    justify-content: center;
+    width: 10%;
+    height: 100%;
 }
 
 nav .nav-items {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     color: white;
-    width: 45%;
+    width: 50%;
 }
 
 li {
     color: white;
     cursor: pointer;
     font-size: 18px;
-    
 }
 
 li:hover {
@@ -141,7 +122,9 @@ li:hover {
 }
 
 nav .nav-items a {
-    color: #FDAD00;
+    color:  #FDAD00;
+    font-size: 1.5em;
+    transition: ease-out 0.4s;
 }
 
 /* ================================== NAV ================================ */
@@ -151,47 +134,18 @@ main .home {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    position: relative;
 }
 
 main .home .main-image {
     display: flex;
     width: 100%;
     height: 100%;
-}
-
-#slogan {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-around;
-}
-
-#slogan1 {
-    display: flex;
-    color: white;
-    font-size: 55px;
-    font-weight: bold;
-    position: absolute;
-    margin-right: 65%;
-    margin-left: 10%;
-    text-shadow: 4px 4px 8px #3046F0;
-}
-
-#slogan2 {
-    display: flex;
-    color: #FDAD00;
-    font-size: 40px;
-    font-weight: bold;
-    position: absolute;
-    margin-right: 65%;
-    margin-left: 10%;
-    margin-top: 25%;
-    text-shadow: 2px 2px 4px #0000BB;
+    border: 5px solid red;
+    filter: blur(3px);
 }
 
 main .home .main-image img {
     width: 100%;
-    height: 100%;
 }
 
 .solution {
@@ -212,33 +166,29 @@ main .solution .main-content {
 
 main .solution .main-content .solution-box {
     display: flex;
+    align-items: center;
     width: 80%;
     height: 80%;
     border-radius: 25px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     background-image: url(https://img.freepik.com/vetores-gratis/conceito-de-tecnologia-de-wireframe-poligonal-de-computacao-em-nuvem_1017-29594.jpg?t=st=1710035568~exp=1710039168~hmac=ff71907a0cb0a6e627d39dea460a9f6e9a19a400c465a0db57bf575220e5a3fd&w=1380);
-    justify-content: center;
 }
 
 main .solution .main-content .solution-box .box {
-    width: 50%;
-    height: 100%;
-    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 80%;
+    margin-left: 5%;
+    /* border: 5px solid white; */
 }
 
 main .solution .main-content .solution-box .box .title {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 5%;
-    width: 500px;
-    height: 200px;
+    /* margin: 5%; */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-#logo-solution {
-    width: 50%;
-    margin-left: -400px;
 }
 
 main .solution .main-content .solution-box .title h1 {
@@ -251,12 +201,11 @@ main .solution .main-content .solution-box .solution-info {
     align-items: center;
     text-align: center;
     font-size: 1.5em;
-    margin: 5%;
-    width: 500px;
-    height: 200px;
+    text-align: left;
+    border: 5px solid yellowgreen;
 }
 
-main .solution .main-content .solution-box .image-box  {
+main .solution .main-content .solution-box .image-box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -270,7 +219,7 @@ main .solution .main-content .solution-box .image-box  {
 main .solution .main-content .solution-box .image-box .image1 {
     display: flex;
     max-width: 75%;
-    max-height: 50%;    
+    max-height: 50%;
 }
 
 main .solution .main-content .solution-box .image-box .image2 {
@@ -301,11 +250,69 @@ main .solution .main-content .buttons-div button {
     font-size: 1.2em;
 }
 
-.containers {
-    padding: 10px;
-    padding-left: 150x;
-    margin: -10px;
+main .about-us {
+    display: inline-block;
+    justify-content: center;
+    border: 5px solid red;
 }
+
+main .about-us .about-box1 {
+    display: flex;
+    width: 100%;
+    height: 55%;
+}
+
+main .about-us .about-box1 .image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55%;
+    height: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+main .about-us .about-box1 .image-box img {
+    width: 90%;
+    height: 90%;
+    border-radius: 25px;
+}
+
+main .about-us .about-box1 .text {
+    width: 45%;
+    text-shadow: 1px 1px 1px black;
+    font-size: 2em;
+    text-align: center;
+}
+
+main .about-us .about-box2 {
+    display: flex;
+    width: 100%;
+    height: 45%;
+}
+
+main .about-us .about-box2 .text {
+    width: 55%;
+    height: 100%;
+    text-shadow: 1px 1px 1px black;
+    font-size: 2em;
+    text-align: center;
+}
+
+main .about-us .about-box2 .image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+main .about-us .about-box2 .image-box img{
+    width: 90%;
+    height: 90%;
+    border-radius: 25px;
+}
+
 
 #containers-title {
     display: flex;
@@ -326,7 +333,7 @@ main .solution .main-content .buttons-div button {
     margin: 0;
     bottom: 100px;
     background-image: linear-gradient(to right, #3083f0, #ffff);
-    
+
 }
 
 .container2 {
@@ -379,6 +386,7 @@ main .bases {
     align-items: center;
     justify-content: center;
     background-color: #0000BB;
+    border: 5px solid red;
 }
 
 main .bases .bases-box {
@@ -432,7 +440,6 @@ main .missions {
 main .missions .missions-box {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
@@ -442,7 +449,7 @@ main .missions .missions-box {
 main .missions .missions-box .mission {
     display: flex;
     width: 70%;
-    height: 25%;
+    height: 30%;
     border: 5px solid fuchsia;
     background-color: white;
     border-top-right-radius: 25px;
@@ -493,7 +500,22 @@ main .contact .contact-box {
 }
 
 footer {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
     height: 25%;
     background-color: #001736;
+    border: 5px solid red;
+}
+
+footer .anchors {
+    border: 5px solid lime;
+}
+
+footer .communication {
+    border: 5px solid white;
+}
+
+footer .license {
+    border: 5px solid yellow;
 }

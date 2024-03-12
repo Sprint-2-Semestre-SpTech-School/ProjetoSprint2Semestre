@@ -1,16 +1,27 @@
-//function changeNav() {
+function changeNav() {
 
-    //const navbar = document.querySelector('nav');
+    const navbar = document.querySelector('nav');
+    const anchors = document.querySelectorAll('.nav-items .item a');
 
-    //addEventListener('scroll', function () {
-        //if (window.scrollY > 50) {
-            //navbar.style.backgroundColor = '#001736';
-            //navbar.style.fontSize = '1em';
-        //} else {
-            //navbar.style.backgroundColor = 'transparent';
-            //navbar.style.fontSize = '1.2em';
+    addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+            navbar.style.backgroundColor = '#001736';
+            navbar.style.fontSize = '1em';
 
-        //}
-        //console.log(window.scrollY);
-    //});
-//}
+            anchors.forEach(anchors => {
+                anchors.style.fontSize = '1em';
+                anchors.style.color= 'white'
+            });
+
+        } else {
+            navbar.style.backgroundColor = 'transparent';
+            navbar.style.fontSize = '1.2em';
+
+            anchors.forEach(anchors => {
+                anchors.style.fontSize = '1.5em';
+                anchors.style.color= '#FDAD00'
+            });
+        }
+        console.log(window.scrollY);
+    });
+}
