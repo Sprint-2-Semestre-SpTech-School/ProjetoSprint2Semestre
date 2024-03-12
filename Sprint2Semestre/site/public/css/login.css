@@ -17,24 +17,24 @@ html {
 /* Header*/
 nav {
     width: 100%;
-    height: 100px;
+    height: 120px;
     background-color: rgb(8, 15, 54);
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 nav .nav-items {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     height: 100%;
     margin: 0 10%;
     font-size: 30px;
 }
 
-nav .nav-items .itemUsuario {
-    /* height: 1px; */
-    border: 1px solid green;
+nav .nav-items .item .imgLogo {
+    height: 100px;
 }
 
 /* Main */
@@ -42,88 +42,126 @@ nav .nav-items .itemUsuario {
 main .login {
     width: 100%;
     height: 100vh;
-    border: 1px solid goldenrod;
+    /* border: 1px solid goldenrod; */
     display: flex;
 }
 
 main .login .logo {
     height: 100vh;
-    width: 35%;
-    border: 1px solid magenta;
-    background-color: rgb(211, 211, 211);
+    width: 100%;
+    /* border: 1px solid magenta; */
+    background-color: rgb(8, 15, 54);
+    display: flex;
+    justify-content: center;
 }
 
-main .login .logo p {
+main .login .logo .imgNOC {
+    width: 85%;
+    height: 100%;
+    margin: 0 7.5%;
+    opacity: 0.4;
+    filter: blur(2px);
+    position: relative;
+}
+
+main .login .logo .formulario {
+    /* border: 1px solid orange; */
+    width: 40%;
+    height: 80%;
+    background-color: white;
+    opacity: 0.8;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    margin: 5% 0;
+    border-radius: 20px;
+    justify-content: center;
+}
+
+main .login .logo .formulario .borda {
+    border: 2px solid rgb(23, 23, 142);
+    width: 90%;
+    height: 90%;
+    margin: 5% 5%;
+    border-radius: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+main .login .logo .formulario p{
     color: black;
-    font-size: 60px;
+    font-size: 40px;
+    /* border: 2px solid rebeccapurple; */
+    margin: 10% 0;
     display: flex;
-    border: 1px solid blue;
+    width: 100%;
+    justify-content: center;
+}
+
+main .login .logo .formulario .usuario {
+    /* border: 2px solid rgb(9, 128, 0); */
+    height: 20vh;
+    margin: 0 25%;
+    width: 50%;
+}
+
+main .login .logo .formulario .inputUsuario {
+    color: rgb(23, 23, 142);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+main .login .logo .formulario input {
+    height: 7vh;
+    width: 85%; 
+    color: black;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgb(177, 223, 251);
+    border: white;
+}
+
+main .login .logo .formulario .senha {
+    /* border: 2px solid rgb(58, 58, 245); */
+    margin: 0 25%;
+    height: 20vh;
+    width: 50%;
+}
+
+main .login .logo .formulario .inputSenha {
+    color: rgb(23, 23, 142);
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+main .login .logo .formulario .div_botoes {
+    /* border: 2px solid lawngreen; */
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 5%;
+}
+
+main .login .logo .formulario .div_botoes button {
+    /* background-color: rgb(49, 108, 236); */
+    background-color: rgb(23, 23, 142);
+    height: 8vh;
+    width: 130%;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
-    font-weight: bolder;
-    margin: 10% 0;
+    cursor: pointer;
+    transition: 0.4s;
 }
 
-main .login .formulario {
-    border: 1px solid orange;
-    width: 65%;
-    height: 100vh;
-}
-
-main .formulario p{
-    color: black;
-    font-size: 35px;
-    border: 2px solid rebeccapurple;
-    margin: 10% 5%;
-}
-
-main .formulario .usuario {
-    border: 2px solid rgb(9, 128, 0);
-    height: 20vh;
-    margin: 0 5%;
-}
-
-main .formulario .inputUsuario {
-    color: rgb(58, 58, 245);
-    font-size: 22px;
-    font-weight: bolder;
-}
-
-main .formulario input {
-    height: 7vh;
-    width: 40%; 
-    color: black;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: rgb(187, 228, 254);
-}
-
-main .formulario .senha {
-    border: 2px solid rgb(58, 58, 245);
-    margin: 0 5%;
-    height: 20vh;
-}
-
-main .formulario .inputSenha {
-    color: rgb(58, 58, 245);
-    font-size: 22px;
-    font-weight: bolder;
-}
-
-main .formulario .div_botoes {
-    border: 2px solid lawngreen;
-    display: flex;
-    justify-content: space-evenly;
-    width: 53%;
-}
-
-main .formulario .div_botoes button {
-    background-color: blue;
-    height: 8vh;
-    width: 138%;
-    font-size: 20px;
-    border-radius: 10px;
+main .login .logo .formulario .div_botoes button:hover {
+    background-image: none;
+    background-color: transparent;
+    /* border: #5730f0 1px solid; */
+    color: #3083f0;
 }
 
 @media only screen and (max-width: 600px) {
@@ -132,9 +170,8 @@ main .formulario .div_botoes button {
         height: 70px;
     }
 
-    header .navbar .nav-items .itemUsuario {
-        height: 10px;
-        margin: 0 0 20% 0;
+    header .navbar .nav-items .item .imgLogo {
+        height: 60px;
     }
 
     main .login {
@@ -146,11 +183,8 @@ main .formulario .div_botoes button {
         width: 100%;
     }
 
-    main .login .logo p {
-        height: 60px;
-        width: 100%;
-        font-size: 25px;
-        margin: 0 0;
+    main .login .logo .imgNOC {
+        background-color: rgb(220, 231, 255);
     }
 
     main .login .formulario {
@@ -170,12 +204,13 @@ main .formulario .div_botoes button {
     }
 
     main .login .formulario input {
-        width: 55%;
+        width: 65%;
         height: 30px;
     }
 
     main .login .formulario .div_botoes {
-        width: 100%;
+        width: 60%;
+        margin: 0 18%;
     }
     
     main .formulario .div_botoes button {

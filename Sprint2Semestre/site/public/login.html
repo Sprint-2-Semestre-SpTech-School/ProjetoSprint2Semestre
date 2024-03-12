@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Grupo 8</title>
     <link rel="stylesheet" href="./css/login.css">
 </head>
-
 <body>
 
     <header>
         <nav class="navbar">
             <ul class="nav-items">
                 <li class="item">
-                    <a href="">LOGO</a>
+                  <a href=""><img class="imgLogo" src="./assets/imgs/logotipo.png" alt="logotipo"></a>
                 </li>
-                <li class="itemUsuario">
-                    <a href=""><img src="./assets/imgs/usuFinal.png" alt="usuario" height="60vh"></a>
-            </ul>
+              </ul>
         </nav>
     </header>
 
     <main>
         <section class="login">
             <div class="logo">
-                <p>LOGO</p>
-            </div>
-
-            <div class="formulario">
-                <p>Bem-Vindo, faça seu Login</p>
-
-                <div class="usuario">
-                    <label class="inputUsuario">Usuário</label> <br>
-                    <input id="id_input_usuario" type="text">
-
+                <div class="imagemNOC">
+                    <img src="./assets/imgs/nocLoginCortado.jpg" class="imgNOC" alt="">
                 </div>
 
-                <div class="senha">
-                    <label class="inputSenha">Senha</label> <br>
-                    <input id="id_input_senha" type="password">
+                <div class="formulario">
+                    <div class="borda">
+                        <p>Bem-Vindo, faça seu Login</p>
+    
+                        <div class="usuario">
+                            <label class="inputUsuario">Usuário</label> <br>
+                            <input id="id_input_usuario" type="text">
+    
+                        </div>
+    
+                        <div class="senha">
+                            <label class="inputSenha">Senha</label> <br>
+                            <input id="id_input_senha" type="password">
+                        </div>
+    
+                        <div class="div_botoes">
+                            <a href=""><button class="botaoEntrar" onclick="entrar()">Entrar</button></a>
+                            <a href=""><button class="botarCriarConta" onclick="criarConta()">Não tem uma conta?</button></a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="div_botoes">
-                    <a href=""><button class="botaoEntrar" onclick="entrar()">Entrar</button></a>
-                    <a href=""><button class="botarCriarConta" onclick="criarConta()">Não tem uma conta?</button></a>
                 </div>
             </div>
         </section>
     </main>
-
+    
 </body>
-
 </html>
