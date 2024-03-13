@@ -139,13 +139,31 @@ main .home {
 
 main .home .main-image {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+}
+
+.gradient-overlay{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(8, 8, 153, 0.057), rgba(3, 0, 69, 0.599));
 }
 
 main .home .main-image img {
     width: 100%;
+    height: 100%;
+}
+
+main .home .main-image .main-text{
+    display: flex;
+    position: absolute;
+    font-size: 7vh;
+    color: #ffff;
+    text-shadow: 2px 2px 8px #3083f0
 }
 
 .solution {
@@ -262,12 +280,22 @@ main .about-us .about-box1 .image-box img {
 }
 
 main .about-us .about-box1 .text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 45%;
     height: 90%;
-    text-shadow: 1px 1px 1px black;
     font-size: 2em;
     text-align: center;
 }
+
+.about-box1 p{
+    color: #001736;
+    text-shadow: 2px 2px 1px #3083f0;
+    width: 80%;
+}
+
 
 main .about-us .about-box2 {
     display: flex;
@@ -277,11 +305,20 @@ main .about-us .about-box2 {
 }
 
 main .about-us .about-box2 .text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 55%;
     height: 90%;
-    text-shadow: 1px 1px 1px black;
     font-size: 2em;
     text-align: center;
+}
+
+.about-box2 p{
+    color: #001736;
+    text-shadow: 2px 2px 1px #3083f0;
+    width: 80%;
 }
 
 main .about-us .about-box2 .image-box {
