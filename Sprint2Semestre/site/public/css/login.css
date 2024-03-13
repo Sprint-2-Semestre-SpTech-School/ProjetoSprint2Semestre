@@ -40,7 +40,7 @@ nav .nav-items .item .imgLogo {
 main .login {
     width: 100%;
     height: 100vh;
-    border: 1px solid goldenrod;
+    /* border: 1px solid goldenrod; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,7 @@ main .login .logo .imgNOC {
 
 main .login .logo .formulario {
     /* border: 5px solid orange; */
-    width: 40%;
+    width: 50%;
     height: 80%;
     background-color: white;
     opacity: 0.8;
@@ -87,18 +87,16 @@ main .login .logo .formulario .borda {
     height: 90%;
     margin: 5% 5%;
     border-radius: 20px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 
 main .login .logo .formulario p{
     color: black;
     font-size: 40px;
-    margin: 10% 0;
+    margin: 5% 0;
     display: flex;
     width: 100%;
     justify-content: center;
+    /* border: 2px solid rgb(245, 58, 155); */
 }
 
 main .login .logo .formulario .usuario {
@@ -141,6 +139,7 @@ main .login .logo .formulario .div_botoes {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    /* border: 2px solid rgb(120, 245, 58); */
     /* margin: 0 5%; */
 }
 
@@ -191,22 +190,23 @@ main .login .logo .formulario .div_botoes button:hover {
     main .login .logo{
         height: 100%;
         width: 100%;
-        border: 2px solid yellow;
+        /* border: 2px solid yellow; */
     }
 
     main .login .formulario {
-        width: 80%;
+        width: 100%;
         position: relative;
-        border: 2px solid red;
+        /* border: 2px solid red; */
     }
 
     main .login .formulario .borda p {
         font-size: 20px;
+        margin: 15% 0;
     }
 
     main .login .formulario .usuario .inputUsuario {
         font-size: 15px;
-        border: 2px solid blue;
+        /* border: 2px solid blue; */
     }
 
     main .login .formulario .senha .inputSenha {
@@ -214,30 +214,35 @@ main .login .logo .formulario .div_botoes button:hover {
     }
 
     main .login .formulario .usuario input {
-        width: 100%;
+        width: 90%;
         height: 30px;
-        border: 2px solid magenta;
+        /* border: 2px solid magenta; */
     }
 
     main .login .formulario .senha input {
-        width: 100%;
+        width: 90%;
         height: 30px;
-        border: 2px solid magenta;
+        /* border: 2px solid magenta; */
     }
 
     main .login .formulario .div_botoes {
-        width: 100%;
-        /* margin: 0 18%; */
-        border: 2px solid yellowgreen;
+        width: 50%;
+        height: 9%;
+        /* border: 2px solid yellowgreen; */
         display: flex;
     }
     
-    main .formulario .div_botoes button {
-        height: 2vh;
-        width: 10%;
-        font-size: 10px;
-        border: 2px solid lightsalmon;
-        display: flex;
-        background-color: rgb(49, 108, 236);
+    main .login .logo .formulario .borda .div_botoes .botaoEntrar {
+        height: 100%;
+        width: 55px;
+        font-size: 14px;
+        /* border: 2px solid lightsalmon;  */
+    }
+
+    main .login .logo .formulario .borda .div_botoes .botaoCriarConta {
+        height: 100%;
+        width: 140px;
+        font-size: 14px;
+        /* border: 2px solid lightsalmon;  */
     }
 }
