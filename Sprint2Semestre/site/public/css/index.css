@@ -139,13 +139,32 @@ main .home {
 
 main .home .main-image {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%;
-    filter: blur(3px);
+}
+
+.gradient-overlay{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(8, 8, 153, 0.057), rgba(3, 0, 69, 0.599));
 }
 
 main .home .main-image img {
     width: 100%;
+    height: 100%;
+}
+
+main .home .main-image .main-text{
+    display: flex;
+    position: absolute;
+    font-size: 7vh;
+    color: #ffff;
+    text-shadow: 2px 2px 8px #FDAD00;
+    font-weight: bold;
 }
 
 .solution {
@@ -162,7 +181,6 @@ main .solution .main-content {
     width: 80%;
     height: 80%;
     gap: 5%;
-    border: 5px solid red;
 }
 
 main .solution .main-content img {
@@ -263,12 +281,22 @@ main .about-us .about-box1 .image-box img {
 }
 
 main .about-us .about-box1 .text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 45%;
     height: 90%;
-    text-shadow: 1px 1px 1px black;
     font-size: 2em;
     text-align: center;
 }
+
+.about-box1 p{
+    color: #001736;
+    text-shadow: 2px 2px 1px #3083f0;
+    width: 80%;
+}
+
 
 main .about-us .about-box2 {
     display: flex;
@@ -278,11 +306,20 @@ main .about-us .about-box2 {
 }
 
 main .about-us .about-box2 .text {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 55%;
     height: 90%;
-    text-shadow: 1px 1px 1px black;
     font-size: 2em;
     text-align: center;
+}
+
+.about-box2 p{
+    color: #001736;
+    text-shadow: 2px 2px 1px #3083f0;
+    width: 80%;
 }
 
 main .about-us .about-box2 .image-box {
@@ -412,20 +449,84 @@ main .contact .contact-box {
 footer {
     display: flex;
     justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 25%;
     background-color: #001736;
-    border: 5px solid red;
+
 }
 
 footer .anchors {
-    border: 5px solid lime;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
 }
 
 footer .communication {
-    border: 5px solid white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30%;
+}
+
+footer .communication p{
+    font-weight: bold;
+    color: #3083f0;
+    text-shadow: 1px 1px 1px black;
+}
+
+.communication i{
+    font-size: 3vh;
+    color: #ffc54a;
+    transition: 0.5s;
+}
+
+.communication i:hover{
+    font-size: 4vh;
+    color: #FDAD00;
+    cursor: pointer;
 }
 
 footer .license {
-    border: 5px solid yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+}
+
+footer .license p{
+    font-weight: bold;
+    color: #3083f0;
+    text-shadow: 1px 1px 1px black;
+    
+
+}
+
+footer .license .corporation-title{
+    color: #ffc54a;
+    font-size: 3vh;
+    text-shadow: 1px 1px 1px #ffff;
+}
+
+footer .license .partners {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+footer .license .partners img{
+    width: 30%;
+}
+
+footer .license .partners .partnerts-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
 }
