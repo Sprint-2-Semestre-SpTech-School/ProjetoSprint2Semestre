@@ -163,7 +163,8 @@ main .home .main-image .main-text{
     position: absolute;
     font-size: 7vh;
     color: #ffff;
-    text-shadow: 2px 2px 8px #3083f0
+    text-shadow: 2px 2px 8px #FDAD00;
+    font-weight: bold;
 }
 
 .solution {
