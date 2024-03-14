@@ -1,16 +1,18 @@
+package codigoLogin;
+
 import java.util.Scanner;
 
-public class Login {
+public class Metodos {
 
-    public static void main(String[] args) {
+    String nomeUsuario;
+    String senha;
+    String grupoDeAtribuicao = "";
+    Integer codigo;
 
-        Scanner input = new Scanner(System.in);
-        Scanner inputLine = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
+    Scanner inputLine = new Scanner(System.in);
 
-        String nomeUsuario;
-        String senha;
-        String grupoDeAtribuicao = "";
-        Integer codigo;
+    String validacaoLogin() {
 
         System.out.println("Quer acessar sua página de usuário e acompanhar o monitoramento?");
 
@@ -81,8 +83,7 @@ public class Login {
             System.out.println("Insira aqui sua senha:");
             senha = inputLine.nextLine();
         }
-
         System.out.println("Você será direcionado à sua página de usuário. Obrigada!");
-
+        return senha;
     }
 }
