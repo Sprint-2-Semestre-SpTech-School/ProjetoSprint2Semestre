@@ -32,22 +32,70 @@
                         <label class="titulo" for="text">Inscreva-se gratuitamente</label> 
                         <div class="inputs">
             
-                            <!-- <label class="titulosInputs" for="text">Nome:</label>  -->
-                            <input class="medios" type="text" placeholder="Nome"> 
-                            <!-- <label class="titulosInputs" for="text">Sobrenome:</label>  -->
-                            <input class="medios" type="text" placeholder="Sobrenome"> <br>
-                                
-                            <!-- <label class="titulosInputs" for="E-mail">E-mail:</label>  -->
-                            <input class="normais" type="email" placeholder="E-mail: email@endereco.com"><br>
+                            <div class="nomeCompleto">
+                                    <label class="titulosInputs" for="text">Nome:</label> 
+                                    <input class="normais" type="text" placeholder="Nome completo"> 
+                            </div>
+
+                            <div class="email">
+                                <label class="titulosInputs" for="E-mail">E-mail:</label> 
+                                <input class="normais" type="email" placeholder="E-mail: email@endereco.com"><br>
+                            </div>
             
-                            <input class="pequenos" type="number" placeholder="Telefone"> 
-                            <input class="pequenos" type="text"> 
+                            <div class="telefone">
+                                <label class="titulosInputs" for="text">Telefone:</label>
+                                <input class="pequenos" type="number" placeholder="xxxxxxxxx"> 
+                            </div>
+
+                            <div class="empresa">
+                                <label class="titulosInputs" for="text">Empresa:</label>
+                                <input class="normais" type="text" placeholder="Nome da Empresa"> <br>
+                            </div>
+
+                            <div class="cnpj">
+                                <label class="titulosInputs" for="text">CNPJ:</label>
+                                <input class="pequenos" type="number" placeholder="xxxxxxxxxxxxxx"> 
+                            </div>
+
+                            <div class="pacotes">
+                                <label class="titulosInputs" for="text">Pacotes:</label>
+                                <select class="opcoesPacotes" name="opcoesPacotes" id="">
+                                    <option class="selects" value="pacote01">Pacote01</option>
+                                    <option class="selects" value="pacote02">Pacote02</option>
+                                </select>
+                            </div>
+
+                            <div class="cep">
+                                <label class="titulosInputs" for="text">CEP:</label>
+                                <input class="pequenos" type="number" placeholder="xxxxxxxx"> 
+                            </div>
+
+                            <div class="endereco">
+                                <label class="titulosInputs" for="text">Endereço:</label>
+                                <input class="normais" type="text" placeholder="Nome da rua"> 
+                            </div>
+
+                            
+                            <div class="numero">
+                                <label class="titulosInputs" for="text">Nº:</label>
+                                <input class="pequenos" type="number" placeholder="Nº"> 
+                            </div>
+
+                            <div class="bairro">
+                                <label class="titulosInputs" for="text">Bairro:</label>
+                                <input class="normais" type="text" placeholder="Nome do bairro"> 
+                            </div>
+
+                            <div class="complemento">
+                                <label class="titulosInputs" for="text">Complemento:</label>
+                                <input class="normais" type="text" placeholder="Condomínio, bloco"> 
+                            </div>
+<!-- 
                             <input class="pequenos" type="text"><br>
             
-                            <input class="normais" type="text" placeholder="Empresa"> <br>
                             <input class="pequenos" type="number" placeholder="CEP"> 
                             <input class="normais" type="text" placeholder="Rua"><br>
-                            <input class="normais" type="text" placeholder="Complemento"><br>
+                            <input class="normais" type="text" placeholder="Complemento"><br> -->
                         </div>
             
                         <button class="btnConta" onclick="criarConta()">Criar Conta</button>

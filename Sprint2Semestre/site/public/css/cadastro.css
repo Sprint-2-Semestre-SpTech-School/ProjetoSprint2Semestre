@@ -97,39 +97,152 @@ main .cadastro .campos .box .boxInputs .titulo {
 }
 
 main .cadastro .campos .box .boxInputs .inputs {
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     height: 80%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .titulosInputs {
-    border: 2px solid mediumaquamarine;
-    height: 8%;
-    font-size: 20px;
-}
-
 main .cadastro .campos .box .boxInputs .inputs input {
     height: 8%;
-    border-radius: 10px;
+    border-radius: 5px;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .normais {
+main .cadastro .campos .box .boxInputs .inputs .titulosInputs {
+    /* border: 2px solid mediumaquamarine; */
+    height: 8%;
+    font-size: 21px;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .nomeCompleto {
+    height: 15%;
+    /* border: 2px solid rgb(105, 255, 71); */
+    width: 52%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .nomeCompleto .normais {
+    width: 90%;
+    /* border: 2px solid red; */
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .email {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 50%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .email .normais {
+    width: 100%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .telefone {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 30%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .telefone .pequenos {
+    width: 100%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .empresa {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .empresa .normais {
+    width: 100%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .cnpj {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 30%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .cnpj .pequenos {
+    width: 100%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .pacotes {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 20%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes {
     width: 80%;
-    border: 2px solid red;
+    height: 40%;
+    color: black;
+    border-radius: 5px;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .medios {
+main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes .selects {
+    color: black;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .cep {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 25%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .cep .pequenos {
+    width: 85%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .endereco {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 50%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .endereco .normais {
+    width: 100%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .numero {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 15%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .numero .pequenos {
+    width: 80%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .bairro {
+    height: 15%;
+    /* border: 2px solid tomato; */
     width: 35%;
-    border: 2px solid magenta;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .pequenos {
-    width: 22%;
-    border: 2px solid greenyellow;
+main .cadastro .campos .box .boxInputs .inputs .bairro .normais {
+    width: 100%;
+    height: 40%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .complemento {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 35%;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .complemento .normais {
+    width: 100%;
+    height: 40%;
 }
 
 main .cadastro .campos .box .boxInputs .btnConta {
