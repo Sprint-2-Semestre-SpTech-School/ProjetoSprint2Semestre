@@ -7,7 +7,7 @@ public class Login {
 
         Metodos validarLogin = new Metodos();
 
-        System.out.println(validarLogin.validacaoLogin());
+        validarLogin.validacaoLogin();
 
     }
 }

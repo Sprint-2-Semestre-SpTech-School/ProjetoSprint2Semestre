@@ -9,7 +9,7 @@ public class Metodos {
 
     Scanner inputLine = new Scanner(System.in);
 
-    String validacaoLogin() {
+    void validacaoLogin() {
 
         System.out.println("Quer acessar sua página de usuário e acompanhar o monitoramento?");
 
@@ -33,6 +33,5 @@ public class Metodos {
             senha = inputLine.nextLine();
         }
         System.out.println("Você será direcionado à sua página de usuário. Obrigada!");
-        return senha;
     }
 }

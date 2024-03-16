@@ -58,6 +58,11 @@ main .cadastro .campos {
     justify-content: center;
 }
 
+main .cadastro .campos .imagemNuvem {
+    display: flex;
+    width: 70%;
+}
+
 main .cadastro .campos .imagemNuvem .imagemFundo {
     width: 100%;
     height: 100%;
@@ -76,7 +81,7 @@ main .cadastro .campos .box {
 
 main .cadastro .campos .box .boxInputs {
     height: 85%;
-    width: 40%;
+    width: 50%;
     margin: 0 50% 15% 5%;
     /* border: 2px solid red; */
     background-color: rgb(27, 27, 128);
@@ -105,7 +110,7 @@ main .cadastro .campos .box .boxInputs .inputs {
 }
 
 main .cadastro .campos .box .boxInputs .inputs input {
-    height: 8%;
+    height: 40%;
     border-radius: 5px;
     color: black;
     font-size: 18px;
@@ -123,32 +128,16 @@ main .cadastro .campos .box .boxInputs .inputs .nomeCompleto {
     width: 52%;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .nomeCompleto .normais {
-    width: 90%;
-    /* border: 2px solid red; */
-    height: 40%;
-}
-
 main .cadastro .campos .box .boxInputs .inputs .email {
     height: 15%;
     /* border: 2px solid tomato; */
-    width: 50%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .email .normais {
-    width: 100%;
-    height: 40%;
+    width: 40%;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .telefone {
     height: 15%;
     /* border: 2px solid tomato; */
-    width: 30%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .telefone .pequenos {
-    width: 100%;
-    height: 40%;
+    width: 25%;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .empresa {
@@ -157,7 +146,7 @@ main .cadastro .campos .box .boxInputs .inputs .empresa {
     width: 40%;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .empresa .normais {
+main .cadastro .campos .box .boxInputs .inputs .normais {
     width: 100%;
     height: 40%;
 }
@@ -165,18 +154,26 @@ main .cadastro .campos .box .boxInputs .inputs .empresa .normais {
 main .cadastro .campos .box .boxInputs .inputs .cnpj {
     height: 15%;
     /* border: 2px solid tomato; */
-    width: 30%;
+    width: 25%;
+    /* margin: 0 0 0 10%; */
 }
 
-main .cadastro .campos .box .boxInputs .inputs .cnpj .pequenos {
+main .cadastro .campos .box .boxInputs .inputs .pequenos {
     width: 100%;
     height: 40%;
+    /* border: 2px solid forestgreen; */
 }
+
+/* main .cadastro .campos .box .boxInputs .inputs .cnpj .pequenos {
+    width: 100%;
+    height: 40%;
+} */
 
 main .cadastro .campos .box .boxInputs .inputs .pacotes {
     height: 15%;
     /* border: 2px solid tomato; */
     width: 20%;
+    margin: 0 0 0 2%;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes {
@@ -205,17 +202,14 @@ main .cadastro .campos .box .boxInputs .inputs .endereco {
     height: 15%;
     /* border: 2px solid tomato; */
     width: 50%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .endereco .normais {
-    width: 100%;
-    height: 40%;
+    margin: 0 2% 0 0;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .numero {
     height: 15%;
     /* border: 2px solid tomato; */
     width: 15%;
+    margin: 0 3% 0 0;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .numero .pequenos {
@@ -226,23 +220,15 @@ main .cadastro .campos .box .boxInputs .inputs .numero .pequenos {
 main .cadastro .campos .box .boxInputs .inputs .bairro {
     height: 15%;
     /* border: 2px solid tomato; */
-    width: 35%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .bairro .normais {
-    width: 100%;
-    height: 40%;
+    width: 30%;
+    margin: 0 2% 0 0;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .complemento {
     height: 15%;
     /* border: 2px solid tomato; */
-    width: 35%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .complemento .normais {
-    width: 100%;
-    height: 40%;
+    width: 40%;
+    /* margin: 0 0 0 5%; */
 }
 
 main .cadastro .campos .box .boxInputs .btnConta {
@@ -257,7 +243,7 @@ main .cadastro .campos .box .infos {
     height: 60%;
     width: 40%;
     position: absolute;
-    margin: 0 0 0 50%;
+    margin: 0 0 0 58%;
     background-color: white;
     opacity: 0.8;
     backdrop-filter: blur(5px);
@@ -299,13 +285,8 @@ main .cadastro .campos .box .infos .main-items .beneficios {
         height: 60px;
     }
 
-    /* main .cadastro .campos {
-        display: flex;
-    } */
-
     main .cadastro .campos .box {
         display: flex;
-        /* border: 2px solid yellow; */
         flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-between;
@@ -321,8 +302,42 @@ main .cadastro .campos .box .infos .main-items .beneficios {
         font-size: 22px;
     }
 
+    main .cadastro .campos .box .boxInputs .inputs .titulosInputs {
+        /* height: 8%; */
+        font-size: 15px;
+    }
+
     main .cadastro .campos .box .boxInputs .inputs input {
-        height: 8%;
+        font-size: 15px;
+    }
+
+    main .cadastro .campos .box .boxInputs .inputs .normais {
+        width: 100%;
+        height: 50%;
+    }
+
+    main .cadastro .campos .box .boxInputs .inputs .nomeCompleto {
+        /* margin: 0 5% 0 0; */
+        width: 40%;
+    }
+
+    main .cadastro .campos .box .boxInputs .inputs .nomeCompleto .normais {
+        width: 90%;
+        height: 50%;
+    }
+
+    main .cadastro .campos .box .boxInputs .inputs .email {
+        /* height: 15%; */
+        /* border: 2px solid tomato; */
+        width: 50%;
+    }
+
+    main .cadastro .campos .box .boxInputs .inputs .pequenos {
+        height: 50%;
+    }
+
+    main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes {
+        height: 50%;
     }
 
     main .cadastro .campos .box .boxInputs .btnConta {
@@ -342,6 +357,6 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     }
 
     main .cadastro .campos .box .infos .main-items .beneficios {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
