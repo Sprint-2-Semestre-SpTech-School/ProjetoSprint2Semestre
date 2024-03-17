@@ -12,6 +12,11 @@
 
     <header>
         <nav class="navbar">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <ul class="nav-items">
                 <li class="item">
                     <a href=""><img class="imgLogo" src="./assets/imgs/logotipo.png" alt="logotipo"></a>
@@ -29,22 +34,22 @@
 
                 <div class="box">
                     <div class="boxInputs">
-                        <label class="titulo" for="text">Inscreva-se gratuitamente</label> 
+                        <label class="titulo" for="text">Inscreva-se gratuitamente</label>
                         <div class="inputs">
-            
+
                             <div class="nomeCompleto">
-                                    <label class="titulosInputs" for="text">Nome:</label> 
-                                    <input class="normais" type="text" placeholder="Nome completo"> 
+                                <label class="titulosInputs" for="text">Nome:</label>
+                                <input id="input_nomeCompleto" class="normais" type="text" placeholder="Nome completo">
                             </div>
 
                             <div class="email">
-                                <label class="titulosInputs" for="E-mail">E-mail:</label> 
-                                <input class="normais" type="email" placeholder="E-mail: email@endereco.com"><br>
+                                <label class="titulosInputs" for="E-mail">E-mail:</label>
+                                <input id="input_email" class="normais" type="email" placeholder="E-mail: email@endereco.com"><br>
                             </div>
-            
+
                             <div class="telefone">
                                 <label class="titulosInputs" for="text">Telefone:</label>
-                                <input class="pequenos" type="number" placeholder="xxxxxxxxx"> 
+                                <input id="input_tel" class="pequenos" type="number" placeholder="xxxxxxxxx">
                             </div>
 
                             <!-- <div class="cargo">
@@ -61,12 +66,12 @@
 
                             <div class="empresa">
                                 <label class="titulosInputs" for="text">Empresa:</label>
-                                <input class="normais" type="text" placeholder="Nome da Empresa"> <br>
+                                <input id="input_empresa" class="normais" type="text" placeholder="Nome da Empresa"> <br>
                             </div>
 
                             <div class="cnpj">
                                 <label class="titulosInputs" for="text">CNPJ:</label>
-                                <input class="pequenos" type="number" placeholder="xxxxxxxxxxxxxx"> 
+                                <input id="input_cnpj" class="pequenos" type="number" placeholder="xxxxxxxxxxxxxx">
                             </div>
 
                             <div class="pacotes">
@@ -79,37 +84,42 @@
 
                             <div class="cep">
                                 <label class="titulosInputs" for="text">CEP:</label>
-                                <input class="pequenos" type="number" placeholder="xxxxxxxx"> 
+                                <input id="input_cep" class="pequenos" type="number" placeholder="xxxxxxxx">
                             </div>
 
                             <div class="endereco">
                                 <label class="titulosInputs" for="text">Endereço:</label>
-                                <input class="normais" type="text" placeholder="Nome da rua"> 
+                                <input id="input_endereco" class="normais" type="text" placeholder="Nome da rua">
                             </div>
 
-                            
+
                             <div class="numero">
                                 <label class="titulosInputs" for="text">Nº:</label>
-                                <input class="pequenos" type="number" placeholder="Nº"> 
+                                <input id="input_numCasa" class="pequenos" type="number" placeholder="Nº">
                             </div>
 
                             <div class="bairro">
                                 <label class="titulosInputs" for="text">Bairro:</label>
-                                <input class="normais" type="text" placeholder="Nome do bairro"> 
+                                <input id="input_bairro" class="normais" type="text" placeholder="Nome do bairro">
                             </div>
 
                             <div class="complemento">
                                 <label class="titulosInputs" for="text">Complemento:</label>
-                                <input class="normais" type="text" placeholder="Condomínio, bloco"> 
+                                <input id="input_complemento" class="normais" type="text" placeholder="Condomínio, bloco">
+                            </div>
+
+                            <div class="senha">
+                                <label class="titulosInputs" for="text">Senha:</label>
+                                <input id="input_senha" class="pequenos" type="password" placeholder="******">
                             </div>
                         </div>
-            
+
                         <button class="btnConta" onclick="criarConta()">Criar Conta</button>
                     </div>
-    
+
                     <div class="infos">
                         <label class="titulo" for="text">O registro te dará acesso a:</label>
-                        
+
                         <ul class="main-items">
                             <li class="beneficios">Monitorar seu sistema</li>
                             <li class="beneficios">Monitorar as guias dos seus funcionários</li>
@@ -120,11 +130,81 @@
                         </ul>
                     </div>
                 </div>
-    
+
             </div>
         </section>
     </main>
 
 </body>
-
 </html>
+
+<script>
+
+function criarConta() {
+
+var nomeCompleto = input_nomeCompleto.value;
+var email = input_email.value;
+var telefone = input_tel.value;
+var nomeEmpresa = input_empresa.value;
+var cnpj = input_cnpj.value;
+var cep = input_cep.value;
+var endereco = input_endereco.value;
+var numCasa = input_numCasa.value;
+var bairro = input_bairro.value;
+var complemento = input_complemento.value;
+var senha = input_senha.value;
+
+  if (
+      nomeCompleto == "" ||
+      email == "" ||
+      telefone == "" ||
+      nomeEmpresa == "" ||
+      cnpj == "" ||
+      cep == "" ||
+      endereco == "" ||
+      numCasa == "" ||
+      bairro == "" ||
+      complemento == "" ||
+      senha == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Preencha todos os campos";
+    } else if (telefone.length < 9 || telefone.length > 9)  {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Insira um telefone válido";
+    } else if (email.indexOf('@') < 0 || email.indexOf('.') < 0)  {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Insira um e-mail válido!";
+    } else if (cnpj.length != 14)  {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Insira um cnpj válido!"; 
+    } else if (cep.length != 8)  {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Insira um cep válido!"; 
+    } else if (numCasa < 0)  {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Coloque um número de endereço válido!"; 
+    } else if (senha.length < 6)  {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Senha com no mínimo 6 dígitos!"; 
+    }
+    else {
+      setInterval(sumirMensagem, 5000);
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "Indo para o login...";
+    }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+}
+
+</script>

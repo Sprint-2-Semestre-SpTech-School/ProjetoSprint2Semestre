@@ -173,6 +173,27 @@ main .login .logo .formulario .div_botoes button:hover {
     color: #3083f0;
 }
 
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    /* position: fixed; */
+    border-radius: 4px;
+    border: #7588db 3px solid;
+    padding: 10px;
+    margin-left: 30%;
+    margin-bottom: 40%;
+    position: absolute;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+    /* position: absolute; */
+    color: black;
+  }
+
 @media only screen and (max-width: 600px) {
     header .navbar {
         width: 100%;

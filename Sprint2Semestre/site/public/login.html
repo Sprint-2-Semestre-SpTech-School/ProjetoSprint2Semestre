@@ -12,6 +12,11 @@
 
     <header>
         <nav class="navbar">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
             <ul class="nav-items">
                 <li class="item">
                     <a href=""><img class="imgLogo" src="./assets/imgs/logotipo.png" alt="logotipo"></a>
@@ -33,18 +38,18 @@
 
                         <div class="usuario">
                             <label class="inputUsuario">Usuário</label> <br>
-                            <input id="id_input_usuario" type="text">
+                            <input id="input_usuario" type="text">
 
                         </div>
 
                         <div class="senha">
                             <label class="inputSenha">Senha</label> <br>
-                            <input id="id_input_senha" type="password">
+                            <input id="input_senha" type="password">
                         </div>
 
                         <div class="div_botoes">
-                            <a href=""><button class="botaoEntrar" onclick="entrar()">Entrar</button></a>
-                            <a href=""><button class="botaoCriarConta" onclick="criarConta()">Não tem uma conta?</button></a>
+                            <button class="botaoEntrar" onclick="entrar()">Entrar</button>
+                            <a href="cadastro.html"><button class="botaoCriarConta" onclick="criarConta()">Não tem uma conta?</button></a>
                         </div>
                     </div>
                 </div>
@@ -57,3 +62,43 @@
 </body>
 
 </html>
+
+<script>
+
+    function entrar() {
+
+        var nomeUsuario = input_usuario.value;
+        var senha = input_senha.value;
+
+        if (
+            nomeUsuario == "" ||
+            senha == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Preencha todos os campos";
+
+        } else if (nomeUsuario.length < 1) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Insira um nome de usuário válido";
+
+        } else if (senha.length < 6) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Senha com no mínimo 6 dígitos!";
+
+        }
+        else {
+            setInterval(sumirMensagem, 5000);
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Indo para sua página...";
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none";
+        }
+    }
+
+</script>
