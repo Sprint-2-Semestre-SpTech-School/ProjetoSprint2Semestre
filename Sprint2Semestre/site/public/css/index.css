@@ -92,12 +92,7 @@ section {
     }
     
     main .solution .main-content {
-        background-color: #0e346547;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        width: 80%;
-        height: 80%;
+    display: none;
     }
     
     main .solution .main-content img {
@@ -189,7 +184,7 @@ section {
         color: #001736;
         text-shadow: 2px 2px 1px #3083f0;
         width: 100%;
-        font-size: 60%;
+        font-size: 55%;
     }
     
     
@@ -212,9 +207,9 @@ section {
     
     .about-box2 p{
         color: #001736;
-        text-shadow: 2px 2px 1px #3083f0;
+        text-shadow: 2px 1px 1px #001736;
         width: 100%;
-        font-size: 60%;
+        font-size: 55%;
     }
     
     main .about-us .about-box2 .image-box {
@@ -260,15 +255,140 @@ section {
         max-height: 60%;
     }
 
-
-    footer {
+    main .missions {
         display: flex;
-        justify-content: space-around;
+        background-color: #000071;
+        width: 100%;
+        height: 100%;
+    }
+
+    main .missions .missions-box {
+        width: 100%;
+        height: 100%;
+    }
+
+    main .missions .missions-box .mission{
+        display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 25%;
+        height: 50%;
+        margin-bottom: 5%;
+        flex-direction: column;
+    }
+
+    main .missions .missions-box .mission img{
+        display: flex;
+        width: 100%;
+        height: 50%;
+    }
+
+    main .missions .missions-box .mission .mission-text{
+        width: 100%;
+        height: 50%;
+    }
+
+    main .missions .missions-box .mission:nth-child(2) {
+        width: 100%;
+        margin-left: 30%;
+        flex-direction: column-reverse;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    main .packages {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #0000BB;
+        padding-bottom: 5%;
+    }
+
+    main .packages .comercial-packages{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    main .packages .package1 {
+        width: 100%;
+        height: 50%;
         background-color: #001736;
+        border-radius: 25px;
+        box-shadow: 4px 4px 2px 2px #000204;
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+    
+    main .packages .package1 img{
+        width: 100%;
+        border-radius: 25px;
+        border: 3px solid #3083f0;
+    }
+    
+    main .packages .package2 img{
+        width: 100%;
+        border-radius: 25px;
+        border: 3px solid #3083f0;
+    
+    }
+    
+    main .packages .package2 {
+        width: 100%;
+        height: 50%;
+        background-color: #001736;
+        border-radius: 25px;
+        box-shadow: 4px 4px 2px 2px #000204;
+    }
+    
+    main .packages .package1 .package-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffc54a;
+        padding: 5%;
+        font-size: 20px;
+    }
+    
+    main .packages .package1 .package-info p{
+        width: 100%;
+        display: flex;
+        text-align: center;
+        text-shadow: 1px 1px #3083f0;
+    }
+    
+    main .packages .package2 .package-info {
+        width: 100%;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        text-shadow: 1px 1px #3083f0;
+    }
+    
+    main .packages .package2 .package-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffc54a;
+        padding: 5%;
+        font-size: 20px;
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 35%;
+        background-color: #001736;
+        gap: 15%;
     }
     
     footer .anchors {
@@ -276,23 +396,28 @@ section {
     }
     
     footer .communication {
+        width: 50%;
         display: flex;
-        justify-content: space-evenly;
-        flex-direction: columnS;
+        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
         width: 100%;
     }
     
     footer .communication p{
         display: flex;
-        font-size: 70%;
+        justify-content: space-between;
+        flex-direction: row;
+        font-size: 100%;
         font-weight: bold;
         color: #3083f0;
         text-shadow: 1px 1px 1px black;
     }
     
-    .communication i{
-        font-size: 90%;
+    footer .communication i{
+        display: flex;
+        padding: 10%;
+        font-size: 25px;
         color: #ffc54a;
         transition: 0.5s;
     }
@@ -308,6 +433,7 @@ section {
         justify-content: center;
         align-items: center;
         justify-content: space-evenly;
+        gap: 10%;
         width: 50%;
     }
     
@@ -571,7 +697,7 @@ main .about-us .about-box1 {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 55%;
+    height: 50%;
 }
 
 main .about-us .about-box1 .image-box {
@@ -596,7 +722,7 @@ main .about-us .about-box1 .text {
     align-items: center;
     width: 45%;
     height: 90%;
-    font-size: 2em;
+    font-size: 23px;
     text-align: center;
 }
 
@@ -610,7 +736,7 @@ main .about-us .about-box1 .text {
 main .about-us .about-box2 {
     display: flex;
     width: 100%;
-    height: 45%;
+    height: 50%;
     align-items: center;
 }
 
@@ -621,7 +747,7 @@ main .about-us .about-box2 .text {
     align-items: center;
     width: 55%;
     height: 90%;
-    font-size: 2em;
+    font-size: 23px;
     text-align: center;
 }
 
@@ -717,6 +843,7 @@ main .missions .missions-box .mission {
     background-color: white;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+    border: 3px solid #3083f0;
 }
 
 main .missions .missions-box .mission:nth-child(2) {
@@ -736,10 +863,18 @@ main .missions .missions-box .mission img {
 }
 
 main .missions .missions-box .mission p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    color: #FDAD00;
-    width: 55%;
+    color: #001736;
+    text-shadow: 1px 1px 0 0 #ffc54a;
+    font-weight: bold;
+    width: 100%;
     height: 100%;
+    font-size: 80%;
+    padding: 3%;
+
 }
 
 main .packages {
@@ -748,6 +883,13 @@ main .packages {
     justify-content: center;
     flex-direction: row;
     background-color: #0000BB;
+    gap: 5%;
+}
+
+main .packages .comercial-packages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 5%;
 }
 
@@ -829,7 +971,7 @@ footer {
 }
 
 footer .anchors {
-    width: 30%;
+    width: 10%;
     justify-content: center;
     align-items: center;
 }
