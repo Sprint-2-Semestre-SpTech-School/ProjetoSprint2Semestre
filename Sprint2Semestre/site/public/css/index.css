@@ -25,14 +25,15 @@ section {
 @media only screen and (max-width: 600px){
     nav {
         display: flex;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         background-color: #001736;
         width: 100%;
         height: 11%;
+
     }
-    nav .image-logo {
-        display: flex;
+    nav .image-logo{
+        width: 40%;
         
     }
     main .home .main-image{
@@ -43,11 +44,16 @@ section {
         display: none;
     }
     .navbar .btns-login-register{
+        width: 60%;
         display: flex;
-        justify-self: center;
-        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btns-login-register a{
+        font-size: 76%;
         width: 50%;
     }
+
     main .home .main-image {
         display: flex;
         justify-content: center;
@@ -57,13 +63,14 @@ section {
     }
 
     main .home .main-image .main-text{
-        width: 50%;
+        width: 75%;
         display: flex;
-        position: absolute;
+        align-items: center;
         color: #ffff;
         text-shadow: 2px 2px 8px #FDAD00;
         font-weight: bold;
     }
+
     main .solution .main-content img{
         display: flex;
         align-items: center;
@@ -81,22 +88,20 @@ section {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #001736;
+        background-image: url(https://news.satcomdirect.com/wp-content/uploads/2020/09/NOC_at_SD_World_Headquarters.jpg);
     }
     
     main .solution .main-content {
+        background-color: #0e346547;
         display: flex;
         align-items: center;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
+        width: 80%;
+        height: 80%;
     }
     
     main .solution .main-content img {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 25px;
+        display: none;
     }
     
     main .solution .main-content .solution-box {
@@ -226,6 +231,36 @@ section {
         border-radius: 25px;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
+    main .bases{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    main .bases .bases-box {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    main .bases .bases-box .base {
+        display: block;
+        display: flex;
+        width: 100%;
+        float: left;
+        margin: 6%;
+    }
+
+    main .bases .bases-box .base p{
+        padding: 5%;
+        width: 100%;
+        font-size: 100%;
+    }
+
+    main .bases .bases-box .base img{
+        max-height: 60%;
+    }
+
+
     footer {
         display: flex;
         justify-content: space-around;
@@ -629,6 +664,7 @@ main .bases .bases-box {
 
 main .bases .bases-box .base {
     display: flex;
+    align-items: center;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -647,11 +683,14 @@ main .bases .bases-box .base img {
 
 main .bases .bases-box .base h1 {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     color: #000071;
 }
 
 main .bases .bases-box .base p {
+    padding: 5%;
+    width: 100%;
+    font-size: 16px;
     text-align: center;
     color: #000071;
     /* border: 5px solid rgb(0, 229, 255); */
@@ -703,22 +742,80 @@ main .missions .missions-box .mission p {
     height: 100%;
 }
 
-main .contact {
+main .packages {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #0000BB;
-    gap: 15%;
+    gap: 5%;
 }
 
-main .contact .contact-box {
-    width: 80%;
-    height: 80%;
-    background-color: white;
+main .packages .package1 {
+    width: 40%;
+    height: 70%;
+    background-color: #001736;
     border-radius: 25px;
-    margin-top: 50px;
+    box-shadow: 4px 4px 2px 2px #000204;
 }
+
+main .packages .package1 img{
+    border-radius: 25px;
+    border: 3px solid #3083f0;
+}
+
+main .packages .package2 img{
+    border-radius: 25px;
+    border: 3px solid #3083f0;
+
+}
+
+main .packages .package2 {
+    flex-direction: column;
+    width: 40%;
+    height: 70%;
+    background-color: #001736;
+    border-radius: 25px;
+    box-shadow: 4px 4px 2px 2px #000204;
+}
+
+main .packages .package1 .package-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffc54a;
+    margin: 2%;
+}
+
+main .packages .package1 .package-info {
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 1px 1px #3083f0;
+    padding: 3%;
+}
+
+main .packages .package2 .package-info {
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 1px 1px #3083f0;
+    padding: 3%;
+}
+
+main .packages .package2 .package-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffc54a;
+    margin: 2%;
+
+}
+
 
 footer {
     display: flex;
