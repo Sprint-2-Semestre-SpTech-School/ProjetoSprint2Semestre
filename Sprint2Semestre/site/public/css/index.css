@@ -256,6 +256,10 @@ section {
         border: 5px solid yellow;
     }
 
+    main .bases .bases-box .base .text {
+        font-size: 5em;
+    }
+
     main .bases .bases-box .base p {
         padding: 5%;
         width: 100%;
@@ -896,14 +900,8 @@ main .missions .missions-box .mission p {
     font-weight: bold;
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
-    font-size: 80%;
-    padding: 3%;    
-=======
     font-size: 1.2em;
     padding: 3%;
-
->>>>>>> 8539f12a788b44f6233f63987e2a0aa92c1c1364
 }
 
 main .packages {
@@ -920,6 +918,7 @@ main .packages .comercial-packages {
     justify-content: center;
     align-items: center;
     gap: 5%;
+    border: 5px solid red;
 }
 
 main .packages .package1 {
@@ -928,14 +927,19 @@ main .packages .package1 {
     background-color: #001736;
     border-radius: 25px;
     box-shadow: 4px 4px 2px 2px #000204;
+    border: 5px solid green;
 }
 
 main .packages .package1 img {
+    width: 100%;
+    height: 100%;
     border-radius: 25px;
     border: 3px solid #3083f0;
 }
 
 main .packages .package2 img {
+    width: 100%;
+    height: 100%;
     border-radius: 25px;
     border: 3px solid #3083f0;
 
@@ -982,6 +986,7 @@ main .packages .package2 .package-title {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: #ffc54a;
     margin: 2% 0 0 10%;
     width: 80%;
