@@ -6,7 +6,7 @@
     list-style: none;
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    
+
 }
 
 html {
@@ -22,7 +22,7 @@ section {
 
 
 /* ============================================ Global Settings  ====================*/
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
     nav {
         display: flex;
         justify-content: space-evenly;
@@ -32,24 +32,29 @@ section {
         height: 11%;
 
     }
-    nav .image-logo{
+
+    nav .image-logo {
         width: 40%;
-        
+
     }
-    main .home .main-image{
+
+    main .home .main-image {
         width: 100vh;
         height: 100vh;
     }
-    nav .nav-items a{
+
+    nav .nav-items a {
         display: none;
     }
-    .navbar .btns-login-register{
+
+    .navbar .btns-login-register {
         width: 60%;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    .btns-login-register a{
+
+    .btns-login-register a {
         font-size: 76%;
         width: 50%;
     }
@@ -62,7 +67,7 @@ section {
         height: 100%;
     }
 
-    main .home .main-image .main-text{
+    main .home .main-image .main-text {
         width: 75%;
         display: flex;
         align-items: center;
@@ -71,12 +76,13 @@ section {
         font-weight: bold;
     }
 
-    main .solution .main-content img{
+    main .solution .main-content img {
         display: flex;
         align-items: center;
         flex-direction: column;
         width: 100%;
     }
+
     main .solution .main-content {
         display: flex;
         align-items: center;
@@ -84,27 +90,28 @@ section {
         width: 10%;
         height: 10%;
     }
+
     .solution {
         display: flex;
         justify-content: center;
         align-items: center;
         background-image: url(https://news.satcomdirect.com/wp-content/uploads/2020/09/NOC_at_SD_World_Headquarters.jpg);
     }
-    
+
     main .solution .main-content {
-    display: none;
+        display: none;
     }
-    
+
     main .solution .main-content img {
         display: none;
     }
-    
+
     main .solution .main-content .solution-box {
         display: flex;
         position: absolute;
         align-items: center;
     }
-    
+
     main .solution .main-content .solution-box .box {
         display: flex;
         flex-direction: column;
@@ -112,7 +119,7 @@ section {
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
         /* border: 5px solid white; */
     }
-    
+
     main .solution .main-content .solution-box .box .title {
         display: flex;
         align-items: center;
@@ -120,11 +127,11 @@ section {
         font-size: 50%;
         /* margin: 5%; */
     }
-    
+
     main .solution .main-content .solution-box .title h1 {
         color: #FDAD00
     }
-    
+
     main .solution .main-content .solution-box .solution-info {
         display: flex;
         align-items: center;
@@ -133,28 +140,29 @@ section {
         /* border: 5px solid yellowgreen; */
     }
 
-    main .solution .main-content .solution-box .solution-info p{
+    main .solution .main-content .solution-box .solution-info p {
         font-size: 60%;
         width: 100%;
     }
-    
+
     main .solution .main-content .solution-box .image-box img {
         width: 100%;
         border-radius: 50px;
     }
+
     main .about-us {
         display: inline-block;
         justify-content: center;
         /* border: 5px solid rgb(255, 0, 200); */
     }
-    
+
     main .about-us .about-box1 {
         display: flex;
         align-items: center;
         width: 100%;
         height: 50%;
     }
-    
+
     main .about-us .about-box1 .image-box {
         display: flex;
         justify-content: center;
@@ -162,14 +170,14 @@ section {
         width: 50%;
         height: 50%;
     }
-    
+
     main .about-us .about-box1 .image-box img {
         width: 100%;
         height: 100%;
         border-radius: 25px;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
-    
+
     main .about-us .about-box1 .text {
         display: flex;
         flex-direction: row;
@@ -179,22 +187,22 @@ section {
         height: 50%;
         text-align: center;
     }
-    
-    .about-box1 p{
+
+    .about-box1 p {
         color: #001736;
         text-shadow: 2px 2px 1px #3083f0;
         width: 100%;
         font-size: 55%;
     }
-    
-    
+
+
     main .about-us .about-box2 {
         display: flex;
         align-items: center;
         width: 100%;
         height: 50%;
     }
-    
+
     main .about-us .about-box2 .text {
         display: flex;
         flex-direction: row;
@@ -204,14 +212,14 @@ section {
         height: 50%;
         text-align: center;
     }
-    
-    .about-box2 p{
+
+    .about-box2 p {
         color: #001736;
         text-shadow: 2px 1px 1px #001736;
         width: 100%;
         font-size: 55%;
     }
-    
+
     main .about-us .about-box2 .image-box {
         display: flex;
         justify-content: center;
@@ -219,14 +227,15 @@ section {
         width: 45%;
         height: 100%;
     }
-    
-    main .about-us .about-box2 .image-box img{
+
+    main .about-us .about-box2 .image-box img {
         width: 100%;
         height: 50%;
         border-radius: 25px;
         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
-    main .bases{
+
+    main .bases {
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -237,21 +246,23 @@ section {
         width: 100%;
         flex-wrap: wrap;
     }
+
     main .bases .bases-box .base {
         display: block;
         display: flex;
         width: 100%;
         float: left;
         margin: 6%;
+        border: 5px solid yellow;
     }
 
-    main .bases .bases-box .base p{
+    main .bases .bases-box .base p {
         padding: 5%;
         width: 100%;
         font-size: 100%;
     }
 
-    main .bases .bases-box .base img{
+    main .bases .bases-box .base img {
         max-height: 60%;
     }
 
@@ -267,7 +278,7 @@ section {
         height: 100%;
     }
 
-    main .missions .missions-box .mission{
+    main .missions .missions-box .mission {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -277,13 +288,13 @@ section {
         flex-direction: column;
     }
 
-    main .missions .missions-box .mission img{
+    main .missions .missions-box .mission img {
         display: flex;
         width: 100%;
         height: 50%;
     }
 
-    main .missions .missions-box .mission .mission-text{
+    main .missions .missions-box .mission .mission-text {
         width: 100%;
         height: 50%;
     }
@@ -307,14 +318,14 @@ section {
         padding-bottom: 5%;
     }
 
-    main .packages .comercial-packages{
+    main .packages .comercial-packages {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         width: 100%;
     }
-    
+
     main .packages .package1 {
         width: 100%;
         height: 50%;
@@ -324,20 +335,20 @@ section {
         margin-bottom: 5%;
         margin-top: 5%;
     }
-    
-    main .packages .package1 img{
+
+    main .packages .package1 img {
         width: 100%;
         border-radius: 25px;
         border: 3px solid #3083f0;
     }
-    
-    main .packages .package2 img{
+
+    main .packages .package2 img {
         width: 100%;
         border-radius: 25px;
         border: 3px solid #3083f0;
-    
+
     }
-    
+
     main .packages .package2 {
         width: 100%;
         height: 50%;
@@ -345,8 +356,8 @@ section {
         border-radius: 25px;
         box-shadow: 4px 4px 2px 2px #000204;
     }
-    
-    main .packages .package1 .package-title{
+
+    main .packages .package1 .package-title {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -354,14 +365,14 @@ section {
         padding: 5%;
         font-size: 20px;
     }
-    
-    main .packages .package1 .package-info p{
+
+    main .packages .package1 .package-info p {
         width: 100%;
         display: flex;
         text-align: center;
         text-shadow: 1px 1px #3083f0;
     }
-    
+
     main .packages .package2 .package-info {
         width: 100%;
         font-size: 18px;
@@ -370,8 +381,8 @@ section {
         text-align: center;
         text-shadow: 1px 1px #3083f0;
     }
-    
-    main .packages .package2 .package-title{
+
+    main .packages .package2 .package-title {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -390,11 +401,11 @@ section {
         background-color: #001736;
         gap: 15%;
     }
-    
+
     footer .anchors {
         display: none;
     }
-    
+
     footer .communication {
         width: 50%;
         display: flex;
@@ -403,8 +414,8 @@ section {
         align-items: center;
         width: 100%;
     }
-    
-    footer .communication p{
+
+    footer .communication p {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -413,21 +424,21 @@ section {
         color: #3083f0;
         text-shadow: 1px 1px 1px black;
     }
-    
-    footer .communication i{
+
+    footer .communication i {
         display: flex;
         padding: 10%;
         font-size: 25px;
         color: #ffc54a;
         transition: 0.5s;
     }
-    
-    .communication i:hover{
+
+    .communication i:hover {
         font-size: 4vh;
         color: #FDAD00;
         cursor: pointer;
     }
-    
+
     footer .license {
         display: flex;
         justify-content: center;
@@ -436,21 +447,21 @@ section {
         gap: 10%;
         width: 50%;
     }
-    
-    footer .license p{
+
+    footer .license p {
         font-weight: bold;
         color: #3083f0;
         text-shadow: 1px 1px 1px black;
-        
-    
+
+
     }
-    
-    footer .license .corporation-title{
+
+    footer .license .corporation-title {
         color: #ffc54a;
         font-size: 3vh;
         text-shadow: 1px 1px 1px #ffff;
     }
-    
+
     footer .license .partners {
         width: 50%;
         display: flex;
@@ -460,12 +471,12 @@ section {
         justify-content: space-evenly;
         gap: 10px;
     }
-    
-    footer .license .partners img{
+
+    footer .license .partners img {
         width: 30%;
     }
-    
-    footer .license .partners .partnerts-img{
+
+    footer .license .partners .partnerts-img {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -481,7 +492,6 @@ section {
     /* justify-content: center; */
     /* justify-content: space-between; */
     /* border: 5px solid blueviolet; */
-
 }
 
 #btn-login {
@@ -574,7 +584,7 @@ li:hover {
 }
 
 nav .nav-items a {
-    color:  #FDAD00;
+    color: #FDAD00;
     font-size: 1.5em;
     transition: ease-out 0.4s;
 }
@@ -596,7 +606,7 @@ main .home .main-image {
     height: 100%;
 }
 
-.gradient-overlay{
+.gradient-overlay {
     display: flex;
     position: absolute;
     width: 100%;
@@ -607,15 +617,26 @@ main .home .main-image {
 main .home .main-image img {
     width: 100%;
     height: 100%;
+    filter: blur(2px);
 }
 
-main .home .main-image .main-text{
-    display: flex;
+main .home .main-image .main-text {
+    /* display: flex; */
     position: absolute;
-    font-size: 7vh;
+    width: 75%;
+    font-size: 3em;
     color: #ffff;
-    text-shadow: 2px 2px 8px #FDAD00;
+    text-shadow: 2px 2px 8px black;
     font-weight: bold;
+    text-align: center;
+    /* border: 5px solid red; */
+}
+
+main .home .main-image .main-text b {
+    font-size: 1.2em;
+    color: #FDAD00;
+    text-shadow: 2px 2px 8px black;
+
 }
 
 .solution {
@@ -656,8 +677,7 @@ main .solution .main-content .solution-box .box {
     width: 40%;
     height: 80%;
     margin-left: 5%;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-    /* border: 5px solid white; */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
 }
 
 main .solution .main-content .solution-box .box .title {
@@ -678,7 +698,13 @@ main .solution .main-content .solution-box .solution-info {
     text-align: center;
     font-size: 1.5em;
     text-align: left;
-    /* border: 5px solid yellowgreen; */
+    text-shadow: 0.7px 0.7px 0.5px white;
+}
+
+main .solution .main-content .solution-box .solution-info b {
+    font-size: 1.2em;
+    color: #FDAD00;
+    text-shadow: 0.7px 0.7px 0.5px black;
 }
 
 main .solution .main-content .solution-box .image-box img {
@@ -722,13 +748,12 @@ main .about-us .about-box1 .text {
     align-items: center;
     width: 45%;
     height: 90%;
-    font-size: 23px;
+    font-size: 1.8em;
     text-align: center;
 }
 
-.about-box1 p{
+.about-box1 p {
     color: #001736;
-    text-shadow: 2px 2px 1px #3083f0;
     width: 80%;
 }
 
@@ -747,13 +772,12 @@ main .about-us .about-box2 .text {
     align-items: center;
     width: 55%;
     height: 90%;
-    font-size: 23px;
+    font-size: 1.8em;
     text-align: center;
 }
 
-.about-box2 p{
+.about-box2 p {
     color: #001736;
-    text-shadow: 2px 2px 1px #3083f0;
     width: 80%;
 }
 
@@ -765,7 +789,7 @@ main .about-us .about-box2 .image-box {
     height: 100%;
 }
 
-main .about-us .about-box2 .image-box img{
+main .about-us .about-box2 .image-box img {
     width: 90%;
     height: 90%;
     border-radius: 25px;
@@ -872,7 +896,7 @@ main .missions .missions-box .mission p {
     font-weight: bold;
     width: 100%;
     height: 100%;
-    font-size: 80%;
+    font-size: 1.2em;
     padding: 3%;
 
 }
@@ -901,12 +925,12 @@ main .packages .package1 {
     box-shadow: 4px 4px 2px 2px #000204;
 }
 
-main .packages .package1 img{
+main .packages .package1 img {
     border-radius: 25px;
     border: 3px solid #3083f0;
 }
 
-main .packages .package2 img{
+main .packages .package2 img {
     border-radius: 25px;
     border: 3px solid #3083f0;
 
@@ -921,7 +945,7 @@ main .packages .package2 {
     box-shadow: 4px 4px 2px 2px #000204;
 }
 
-main .packages .package1 .package-title{
+main .packages .package1 .package-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -949,7 +973,7 @@ main .packages .package2 .package-info {
     padding: 3%;
 }
 
-main .packages .package2 .package-title{
+main .packages .package2 .package-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -983,19 +1007,19 @@ footer .communication {
     width: 30%;
 }
 
-footer .communication p{
+footer .communication p {
     font-weight: bold;
     color: #3083f0;
     text-shadow: 1px 1px 1px black;
 }
 
-.communication i{
+.communication i {
     font-size: 3vh;
     color: #ffc54a;
     transition: 0.5s;
 }
 
-.communication i:hover{
+.communication i:hover {
     font-size: 4vh;
     color: #FDAD00;
     cursor: pointer;
@@ -1009,15 +1033,15 @@ footer .license {
     width: 30%;
 }
 
-footer .license p{
+footer .license p {
     font-weight: bold;
     color: #3083f0;
     text-shadow: 1px 1px 1px black;
-    
+
 
 }
 
-footer .license .corporation-title{
+footer .license .corporation-title {
     color: #ffc54a;
     font-size: 3vh;
     text-shadow: 1px 1px 1px #ffff;
@@ -1033,11 +1057,11 @@ footer .license .partners {
     gap: 10px;
 }
 
-footer .license .partners img{
+footer .license .partners img {
     width: 30%;
 }
 
-footer .license .partners .partnerts-img{
+footer .license .partners .partnerts-img {
     display: flex;
     justify-content: center;
     align-items: center;
