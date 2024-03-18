@@ -270,6 +270,16 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     font-size: 25px;
 }
 
+main .cadastro .campos .box .infos .acessarLogin {
+    /* border: 1px solid black; */
+    color: rgb(22, 61, 152);
+    font-size: 20px;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    font-weight: bold;
+}
+
 .alerta_erro{
     display: flex;
     justify-content: flex-start;

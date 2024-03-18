@@ -873,8 +873,7 @@ main .missions .missions-box .mission p {
     width: 100%;
     height: 100%;
     font-size: 80%;
-    padding: 3%;
-
+    padding: 3%;    
 }
 
 main .packages {
@@ -954,8 +953,8 @@ main .packages .package2 .package-title{
     justify-content: center;
     align-items: center;
     color: #ffc54a;
-    margin: 2%;
-
+    margin: 2% 0 0 10%;
+    width: 80%;
 }
 
 

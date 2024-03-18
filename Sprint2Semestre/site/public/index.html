@@ -17,16 +17,16 @@
       </div>
       <ul class="nav-items">
         <li class="item">
-          <a href="">Home</a>
+          <a href="#homepage">Home</a>
         </li>
         <li class="item">
-          <a href="">Contatos</a>
+          <a href="#footer">Contatos</a>
         </li>
         <li class="item">
-          <a href="">Sobre</a>
+          <a href="#sobreNos">Sobre</a>
         </li>
         <li class="item">
-          <a href="">Serviços</a>
+          <a href="#packagesHeader">Serviços</a>
         </li>
       </ul>
       <div class="btns-login-register">
@@ -38,7 +38,7 @@
 
   <main>
     <section class="home">
-      <div class="main-image">
+      <div id="homepage" class="main-image">
         <img src="./assets/imgs/banner.avif" alt="">
         <div class="gradient-overlay"></div>
         <div class="main-text">
@@ -67,7 +67,7 @@
     </section>
 
     <section class="about-us">
-      <div class="about-box1">
+      <div id="sobreNos" class="about-box1">
         <div class="image-box">
           <img
             src="../public/assets/imgs/monitoramento do computador.avif"
@@ -111,15 +111,16 @@
           <div class="text">
             <h1>CLOUD</h1>
             <p>
-              Cloud, cloud computing ou computação em nuvem, é uma tecnologia que permite acesso 
-              remoto a softwares, armazenamento de arquivos e processamento de dados por meio da 
-              internet. É uma alternativa para acesso de dados importantes de qualquer computador, 
-              em qualquer lugar. É possível que um dado muito importante seja irrecuperável, em um 
+              Cloud ou computação em nuvem, é uma tecnologia que permite acesso remoto a softwares, armazenamento de arquivos e processamento de dados por meio da internet. É uma alternativa para acesso de dados importantes de qualquer computador, em qualquer lugar. No nosso sistema você poderá monitorar seus equipamentos em um sistema interativo e em tempo real.
+              
+              <!-- É possível que um dado muito importante seja irrecuperável, em um 
               cenário onde um arquivo é compartilhado somente em um único computador, mas no modelo 
               que envolve a cloud, isso deixa de ser uma preocupação, visto que há um compartilhamento 
               de informações que são mais seguras a medida em que estão centralizadas, fazendo com que 
               os desenvolvedores e a infraestrutura não fiquem mais tão dependentes dos hardwares à 
-              medida que o tempo passa.
+              medida que o tempo passa. -->
+
+
             </p>
           </div>
         </div>
@@ -128,13 +129,9 @@
           <div class="text">
             <h1>ETL</h1>
             <p>
-              É a sigla para o processo de extrair, transformar e carregar. Uma maneira das 
-              organizações combinarem e organizarem seus dados em bancos, repositórios, armazenamentos 
-              de dados ou data lakes. É possível armazenar dados legados (dados de sistemas antigos 
-              ou obsoletos), ou agregar dados para analisar e impulsionar as decisões nos negócios, 
-              o que é mais comum. É a maneira que as empresas utilizam para coletar seus dados 
-              estruturados ou não estruturados e a partir deles realizar a gerência baseada na sua 
-              regra de negócio, tomando decisões e utilizando-os para fins comerciais úteis.
+              É a sigla para o processo de extrair, transformar e carregar. Uma maneira das organizações combinarem e organizarem seus dados em bancos, repositórios, armazenamentos de dados ou data lakes. Com os nossos serviços, terá a certeza de que esses dados estão limpos, seguros e corretos na hora do envio para o banco de dados e warehouses. Para então realizar a gerência baseada na sua regra de negócio, tomando decisões e utilizando-os para fins comerciais úteis.
+              
+              <!-- É possível armazenar dados legados (dados de sistemas antigos ou obsoletos), ou agregar dados para analisar e impulsionar as decisões nos negócios, o que é mais comum. É a maneira que as empresas utilizam para coletar seus dados estruturados ou não estruturados e a partir deles realizar a gerência baseada na sua regra de negócio, tomando decisões e utilizando-os para fins comerciais úteis. -->
             </p>
           </div>
         </div>
@@ -143,19 +140,9 @@
           <div class="text">
             <h1>NOC</h1>
             <p>
-              NOC se refere a Centro de Operações de Rede, que possui como objetivo monitorar todos 
-              os dispositivos e softwares utilizados em uma empresa. Esse monitoramento visa prever 
-              e evitar falhas no sistema.
-              <br> <br>
-              Nós da (nome da empresa) temos como premissa o monitoramento e gestão do ambiente de 
-              rede e suas extensões, além de garantir serviços mais voltados para o 
-              SOC (Security Operations Center), pois a nossa proposta também se preocupa com 
-              a segurança de máquinas e redes, possibilitando que os ganhos de nossos clientes 
-              sejam cada vez maiores. Com a manutenção preventiva, feita por representações gráficas 
-              e visuais, é possível averiguar o desempenho de suas aplicações em tempo real, gerando 
-              alertas que são passados a tela do gestor ou do seu computador, para que medidas sejam 
-              tomadas antes que os erros possam afetar negativamente as qualidades de trabalho e 
-              performance dos colaboradores.
+              NOC se refere a Centro de Operações de Rede, que possui como objetivo monitorar todos os dispositivos e softwares utilizados em uma empresa, visando prever e evitar falhas no sistema. Com a manutenção preventiva, proporcionada pelo nossos sistema de monitoramento, é possível averiguar o desempenho de suas aplicações em tempo real, gerando alertas para que medidas sejam tomadas antes que os erros possam afetar negativamente as qualidades de trabalho e performance dos colaboradores. 
+              
+              <!-- Nós da (nome da empresa) temos como premissa o monitoramento e gestão do ambiente de rede e suas extensões, além de garantir serviços mais voltados para o SOC (Security Operations Center), pois a nossa proposta também se preocupa com a segurança de máquinas e redes, possibilitando que os ganhos de nossos clientes sejam cada vez maiores. -->
             </p>
           </div>
         </div>
@@ -207,30 +194,37 @@
       </div>
     </section>
     <section class="packages">
-      <div class="comercial-packages">
+      <div id="packagesHeader" class="comercial-packages">
         <div class="package1">
           <img src="./assets/imgs/monitoring-redes.jpg" alt="" width="100%" height="50%">
           <h1 class="package-title">Pacote Premium - Monitoramento de Redes</h1>
-          <p class="package-info">Nosso pacote de Monitoramento de Redes oferece uma solução abrangente para garantir o desempenho ideal e a segurança da sua infraestrutura de rede. Capturamos dados em tempo real da sua rede para fornecer análises detalhadas e relatórios acurado sobre o status e a saúde da sua rede. Ideal para clientes como você!<br><br>
-          Serviços:<br>
-          - Monitoramento de tráfego e utilização;<br>
-          - Análise do período das atividades;<br>
-          - Relatórios detalhados e recomendações;
+          <p class="package-info">Nosso pacote de Monitoramento de Redes oferece uma solução abrangente para garantir o desempenho ideal para a sua empresa: <br><br>
+            <!-- e a segurança da sua infraestrutura de rede. Capturamos dados em tempo real da sua rede para fornecer análises detalhadas e relatórios acurado sobre o status e a saúde da sua rede. Ideal para clientes como você!<br><br>
+          Serviços:<br> -->
+          - Monitoramento de tráfego e utilização<br>
+          - Análise do período das atividades<br>
+          - Relatórios detalhados e recomendações <br>
+          - Segurança da sua infraestrutura de rede
         </p>
         </div>
         <div class="package2">
           <img src="./assets/imgs/monitoramento-hardware.jpg" alt="" width="100%" height="50%">
           <h1 class="package-title">Pacote Gold - Corporativo Avançado de Monitoramento</h1>
-          <p class="package-info">Nosso Pacote Corporativo Avançado de Monitoramento oferece uma solução abrangente para clientes que exigem o máximo controle e segurança sobre sua infraestrutura de TI. Combinando monitoramento preventivo de hardware, monitoramento de redes e bloqueio de URLs, ideal para clientes que desejam o máximo de desempenho e a segurança de todo o ambiente tecnológico da sua empresa.<br><br>
-          - Monitoramento preventivo de Hardware corporativo;<br>
-          - Monitoramento de Redes - Análise de desempenho e segurança de dados;<br>
-          - Bloqueio de URLs com dispositivo USB - Maior garantia de segurança na sua empresa!
+          <p class="package-info">Nosso Pacote Corporativo Avançado de Monitoramento oferece uma solução para o controle total da sua infraestrutura: <br><br>
+            
+            <!-- para clientes que exigem o máximo controle e segurança sobre sua infraestrutura de TI. Combinando monitoramento preventivo de hardware, monitoramento de redes e bloqueio de URLs, ideal para clientes que desejam o máximo de desempenho e a segurança de todo o ambiente tecnológico da sua empresa.<br><br> -->
+          - Monitoramento preventivo de Hardware corporativo<br>
+          - Monitoramento de Redes <br>
+          - Análise de desempenho e segurança de dados<br>
+          - Bloqueio de URLs com dispositivo USB <br>
+          - Maior garantia de segurança na sua empresa <br>
+          - Máximo controle e segurança sobre sua infraestrutura de TI
           </p>
         </div>
       </div>
     </section>
 
-    <footer>
+    <footer id="footer">
       <div class="anchors">
         <ul>
           <li>Home</li>

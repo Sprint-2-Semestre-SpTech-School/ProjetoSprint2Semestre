@@ -17,7 +17,7 @@ public class Metodos {
         nomeUsuario = inputLine.nextLine();
 
         while (!(nomeUsuario.equals("fernanda.caramico"))) {
-            System.out.println("Nome de usuário incorreto. Tente novamente \n");
+            System.out.println("\nNome de usuário incorreto. Tente novamente ");
 
             System.out.println("Insira aqui seu nome de usuário:");
             nomeUsuario = inputLine.nextLine();
@@ -27,11 +27,11 @@ public class Metodos {
         senha = inputLine.nextLine();
 
         while (!(senha.equals("SPtechPI"))) {
-            System.out.println("Senha incorreta. Tente novamente \n");
+            System.out.println("\nSenha incorreta. Tente novamente");
 
             System.out.println("Insira aqui sua senha:");
             senha = inputLine.nextLine();
         }
-        System.out.println("Você será direcionado à sua página de usuário. Obrigada!");
+        System.out.println("\nVocê será direcionado à sua página de usuário. Obrigada!");
     }
 }
