@@ -37,11 +37,6 @@ html {
 
 /* Main */
 
-/* main {
-    width: 100%;
-    height: 90vh;
-} */
-
 main .cadastro  {
     width: 100%;
     height: 100vh;
@@ -155,7 +150,6 @@ main .cadastro .campos .box .boxInputs .inputs .cnpj {
     height: 15%;
     /* border: 2px solid tomato; */
     width: 25%;
-    /* margin: 0 0 0 10%; */
 }
 
 main .cadastro .campos .box .boxInputs .inputs .pequenos {
@@ -163,11 +157,6 @@ main .cadastro .campos .box .boxInputs .inputs .pequenos {
     height: 40%;
     /* border: 2px solid forestgreen; */
 }
-
-/* main .cadastro .campos .box .boxInputs .inputs .cnpj .pequenos {
-    width: 100%;
-    height: 40%;
-} */
 
 main .cadastro .campos .box .boxInputs .inputs .pacotes {
     height: 15%;
@@ -228,7 +217,6 @@ main .cadastro .campos .box .boxInputs .inputs .complemento {
     height: 15%;
     /* border: 2px solid tomato; */
     width: 40%;
-    /* margin: 0 0 0 5%; */
 }
 
 main .cadastro .campos .box .boxInputs .inputs .senha {
@@ -259,7 +247,6 @@ main .cadastro .campos .box .infos {
     opacity: 0.8;
     backdrop-filter: blur(5px);
     border-radius: 10px;
-
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -293,7 +280,6 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     background-color: #fff;
     color: black;
     width: 230px;
-    /* position: fixed; */
     border-radius: 4px;
     border: #7588db 3px solid;
     padding: 10px;
@@ -305,7 +291,6 @@ main .cadastro .campos .box .infos .main-items .beneficios {
   .card_erro #mensagem_erro{
     font-weight: 500;
     font-size: 20px;
-    /* position: absolute; */
     color: black;
   }
 
@@ -336,7 +321,6 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     }
 
     main .cadastro .campos .box .boxInputs .inputs .titulosInputs {
-        /* height: 8%; */
         font-size: 15px;
     }
 
@@ -350,7 +334,6 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     }
 
     main .cadastro .campos .box .boxInputs .inputs .nomeCompleto {
-        /* margin: 0 5% 0 0; */
         width: 40%;
     }
 
@@ -360,8 +343,6 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     }
 
     main .cadastro .campos .box .boxInputs .inputs .email {
-        /* height: 15%; */
-        /* border: 2px solid tomato; */
         width: 50%;
     }
 

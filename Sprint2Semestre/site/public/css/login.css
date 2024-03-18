@@ -140,11 +140,9 @@ main .login .logo .formulario .div_botoes {
     justify-content: space-evenly;
     width: 100%;
     /* border: 2px solid rgb(120, 245, 58); */
-    /* margin: 0 5%; */
 }
 
 main .login .logo .formulario .div_botoes button {
-    /* background-color: rgb(49, 108, 236); */
     background-color: rgb(23, 23, 142);
     height: 8vh;
     width: 100%;
@@ -178,7 +176,6 @@ main .login .logo .formulario .div_botoes button:hover {
     background-color: #fff;
     color: black;
     width: 230px;
-    /* position: fixed; */
     border-radius: 4px;
     border: #7588db 3px solid;
     padding: 10px;
@@ -190,7 +187,6 @@ main .login .logo .formulario .div_botoes button:hover {
   .card_erro #mensagem_erro{
     font-weight: 500;
     font-size: 20px;
-    /* position: absolute; */
     color: black;
   }
 
@@ -211,13 +207,11 @@ main .login .logo .formulario .div_botoes button:hover {
     main .login .logo{
         height: 100%;
         width: 100%;
-        /* border: 2px solid yellow; */
     }
 
     main .login .formulario {
         width: 100%;
         position: relative;
-        /* border: 2px solid red; */
     }
 
     main .login .formulario .borda p {
@@ -227,7 +221,6 @@ main .login .logo .formulario .div_botoes button:hover {
 
     main .login .formulario .usuario .inputUsuario {
         font-size: 15px;
-        /* border: 2px solid blue; */
     }
 
     main .login .formulario .senha .inputSenha {
@@ -237,19 +230,16 @@ main .login .logo .formulario .div_botoes button:hover {
     main .login .formulario .usuario input {
         width: 90%;
         height: 30px;
-        /* border: 2px solid magenta; */
     }
 
     main .login .formulario .senha input {
         width: 90%;
         height: 30px;
-        /* border: 2px solid magenta; */
     }
 
     main .login .formulario .div_botoes {
         width: 50%;
         height: 9%;
-        /* border: 2px solid yellowgreen; */
         display: flex;
     }
     
@@ -257,13 +247,11 @@ main .login .logo .formulario .div_botoes button:hover {
         height: 100%;
         width: 55px;
         font-size: 14px;
-        /* border: 2px solid lightsalmon;  */
     }
 
     main .login .logo .formulario .borda .div_botoes .botaoCriarConta {
         height: 100%;
         width: 140px;
         font-size: 14px;
-        /* border: 2px solid lightsalmon;  */
     }
 }
