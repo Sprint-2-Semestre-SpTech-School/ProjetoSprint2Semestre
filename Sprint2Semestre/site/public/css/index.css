@@ -47,10 +47,59 @@ section {
     }
 
     .navbar .btns-login-register {
-        width: 60%;
+        width: 45%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: 1.2em;
+    }
+
+    #btn-login:hover {
+        width: 50%;
+        background-image: none;
+        background-color: transparent;
+        border: #5730f0 1px solid;
+        color: #3083f0;
+    }
+
+    #btn-login {
+        color: black;
+        display: flex;
+        width: 180px;
+        height: 50px;
+        background-image: linear-gradient(to right, #3083f0, #5730f0);
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: 0.4s;
+    }
+
+    #btn-register {
+        display: flex;
+        width: 180px;
+        height: 50px;
+        background-image: linear-gradient(to left, #FDAD00, #ffff);
+        color: #2c1f02;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: 0.7s;
+    }
+    
+    #btn-register:hover {
+        width: 50%;
+        background-image: none;
+        background-color: transparent;
+        border: #FDAD00 1px solid;
+        color: #ffc54a;
     }
 
     .btns-login-register a {
@@ -73,6 +122,41 @@ section {
         color: #ffff;
         text-shadow: 2px 2px 8px #FDAD00;
         font-weight: bold;
+        font-size: 1px;
+        /* border: 2px solid red; */
+    }
+
+    main .home .main-image .main-text {
+        display: flex;
+        position: absolute;
+        width: 75%;
+        /* font-size: 48px; */
+        /* color: #ffff; */
+        /* text-shadow: 2px 2px 8px black; */
+        /* font-weight: bold; */
+        text-align: center;
+        /* border: 5px solid red; */
+    }
+    
+    /* main .home .main-image .main-text h1 {
+        font-size: 48px;
+        color: #ffff;
+        text-shadow: 2px 2px 8px black;
+        font-weight: bold;
+    } */
+    
+    main .home .main-image .main-text p {
+        font-size: 25px;
+        color: #ffff;
+        text-shadow: 2px 2px 8px black;
+        font-weight: bold;
+        /* border: 5px solid red; */
+    }
+    
+    main .home .main-image .main-text b {
+        font-size: 25px;
+        color: #FDAD00;
+        text-shadow: 2px 2px 8px black;
     }
 
     main .solution .main-content img {
@@ -88,43 +172,76 @@ section {
         flex-direction: column;
         width: 10%;
         height: 10%;
+        border-radius: 25px;
+        background-image: url(https://news.satcomdirect.com/wp-content/uploads/2020/09/NOC_at_SD_World_Headquarters.jpg);   
+
     }
 
     .solution {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url(https://news.satcomdirect.com/wp-content/uploads/2020/09/NOC_at_SD_World_Headquarters.jpg);
+        /* border: 2px solid rgb(96, 244, 103); */
     }
 
     main .solution .main-content {
         display: none;
+        width: 100%;
+    }
+
+    main .solution .main-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        width: 80%;
+        height: 80%;
+        gap: 5%;
+        /* border: 2px solid sandybrown; */
+        position: relative;
+    }
+    
+    main .solution .main-content img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 25px;
+    }
+    
+    main .solution .main-content .solution-box {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 25px;
+        /* border: 2px solid yellow; */
     }
 
     main .solution .main-content img {
         display: none;
     }
 
-    main .solution .main-content .solution-box {
+    /* main .solution .main-content .solution-box {
         display: flex;
         position: absolute;
         align-items: center;
-    }
+        width: 10%;
+    } */
 
     main .solution .main-content .solution-box .box {
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         width: 100%;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
-        /* border: 5px solid white; */
+        /* border: 2px solid rgb(176, 32, 32); */
     }
 
     main .solution .main-content .solution-box .box .title {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 50%;
+        font-size: 8px;
         /* margin: 5%; */
+        /* border: 2px solid mediumaquamarine; */
     }
 
     main .solution .main-content .solution-box .title h1 {
@@ -136,12 +253,17 @@ section {
         align-items: center;
         text-align: center;
         text-align: left;
-        /* border: 5px solid yellowgreen; */
     }
 
     main .solution .main-content .solution-box .solution-info p {
-        font-size: 60%;
-        width: 100%;
+        font-size: 15px;
+        text-shadow: 0.7px 0.7px 0.5px black;
+    }
+
+    main .solution .main-content .solution-box .solution-info b {
+        color: #FDAD00;
+        text-shadow: 0.7px 0.7px 0.5px black;
+        font-size: 15px;
     }
 
     main .solution .main-content .solution-box .image-box img {
@@ -189,9 +311,9 @@ section {
 
     .about-box1 p {
         color: #001736;
-        text-shadow: 2px 2px 1px #3083f0;
+        /* text-shadow: 2px 2px 1px #3083f0; */
         width: 100%;
-        font-size: 55%;
+        font-size: 14px;
     }
 
 
@@ -214,7 +336,7 @@ section {
 
     .about-box2 p {
         color: #001736;
-        text-shadow: 2px 1px 1px #001736;
+        /* text-shadow: 2px 1px 1px #001736; */
         width: 100%;
         font-size: 55%;
     }
@@ -252,18 +374,22 @@ section {
         width: 100%;
         float: left;
         margin: 6%;
-        border: 5px solid yellow;
+        /* border: 5px solid yellow; */
     }
 
-    main .bases .bases-box .base .text {
+    /* main .bases .bases-box .base .text {
         font-size: 5em;
-    }
+    } */
 
-    main .bases .bases-box .base p {
+    /* main .bases .bases-box .base h1 {
+        font-size: 5em;
+    } */
+
+    /* main .bases .bases-box .base p {
         padding: 5%;
         width: 100%;
         font-size: 100%;
-    }
+    } */
 
     main .bases .bases-box .base img {
         max-height: 60%;
@@ -292,11 +418,9 @@ section {
     }
 
     main .missions .missions-box .mission img {
-        display: flex;
-        width: 100%;
-        height: 50%;
+        opacity: 0;
     }
-
+    
     main .missions .missions-box .mission .mission-text {
         width: 100%;
         height: 50%;
@@ -555,7 +679,7 @@ nav {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     z-index: 1;
     transition: 0.4s;
-    border: 5px solid yellow;
+    /* border: 5px solid yellow; */
 }
 
 .image-logo {
@@ -607,6 +731,7 @@ main .home .main-image {
     align-items: center;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .gradient-overlay {
@@ -624,10 +749,11 @@ main .home .main-image img {
 }
 
 main .home .main-image .main-text {
-    /* display: flex; */
+    display: flex;
     position: absolute;
     width: 75%;
     font-size: 3em;
+    font-size: 48px;
     color: #ffff;
     text-shadow: 2px 2px 8px black;
     font-weight: bold;
@@ -635,11 +761,24 @@ main .home .main-image .main-text {
     /* border: 5px solid red; */
 }
 
+/* main .home .main-image .main-text h1 {
+    font-size: 48px;
+    color: #ffff;
+    text-shadow: 2px 2px 8px black;
+    font-weight: bold;
+} */
+
+/* main .home .main-image .main-text p {
+    font-size: 48px;
+    color: #ffff;
+    text-shadow: 2px 2px 8px black;
+    font-weight: bold;
+} */
+
 main .home .main-image .main-text b {
-    font-size: 1.2em;
+    /* font-size: 48px; */
     color: #FDAD00;
     text-shadow: 2px 2px 8px black;
-
 }
 
 .solution {
@@ -656,10 +795,11 @@ main .solution .main-content {
     width: 80%;
     height: 80%;
     gap: 5%;
+    position: relative;
+    /* border: 2px solid yellowgreen; */
 }
 
 main .solution .main-content img {
-    position: relative;
     max-width: 100%;
     max-height: 100%;
     border-radius: 25px;
@@ -670,17 +810,20 @@ main .solution .main-content .solution-box {
     position: absolute;
     align-items: center;
     width: 60%;
-    height: 80%;
+    height: 100%;
     border-radius: 25px;
+    /* border: 2px solid sandybrown; */
 }
 
 main .solution .main-content .solution-box .box {
     display: flex;
     flex-direction: column;
-    width: 40%;
-    height: 80%;
+    width: 70%;
+    height: 100%;
     margin-left: 5%;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+    /* border: 2px solid yellow; */
+    justify-content: space-evenly;
 }
 
 main .solution .main-content .solution-box .box .title {
@@ -688,10 +831,12 @@ main .solution .main-content .solution-box .box .title {
     align-items: center;
     justify-content: center;
     /* margin: 5%; */
+    /* border: 2px solid red; */
+
 }
 
 main .solution .main-content .solution-box .title h1 {
-    font-size: 6em;
+    font-size: 5.2em;
     color: #FDAD00
 }
 
@@ -702,10 +847,11 @@ main .solution .main-content .solution-box .solution-info {
     font-size: 1.5em;
     text-align: left;
     text-shadow: 0.7px 0.7px 0.5px white;
+    /* border: 2px solid magenta; */
 }
 
 main .solution .main-content .solution-box .solution-info b {
-    font-size: 1.2em;
+    font-size: 1em;
     color: #FDAD00;
     text-shadow: 0.7px 0.7px 0.5px black;
 }
@@ -876,6 +1022,7 @@ main .missions .missions-box .mission:nth-child(2) {
     margin-left: 30%;
     flex-direction: row-reverse;
     border-radius: 25px 0 0 25px;
+    border: 2px solid green;
 }
 
 main .missions .missions-box .mission img {
@@ -912,7 +1059,7 @@ main .packages .comercial-packages {
     justify-content: center;
     align-items: center;
     gap: 5%;
-    border: 5px solid red;
+    /* border: 5px solid red; */
 }
 
 main .packages .package1 {
