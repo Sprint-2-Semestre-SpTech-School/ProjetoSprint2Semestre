@@ -27,6 +27,7 @@ function changeNav() {
 }
 
 ScrollReveal().reveal('.home', { delay: 300 });
+
 ScrollReveal().reveal('img', {
     delay: 200,
     reset: true
