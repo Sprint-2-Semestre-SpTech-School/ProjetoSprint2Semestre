@@ -890,6 +890,7 @@ main .about-us .about-box1 .image-box {
     align-items: center;
     width: 55%;
     height: 100%;
+    /* border: 5px solid red; */
 }
 
 main .about-us .about-box1 .image-box img {
@@ -901,18 +902,44 @@ main .about-us .about-box1 .image-box img {
 
 main .about-us .about-box1 .text {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 45%;
     height: 90%;
     font-size: 1.8em;
     text-align: center;
+    gap: 0.5em;
+    /* border: 5px solid pink;   */
+}
+
+main .about-us .about-box1 .text h1 {
+    color: #FDAD00;
+    text-shadow: 0.7px 0.7px 0.5px black;
+    font-size: 1.7em;
+    /* border: 5px solid red; */
+}
+
+main .about-us .about-box1 .text .essential-components {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 100%;
+    max-height: 30%;
+    background-color: #001736;
+    border-radius: 25px;
+    box-shadow: 1px 1px 1px black;
+    padding: 15px;
+    /* border: 5px solid green; */
 }
 
 .about-box1 p {
     color: #001736;
-    width: 80%;
+    width: 100%;
+}
+
+.about-box1 b {
+    color: #FDAD00;
+    text-shadow: 0.7px 0.7px 0.5px black;
 }
 
 
@@ -925,18 +952,21 @@ main .about-us .about-box2 {
 
 main .about-us .about-box2 .text {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 55%;
     height: 90%;
     font-size: 1.8em;
+    gap: 0.5em;
     text-align: center;
+    /* border: 5px solid blue; */
 }
 
-.about-box2 p {
-    color: #001736;
-    width: 80%;
+main .about-us .about-box2 .text h1 {
+    color: #FDAD00;
+    text-shadow: 0.7px 0.7px 0.5px black;
+    font-size: 1.7em;
 }
 
 main .about-us .about-box2 .image-box {
@@ -945,6 +975,29 @@ main .about-us .about-box2 .image-box {
     align-items: center;
     width: 45%;
     height: 100%;
+    /* border: 5px solid red; */
+}
+
+main .about-us .about-box2 .text .monitoring {
+    display: flex;
+    justify-content: center;
+    max-width: 75%;
+    max-height: 55%;
+}
+
+main .about-us .about-box2 .text .monitoring img{
+    border-radius: 25px;
+
+}
+
+.about-box2 p {
+    color: #001736;
+    width: 100%;
+}
+
+.about-box2 b {
+    color: #FDAD00;
+    text-shadow: 0.7px 0.7px 0.5px black;
 }
 
 main .about-us .about-box2 .image-box img {
@@ -981,6 +1034,13 @@ main .bases .bases-box .base {
     background-color: white;
     border-radius: 25px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    transition: 0.3s ease-in-out;
+}
+
+main .bases .bases-box .base:hover {
+    width: 110%;
+    height: 110%;
+    border: 3px solid #FDAD00;
 }
 
 main .bases .bases-box .base img {
@@ -991,14 +1051,14 @@ main .bases .bases-box .base img {
 
 main .bases .bases-box .base h1 {
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     color: #000071;
 }
 
 main .bases .bases-box .base p {
     padding: 5%;
     width: 100%;
-    font-size: 24px;
+    font-size: 2em;
     text-align: center;
     color: #000071;
 }
@@ -1014,7 +1074,6 @@ main .missions .missions-box {
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
-    border: 5px solid white;
 }
 
 main .missions .missions-box .mission {
@@ -1024,6 +1083,13 @@ main .missions .missions-box .mission {
     background-color: white;
     border-radius: 0 25px 25px 0;
     border: 3px solid #3083f0;
+    transition: 0.5s ease-in-out;
+}
+
+main .missions .missions-box .mission:hover {
+    width: 80%;
+    height: 32%;
+    border: 5px solid #FDAD00;
 }
 
 main .missions .missions-box .mission:nth-child(2) {
@@ -1031,7 +1097,13 @@ main .missions .missions-box .mission:nth-child(2) {
     margin-left: 30%;
     flex-direction: row-reverse;
     border-radius: 25px 0 0 25px;
-    border: 2px solid green;
+    transition: 0.5 ease-in-out;
+}
+
+main .missions .missions-box .mission:nth-child(2):hover {
+    width: 80%;
+    margin-left: 20%;
+    border: 5px solid #FDAD00;
 }
 
 main .missions .missions-box .mission img {
@@ -1050,7 +1122,7 @@ main .missions .missions-box .mission p {
     font-weight: bold;
     width: 100%;
     height: 100%;
-    font-size: 1.2em;
+    font-size: 2em;
     padding: 3%;
 }
 
