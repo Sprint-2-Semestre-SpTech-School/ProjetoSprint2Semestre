@@ -616,9 +616,6 @@ section {
     display: flex;
     justify-content: space-evenly;
     width: 40%;
-    /* justify-content: center; */
-    /* justify-content: space-between; */
-    /* border: 5px solid blueviolet; */
 }
 
 #btn-login {
@@ -679,7 +676,6 @@ nav {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     z-index: 1;
     transition: 0.4s;
-    /* border: 5px solid yellow; */
 }
 
 .image-logo {
@@ -809,7 +805,6 @@ main .solution .main-content {
     height: 80%;
     gap: 5%;
     position: relative;
-    /* border: 2px solid yellowgreen; */
 }
 
 main .solution .main-content img {
@@ -825,7 +820,6 @@ main .solution .main-content .solution-box {
     width: 60%;
     height: 100%;
     border-radius: 25px;
-    /* border: 2px solid sandybrown; */
 }
 
 main .solution .main-content .solution-box .box {
@@ -834,14 +828,12 @@ main .solution .main-content .solution-box .box {
     width: 70%;
     height: 100%;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
-    /* border: 2px solid yellow; */
     justify-content: space-evenly;
 }
 
 main .solution .main-content .solution-box .box .title {
     display: flex;
     align-items: center;
-    /* border: 2px solid red; */
 }
 
 main .solution .main-content .solution-box .title h1 {
@@ -856,7 +848,6 @@ main .solution .main-content .solution-box .solution-info {
     font-size: 2em;
     text-align: left;
     text-shadow: 0.7px 0.7px 0.5px white;
-    /* border: 2px solid magenta; */
 }
 
 main .solution .main-content .solution-box .solution-info b {
@@ -874,7 +865,6 @@ main .solution .main-content .solution-box .image-box img {
 main .about-us {
     display: inline-block;
     justify-content: center;
-    /* border: 5px solid rgb(255, 0, 200); */
 }
 
 main .about-us .about-box1 {
@@ -890,7 +880,6 @@ main .about-us .about-box1 .image-box {
     align-items: center;
     width: 55%;
     height: 100%;
-    /* border: 5px solid red; */
 }
 
 main .about-us .about-box1 .image-box img {
@@ -910,14 +899,13 @@ main .about-us .about-box1 .text {
     font-size: 1.8em;
     text-align: center;
     gap: 0.5em;
-    /* border: 5px solid pink;   */
+    padding: 1em;
 }
 
 main .about-us .about-box1 .text h1 {
     color: #FDAD00;
     text-shadow: 0.7px 0.7px 0.5px black;
     font-size: 1.7em;
-    /* border: 5px solid red; */
 }
 
 main .about-us .about-box1 .text .essential-components {
@@ -929,7 +917,6 @@ main .about-us .about-box1 .text .essential-components {
     border-radius: 25px;
     box-shadow: 1px 1px 1px black;
     padding: 15px;
-    /* border: 5px solid green; */
 }
 
 .about-box1 p {
@@ -960,7 +947,6 @@ main .about-us .about-box2 .text {
     font-size: 1.8em;
     gap: 0.5em;
     text-align: center;
-    /* border: 5px solid blue; */
 }
 
 main .about-us .about-box2 .text h1 {
@@ -975,7 +961,6 @@ main .about-us .about-box2 .image-box {
     align-items: center;
     width: 45%;
     height: 100%;
-    /* border: 5px solid red; */
 }
 
 main .about-us .about-box2 .text .monitoring {
@@ -1126,98 +1111,76 @@ main .missions .missions-box .mission p {
     padding: 3%;
 }
 
-main .packages {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    background-color: #0000BB;
-    gap: 5%;
-}
-
-main .packages .comercial-packages {
+main .devs {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    /* border: 5px solid red; */
 }
 
-main .packages .package1 {
+main .devs .dev-div {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-direction: column;
-    width: 40%;
-    height: 60%;
-    background-color: #001736;
-    border-radius: 25px;
-    box-shadow: 4px 4px 2px 2px #000204;
-    /* border: 5px solid green; */
-}
-
-main .packages .package1 img {
-    width: 100%;
+    width: 80%;
     height: 100%;
-    border-radius: 25px;
-    /* border: 3px solid #3083f0; */
 }
 
-main .packages .package2 img {
-    width: 100%;
-    /* height: 432.85px; */
-    border-radius: 25px;
-    /* border: 3px solid #3083f0; */
-
-}
-
-main .packages .package2 {
+main .devs .dev-div .dev {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 50%;
+    height: 33%;
+}
+
+main .devs .dev-div .dev-photo {
+    height: 18em;
+    width: 60%;
+    border: 5px solid #000071;
+    border-radius: 50%;
+    transition: 200ms;
+}
+
+main .devs .dev-div .dev-photo:hover {
+    width: 70%;
+    height: 20em;
+    border: 5px solid #FDAD00;
+}
+
+main .devs .dev-div .dev-photo img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    transition: 0.5s ease-in;
+}
+
+main .devs .dev-div .dev-desc  {
+    display: flex;
     flex-direction: column;
-    width: 40%;
-    height: 70%;
-    background-color: #001736;
-    border-radius: 25px;
-    box-shadow: 4px 4px 2px 2px #000204;
-    /* border: 5px solid green; */
-}
-
-main .packages .package1 .package-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffc54a;
-}
-
-main .packages .package1 .package-info {
-    width: 95%;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
     text-align: center;
-    text-shadow: 1px 1px #3083f0;
-    /* border: 5px solid yellow; */
-}
-
-main .packages .package2 .package-info {
-    width: 95%;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    text-shadow: 1px 1px #3083f0;
-    /* padding: 3%; */
-}
-
-main .packages .package2 .package-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffc54a;
     width: 100%;
+    color: black;
+    gap: 3em;
+}
+
+main .devs .dev-div .dev-desc h1 {
+    font-size: 3em;
+    color: black;
+}
+
+main .devs .dev-div .dev-desc p {
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+}
+
+main .devs .dev-div .dev-desc i {
+    font-size: 5em;
+    color: #001736;
+    transition: 200ms linear;
+}
+
+main .devs .dev-div .dev-desc i:hover {
+    font-size: 6em;
+    color: #FDAD00;
 }
 
 
