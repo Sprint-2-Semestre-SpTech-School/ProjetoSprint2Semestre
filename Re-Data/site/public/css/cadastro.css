@@ -98,17 +98,18 @@ main .cadastro .campos .box .boxInputs .titulo {
 
 main .cadastro .campos .box .boxInputs .inputs {
     /* border: 2px solid yellow; */
-    height: 80%;
+    height: 70%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
 main .cadastro .campos .box .boxInputs .inputs input {
-    height: 40%;
+    height: 20vh;
     border-radius: 5px;
     color: black;
     font-size: 18px;
+    /* border: 2px solid green; */
 }
 
 main .cadastro .campos .box .boxInputs .inputs .titulosInputs {
@@ -143,7 +144,7 @@ main .cadastro .campos .box .boxInputs .inputs .empresa {
 
 main .cadastro .campos .box .boxInputs .inputs .normais {
     width: 100%;
-    height: 40%;
+    height: 55%;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .cnpj {
@@ -154,26 +155,8 @@ main .cadastro .campos .box .boxInputs .inputs .cnpj {
 
 main .cadastro .campos .box .boxInputs .inputs .pequenos {
     width: 100%;
-    height: 40%;
+    height: 55%;
     /* border: 2px solid forestgreen; */
-}
-
-main .cadastro .campos .box .boxInputs .inputs .pacotes {
-    height: 15%;
-    /* border: 2px solid tomato; */
-    width: 20%;
-    margin: 0 0 0 2%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes {
-    width: 80%;
-    height: 40%;
-    color: black;
-    border-radius: 5px;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes .selects {
-    color: black;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .cep {
@@ -184,7 +167,7 @@ main .cadastro .campos .box .boxInputs .inputs .cep {
 
 main .cadastro .campos .box .boxInputs .inputs .cep .pequenos {
     width: 85%;
-    height: 40%;
+    height: 55%;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .endereco {
@@ -203,7 +186,7 @@ main .cadastro .campos .box .boxInputs .inputs .numero {
 
 main .cadastro .campos .box .boxInputs .inputs .numero .pequenos {
     width: 80%;
-    height: 40%;
+    height: 55%;
 }
 
 main .cadastro .campos .box .boxInputs .inputs .bairro {
@@ -219,22 +202,21 @@ main .cadastro .campos .box .boxInputs .inputs .complemento {
     width: 40%;
 }
 
-main .cadastro .campos .box .boxInputs .inputs .senha {
-    height: 15%;
-    /* border: 2px solid tomato; */
-    width: 25%;
-}
-
-main .cadastro .campos .box .boxInputs .inputs .senha .pequenos {
-    width: 85%;
-    height: 40%;
-}
-
 main .cadastro .campos .box .boxInputs .btnConta {
     background-color: rgb(212, 149, 31);
     width: 40%;
-    font-size: 25px;
+    font-size: 26px;
     border-radius: 10px;
+    height: 9vh;
+    cursor: pointer;
+    transition: 0.4s;
+    border: 2px solid rgb(212, 149, 31);
+}
+
+main .cadastro .campos .box .boxInputs .btnConta:hover {
+    background-image: none;
+    background-color: transparent;
+    color: white;
 }
 
 main .cadastro .campos .box .infos {
@@ -253,13 +235,16 @@ main .cadastro .campos .box .infos {
 }
 
 main .cadastro .campos .box .infos .titulo {
-    /* border: 1px solid black; */
-    color: black;
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(34, 45, 139);
     font-size: 30px;
-    width: 100%;
+    width: 70%;
+    margin: 0 15% 0 15%;
     justify-content: center;
     display: flex;
     font-weight: bold;
+    border-radius: 15px;
 }
 
 main .cadastro .campos .box .infos .main-items .beneficios {
@@ -270,10 +255,18 @@ main .cadastro .campos .box .infos .main-items .beneficios {
     font-size: 25px;
 }
 
+main .cadastro .campos .box .infos .main-items .beneficiosMais {
+    /* border: 1px solid rgb(66, 171, 48); */
+    color: rgb(212, 149, 31);
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+}
+
 main .cadastro .campos .box .infos .acessarLogin {
     /* border: 1px solid black; */
     color: rgb(22, 61, 152);
-    font-size: 20px;
+    font-size: 24px;
     width: 100%;
     justify-content: center;
     display: flex;
@@ -340,7 +333,7 @@ main .cadastro .campos .box .infos .acessarLogin {
 
     main .cadastro .campos .box .boxInputs .inputs .normais {
         width: 100%;
-        height: 50%;
+        height: 60%;
     }
 
     main .cadastro .campos .box .boxInputs .inputs .nomeCompleto {
@@ -349,7 +342,7 @@ main .cadastro .campos .box .infos .acessarLogin {
 
     main .cadastro .campos .box .boxInputs .inputs .nomeCompleto .normais {
         width: 90%;
-        height: 50%;
+        height: 60%;
     }
 
     main .cadastro .campos .box .boxInputs .inputs .email {
@@ -357,11 +350,7 @@ main .cadastro .campos .box .infos .acessarLogin {
     }
 
     main .cadastro .campos .box .boxInputs .inputs .pequenos {
-        height: 50%;
-    }
-
-    main .cadastro .campos .box .boxInputs .inputs .pacotes .opcoesPacotes {
-        height: 50%;
+        height: 60%;
     }
 
     main .cadastro .campos .box .boxInputs .btnConta {
@@ -377,10 +366,18 @@ main .cadastro .campos .box .infos .acessarLogin {
     }
 
     main .cadastro .campos .box .infos .titulo {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     main .cadastro .campos .box .infos .main-items .beneficios {
-        font-size: 18px;
+        font-size: 17px;
+    }
+
+    main .cadastro .campos .box .infos .main-items .beneficiosMais {
+        font-size: 17px;
+    }
+
+    main .cadastro .campos .box .infos .acessarLogin {
+        font-size: 16px;
     }
 }

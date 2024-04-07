@@ -19,7 +19,7 @@
             </div>
             <ul class="nav-items">
                 <li class="item">
-                    <a href=""><img class="imgLogo" src="./assets/icon/Logo High.png" alt="logotipo"></a>
+                    <a href="index.html"><img class="imgLogo" src="./assets/icon/Logo High.png" alt="logotipo"></a>
                 </li>
             </ul>
         </nav>
@@ -44,7 +44,7 @@
 
                             <div class="email">
                                 <label class="titulosInputs" for="E-mail">E-mail:</label>
-                                <input id="input_email" class="normais" type="email" placeholder="E-mail: email@endereco.com"><br>
+                                <input id="input_email" class="normais" type="email" placeholder="email@endereco.com"><br>
                             </div>
 
                             <div class="telefone">
@@ -60,14 +60,6 @@
                             <div class="cnpj">
                                 <label class="titulosInputs" for="text">CNPJ:</label>
                                 <input id="input_cnpj" class="pequenos" type="number" placeholder="xxxxxxxxxxxxxx">
-                            </div>
-
-                            <div class="pacotes">
-                                <label class="titulosInputs" for="text">Pacotes:</label>
-                                <select class="opcoesPacotes" name="opcoesPacotes" id="">
-                                    <option class="selects" value="pacote01">Pacote01</option>
-                                    <option class="selects" value="pacote02">Pacote02</option>
-                                </select>
                             </div>
 
                             <div class="cep">
@@ -96,22 +88,20 @@
                                 <input id="input_complemento" class="normais" type="text" placeholder="Condomínio, bloco">
                             </div>
 
-                            <div class="senha">
-                                <label class="titulosInputs" for="text">Senha:</label>
-                                <input id="input_senha" class="pequenos" type="password" placeholder="******">
-                            </div>
                         </div>
 
                         <button class="btnConta" onclick="criarConta()">Criar Conta</button>
                     </div>
 
                     <div class="infos">
-                        <label class="titulo" for="text">O registro te dará acesso a:</label>
+                        <label class="titulo" for="text">Benefícios do seu cadastro</label>
 
                         <ul class="main-items">
-                            <li class="beneficios">Monitorar seu sistema</li>
-                            <li class="beneficios">Monitorar as guias dos seus funcionários</li>
-                            <li class="beneficios">Código de segurança para seu login</li>
+                            <li class="beneficios">- Monitorar seu sistema</li>
+                            <li class="beneficios">- Código de segurança para seu login</li>
+                            <li class="beneficios">- Bloquear as entradas USB do seu computador</li>
+                            <li class="beneficios">- Seus dados 100% limpos e seguros</li><br>
+                            <b><li class="beneficiosMais">E muito mais!</li></b>
                             <!-- <li class="beneficios">Acesso personalizado de acordo com seu cargo</li> -->
                         </ul>
 
@@ -140,7 +130,6 @@ var endereco = input_endereco.value;
 var numCasa = input_numCasa.value;
 var bairro = input_bairro.value;
 var complemento = input_complemento.value;
-var senha = input_senha.value;
 
   if (
       nomeCompleto == "" ||
@@ -152,8 +141,7 @@ var senha = input_senha.value;
       endereco == "" ||
       numCasa == "" ||
       bairro == "" ||
-      complemento == "" ||
-      senha == ""
+      complemento == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -178,12 +166,7 @@ var senha = input_senha.value;
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "Coloque um número de endereço válido!"; 
-    } else if (senha.length < 6)  {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "Senha com no mínimo 6 dígitos!"; 
-    }
-    else {
+    } else {
       setInterval(sumirMensagem, 5000);
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
