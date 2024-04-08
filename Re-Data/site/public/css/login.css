@@ -125,7 +125,7 @@ main .login .logo .formulario input {
 main .login .logo .formulario .senha {
     /* border: 2px solid rgb(58, 58, 245); */
     margin: 0 15%;
-    height: 20vh;
+    height: 16vh;
     width: 80%;
 }
 
@@ -137,16 +137,19 @@ main .login .logo .formulario .inputSenha {
 
 main .login .logo .formulario .div_botoes {
     display: flex;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     width: 100%;
+    height: 52px;
     /* border: 2px solid rgb(120, 245, 58); */
+    justify-content: center;
+    /* flex-wrap: wrap; */
 }
 
-main .login .logo .formulario .div_botoes button {
+main .login .logo .formulario .div_botoes .botaoEntrar {
+    width: 160px;
     background-color: rgb(23, 23, 142);
-    height: 8vh;
-    width: 100%;
-    font-size: 20px;
+    height: 7vh;
+    font-size: 22px;
     border-radius: 10px;
     color: white;
     display: flex;
@@ -154,14 +157,28 @@ main .login .logo .formulario .div_botoes button {
     align-items: center;
     cursor: pointer;
     transition: 0.4s;
+    /* border: 2px solid yellow; */
 }
 
-main .login .logo .formulario .div_botoes .botaoEntrar {
-    width: 100px;
+main .login .logo .formulario .linkCadastro {
+    display: flex;
+    /* justify-content: space-evenly; */
+    width: 100%;
+    height: 49px;
+    /* border: 2px solid rgb(245, 58, 114); */
+    justify-content: center;
+    align-content: center;
+    /* flex-wrap: wrap; */
 }
 
-main .login .logo .formulario .div_botoes .botaoCriarConta {
-    width: 250px;
+main .login .logo .formulario .linkCadastro .linkConta {
+    font-size: 22px;
+    color: rgb(23, 23, 142);
+    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    height: 100%;
 }
 
 main .login .logo .formulario .div_botoes button:hover {
@@ -244,14 +261,13 @@ main .login .logo .formulario .div_botoes button:hover {
     }
     
     main .login .logo .formulario .borda .div_botoes .botaoEntrar {
-        height: 100%;
-        width: 55px;
+        height: 80%;
+        width: 80px;
         font-size: 14px;
     }
 
-    main .login .logo .formulario .borda .div_botoes .botaoCriarConta {
-        height: 100%;
-        width: 140px;
-        font-size: 14px;
+    main .login .logo .formulario .linkCadastro .linkConta {
+        font-size: 16px;
     }
+
 }
