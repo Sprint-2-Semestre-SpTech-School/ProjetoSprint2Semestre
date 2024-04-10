@@ -1,0 +1,133 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    display: flex;
+    height: 100dvh;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 8rem;
+    transition: 0.4s;
+    background-color: #000071;
+    box-shadow: 2px 2px 2px black;
+    /* border: 5px solid yellow; */
+}
+
+.image-logo {
+    display: flex;
+    justify-content: center;
+    height: 15%;
+}
+
+nav .nav-items {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+nav li {
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+nav li:hover {
+    border-bottom: 2px solid #FDAD00;
+    transition: 0.8s;
+    font-size: 1.1rem;
+    color: #FDAD00;
+}
+
+nav .nav-items a {
+    color: whitesmoke;
+    font-size: 1.5em;
+    transition: ease-in 0.4s;
+}
+
+/* ------------------------------------------------- General Settings and Nav ------------------------------------------------------- */
+
+main .panel {
+    display: flex;
+    background-color: #001736;
+    /* border: 5px solid rebeccapurple; */
+}
+
+main .panel .machines {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    /* border: 5px solid lime; */
+}
+
+main .panel .machine {
+    display: flex;
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 3px solid white;
+    box-shadow: 3px 3px 3px black;
+    transition: 500ms;
+    /* border: 5px solid violet; */
+}
+
+main .panel .machine:hover {
+    width: 16em;
+    height: 16em;
+    border: 3px solid #FDAD00;
+    background-color: #3083f0;
+    box-shadow: 1px 1px 1px black;
+    cursor: pointer;
+}
+
+main .panel .machine-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    background-color: #000071;
+    box-shadow: 0 0 0 2px black;
+}
+
+main .panel .machine-desc .machine-infos {
+    text-align: center;
+    width: 100%;
+    height: 85%;
+    text-shadow: 2px 2px 2px black;
+    gap: 5em;
+}
+
+main .panel .machine-desc .machine-infos h1 {
+    font-size: 3rem;
+}
+
+main .panel .machine-desc .machine-infos .info {
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
