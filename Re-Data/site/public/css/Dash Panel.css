@@ -20,19 +20,29 @@ section {
 
 nav {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 8rem;
-    transition: 0.4s;
+    justify-content: space-around;
+    align-items: center;
+    width: 15%;
     background-color: #000071;
+    transition: 500ms;
     box-shadow: 2px 2px 2px black;
-    /* border: 5px solid yellow; */
 }
 
-.image-logo {
+nav .user {
     display: flex;
     justify-content: center;
-    height: 15%;
+    align-items: center;
+    border-radius: 50%;
+    height: 12rem;
+    width: 80%;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 2px black;
+}
+
+nav .user h1 {
+    color: black;
+    font-size: 1.5rem;
 }
 
 nav .nav-items {
@@ -42,27 +52,32 @@ nav .nav-items {
     flex-direction: column;
     color: white;
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    gap: 5rem;
 }
 
-nav li {
+nav .nav-items li {
+    display: flex;
+    width: 85%;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
     color: white;
+    border-radius: 1rem;
     cursor: pointer;
-    font-size: 1rem;
-}
-
-nav li:hover {
-    border-bottom: 2px solid #FDAD00;
-    transition: 0.8s;
     font-size: 1.1rem;
-    color: #FDAD00;
+    transition: 500ms;
+    background-color:#3083f0;
 }
 
-nav .nav-items a {
-    color: whitesmoke;
-    font-size: 1.5em;
-    transition: ease-in 0.4s;
+nav .nav-items li:hover {
+    background-color: #FDAD00;
 }
+
+    nav .nav-items a {
+        color: whitesmoke;
+        transition: ease-in 500ms;
+    }
 
 /* ------------------------------------------------- General Settings and Nav ------------------------------------------------------- */
 
@@ -77,24 +92,48 @@ main .panel .machines {
     justify-content: space-evenly;
     align-items: center;
     width: 70%;
-    /* border: 5px solid lime; */
 }
 
-main .panel .machine {
+main .panel .machines .machine {
     display: flex;
+    flex-direction: column;
     width: 15em;
     height: 15em;
     border-radius: 50%;
     background-color: transparent;
     border: 3px solid white;
-    box-shadow: 3px 3px 3px black;
+    box-shadow: 2px 2px 2px 2px black;
     transition: 500ms;
-    /* border: 5px solid violet; */
+    gap: 0.5rem;
 }
 
-main .panel .machine:hover {
-    width: 16em;
-    height: 16em;
+main .panel .machines .machine h1 {
+    width: 100%;
+    border: 5px solid red;
+    text-align: center;
+    vertical-align: middle;
+}
+
+main .panel .machines .machine .infoHardware {
+    display: flex;
+    /* border: 5px solid purple; */
+    height: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: 500ms;
+    border: 3px solid whitesmoke;
+}
+
+main .panel .machines .machine .infoHardware .info{
+    text-align: center;
+    font-size: 1.2rem;
+    overflow-y: auto;
+}
+
+
+main .panel .machines .machine:hover,
+main .panel .machines .machine .infoHardware .info:hover {
+    width: 16rem;
     border: 3px solid #FDAD00;
     background-color: #3083f0;
     box-shadow: 1px 1px 1px black;
@@ -116,7 +155,7 @@ main .panel .machine-desc .machine-infos {
     width: 100%;
     height: 85%;
     text-shadow: 2px 2px 2px black;
-    gap: 5em;
+    gap: 3rem;
 }
 
 main .panel .machine-desc .machine-infos h1 {

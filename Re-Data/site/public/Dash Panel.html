@@ -8,37 +8,70 @@
     <link rel="stylesheet" href="./css/Dash Panel.css">
 </head>
 
-<body onload="changeNav()">
+<body onload="showMachineInfo()">
     <main>
         <section class="panel">
             <nav class="navbar">
-                <div class="image-logo">
-                    <img src="./assets/icon/Logo High.png" alt="" class="logotipo">
+                <div class="user">
+                    <h1>ADM User</h1>
                 </div>
                 <ul class="nav-items">
                     <li class="item">
-                        <a href="#homePage">Home</a>
+                        <a href="#homePage">Dashboard</a>
                     </li>
                     <li class="item">
-                        <a href="#footer">Contatos</a>
+                        <a href="#footer">Serviços</a>
                     </li>
                     <li class="item">
-                        <a href="#sobreNos">Sobre</a>
+                        <a href="#sobreNos">Home</a>
                     </li>
                     <li class="item">
-                        <a href="#missoes">Serviços</a>
+                        <a href="#missoes">Sair</a>
                     </li>
                 </ul>
             </nav>
             <div class="machines">
                 <div class="machine">
                     <img src="./assets/imgs/monitor dash.png" alt="">
+                    <div class="infoHardware">
+                        <ul class="info on">
+                            <li>Operando: Sim</li>
+                            <li>Usuário: LuisGustavo</li>
+                            <li>Destino: Extract</li>
+                            <li>So: Windows</li>
+                            <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                            <li>Memória: 8192 RAM</li>
+                            <li>Disco: SSD 512GB</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="machine">
                     <img src="./assets/imgs/monitor dash.png" alt="">
+                    <div class="infoHardware">
+                        <ul class="info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul class="info">
+                    </div>
                 </div>
                 <div class="machine">
                     <img src="./assets/imgs/monitor dash.png" alt="">
+                    <div class="infoHardware on">
+                        <ul class="info">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="machine">
                     <h1>+</h1>
@@ -92,5 +125,4 @@
 
 </html>
 
-<script src="https://unpkg.com/scrollreveal"></script>
-<!-- <script src="./js/Effects.js"></script> -->
+<script src="./js/DashPanel.js"></script>
