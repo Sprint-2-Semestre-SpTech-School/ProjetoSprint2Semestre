@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/Dash Panel.css">
 </head>
 
-<body onload="showMachineInfo()">
+<body onload="showMachineInfo(), newMachine()">
     <main>
         <section class="panel">
             <nav class="navbar">
@@ -30,93 +30,92 @@
                     </li>
                 </ul>
             </nav>
-            <div class="machines">
-                <div class="machine">
-                    <img src="./assets/imgs/monitor dash.png" alt="">
-                    <div class="infoHardware">
-                        <ul class="info on">
-                            <li>Operando: Sim</li>
-                            <li>Usuário: LuisGustavo</li>
-                            <li>Destino: Extract</li>
-                            <li>So: Windows</li>
-                            <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
-                            <li>Memória: 8192 RAM</li>
-                            <li>Disco: SSD 512GB</li>
-                        </ul>
+            <div class="machineCrud">
+                <div class="filter">
+                    <select name="aaaa" id="">
+                        <option value="Ram">Ram</option>
+                        <option value="Cpu">Cpu</option>
+                        <option value="Extract">Extract</option>
+                    </select>
+                </div>
+                <div class="machines">
+                    <div class="modalMachine">
+                        <div class="title">
+                            <h1>Registrar nova Máquina:</h1>
+                        </div>
+                        <div class="content">
+                            <div class="machineCrud">
+                                <div class="machine">
+                                    <img src="./assets/imgs/monitor dash.png" alt="">
+                                </div>
+                                <select name="" id="">
+                                    <option value="">IdMaquina1</option>
+                                    <option value="">IdMaquina2</option>
+                                    <option value="">IdMaquina3</option>
+                                </select>
+                            </div>
+                            <div class="parametrize">
+                                <h2>Máquina3045</h2>
+                                <label for="">Usuário:</label>
+                                <input type="text">
+                                <label for="">Usuário:</label>
+                                <input type="text">
+                                <label for="">Sistema Operacional:</label>
+                                <input type="text">
+                                <label for="">Destino:</label>
+                                <input type="text">
+                                <div class="buttons">
+                                    <button>Registrar</button>
+                                    <button>Retornar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="machine">
-                    <img src="./assets/imgs/monitor dash.png" alt="">
-                    <div class="infoHardware">
-                        <ul class="info">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul class="info">
+                    <div class="machine">
+                        <img src="./assets/imgs/monitor dash.png" alt="">
+                        <div class="infoHardware">
+                            <ul class="info">
+                                <li>Operando: Sim</li>
+                                <li>Usuário: LuisGustavo</li>
+                                <li>Destino: Extract</li>
+                                <li>So: Windows</li>
+                                <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                <li>Memória: 8192 RAM</li>
+                                <li>Disco: SSD 512GB</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="machine">
-                    <img src="./assets/imgs/monitor dash.png" alt="">
-                    <div class="infoHardware on">
-                        <ul class="info">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
+                    <div class="machine">
+                        <img src="./assets/imgs/monitor dash.png" alt="">
+                        <div class="infoHardware">
+                            <ul class="info">
+                                <li>Operando: Sim</li>
+                                <li>Usuário: LuisGustavo</li>
+                                <li>Destino: Extract</li>
+                                <li>So: Windows</li>
+                                <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                <li>Memória: 8192 RAM</li>
+                                <li>Disco: SSD 512GB</li>
+                            </ul class="info">
+                        </div>
                     </div>
-                </div>
-                <div class="machine">
-                    <h1>+</h1>
-                </div>
-            </div>
-            <div class="machine-desc">
-                <div class="machine-infos">
-                    <h1>ID Máquina: 01</h1>
-                    <ul class="info">
-                        <li>
-                            <p>
-                                Operando: Sim
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Usuário: LUISGUSTAVO
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Destino: Extract
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                SO: Windows
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                CPU: 11th Gen Intel(R) Core(TM) i5 11300H
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Memória: 8192 RAM
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                Disco: SSD 512 GB
-                            </p>
-                        </li>
-                    </ul>
+                    <div class="machine">
+                        <img src="./assets/imgs/monitor dash.png" alt="">
+                        <div class="infoHardware on">
+                            <ul class="info">
+                                <li>Operando: Sim</li>
+                                <li>Usuário: LuisGustavo</li>
+                                <li>Destino: Extract</li>
+                                <li>So: Windows</li>
+                                <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                <li>Memória: 8192 RAM</li>
+                                <li>Disco: SSD 512GB</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="machine">
+                        <h1>+</h1>
+                    </div>
                 </div>
             </div>
         </section>

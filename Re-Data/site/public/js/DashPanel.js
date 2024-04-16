@@ -21,3 +21,14 @@ function showMachineInfo() {
         });
     });
 }
+
+function newMachine() {
+    const machines = document.querySelectorAll(".machine")
+    if (machines.length > 0) {
+        const lastMachine = machines[machines.length - 1];
+        lastMachine.addEventListener("click", () =>{
+            
+            console.log("Clicou na última máquina")
+        })
+    }
+}
