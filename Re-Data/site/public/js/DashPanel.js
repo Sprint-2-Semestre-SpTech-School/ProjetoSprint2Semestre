@@ -1,34 +1,89 @@
 function showMachineInfo() {
-    const machines = document.querySelectorAll(".machine")
+    const machines = document.querySelectorAll(".machine");
     console.log(machines);
 
     machines.forEach((machine, index) => {
         let divState = false;
         const hardware = machine.querySelector(".infoHardware");
         machine.addEventListener("click", () => {
-            console.log("Máquina: " + index)
+            console.log("Máquina: " + index);
             if (divState == false) {
                 hardware.style.opacity = "1";
                 hardware.style.visibility = "visible";
                 divState = true;
-                machine.style.borderRadius = "2rem 2rem 0 0"
+                machine.style.borderRadius = "2rem 2rem 0 0";
             } else {
                 hardware.style.opacity = "0";
                 hardware.style.visibility = "hidden";
                 divState = false;
-                machine.style.borderRadius = "50%"
+                machine.style.borderRadius = "50%";
             }
         });
     });
 }
 
 function newMachine() {
-    const machines = document.querySelectorAll(".machine")
+    const machines = document.querySelectorAll(".machine");
+    const modal = document.querySelector(".modalMachine")
+    const close = document.querySelector(".close");
+    const closeButton = document.querySelector("#closeButton");
+    const overlay = document.querySelector(".overlay");
+
+    let divState = false;
     if (machines.length > 0) {
         const lastMachine = machines[machines.length - 1];
-        lastMachine.addEventListener("click", () =>{
-            
-            console.log("Clicou na última máquina")
-        })
+        lastMachine.addEventListener("click", () => {
+            console.log("Clicou na última máquina");
+            if (divState == false) {
+                modal.style.visibility = "visible";
+                modal.style.opacity = "1";
+                overlay.style.zIndex = "2";
+                divState = true;
+
+                close.addEventListener("click", () => {
+                    if (divState == true) {
+                        modal.style.visibility = "hidden";
+                        modal.style.opacity = "0";
+                        overlay.style.zIndex = "-1";
+                        divState = false;
+                    }
+                });
+                closeButton.addEventListener("click", () => {
+                    if (divState == true) {
+                        modal.style.visibility = "hidden";
+                        modal.style.opacity = "0";
+                        overlay.style.zIndex = "-1";
+                        divState = false;
+                    }
+                });
+            }
+        });
     }
 }
+
+function showData(){
+    const calendar = document.querySelector("#data");
+    const actualDate = new Date();
+
+    const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    const formattedDate = actualDate.toLocaleDateString('PT-BR', options);
+
+    calendar.textContent = "Data atual: " + formattedDate;
+
+    setInterval(showData, 24 * 60 * 60 * 1000);
+}
+
+function showTime(){
+    const time = document.querySelector("#time");
+
+    const moment = new Date();
+    const hours = moment.getHours().toString().padStart(2, '0');
+    const minutes = moment.getMinutes().toString().padStart(2, '0');
+    const seconds = moment.getSeconds().toString().padStart(2, '0');
+    const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+    time.textContent = "Tempo atual: " + formattedTime;
+
+    setInterval(showTime, 1000);
+}
+

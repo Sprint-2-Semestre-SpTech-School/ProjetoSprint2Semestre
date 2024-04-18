@@ -6,14 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/Dash Panel.css">
+    <!-- Link para o FontAwesome -->
+    <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
 </head>
 
-<body onload="showMachineInfo(), newMachine()">
+<body onload="showMachineInfo(), newMachine(), showData(), showTime()">
     <main>
         <section class="panel">
+            <div class="overlay"></div>
             <nav class="navbar">
                 <div class="user">
-                    <h1>ADM User</h1>
+                    <h1>ADM User Acesso total</h1>
                 </div>
                 <ul class="nav-items">
                     <li class="item">
@@ -39,7 +42,39 @@
                     </select>
                 </div>
                 <div class="machines">
+                    <div class="top-info">
+                        <div class="crudOptions">
+                            <i class="fa-solid fa-repeat"></i>
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                        <div class="color-legend">
+                            <div class="desc">
+                                <div class="color"></div>
+                                <h1>Normal</h1>
+                            </div>
+                            <div class="desc">
+                                <div class="color"></div>
+                                <h1>Alerta</h1>
+                            </div>
+                            <div class="desc">
+                                <div class="color"></div>
+                                <h1>Perigo</h1>
+                            </div>
+                            <div class="desc">
+                                <div class="color"></div>
+                                <h1>Desativado</h1>
+                            </div>
+                        </div>
+                        <div class="log">
+                            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fugiat, magni eius odit
+                                mollitia delectus cupiditate earum, corporis aperiam commodi quod voluptatum, recusandae
+                                ullam nesciunt aut quaerat? Dicta, odio iste.</h1>
+                        </div>
+                    </div>
                     <div class="modalMachine">
+                        <div class="close">
+                            <i class="fa-solid fa-circle-xmark fa-3xl"></i>
+                        </div>
                         <div class="title">
                             <h1>Registrar nova Máquina:</h1>
                         </div>
@@ -58,63 +93,75 @@
                                 <h2>Máquina3045</h2>
                                 <label for="">Usuário:</label>
                                 <input type="text">
-                                <label for="">Usuário:</label>
+                                <label for="">Destino:</label>
                                 <input type="text">
                                 <label for="">Sistema Operacional:</label>
                                 <input type="text">
-                                <label for="">Destino:</label>
+                                <label for="">Empresa:</label>
                                 <input type="text">
                                 <div class="buttons">
                                     <button>Registrar</button>
-                                    <button>Retornar</button>
+                                    <button id="closeButton">Retornar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="machine">
-                        <img src="./assets/imgs/monitor dash.png" alt="">
-                        <div class="infoHardware">
-                            <ul class="info">
-                                <li>Operando: Sim</li>
-                                <li>Usuário: LuisGustavo</li>
-                                <li>Destino: Extract</li>
-                                <li>So: Windows</li>
-                                <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
-                                <li>Memória: 8192 RAM</li>
-                                <li>Disco: SSD 512GB</li>
-                            </ul>
+                    <div class="all-machines">
+                        <div class="machine">
+                            <img src="./assets/imgs/monitor dash.png" alt="">
+                            <div class="infoHardware">
+                                <ul class="info">
+                                    <li>Operando: Sim</li>
+                                    <li>Usuário: LuisGustavo</li>
+                                    <li>Destino: Extract</li>
+                                    <li>So: Windows</li>
+                                    <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                    <li>Memória: 8192 RAM</li>
+                                    <li>Disco: SSD 512GB</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="machine">
+                            <img src="./assets/imgs/monitor dash.png" alt="">
+                            <div class="infoHardware">
+                                <ul class="info">
+                                    <li>Operando: Sim</li>
+                                    <li>Usuário: LuisGustavo</li>
+                                    <li>Destino: Extract</li>
+                                    <li>So: Windows</li>
+                                    <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                    <li>Memória: 8192 RAM</li>
+                                    <li>Disco: SSD 512GB</li>
+                                </ul class="info">
+                            </div>
+                        </div>
+                        <div class="machine">
+                            <img src="./assets/imgs/monitor dash.png" alt="">
+                            <div class="infoHardware on">
+                                <ul class="info">
+                                    <li>Operando: Sim</li>
+                                    <li>Usuário: LuisGustavo</li>
+                                    <li>Destino: Extract</li>
+                                    <li>So: Windows</li>
+                                    <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                    <li>Memória: 8192 RAM</li>
+                                    <li>Disco: SSD 512GB</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="machine">
+                            <h1>+</h1>
                         </div>
                     </div>
-                    <div class="machine">
-                        <img src="./assets/imgs/monitor dash.png" alt="">
-                        <div class="infoHardware">
-                            <ul class="info">
-                                <li>Operando: Sim</li>
-                                <li>Usuário: LuisGustavo</li>
-                                <li>Destino: Extract</li>
-                                <li>So: Windows</li>
-                                <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
-                                <li>Memória: 8192 RAM</li>
-                                <li>Disco: SSD 512GB</li>
-                            </ul class="info">
-                        </div>
+                </div>
+                <div class="bottom-info">
+                    <div class="meeting">
+                        <h1>Bem-vindo(a) X pessoa</h1>
+                        <h1 id="data">x</h1>
+                        <h1 id="time"></h1>
                     </div>
-                    <div class="machine">
-                        <img src="./assets/imgs/monitor dash.png" alt="">
-                        <div class="infoHardware on">
-                            <ul class="info">
-                                <li>Operando: Sim</li>
-                                <li>Usuário: LuisGustavo</li>
-                                <li>Destino: Extract</li>
-                                <li>So: Windows</li>
-                                <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
-                                <li>Memória: 8192 RAM</li>
-                                <li>Disco: SSD 512GB</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="machine">
-                        <h1>+</h1>
+                    <div class="blacklist">
+                        <i class="fa-solid fa-list"></i>
                     </div>
                 </div>
             </div>
