@@ -12,8 +12,8 @@
 
 <body onload="showMachineInfo(), newMachine(), showData(), showTime()">
     <main>
+        <div class="overlay"></div>
         <section class="panel">
-            <div class="overlay"></div>
             <nav class="navbar">
                 <div class="user">
                     <h1>ADM User Acesso total</h1>
@@ -34,18 +34,20 @@
                 </ul>
             </nav>
             <div class="machineCrud">
-                <div class="filter">
-                    <select name="aaaa" id="">
-                        <option value="Ram">Ram</option>
-                        <option value="Cpu">Cpu</option>
-                        <option value="Extract">Extract</option>
-                    </select>
+                <div class="high-info">
+                    <div class="general">
+                        <div class="meeting">
+                            <h1>Bem-vindo(a) X pessoa</h1>
+                            <h1 id="data">x</h1>
+                            <h1 id="time"></h1>
+                        </div>
+                    </div>
                 </div>
                 <div class="machines">
                     <div class="top-info">
                         <div class="crudOptions">
                             <i class="fa-solid fa-repeat"></i>
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-list"></i>
                         </div>
                         <div class="color-legend">
                             <div class="desc">
@@ -65,10 +67,12 @@
                                 <h1>Desativado</h1>
                             </div>
                         </div>
-                        <div class="log">
-                            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fugiat, magni eius odit
-                                mollitia delectus cupiditate earum, corporis aperiam commodi quod voluptatum, recusandae
-                                ullam nesciunt aut quaerat? Dicta, odio iste.</h1>
+                        <div class="filter">
+                            <select name="aaaa" id="">
+                                <option value="Ram">Empresa1</option>
+                                <option value="Cpu">Empresa2</option>
+                                <option value="Extract">Empresa3</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modalMachine">
@@ -88,9 +92,13 @@
                                     <option value="">IdMaquina2</option>
                                     <option value="">IdMaquina3</option>
                                 </select>
+                                <div class="remove-machine">
+                                    <i class="fa-solid fa-trash"></i>
+                                    <button>Excluir máquina</button>
+                                </div>
                             </div>
                             <div class="parametrize">
-                                <h2>Máquina3045</h2>
+                                <h2>idMaquina1</h2>
                                 <label for="">Usuário:</label>
                                 <input type="text">
                                 <label for="">Destino:</label>
@@ -154,14 +162,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="bottom-info">
-                    <div class="meeting">
-                        <h1>Bem-vindo(a) X pessoa</h1>
-                        <h1 id="data">x</h1>
-                        <h1 id="time"></h1>
-                    </div>
-                    <div class="blacklist">
-                        <i class="fa-solid fa-list"></i>
+                <div class="bottom">
+                    <div class="log">
+                        <h1>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum fugiat, magni eius odit
+                            mollitia delectus cupiditate earum, corporis aperiam commodi quod voluptatum, recusandae
+                            ullam nesciunt aut quaerat? Dicta, odio iste.
+                        </h1>
                     </div>
                 </div>
             </div>

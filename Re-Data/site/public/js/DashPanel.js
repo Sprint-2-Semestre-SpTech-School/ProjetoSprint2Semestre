@@ -37,7 +37,8 @@ function newMachine() {
             if (divState == false) {
                 modal.style.visibility = "visible";
                 modal.style.opacity = "1";
-                overlay.style.zIndex = "2";
+                overlay.style.zIndex = "1";
+                overlay.style.backDropFilter = "blur(5px)";
                 divState = true;
 
                 close.addEventListener("click", () => {
@@ -68,9 +69,14 @@ function showData(){
     const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
     const formattedDate = actualDate.toLocaleDateString('PT-BR', options);
 
-    calendar.textContent = "Data atual: " + formattedDate;
+    calendar.textContent = formattedDate;
 
-    setInterval(showData, 24 * 60 * 60 * 1000);
+    dataInterval = setInterval(showData, 24 * 60 * 60 * 1000);
+    clearInterval(dataInterval);
+
+    setTimeout(() => {
+        timeInterval = setInterval(showData, 24 * 60 * 60 * 1000);
+    }, 20 * 60 * 60 * 1000);
 }
 
 function showTime(){
@@ -80,10 +86,15 @@ function showTime(){
     const hours = moment.getHours().toString().padStart(2, '0');
     const minutes = moment.getMinutes().toString().padStart(2, '0');
     const seconds = moment.getSeconds().toString().padStart(2, '0');
-    const formattedTime = `${hours}:${minutes}:${seconds}`;
+    const formattedTime = `${hours}:${minutes}`;
 
-    time.textContent = "Tempo atual: " + formattedTime;
+    time.textContent = formattedTime;
 
-    setInterval(showTime, 1000);
+    timeInterval = setInterval(showTime, 60000);
+    clearInterval(timeInterval);
+
+    setTimeout(() => {
+        timeInterval = setInterval(showTime, 60000);
+    }, 60000);
 }
 
