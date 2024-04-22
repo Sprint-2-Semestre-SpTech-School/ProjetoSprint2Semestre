@@ -38,7 +38,6 @@ function newMachine() {
                 modal.style.visibility = "visible";
                 modal.style.opacity = "1";
                 overlay.style.zIndex = "1";
-                overlay.style.backDropFilter = "blur(5px)";
                 divState = true;
 
                 close.addEventListener("click", () => {

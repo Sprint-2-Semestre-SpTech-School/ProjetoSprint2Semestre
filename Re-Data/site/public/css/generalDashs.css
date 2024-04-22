@@ -10,6 +10,9 @@
 
 main {
     z-index: 0;
+    display: flex;
+    background-color: #001736;
+    z-index: 1;
 }
 
 html {
@@ -20,4 +23,137 @@ section {
     display: flex;
     height: 100dvh;
     width: 100%;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 15%;
+    background-color: #000071;
+    transition: 500ms;
+    box-shadow: 2px 2px 2px black;
+    z-index: 0;
+}
+
+nav .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 12rem;
+    width: 70%;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px 2px black;
+    /* border: 5px solid red; */
+}
+
+nav .user h1 {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+}
+
+nav .nav-items {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    height: fit-content;
+    gap: 5rem;
+}
+
+nav .nav-items li {
+    display: flex;
+    width: 85%;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 500ms;
+    background-color: #3083f0;
+}
+
+nav .nav-items li:hover {
+    background-color: #FDAD00;
+}
+
+nav .nav-items a {
+    color: whitesmoke;
+    transition: ease-in 500ms;
+}
+
+nav .meeting {
+    font-size: 0.8rem;
+    /* border: 5px solid lightblue; */
+    background-color: #3083f0;
+}
+
+/* ------------------------------------------------- General Settings and Nav ------------------------------------------------------- */
+
+main .content {
+    display: flex;
+    flex-direction: column;
+    width: 85dvw;
+    height: 100%;
+    /* border: 5px solid red; */
+}
+
+main .content .info {
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 5px solid blanchedalmond; */
+}
+
+main .content .info .kpi {
+    background-color: #000071;
+    border-radius: 15px;
+    height: 5rem;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 1px 1px black;
+    /* border: 5px solid purple; */
+}
+
+main .content .info .select-project select {
+    width: 15rem;
+    height: 3rem;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: #000071;
+    transition: 200ms;
+}
+
+main .content .info .select-project select:hover {
+    width: 15.5rem;
+    height: 3.5rem;
+    background-color: #FDAD00;
+}
+
+main .content .dash-view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 5px solid floralwhite;
+}
+
+main .content .dash-view .group{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 50%;
+    border: 5px solid red;
+}
+
+main .content .dash-view .dashboard {
+    width: 50%;
+    border: 5px solid blue;
 }

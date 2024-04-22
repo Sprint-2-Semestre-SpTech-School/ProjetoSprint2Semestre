@@ -1,16 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./css/generalDashs.css">
 </head>
+
 <body>
     <main>
         <section>
-            
+            <nav class="navbar">
+                <div class="user">
+                    <h1>ADM User Acesso total</h1>
+                </div>
+                <div class="meeting">
+                    <h1>Bem-vindo(a) X pessoa</h1>
+                    <h1 id="data">x</h1>
+                    <h1 id="time"></h1>
+                </div>
+                <ul class="nav-items">
+                    <li class="item">
+                        <a href="#homePage">Dashboard</a>
+                    </li>
+                    <li class="item">
+                        <a href="#footer">Serviços</a>
+                    </li>
+                    <li class="item">
+                        <a href="#sobreNos">Home</a>
+                    </li>
+                    <li class="item">
+                        <a href="#missoes">Sair</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="content">
+                <div class="info">
+                    <div class="kpi">
+                        <h1>Máquinas ativas: 100</h1>
+                    </div>
+                    <div class="kpi">
+                        <h1>
+                            Tempo de operação total: 255h
+                        </h1>
+                    </div>
+                    <div class="kpi">
+                        <h1>
+                            Eficiência: 33%
+                        </h1>
+                    </div>
+                    <div class="kpi">
+                        <h1>
+                            33% do disco de 512
+                        </h1>
+                    </div>
+                    <div class="select-project">
+                        <select name="" id="">
+                            <option value="">Empresa 1</option>
+                            <option value="">Empresa 2</option>
+                            <option value="">Empresa 3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="dash-view">
+                    <div class="group">
+                        <div class="dashboard">
+                            <canvas id="myChart1"></canvas>
+                        </div>
+                        <div class="dashboard">
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="dashboard">
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                        <div class="dashboard">
+                            <canvas id="myChart4"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </body>
+
 </html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/dashConstruction.js"></script>
