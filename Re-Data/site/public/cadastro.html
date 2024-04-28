@@ -69,6 +69,11 @@
                                 <input id="input_cep" class="pequenos" type="number" placeholder="xxxxxxxx">
                             </div>
 
+                            <div class="estado">
+                                <label class="titulosInputs" for="text">Estado:</label>
+                                <input id="input_estado" class="pequenos" type="text" placeholder="UF">
+                            </div>
+
                             <div class="endereco">
                                 <label class="titulosInputs" for="text">Endereço:</label>
                                 <input id="input_endereco" class="normais" type="text" placeholder="Nome da rua">
@@ -118,15 +123,15 @@
         </section>
     </main>
 
-    <script src="./js/cadastro.js">
+    <!-- <script src="./js/cadastro.js">
 
-    </script>
+    </script> -->
 
 </body>
 
 </html>
 
-<!-- <script>
+<script>
 
     function cadastrar() {
 
@@ -136,6 +141,7 @@
         var nomeEmpresaVar = input_empresa.value;
         var cnpjVar = input_cnpj.value;
         var cepVar = input_cep.value;
+        var estadoVar = input_estado.value;
         var enderecoVar = input_endereco.value;
         var numeroEndVar = input_numeroEnd.value;
         var bairroVar = input_bairro.value;
@@ -148,16 +154,17 @@
             nomeEmpresaVar == "" ||
             cnpjVar == "" ||
             cepVar == "" ||
+            estadoVar == "" ||
             enderecoVar == "" ||
             numeroEndVar == "" ||
             bairroVar == "" ||
             complementoVar == ""
-        ) -->
-        <!-- // {
+        )
+        // {
         //   return false;
-        // } -->
+        // }
 
-        <!-- {
+        {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "Preencha todos os campos";
@@ -177,6 +184,10 @@
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "Insira um cep válido!";
+        } else if (estadoVar.length > 2 || estadoVar.length < 2) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "Insira um estado válido!";
         } else if (numeroEndVar < 0) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
@@ -188,9 +199,9 @@
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
                 "Indo para o login...";
-        } -->
+        }
 
-        <!-- // Enviando o valor da nova input
+        // Enviando o valor da nova input
         fetch("/cadastro/cadastrar", {
             method: "POST",
             headers: {
@@ -205,6 +216,7 @@
                 nomeEmpresaServer: nomeEmpresaVar,
                 cnpjServer: cnpjVar,
                 cepServer: cepVar,
+                estadoServer: estadoVar,
                 enderecoServer: enderecoVar,
                 numeroEndServer: numeroEndVar,
                 bairroServer: bairroVar,
@@ -236,17 +248,16 @@
             });
         // return false;
     }
-            // .catch(function (resposta) {
-            //     console.log(`#ERRO: ${resposta}`);
-            //     // finalizarAguardar();
-            // });
+    // .catch(function (resposta) {
+    //     console.log(`#ERRO: ${resposta}`);
+    //     // finalizarAguardar();
+    // });
 
-        // return false;
+    // return false;
 
-        // function sumirMensagem() {
-        //     cardErro.style.display = "none";
-        // }
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none";
+    // }
     // }
 
-
-</script> -->
+</script>

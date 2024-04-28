@@ -7,6 +7,7 @@ function cadastrar(req, res) {
     var nomeEmpresa = req.body.nomeEmpresaServer;
     var cnpj = req.body.cnpjServer;
     var cep = req.body.cepServer;
+    var estado = req.body.estadoServer;
     var endereco = req.body.enderecoServer;
     var numeroEnd = req.body.numeroEndServer;
     var bairro = req.body.bairroServer;
@@ -30,6 +31,9 @@ function cadastrar(req, res) {
     if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");
     }
+    if (estado == undefined) {
+        res.status(400).send("Seu estado está undefined!");
+    }
     if (endereco == undefined) {
         res.status(400).send("Seu endereço está undefined!");
     }
@@ -42,15 +46,8 @@ function cadastrar(req, res) {
     if (complemento == undefined) {
         res.status(400).send("Seu complemento está undefined!");
     }
-    // else {
 
-    // cadastroModel.cadastrar(nomeCompleto, email, telefone, empresa, cnpj, cep, endereco, numeroEnd, bairro, complemento).then(function (resultado) {
-    //     res.status(200).send("Cadastro criado com sucesso");
-    // }).catch(function (erro) {
-    //     res.status(500).json(erro.sqlMessage);
-    // })
-
-    cadastroModel.cadastrar(nomeCompleto, email, telefone, nomeEmpresa, cnpj, cep, endereco, numeroEnd, bairro, complemento)
+    cadastroModel.cadastrar(nomeCompleto, email, telefone, nomeEmpresa, cnpj, cep, estado, endereco, numeroEnd, bairro, complemento)
         .then(
             function (resultado) {
                 res.json(resultado);

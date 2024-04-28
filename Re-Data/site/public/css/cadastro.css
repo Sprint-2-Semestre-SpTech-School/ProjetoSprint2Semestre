@@ -170,6 +170,18 @@ main .cadastro .campos .box .boxInputs .inputs .cep .pequenos {
     height: 55%;
 }
 
+main .cadastro .campos .box .boxInputs .inputs .estado {
+    height: 15%;
+    /* border: 2px solid tomato; */
+    width: 15%;
+    margin: 0 3% 0 0;
+}
+
+main .cadastro .campos .box .boxInputs .inputs .estado .pequenos {
+    width: 80%;
+    height: 55%;
+}
+
 main .cadastro .campos .box .boxInputs .inputs .endereco {
     height: 15%;
     /* border: 2px solid tomato; */
