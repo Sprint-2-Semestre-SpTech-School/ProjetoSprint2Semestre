@@ -12,7 +12,7 @@ function cadastrar(nomeCompleto, email, telefone, nomeEmpresa, cnpj, cep, estado
     INSERT INTO Empresa (nomeEmpresa, CNPJ) VALUES ('${nomeEmpresa}', '${cnpj}')`;
 
     var instrucaoLocalizacao = `
-    INSERT INTO localizacaoEmpresa (CEP, estado, endereco, numero, bairro, complemento) VALUES ('${cep}', '${estado}', '${endereco}', '${numeroEnd}', '${bairro}', '${complemento}');`;
+    INSERT INTO localizacaoEmpresa (CEP, estado, logradouro, numero, bairro, complemento) VALUES ('${cep}', '${estado}', '${endereco}', '${numeroEnd}', '${bairro}', '${complemento}');`;
 
     // var instrucao = `
     //     INSERT INTO Empresa (nomeEmpresa, CNPJ) VALUES ('${nomeEmpresa}', '${cnpj}');
