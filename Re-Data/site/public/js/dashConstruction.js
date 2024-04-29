@@ -70,17 +70,17 @@ new Chart(ctx3, {
         datasets: [{
             label: 'Bytes Escritos',
             data: [1200, 1943, 2222, 2121, 1500],
-            borderWidth: 2
+            borderWidth: 5
         },
         {
             label: 'Bytes Lidos',
             data: [1550, 1343, 2525, 1876, 1650],
-            borderWidth: 2
+            borderWidth: 5
         },
         {
             label: 'Taxa de transferência',
             data: [1000, 1000, 2000, 1000, 3000],
-            borderWidth: 2,
+            borderWidth: 5,
             borderDash: [10, 10]
         }]
     },
@@ -102,12 +102,12 @@ new Chart(ctx4, {
         datasets: [{
             label: 'Enviados',
             data: [1200, 1222, 1333, 1543, 2231, 4154, 3212, 5432, 3212],
-            borderWidth: 2
+            borderWidth: 5
         },
         {
             label: 'Recebidos',
             data: [1212, 1964, 3243, 5654, 2213, 3977, 3121, 2144, 3431],
-            borderWidth: 2
+            borderWidth: 5
         }]
     },
     options: {

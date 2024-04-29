@@ -40,7 +40,7 @@ nav {
     border-radius: 0 0 30px 30px;
     background-color: #9999ff;
     transition: 500ms;
-    box-shadow: 2px 4px 8px #010e20;
+    box-shadow: 2px 8px 16px #010e20;
     z-index: 0;
 }
 
@@ -229,5 +229,12 @@ main .content .dash-view .dashboard {
 
 main .content .dash-view .dashboard canvas {
     width: 25%;
-    padding: 5%;
+    padding: 10%;
+}
+
+#myChart4 {
+    background-color: #ffff;
+    filter: blur();
+    border: 2px solid #3083f0;
+    border-radius: 10%;
 }

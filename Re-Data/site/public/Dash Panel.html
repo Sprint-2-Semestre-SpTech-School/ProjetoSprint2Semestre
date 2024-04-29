@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pré-Dash</title>
     <link rel="stylesheet" href="./css/Dash Panel.css">
     <!-- Link para o FontAwesome -->
     <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body onload="showMachineInfo(), newMachine(), showData(), showTime()">
@@ -16,20 +17,25 @@
         <section class="panel">
             <nav class="navbar">
                 <div class="user">
-                    <h1>ADM User Acesso total</h1>
+                    <img src="./assets/icon/Logo High.png" alt="">
+                    <i class="fas fa-user-lock"></i>
                 </div>
                 <ul class="nav-items">
                     <li class="item">
-                        <a href="#homePage">Dashboard</a>
+                        <!-- Dashboard -->
+                        <i class="fas fa-tachometer-alt"></i>
                     </li>
                     <li class="item">
-                        <a href="#footer">Serviços</a>
+                        <!-- Nossos Serviços -->
+                        <i class="fas fa-info-circle"></i>
                     </li>
                     <li class="item">
-                        <a href="#sobreNos">Home</a>
+                        <!-- Home -->
+                        <i class="fas fa-house-user"></i>
                     </li>
                     <li class="item">
-                        <a href="#missoes">Sair</a>
+                        <!-- Sair -->
+                        <i class="fas fa-sign-out-alt"></i>
                     </li>
                 </ul>
             </nav>
@@ -37,9 +43,11 @@
                 <div class="high-info">
                     <div class="general">
                         <div class="meeting">
-                            <h1>Bem-vindo(a) X pessoa</h1>
+                            <h1>Bem-vindo(a)!</h1>
                             <h1 id="data">x</h1>
+                            <i class="fas fa-calendar"></i>
                             <h1 id="time"></h1>
+                            <i class="fas fa-clock"></i>
                         </div>
                     </div>
                 </div>
@@ -51,27 +59,27 @@
                         </div>
                         <div class="color-legend">
                             <div class="desc">
-                                <div class="color"></div>
+                                <div class="color1"></div>
                                 <h1>Normal</h1>
                             </div>
                             <div class="desc">
-                                <div class="color"></div>
+                                <div class="color2"></div>
                                 <h1>Alerta</h1>
                             </div>
                             <div class="desc">
-                                <div class="color"></div>
+                                <div class="color3"></div>
                                 <h1>Perigo</h1>
                             </div>
                             <div class="desc">
-                                <div class="color"></div>
+                                <div class="color4"></div>
                                 <h1>Desativado</h1>
                             </div>
                         </div>
-                        <div class="filter">
-                            <select name="aaaa" id="">
-                                <option value="Ram">Projeto1</option>
-                                <option value="Cpu">Projeto2</option>
-                                <option value="Extract">Projeto3</option>
+                        <div class="select-project">
+                            <select name="" id="">
+                                <option value="Ram">Projeto 1</option>
+                                <option value="Cpu">Projeto 2</option>
+                                <option value="Extract">Projeto 3</option>
                             </select>
                         </div>
                     </div>
@@ -80,7 +88,7 @@
                             <i class="fa-solid fa-circle-xmark fa-3xl"></i>
                         </div>
                         <div class="title">
-                            <h1>Registrar nova Máquina:</h1>
+                            <h1>Registre uma nova máquina!</h1>
                         </div>
                         <div class="content">
                             <div class="machineCrud">
@@ -98,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="parametrize">
-                                <h2>idMaquina1</h2>
+                                <h2>Preencha as informações</h2>
                                 <label for="">Usuário:</label>
                                 <input type="text">
                                 <label for="">Destino:</label>
