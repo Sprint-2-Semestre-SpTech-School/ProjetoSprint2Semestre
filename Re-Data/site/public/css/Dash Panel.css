@@ -401,7 +401,7 @@ main .panel .machineCrud .machines .modalMachine .content .parametrize input {
     height: 2.5rem;
     color: #0000008b;
     padding: 3px;
-    background-color: rgba(128, 128, 128, 0.499);
+    background-color: transparent;
     border-radius: 10px;
 }
 
