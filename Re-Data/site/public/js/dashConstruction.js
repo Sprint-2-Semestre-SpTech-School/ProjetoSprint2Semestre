@@ -6,7 +6,7 @@ new Chart(ctx, {
         labels: ['00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
         datasets: [{
             label: 'CPU',
-            data: [10, 13, 15, 57, 85, 44, 17, 20, 22],
+            data: [43, 40, 32, 20, 18, 15, 13, 14, 15],
             borderWidth: 2,
             fill: true
         },
@@ -22,7 +22,8 @@ new Chart(ctx, {
             y: {
                 title: {
                     display: true,
-                    text: '% de uso'
+                    text: '% de uso',
+                    // color: black
                 },
                 beginAtZero: true,
             }

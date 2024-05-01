@@ -44,7 +44,8 @@ nav {
     width: 22vh;
     height: 100vh;
     border-radius: 0 0 30px 30px;
-    background-color: #9999ff;
+    /* background-color: #9999ff; */
+    background-color: #256acb;
     transition: 500ms;
     box-shadow: 2px 8px 16px #010e20;
     z-index: 0;
@@ -73,7 +74,8 @@ nav .user i {
     font-size: 4.5vh;
     width: 100%;
     height: 10vh;
-    color: #3083f0;
+    /* color: #3083f0; */
+    color: #e7a619;
     text-shadow: 2px 2px #010e20;
 }
 
@@ -95,7 +97,7 @@ nav .nav-items {
     gap: 5rem;
 }
 
-nav .nav-items li {
+nav .nav-items a {
     display: flex;
     width: 50%;
     height: 4rem;
@@ -106,14 +108,40 @@ nav .nav-items li {
     cursor: pointer;
     font-size: 1.1rem;
     transition: 500ms;
-    background-color: #3083f0;
+    /* background-color: #3083f0; */
+    background-color: #e7a619;
 }
 
-nav .nav-items li:hover {
-    background-color: #FDAD00;
+nav .nav-items .item {
+    display: flex;
+    width: 50%;
+    height: 4rem;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: 500ms;
+    /* background-color: #3083f0; */
+    background-color: #e7a619;
 }
 
-nav .nav-items li:hover i {
+nav .nav-items a:hover {
+    /* background-color: #FDAD00; */
+    background-color: #f2dfb5;
+}
+
+nav .nav-items .item:hover {
+    /* background-color: #FDAD00; */
+    background-color: #f2dfb5;
+}
+
+nav .nav-items a:hover i {
+    color: #000071;
+}
+
+nav .nav-items .item:hover i {
     color: #000071;
 }
 
