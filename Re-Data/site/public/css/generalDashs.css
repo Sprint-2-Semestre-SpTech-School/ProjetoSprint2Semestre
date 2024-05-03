@@ -9,10 +9,8 @@
 }
 
 main {
-    z-index: 0;
-    display: flex;
     background-color: #001736;
-    z-index: 1;
+    z-index: 0;
 }
 
 html {
@@ -21,68 +19,42 @@ html {
 
 section {
     display: flex;
-    justify-content: center;
-    margin: 0;
-    align-items: center;
+    width: 100dvw;
     height: 100dvh;
-    width: 100%;
-    height: 100%;
 }
 
 nav {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: 22vh;
+    width: 10%;
     height: 100vh;
     border-radius: 0 0 30px 30px;
-    /* background-color: #9999ff; */
     background-color: #256acb;
-    transition: 500ms;
     box-shadow: 2px 8px 16px #010e20;
     z-index: 0;
-}
-
-.user {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    transition: 500ms;
 }
 
 .user img {
-    display: flex;
-    justify-content: center;
-    width: 15vh;
-    height: 15vh;
-}
-
-nav .user h1 {
-    text-align: center;
-    color: black;
-    font-size: 1.5rem;
+    width: 100%;
 }
 
 nav .user i {
     display: flex;
-    align-items: center;
     justify-content: center;
     font-size: 4.5vh;
-    width: 100%;
-    height: 10vh;
-    /* color: #3083f0; */
-    color: #e7a619;
+    color: #FDAD00;
     text-shadow: 2px 2px #010e20;
 }
+
 
 nav .nav-items {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    color: white;
     width: 100%;
     height: fit-content;
     gap: 5rem;
@@ -99,8 +71,7 @@ nav .nav-items li {
     cursor: pointer;
     font-size: 1.1rem;
     transition: 500ms;
-    /* background-color: #FDAD00; */
-    background-color: #e7a619;
+    background-color: #FDAD00;
 }
 
 nav .nav-items li:hover {
@@ -117,21 +88,17 @@ nav .nav-items a {
 }
 
 nav .nav-items i {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 nav .meeting {
     font-size: 0.8rem;
-    /* border: 5px solid lightblue; */
     /* background-color: #3083f0; */
 }
 
 nav .meeting h1 {
     font-weight: bolder;
-    font-size: 23px;
-    color: #ffff;
-    margin-bottom: 10vh;
-    margin-top: 0;
+    font-size: 20px;
 }
 
 /* ------------------------------------------------- General Settings and Nav ------------------------------------------------------- */
@@ -139,60 +106,35 @@ nav .meeting h1 {
 main .content {
     display: flex;
     flex-direction: column;
-    width: 85dvw;
+    width: 90%;
     height: 100%;
-    /* border: 5px solid red; */
 }
 
 main .content .info {
     display: flex;
     justify-content: space-around;
-    /* border: 5px solid blanchedalmond; */
-}
-
-main .content .info .kpi:nth-child(odd) {
-    display: flex;
-    justify-content: center;
     align-items: center;
-    background-size: 100%;
-    background-color: #000071;
-    border-radius: 15px;
-    height: 5rem;
-    font-size: 1.2rem;
-    box-shadow: 1px 3px 4px 5px #010e20;
-    padding: 2%;
-    margin: 2%;
-    width: 15%;
-    /* border: 5px solid purple; */
 }
 
 .kpi {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    width: 15%;
+    height: 4rem;
+    font-size: 0.5rem;
     background-size: 100%;
     background-color: #256acb;
     border-radius: 15px;
-    height: 5rem;
-    font-size: 1.2rem;
     box-shadow: 1px 3px 4px 5px #010e20;
-    padding: 2%;
-    margin: 2%;
-    width: 15%;
-    /* border: 5px solid purple; */
 }
 
-.kpi h1 {
-    /* color: #001736; */
-    color: white;
-}
-
-.kpi:nth-child(odd) h1 {
-    color: #ffff;
+main .content .info .kpi:nth-child(odd) {
+    background-color: #000071;
 }
 
 main .content .info .select-project select {
-    margin-top: 15%;
     width: 15rem;
     height: 3rem;
     border: none;
@@ -221,38 +163,18 @@ main .content .dash-view {
 main .content .dash-view .group {
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    width: 95%;
     height: 50%;
-    border: 5px solid red;
+    padding: 15px;
+    gap: 15px;
 }
 
 main .content .dash-view .dashboard {
-    width: 50%;
-    /* border: 2px solid greenyellow; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-main .content .dash-view .dashboard .tituloGrafico {
-    /* border: 2px solid white; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30vw;
-    height: 5vh;
-    border-radius: 5px;
-    /* background-color: rgb(46, 46, 201); */
+    width: 100%;
+    border: 2px solid #3083f0;
+    border-radius: 25px;
 }
 
 main .content .dash-view .dashboard canvas {
     width: 25%;
-    padding: 3vh;
-}
-
-#myChart4 {
-    /* background-color: #010e20; */
-    filter: blur();
-    border: 2px solid #3083f0;
-    border-radius: 10%;
 }

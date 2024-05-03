@@ -28,8 +28,8 @@ function showMachineInfo() {
 function newMachine() {
     const machines = document.querySelectorAll(".machine");
     const modal = document.querySelector(".modalMachine")
-    const close = document.querySelector(".fa-solid fa-circle-xmark fa-3xl");
-    const closeButton = document.querySelector("#closeButton");
+    const closeX = document.querySelector(".close");
+    const closeReturn = document.querySelector("#closeButton");
     const overlay = document.querySelector(".overlay");
 
     let divState = false;
@@ -43,7 +43,7 @@ function newMachine() {
                 overlay.style.zIndex = "1";
                 divState = true;
 
-                close.addEventListener("click", () => {
+                closeX.addEventListener("click", () => {
                     if (divState == true) {
                         modal.style.visibility = "hidden";
                         modal.style.opacity = "0";
@@ -51,7 +51,7 @@ function newMachine() {
                         divState = false;
                     }
                 });
-                closeButton.addEventListener("click", () => {
+                closeReturn.addEventListener("click", () => {
                     if (divState == true) {
                         modal.style.visibility = "hidden";
                         modal.style.opacity = "0";

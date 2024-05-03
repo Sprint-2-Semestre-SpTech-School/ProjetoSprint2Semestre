@@ -12,86 +12,55 @@ main {
     z-index: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 section {
     display: flex;
-    justify-content: center;
-    margin: 0;
-    align-items: center;
+    width: 100dvw;
     height: 100dvh;
-    width: 100%;
-    height: 100vh;
 }
+
+html {
+    scroll-behavior: smooth;
+} 
 
 .overlay {
     display: flex;
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 0;
-    backdrop-filter: blur(0px);
 }
 
 nav {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: 22vh;
+    width: 10%;
     height: 100vh;
     border-radius: 0 0 30px 30px;
-    /* background-color: #9999ff; */
     background-color: #256acb;
-    transition: 500ms;
     box-shadow: 2px 8px 16px #010e20;
     z-index: 0;
-}
-
-nav .user {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-bottom: 50px;
-    flex-direction: column;
-    align-items: center;
+    transition: 500ms;
 }
 
 .user img {
-    display: flex;
-    justify-content: center;
-    width: 15vh;
-    height: 15vh;
+    width: 100%;
 }
 
 nav .user i {
     display: flex;
-    align-items: center;
     justify-content: center;
     font-size: 4.5vh;
-    width: 100%;
-    height: 10vh;
-    /* color: #3083f0; */
     color: #e7a619;
     text-shadow: 2px 2px #010e20;
 }
-
-nav .user h1 {
-    text-align: center;
-    color: #ffff;
-    font-size: 1.5rem;
-}
-
 
 nav .nav-items {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
-    color: white;
     width: 100%;
     height: fit-content;
     gap: 5rem;
@@ -108,8 +77,7 @@ nav .nav-items a {
     cursor: pointer;
     font-size: 1.1rem;
     transition: 500ms;
-    /* background-color: #3083f0; */
-    background-color: #e7a619;
+    background-color: #FDAD00;
 }
 
 nav .nav-items .item {
@@ -123,12 +91,10 @@ nav .nav-items .item {
     cursor: pointer;
     font-size: 1.1rem;
     transition: 500ms;
-    /* background-color: #3083f0; */
-    background-color: #e7a619;
+    background-color: #FDAD00;
 }
 
 nav .nav-items a:hover {
-    /* background-color: #FDAD00; */
     background-color: #f2dfb5;
 }
 
@@ -153,40 +119,40 @@ nav .nav-items a {
 /* ------------------------------------------------- General Settings and Nav ------------------------------------------------------- */
 
 main .panel {
-    display: flex;
+    display: fle;
     background-color: #001736;
     z-index: 1;
-    /* border: 5px solid rebeccapurple; */
+    height: 100vh;
 }
 
-main .panel .machineCrud {
+main .panel .main-content {
     display: flex;
     flex-direction: column;
-    width: 85%;
+    width: 90%;
     height: 100%;
     gap: 1rem;
     z-index: 1;
-    /* border: 5px solid yellow; */
 }
 
-main .panel .machineCrud .high-info {
+main .panel .main-content .high-info {
     display: flex;
     justify-content: center;
     background-color: #3083f0;
 }
 
-main .panel .machineCrud .high-info .general {
+main .panel .main-content .high-info .general {
     display: flex;
     width: 100%;
     text-align: center;
 }
 
-main .panel .machineCrud .high-info .general .meeting {
-    width: 100%;
-    font-size: 1.2rem;
-    text-shadow: 2px 2px 2px black;
+main .panel .main-content .high-info .general .meeting {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    font-size: 1.2rem;
+    text-shadow: 2px 2px 2px #000000;
 }
 
 .meeting h1 {
@@ -195,95 +161,83 @@ main .panel .machineCrud .high-info .general .meeting {
     text-shadow: 4px 8px 16px #010710;
 }
 
-main .panel .machineCrud .machines {
+main .panel .main-content .machines {
     display: flex;
-    gap: 5rem;
+    position: relative;
     flex-direction: column;
     align-items: center;
     width: 100%;
     height: 100%;
-    position: relative;
 }
 
-main .panel .machineCrud .machines .top-info {
+main .panel .main-content .machines .top-info {
     display: flex;
     height: fit-content;
     justify-content: space-around;
     width: 100%;
-    height: 10rem;
+    height: 20%;
 }
 
-main .panel .machineCrud .machines .top-info .crudOptions {
+main .panel .main-content .machines .top-info .crudOptions {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 16rem;
     font-size: 5rem;
-    /* border: 5px solid greenyellow; */
 }
 
-main .panel .machineCrud .machines .top-info .color-legend {
+main .panel .main-content .machines .top-info .color-legend {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 50%;
 }
 
-main .panel .machineCrud .machines .top-info .color-legend .desc {
+main .panel .main-content .machines .top-info .color-legend .desc {
     flex-direction: column;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-main .panel .machineCrud .machines .top-info .color-legend .desc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-main .panel .machineCrud .machines .top-info .color-legend .desc .color1 {
+main .panel .main-content .machines .top-info .color-legend .desc .color1 {
     width: 8rem;
     height: 4rem;
-    background-color: #36ca36;
+    border: 2px solid white;
+    background-color: #001736;
     border-radius: 5%;
 }
 
-main .panel .machineCrud .machines .top-info .color-legend .desc .color2 {
+main .panel .main-content .machines .top-info .color-legend .desc .color2 {
     width: 8rem;
     height: 4rem;
     background-color: #FDAD00;
     border-radius: 5%;
 }
 
-main .panel .machineCrud .machines .top-info .color-legend .desc .color3 {
+main .panel .main-content .machines .top-info .color-legend .desc .color3 {
     width: 8rem;
     height: 4rem;
     background-color: #ba2020;
     border-radius: 5%;
 }
 
-main .panel .machineCrud .machines .top-info .color-legend .desc .color4 {
+main .panel .main-content .machines .top-info .color-legend .desc .color4 {
     width: 8rem;
     height: 4rem;
     background-color: grey;
     border-radius: 5%;
 }
 
-
-
-
-main .panel .machineCrud .machines .top-info .color-legend .desc h1 {
+main .panel .main-content .machines .top-info .color-legend .desc h1 {
     text-align: center;
     font-size: 1.5rem;
-    /* border: 5px solid red; */
 }
 
-main .panel .machineCrud .machines .top-info .filter {
+main .panel .main-content .machines .top-info .filter {
     display: flex;
     justify-content: center;
-    /* border: 5px solid blue; */
+    border: 5px solid blue;
     width: 25%;
     height: fit-content;
 }
@@ -298,6 +252,7 @@ main .panel .machineCrud .machines .top-info .filter {
     font-size: 1.5rem;
     background-color: #3083f0;
     transition: 200ms;
+    z-index: 0;    
 }
 
 .select-project select:hover {
@@ -306,22 +261,40 @@ main .panel .machineCrud .machines .top-info .filter {
     background-color: #FDAD00;
 }
 
-main .panel .machineCrud .machines .all-machines {
+main .panel .main-content .machines .all-machines {
     display: flex;
     align-items: center;
-    height: 50%;
+    height: 80%;
     width: 100%;
     justify-content: space-evenly;
-    /* border: 5px solid rgb(32, 159, 0); */
 }
 
-main .panel .machineCrud .machines .modalMachine {
+/* EXEMPLO PARA APRESENTAÇÃO */
+
+main .panel .main-content .machines .all-machines .machine:nth-child(3) {
+    filter: grayscale(1);
+}
+
+main .panel .main-content .machines .all-machines .machine:nth-child(2) {
+    background-color: #ba2020;
+}
+
+main .panel .main-content .machines .all-machines .machine:nth-child(2) .infoHardware .info {
+    background-color: #ba2020;
+}
+
+main .panel .main-content .machines .all-machines .machine:nth-child(2) .infoHardware .info:hover {
+    background-color: #ba2020;
+}
+
+/* EXEMPLO PARA APRESENTAÇÃO */
+
+main .panel .main-content .machines .modalMachine {
     display: flex;
     flex-direction: column;
-    width: 75%;
-    height: 100%;
-    margin: 15px;
     position: absolute;
+    width: 75%;
+    height: 70%;
     background-color: #000071;
     box-shadow: 2px 2px 2px black;
     border-radius: 25px;
@@ -331,61 +304,54 @@ main .panel .machineCrud .machines .modalMachine {
     z-index: 3;
 }
 
-main .panel .machineCrud .machines .modalMachine .title {
+main .panel .main-content .machines .modalMachine .title {
     display: flex;
     text-align: center;
     width: 100%;
     text-shadow: 2px 2px 2px black;
-    border: 5px solid fuchsia;
 }
 
-main .panel .machineCrud .machines .modalMachine .title h1 {
-    text-align: start;
+main .panel .main-content .machines .modalMachine .title h1 {
+    align-items: center;
     width: 100%;
     font-size: 3rem;
     text-shadow: 2px 2px 2px black;
-    border: 5px solid black;
 }
 
-main .panel .machineCrud .machines .modalMachine .title .close {
+main .panel .main-content .machines .modalMachine .title .close {
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
     height: fit-content;
     width: fit-content;
-    border: 5px solid red;
 }
 
-main .panel .machineCrud .machines .modalMachine .title .close i {
+main .panel .main-content .machines .modalMachine .title .close i {
     margin: 15px;
     font-size: 2rem;
-    border: 5px solid purple;
     transition: 250ms;
 }
 
-main .panel .machineCrud .machines .modalMachine .title .close i:hover {
+main .panel .main-content .machines .modalMachine .title .close i:hover {
     font-size: 3.2rem;
 }
 
-
-
-main .panel .machineCrud .machines .modalMachine .content {
+main .panel .main-content .machines .modalMachine .content {
     display: inline-flex;
     justify-content: space-evenly;
-    width: 100%;
     height: 100%;
-    padding: 1rem;
-    /* border: 5px solid floralwhite; */
 }
 
-main .panel .machineCrud .machines .modalMachine .content .machineCrud {
+main .panel .main-content .machines .modalMachine .content .machineCrud {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
+    gap: 15px;
     width: 30%;
     height: 100%;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .machineCrud select {
+main .panel .main-content .machines .modalMachine .content .machineCrud select {
     font-size: 1rem;
     width: 15rem;
     height: 2.5rem;
@@ -395,7 +361,7 @@ main .panel .machineCrud .machines .modalMachine .content .machineCrud select {
     text-align: center;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .machineCrud .remove-machine {
+main .panel .main-content .machines .modalMachine .content .machineCrud .remove-machine {
     font-size: 3.5rem;
     display: flex;
     justify-content: center;
@@ -404,10 +370,9 @@ main .panel .machineCrud .machines .modalMachine .content .machineCrud .remove-m
     align-items: center;
     width: 100%;
     height: 30%;
-    border: 5px solid red;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .machineCrud .remove-machine button {
+main .panel .main-content .machines .modalMachine .content .machineCrud .remove-machine button {
     font-size: 1rem;
     width: 8rem;
     height: 3rem;
@@ -417,46 +382,38 @@ main .panel .machineCrud .machines .modalMachine .content .machineCrud .remove-m
     transition: 500ms;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .machineCrud .remove-machine button:hover {
+main .panel .main-content .machines .modalMachine .content .machineCrud .remove-machine button:hover {
     width: 8.5rem;
     background-color: #FDAD00;
     cursor: pointer;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .parametrize {
+main .panel .main-content .machines .modalMachine .content .parametrize {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    font-size: 1rem;
-    width: 60%;
+    justify-content: space-around;
     height: 100%;
-    /* gap: 5%; */
-    margin-bottom: 10%;
-    border: 5px solid gainsboro;
     text-shadow: 2px 2px 2px black;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .parametrize input {
-    font-size: 1.2rem;
+main .panel .main-content .machines .modalMachine .content .parametrize input {
+    font-size: 1rem;
+    color: black;
     width: 15rem;
     height: 2.5rem;
-    color: #0000008b;
-    padding: 3px;
     border: none;
     border-radius: 10px;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .parametrize .buttons {
+main .panel .main-content .machines .modalMachine .content .parametrize .buttons {
     display: flex;
     justify-content: space-evenly;
-    width: 70%;
-    height: fit-content;
-    margin-top: 5%;
-}
+    width: 100%;
+    }
 
-main .panel .machineCrud .machines .modalMachine .content .parametrize .buttons button {
-    width: 10rem;
+main .panel .main-content .machines .modalMachine .content .parametrize .buttons button {
+    width: 5rem;
     height: 3rem;
     border-radius: 10px;
     border: none;
@@ -465,7 +422,7 @@ main .panel .machineCrud .machines .modalMachine .content .parametrize .buttons 
     cursor: pointer;
 }
 
-main .panel .machineCrud .machines .modalMachine .content .parametrize .buttons button:hover {
+main .panel .main-content .machines .modalMachine .content .parametrize .buttons button:hover {
     background-color: transparent;
     width: 11rem;
     height: 3.2rem;
@@ -473,7 +430,7 @@ main .panel .machineCrud .machines .modalMachine .content .parametrize .buttons 
 
 }
 
-main .panel .machineCrud .machines .machine {
+main .panel .main-content .machines .machine {
     display: flex;
     flex-direction: column;
     width: 15em;
@@ -483,59 +440,45 @@ main .panel .machineCrud .machines .machine {
     border: 3px solid white;
     box-shadow: 2px 2px 2px 2px black;
     transition: 500ms;
-    /* filter: grayscale(100%); */
 }
 
-main .panel .machineCrud .machines .machine h1 {
+main .panel .main-content .machines .machine h1 {
     width: 100%;
-    /* border: 5px solid red; */
     text-align: center;
-    vertical-align: middle;
 }
 
-main .panel .machineCrud .machines .machine .infoHardware {
+main .panel .main-content .machines .machine .infoHardware {
     display: flex;
     height: fit-content;
     visibility: hidden;
     opacity: 0;
     transition: 500ms;
-    border: 3px solid whitesmoke;
 }
 
-main .panel .machineCrud .machines .machine .infoHardware .info {
+main .panel .main-content .machines .machine .infoHardware .info {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     overflow-y: auto;
     background-color: #3083f0;
-
+    border: 2px solid white;
 }
 
 
-main .panel .machineCrud .machines .machine:hover,
-main .panel .machineCrud .machines .machine .infoHardware .info:hover {
+main .panel .main-content .machines .machine:hover,
+main .panel .main-content .machines .machine .infoHardware .info:hover {
     width: 16rem;
     background-color: #3083f0;
     box-shadow: 1px 1px 1px black;
     cursor: pointer;
 }
 
-main .panel .machineCrud .machine-desc .machine-infos .info {
-    font-size: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 100%;
-    height: 100%;
-}
-
-main .panel .machineCrud .bottom {
+main .panel .main-content .bottom {
+    height: 20%;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    height: 25%;
 }
 
-main .panel .machineCrud .bottom .log {
+main .panel .main-content .bottom .log {
     display: flex;
     text-align: center;
     width: 25%;
@@ -544,4 +487,5 @@ main .panel .machineCrud .bottom .log {
     overflow-y: auto;
     background-color: #000071;
     box-shadow: 2px 2px 2px black;
+    border: 5px solid blue;
 }

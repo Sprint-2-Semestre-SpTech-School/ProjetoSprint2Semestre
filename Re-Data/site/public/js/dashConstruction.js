@@ -20,12 +20,18 @@ new Chart(ctx, {
     options: {
         scales: {
             y: {
-                title: {
-                    display: true,
-                    text: '% de uso',
-                    // color: black
-                },
                 beginAtZero: true,
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: "Uso de CPU e memória em %",
+                color: 'white',
+                font: {
+                    size: 25,
+                    weigth: 'bold',
+                }
             }
         },
         elements: {
@@ -57,6 +63,21 @@ new Chart(ctx2, {
         scales: {
             y: {
                 beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: "Quantidade de leituras e escritas do HD",
+                color: 'white',
+                font: {
+                    size: 25,
+                    weigth: 'bold',
+                }
+            }
+        },
+        elements: {
+            line: {
             }
         }
     }
@@ -90,6 +111,21 @@ new Chart(ctx3, {
             y: {
                 beginAtZero: true
             }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: "Taxa de bytes de leituras e escritas do HD",
+                color: 'white',
+                font: {
+                    size: 25,
+                    weigth: 'bold',
+                }
+            }
+        },
+        elements: {
+            line: {
+            }
         }
     }
 });
@@ -115,6 +151,21 @@ new Chart(ctx4, {
         scales: {
             y: {
                 beginAtZero: true
+            }
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: "Pacotes enviados e recebidos da rede",
+                color: 'white',
+                font: {
+                    size: 25,
+                    weigth: 'bold',
+                }
+            }
+        },
+        elements: {
+            line: {
             }
         }
     }

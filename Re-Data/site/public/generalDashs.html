@@ -44,7 +44,7 @@
                     </div>
                     <div id="div_tempoOpTotal" class="kpi">
                         <h1>
-                            Tempo de operação total: 
+                            Tempo de operação total:
                         </h1>
                     </div>
                     <div class="kpi">
@@ -68,21 +68,17 @@
                 <div class="dash-view">
                     <div class="group">
                         <div class="dashboard">
-                            <h1 class="tituloGrafico">Uso de CPU e RAM a cada 05 segundos</h1>
                             <canvas id="myChart1"></canvas>
                         </div>
                         <div class="dashboard">
-                            <h1 class="tituloGrafico">Quantidade de leituras por dia</h1>
                             <canvas id="myChart2"></canvas>
                         </div>
                     </div>
                     <div class="group">
                         <div class="dashboard">
-                            <h1 class="tituloGrafico">Bytes de leitura, escrita e taxa de transferência a cada minuto</h1>
                             <canvas id="myChart3"></canvas>
                         </div>
                         <div class="dashboard">
-                            <h1 class="tituloGrafico">Pacotes enviados e recebidos a cada 05 segundos</h1>
                             <canvas id="myChart4"></canvas>
                         </div>
                     </div>
@@ -106,70 +102,70 @@
     function buscarMaquinasAtivas() {
         console.log('Esse é o projeto ' + idProjeto)
         // function buscarMaquinasAtivas() {
-            console.log(idProjeto)
-            fetch(`/dashboard/buscarMaquinasAtivas/${idProjeto}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+        console.log(idProjeto)
+        fetch(`/dashboard/buscarMaquinasAtivas/${idProjeto}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+                resposta.json()
+                    .then((json) => {
+                        console.log(json);
+                        console.log(json[0].qtd);
+
+                        var qtsMaquinas = json[0].qtdMaquinas
+                        console.log(qtsMaquinas);
+
+                        var qtdTotal = document.getElementById("div_maquinasAtivas")
+                        qtdTotal.innerHTML = `<b>Máquinas ativas: ${qtsMaquinas}</b>`;
+                        console.log(qtdTotal);
+
+                    })
             })
-                .then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-                    resposta.json()
-                        .then((json) => {
-                            console.log(json);
-                            console.log(json[0].qtd);
-
-                            var qtsMaquinas = json[0].qtdMaquinas
-                            console.log(qtsMaquinas);
-
-                            var qtdTotal = document.getElementById("div_maquinasAtivas")
-                            qtdTotal.innerHTML = `<b>Máquinas ativas: ${qtsMaquinas}</b>`;
-                            console.log(qtdTotal);
-
-                        })
-                })
 
 
-                .catch(function (erro) {
-                    console.error('Erro desconhecido na API.');
-                }
-                );
+            .catch(function (erro) {
+                console.error('Erro desconhecido na API.');
+            }
+            );
         // }
     }
 
     function buscarTempoOpTotal() {
         console.log('Esse é o projeto do tempo' + idProjeto)
         // function buscarTempoOpTotal() {
-            console.log(idProjeto + ' tempo')
-            fetch(`/dashboard/buscarTempoOpTotal/${idProjeto}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
+        console.log(idProjeto + ' tempo')
+        fetch(`/dashboard/buscarTempoOpTotal/${idProjeto}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(function (resposta) {
+                console.log("Dados recebidos do tempo total: ", JSON.stringify(resposta));
+                resposta.json()
+                    .then((json) => {
+                        console.log(json);
+                        console.log(json[0].qtd);
+
+                        var qtsHoras = json[0].tempoOpTotal
+                        console.log(qtsHoras);
+
+                        var horasTotais = document.getElementById("div_tempoOpTotal")
+                        horasTotais.innerHTML = `<b>Tempo de operação total: ${qtsHoras}h</b>`;
+                        console.log(horasTotais);
+
+                    })
             })
-                .then(function (resposta) {
-                    console.log("Dados recebidos do tempo total: ", JSON.stringify(resposta));
-                    resposta.json()
-                        .then((json) => {
-                            console.log(json);
-                            console.log(json[0].qtd);
-
-                            var qtsHoras = json[0].tempoOpTotal
-                            console.log(qtsHoras);
-
-                            var horasTotais = document.getElementById("div_tempoOpTotal")
-                            horasTotais.innerHTML = `<b>Tempo de operação total: ${qtsHoras}h</b>`;
-                            console.log(horasTotais);
-
-                        })
-                })
 
 
-                .catch(function (erro) {
-                    console.error('Erro desconhecido na API.');
-                }
-                );
+            .catch(function (erro) {
+                console.error('Erro desconhecido na API.');
+            }
+            );
         // }
     }
 
