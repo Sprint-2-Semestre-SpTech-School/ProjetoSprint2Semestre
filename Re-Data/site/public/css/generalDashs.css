@@ -185,9 +185,7 @@ main .content .info .kpi:nth-child(odd) {
 
 .kpi:nth-child(odd) h1 {
     color: #ffff;
-
 }
-
 
 main .content .info .select-project select {
     margin-top: 15%;
@@ -221,19 +219,22 @@ main .content .dash-view .group {
     justify-content: space-around;
     width: 100%;
     height: 50%;
+    border: 5px solid red;
 }
 
 main .content .dash-view .dashboard {
     width: 50%;
+    border: 5px solid fuchsia;
 }
 
 main .content .dash-view .dashboard canvas {
     width: 25%;
-    padding: 10%;
+    padding: 5%;
+    border: 5px solid greenyellow;
 }
 
 #myChart4 {
-    background-color: #ffff;
+    /* background-color: #010e20; */
     filter: blur();
     border: 2px solid #3083f0;
     border-radius: 10%;

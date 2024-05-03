@@ -25,7 +25,7 @@ function showMachineInfo() {
 function newMachine() {
     const machines = document.querySelectorAll(".machine");
     const modal = document.querySelector(".modalMachine")
-    const close = document.querySelector(".close");
+    const close = document.querySelector(".fa-solid fa-circle-xmark fa-3xl");
     const closeButton = document.querySelector("#closeButton");
     const overlay = document.querySelector(".overlay");
 
