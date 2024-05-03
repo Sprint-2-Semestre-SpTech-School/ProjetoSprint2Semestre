@@ -1,4 +1,7 @@
+var idUsuario = sessionStorage.ID_USUARIO;
+
 function showMachineInfo() {
+    console.log(idUsuario);
     const machines = document.querySelectorAll(".machine");
     console.log(machines);
 

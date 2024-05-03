@@ -62,49 +62,8 @@
         </section>
     </main>
 
+    <script src="./js/login.js"></script>
+
 </body>
 
 </html>
-
-<script>
-
-    function entrar() {
-
-        var nomeUsuario = input_usuario.value;
-        var senha = input_senha.value;
-
-        if (
-            nomeUsuario == "" ||
-            senha == ""
-        ) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "Preencha todos os campos";
-
-        } else if (nomeUsuario.length < 1) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "Insira um nome de usuário válido";
-
-        } else if (senha.length < 6) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "Senha com no mínimo 6 dígitos!";
-
-        }
-        // {
-        //       return false;
-        //     }
-        // else {
-        //     setInterval(sumirMensagem, 5000);
-        //     cardErro.style.display = "block";
-        //     mensagem_erro.innerHTML =
-        //         "Indo para sua página...";
-        // }
-
-        // function sumirMensagem() {
-        //     cardErro.style.display = "none";
-        // }
-    }
-
-</script>

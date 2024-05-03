@@ -1,30 +1,29 @@
 var loginModel = require("../models/loginModel");
 
 function entrar(req, res) {
-    var usuario = req.body.usuarioServer;
+    var nomeUsuario = req.body.nomeUsuarioServer;
     var senha = req.body.senhaServer;
 
-    if (usuario == undefined) {
+    if (nomeUsuario == undefined) {
         res.status(400).send("Seu usuário está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        loginModel.entrar(usuario, senha)
+        loginModel.entrar(nomeUsuario, senha)
             .then(
                 function (resultadoEntrar) {
                     console.log(`\nResultados encontrados: ${resultadoEntrar.length}`);
                     console.log(`Resultados: ${JSON.stringify(resultadoEntrar)}`); // transforma JSON em String
 
-                    if (resultadoentrar.length == 1) {
+                    if (resultadoEntrar.length == 1) {
                         console.log(resultadoEntrar);
 
                         res.json({
                             id: resultadoEntrar[0].id,
-                            usuario: resultadoEntrar[0].usuario,
-                            nome: resultadoEntrar[0].nome,
+                            nomeUsuario: resultadoEntrar[0].nomeUsuario,
+                            // nome: resultadoEntrar[0].nome,
                             senha: resultadoEntrar[0].senha
-
                         });
 
                     } else if (resultadoEntrar.length == 0) {
