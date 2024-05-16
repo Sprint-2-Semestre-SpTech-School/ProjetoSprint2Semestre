@@ -100,7 +100,7 @@ nav .nav-items .item .groupOpcoes {
     border-bottom: solid darkslateblue;
 }
 
-nav .nav-items .item .groupOpcoes-sair{
+nav .nav-items .item .groupOpcoes-sair {
     /* border: 2px solid yellow; */
     justify-content: center;
     width: 85%;
@@ -130,7 +130,7 @@ nav .nav-items .item .groupOpcoes:hover {
     background-color: var(--color-nav-hover);
 }
 
-nav .nav-items .item .groupOpcoes-sair:hover{
+nav .nav-items .item .groupOpcoes-sair:hover {
     background-color: var(--color-sair-hover);
 }
 
@@ -144,6 +144,7 @@ main section .screen {
     height: 100%;
     gap: 1.5rem;
 }
+
 main section .screen .top {
     display: flex;
     justify-content: space-around;
@@ -152,10 +153,9 @@ main section .screen .top {
 }
 
 main section .screen .top .project {
-    border: 5px solid blue;
 }
 
-main section .screen .top .legends{
+main section .screen .top .legends {
     display: flex;
     width: 70%;
     justify-content: space-around;
@@ -172,7 +172,7 @@ main section .screen .dashView {
 main section .screen .dashView .options {
     display: flex;
     width: 100%;
-    height: 8rem;
+    height: 15%;
     padding: 1rem;
 }
 
@@ -184,30 +184,97 @@ main section .screen .dashView .options .metrics {
 }
 
 main section .screen .dashView .options .metrics .metric {
-    background-color: var(--color-opcoes);
-    border-radius: 10px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
     padding: 0.5rem;
 }
 
-main section .screen .dashView .options .change-hardware{
+main section .screen .dashView .options .change-hardware {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 20%;
 }
 
-main section .screen .dashView .options .change-hardware .hardware{
+main section .screen .dashView .options .change-hardware .hardware {
     width: 70px;
     height: 70px;
     text-align: center;
     border-radius: 50%;
     background-color: rgba(253, 173, 0);
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: ease 500ms;
 }
 
-main section .screen .dashView .options .change-hardware .hardware:hover{
-    transform: scale(1.1);
+main section .screen .dashView .options .change-hardware .hardware:hover {
+    transform: scale(1.2);
+}
+
+main section .screen .dashView .dashArea {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 85%;
+    gap: 1.5rem;
+}
+
+main section .screen .dashView .dashArea canvas {
+    border-radius: 25px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+main section .screen .dashView .dashArea .top-dash {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+}
+
+main section .screen .dashView .dashArea .top-dash .chart {
+    max-width: 525px;
+    padding: 0.5rem;
+}
+
+main section .screen .dashView .dashArea .bottom-dash {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 45%;
+    margin-bottom: 1rem;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .chart {
+    max-width: 1070px;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis {
+    display: flex;
+    width: 30%;
+    border-radius: 25px;
+    gap: 1rem;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .double {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi {
+    width: 100%;
+    height: 45%;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    text-align: center;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .mono {
+    width: 50%;
+    height: 100%;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    text-align: center;
+
 }

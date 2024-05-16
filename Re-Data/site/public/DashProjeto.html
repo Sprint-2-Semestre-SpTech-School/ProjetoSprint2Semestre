@@ -7,6 +7,7 @@
     <title>Visão Geral Projeto</title>
     <link rel="stylesheet" href="./css/DashProjeto.css">
     <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@
             <div class="screen">
                 <div class="top">
                     <div class="project">
-                        <h1>Project Coke</h1>
+                        <h1>Project Test</h1>
                     </div>
                     <div class="legends">
                         <div class="legend">
@@ -82,6 +83,25 @@
                             </div>
                         </div>
                     </div>
+                    <div class="dashArea">
+                        <div class="top-dash">
+                            <canvas id="cpuRam" class="chart"></canvas>
+                            <canvas id="taxaLeiturasEscritas" class="chart"></canvas>
+                            <canvas id="pacotesEnviadosRecebidos" class="chart"></canvas>
+                        </div>
+                        <div class="bottom-dash">
+                            <canvas id="qtdLeiturasEscritas" class="chart"></canvas>
+                            <div class="kpis">
+                                <div class="double">
+                                    <div class="kpi">a</div>
+                                    <div class="kpi">a</div>
+                                </div>
+                                <div class="mono">
+                                    <div class="kpi">a</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,3 +109,5 @@
 </body>
 
 </html>
+
+<script src="./js/dashConstruction.js"></script>

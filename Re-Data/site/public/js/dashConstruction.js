@@ -1,4 +1,4 @@
-const ctx = document.getElementById('myChart1');
+const ctx = document.getElementById('cpuRam');
 console.log(ctx);
 new Chart(ctx, {
     type: 'line',
@@ -7,21 +7,26 @@ new Chart(ctx, {
         datasets: [{
             label: 'CPU',
             data: [43, 40, 32, 20, 18, 15, 13, 14, 15],
+            backgroundColor: '#3083f0',
+            borderColor: '#000050',
             borderWidth: 2,
             fill: true
         },
         {
             label: 'RAM',
             data: [70, 73, 74, 72, 80, 78, 76, 75, 74],
+            backgroundColor: '#FDAD00',
+            borderColor: 'white',
             borderWidth: 2,
             fill: true
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             y: {
                 beginAtZero: true,
-            }
+            },
         },
         plugins: {
             title: {
@@ -42,7 +47,7 @@ new Chart(ctx, {
     }
 });
 
-const ctx2 = document.getElementById('myChart2');
+const ctx2 = document.getElementById('qtdLeiturasEscritas');
 console.log(ctx);
 new Chart(ctx2, {
     type: 'bar',
@@ -51,15 +56,18 @@ new Chart(ctx2, {
         datasets: [{
             label: 'Escritas',
             data: [5255, 7753, 3321, 1100, 3300, 1000, 7777],
-            borderWidth: 2
+            borderWidth: 5,
+            backgroundColor: '#3083f0',
         },
         {
             label: 'Lidas',
             data: [3423, 2112, 3211, 3421, 3903, 2532, 2122],
-            borderWidth: 2
+            borderWidth: 5,
+            backgroundColor: '#FDAD00',
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             y: {
                 beginAtZero: true
@@ -83,7 +91,7 @@ new Chart(ctx2, {
     }
 });
 
-const ctx3 = document.getElementById('myChart3');
+const ctx3 = document.getElementById('taxaLeiturasEscritas');
 console.log(ctx);
 new Chart(ctx3, {
     type: 'line',
@@ -92,21 +100,28 @@ new Chart(ctx3, {
         datasets: [{
             label: 'Bytes Escritos',
             data: [1200, 1943, 2222, 2121, 1500],
-            borderWidth: 5
+            borderWidth: 5,
+            backgroundColor: '#000050',
+            borderColor: '#3083f0',
         },
         {
             label: 'Bytes Lidos',
             data: [1550, 1343, 2525, 1876, 1650],
-            borderWidth: 5
+            borderWidth: 5,
+            backgroundColor: '#FDAD00',
+            borderColor: 'white',
         },
         {
             label: 'Taxa de transferência',
             data: [1000, 1000, 2000, 1000, 3000],
             borderWidth: 5,
-            borderDash: [10, 10]
+            borderDash: [10, 10],
+            backgroundColor: 'white',
+            borderColor: '#FDAD00',
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             y: {
                 beginAtZero: true
@@ -130,7 +145,7 @@ new Chart(ctx3, {
     }
 });
 
-const ctx4 = document.getElementById('myChart4');
+const ctx4 = document.getElementById('pacotesEnviadosRecebidos');
 console.log(ctx);
 new Chart(ctx4, {
     type: 'line',
@@ -139,15 +154,20 @@ new Chart(ctx4, {
         datasets: [{
             label: 'Enviados',
             data: [1200, 1222, 1333, 1543, 2231, 4154, 3212, 5432, 3212],
-            borderWidth: 5
+            borderWidth: 5,
+            backgroundColor: '#000050',
+            borderColor: '#3083f0',
         },
         {
             label: 'Recebidos',
             data: [1212, 1964, 3243, 5654, 2213, 3977, 3121, 2144, 3431],
-            borderWidth: 5
+            borderWidth: 5,
+            borderColor: '#FDAD00',
+            backgroundColor: 'white'
         }]
     },
     options: {
+        maintainAspectRatio: false,
         scales: {
             y: {
                 beginAtZero: true
