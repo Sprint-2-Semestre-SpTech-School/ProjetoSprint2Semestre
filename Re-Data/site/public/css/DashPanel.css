@@ -12,6 +12,15 @@ main {
     z-index: 0;
 }
 
+:root {
+    --color-background-partes: rgb(3, 3, 66);
+    --color-opcoes: rgb(35, 35, 121);
+    --color-nav-hover: rgb(6, 7, 50);
+    --color-sair-hover: rgb(210, 79, 59);
+    --color-background-kpi: rgb(35, 35, 121);
+    /* --color-background-kpi: #9b2727; */
+}
+
 section {
     display: flex;
     width: 100dvw;
@@ -31,89 +40,109 @@ html {
 }
 
 nav {
+    width: 10%;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 10%;
-    height: 100vh;
-    border-radius: 0 0 30px 30px;
-    background-color: #256acb;
-    box-shadow: 2px 8px 16px #010e20;
-    z-index: 0;
-    transition: 500ms;
+    background-color: var(--color-background-partes);
+    border-radius: 15px;
+    filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
 }
 
-.user img {
+nav .logo img {
+    /* border: 2px solid greenyellow; */
     width: 100%;
 }
 
-nav .user i {
-    display: flex;
-    justify-content: center;
-    font-size: 4.5vh;
-    color: #e7a619;
-    text-shadow: 2px 2px #010e20;
-}
-
 nav .nav-items {
+    /* border: 2px solid red; */
+    /* height: 80%; */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     width: 100%;
     height: fit-content;
-    gap: 5rem;
+    gap: 4rem;
+    font-size: 18px;
+    padding-left: 5%;
 }
 
-nav .nav-items a {
+nav .nav-items .item .titulo {
+    /* border: 2px solid magenta; */
     display: flex;
-    width: 50%;
-    height: 4rem;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 0.8rem;
-    cursor: pointer;
-    font-size: 1.1rem;
+    width: 100%;
+    font-size: 12px;
+    border-radius: 5px;
+    /* justify-content: center; */
+    /* background-color: var(--color-titulo); */
     transition: 500ms;
-    background-color: #FDAD00;
+    cursor: pointer;
+    padding-left: 2%;
 }
 
 nav .nav-items .item {
+    /* border: 2px solid yellow; */
+    width: 100%;
+    /* height: 20%; */
     display: flex;
-    width: 50%;
-    height: 4rem;
+    padding: 2%;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
-    border-radius: 0.8rem;
-    cursor: pointer;
-    font-size: 1.1rem;
+    justify-content: space-between;
+}
+
+nav .nav-items .item .groupOpcoes {
+    /* border: 1px solid rebeccapurple; */
+    width: 85%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    background-color: var(--color-opcoes);
+    border-radius: 5px;
+    font-size: 15px;
     transition: 500ms;
-    background-color: #FDAD00;
+    cursor: pointer;
+    padding: inherit;
+    border: none;
+    border-bottom: solid darkslateblue;
 }
 
-nav .nav-items a:hover {
-    background-color: #f2dfb5;
+nav .nav-items .item .groupOpcoes-sair {
+    /* border: 2px solid yellow; */
+    justify-content: center;
+    width: 85%;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-opcoes);
+    border-radius: 5px;
+    font-size: 15px;
+    transition: 500ms;
+    cursor: pointer;
+    padding: inherit;
+    border: none;
+    border-bottom: solid darkslateblue;
 }
 
-nav .nav-items .item:hover {
-    /* background-color: #FDAD00; */
-    background-color: #f2dfb5;
+nav .nav-items .item .groupOpcoes i {
+    width: 20%;
+    padding: inherit;
 }
 
-nav .nav-items a:hover i {
-    color: #000071;
+nav .nav-items .item .titulo:hover {
+    background-color: var(--color-nav-hover);
 }
 
-nav .nav-items .item:hover i {
-    color: #000071;
+nav .nav-items .item .groupOpcoes:hover {
+    background-color: var(--color-nav-hover);
 }
 
-nav .nav-items a {
-    color: whitesmoke;
-    transition: ease-in 500ms;
+nav .nav-items .item .groupOpcoes-sair:hover {
+    background-color: var(--color-sair-hover);
 }
 
 /* ------------------------------------------------- General Settings and Nav ------------------------------------------------------- */
@@ -130,6 +159,7 @@ main .panel .main-content {
     flex-direction: column;
     width: 90%;
     height: 100%;
+    background-color: rgb(3, 3, 34);
     gap: 1rem;
     z-index: 1;
 }
@@ -137,7 +167,8 @@ main .panel .main-content {
 main .panel .main-content .high-info {
     display: flex;
     justify-content: center;
-    background-color: #3083f0;
+    background-color: var(--color-background-partes);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
 }
 
 main .panel .main-content .high-info .general {
@@ -234,14 +265,6 @@ main .panel .main-content .machines .top-info .color-legend .desc h1 {
     font-size: 1.5rem;
 }
 
-main .panel .main-content .machines .top-info .filter {
-    display: flex;
-    justify-content: center;
-    border: 5px solid blue;
-    width: 25%;
-    height: fit-content;
-}
-
 .select-project select {
     margin-top: 15%;
     width: 15rem;
@@ -250,7 +273,7 @@ main .panel .main-content .machines .top-info .filter {
     border-radius: 15px;
     text-align: center;
     font-size: 1.5rem;
-    background-color: #3083f0;
+    background-color:  var(--color-opcoes);
     transition: 200ms;
     z-index: 0;    
 }
@@ -295,7 +318,7 @@ main .panel .main-content .machines .modalMachine {
     position: absolute;
     width: 75%;
     height: 70%;
-    background-color: #000071;
+    background-color: var(--color-background-partes);
     box-shadow: 2px 2px 2px black;
     border-radius: 25px;
     opacity: 0;
@@ -355,7 +378,7 @@ main .panel .main-content .machines .modalMachine .content .machineCrud select {
     font-size: 1rem;
     width: 15rem;
     height: 2.5rem;
-    background-color: #3083f0;
+    background-color: var(--color-opcoes);
     border: none;
     border-radius: 10px;
     text-align: center;
@@ -378,7 +401,7 @@ main .panel .main-content .machines .modalMachine .content .machineCrud .remove-
     height: 3rem;
     border-radius: 15px;
     border: none;
-    background-color: #3083f0;
+    background-color: var(--color-opcoes);
     transition: 500ms;
 }
 
@@ -417,7 +440,7 @@ main .panel .main-content .machines .modalMachine .content .parametrize .buttons
     height: 3rem;
     border-radius: 10px;
     border: none;
-    background-color: #3083f0;
+    background-color: var(--color-opcoes);
     transition: 500ms;
     cursor: pointer;
 }
@@ -459,7 +482,7 @@ main .panel .main-content .machines .machine .infoHardware .info {
     text-align: center;
     font-size: 1rem;
     overflow-y: auto;
-    background-color: #3083f0;
+    background-color: var(--color-background-partes);
     border: 2px solid white;
 }
 
@@ -467,7 +490,7 @@ main .panel .main-content .machines .machine .infoHardware .info {
 main .panel .main-content .machines .machine:hover,
 main .panel .main-content .machines .machine .infoHardware .info:hover {
     width: 16rem;
-    background-color: #3083f0;
+    background-color: var(--color-background-partes);
     box-shadow: 1px 1px 1px black;
     cursor: pointer;
 }
@@ -485,7 +508,6 @@ main .panel .main-content .bottom .log {
     height: 100%;
     border-radius: 15px;
     overflow-y: auto;
-    background-color: #000071;
-    box-shadow: 2px 2px 2px black;
-    border: 5px solid blue;
+    background-color: var(--color-nav-hover);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
 }
