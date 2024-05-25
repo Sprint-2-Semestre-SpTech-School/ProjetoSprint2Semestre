@@ -146,7 +146,7 @@ nav .nav-items .itemSelecionado .groupOpcoes {
     border-bottom: solid #FABF3F;
 }
 
-nav .nav-items .item .groupOpcoes-sair{
+nav .nav-items .item .groupOpcoes-sair {
     /* border: 2px solid yellow; */
     justify-content: center;
     width: 85%;
@@ -176,7 +176,7 @@ nav .nav-items .item .groupOpcoes:hover {
     background-color: var(--color-nav-hover);
 }
 
-nav .nav-items .item .groupOpcoes-sair:hover{
+nav .nav-items .item .groupOpcoes-sair:hover {
     background-color: var(--color-sair-hover);
 }
 
@@ -187,6 +187,40 @@ nav .nav-items .item .groupOpcoes-sair:hover{
     width: 85%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.main-content .projectTools .buttonTools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin-top: 25%;
+    padding: 30%;
+    background-color: #49C261;
+    color: #ffff;
+    font-size: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.main-content .projectTools .buttonTools:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin-top: 25%;
+    padding: 30%;
+    background-color: darkslateblue;
+    font-size: 14px;
+    border: 1px solid #FABF3F;
+    border-radius: 10px;
+}
+
+.main-content .projectTools .buttonTools i {
+    padding: 5px;
 }
 
 /* -------------------------------------------------------- KPI --------------------------------------------------------------------- */
@@ -227,25 +261,162 @@ nav .nav-items .item .groupOpcoes-sair:hover{
 
 /* -------------------------------------------------------- PROJETOS -------------------------------------------------------------------- */
 
-.projetos {
+.main-content .content-projects {
+    display: flex;
     width: 100%;
     height: 80vh;
+    flex-direction: row;
     background-color: var(--color-background-partes);
     align-content: space-evenly;
     filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
 }
 
-.main-content .projetos .main-nav {
-
-}
-
-.main-content .projetos .main-nav .colunas {
-    width: 100%;
+.main-content .content-projects .project-card {
+    position: relative;
     display: flex;
-    align-content: space-between;
     justify-content: center;
+    flex-direction: column;
+    margin: 12px;
+    align-items: flex-start;
+    width: 40%;
+    height: 80%;
+    background-color: rgb(44, 44, 139);
+    box-shadow: 0 0 2px 2px darkslateblue;
+    border-radius: 10px;
 }
 
-.projetos .main-nav .colunas span {
+.main-content .content-projects .project-card .card-alert {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    left: 5px;
+    width: 30%;
+    height: 4%;
+    border-radius: 15px;
+}
+
+#dangerous {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    left: 5px;
+    width: 30%;
+    height: 4%;
+    background-color: red;
+    border-radius: 15px;
+}
+
+#warn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    left: 5px;
+    width: 30%;
+    height: 4%;
+    background-color: #FABF3F;
+    border-radius: 15px;
+}
+
+#ok {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    left: 5px;
+    width: 30%;
+    height: 4%;
+    background-color: #49C261;
+    border-radius: 15px;
+}
+
+.infoProject {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 3%;
+    width: 100%;
+    height: 20%;
+    background-color: transparent;
+    border-top: 2px dashed rgb(104, 90, 195);
+    border-bottom: 2px dashed rgb(104, 90, 195);
+}
+
+.infoProject p {
+    font-weight: bold;
+    color: rgb(3, 3, 66);
+    text-shadow: 2px rgb(104, 90, 195);
+}
+
+.infoProject .dtInicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoProject .dtTermino {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoProject .responsavel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.project-card .statusProject {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    background-color: rgba(3, 3, 66, 0.531);
+    bottom: 0;
+}
+
+.project-card .statusProject .status1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.project-card .statusProject .status1 p {
+    font-size: 15px;
+}
+
+.project-card .local {
+    gap: 10px;
+    margin-top: 2%;
+    margin-left: 2%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.project-card .local i {
+    display: flex;
+    font-size: 35px;
+}
+
+.deleteProject {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}
+
+.deleteProject i {
+    font-size: 25px;
 
 }
