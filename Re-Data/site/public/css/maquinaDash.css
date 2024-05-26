@@ -16,9 +16,17 @@ body {
     --color-background-partes: rgb(3, 3, 66);
     --color-opcoes: rgb(35, 35, 121);
     --color-nav-hover: rgb(6, 7, 50);
-    --color-sair-hover: rgb(210, 79, 59);
+    --color-sair: rgb(203, 30, 4);
+    --color-sair-hover: rgb(150, 32, 14);
+    --color-sair-borda: rgb(150, 32, 14);
     --color-background-kpi: rgb(35, 35, 121);
-    /* --color-background-kpi: #9b2727; */
+    --color-breadcrumb-atual: #98a40b;
+    --color-grafico: #061980;
+    --color-kpi-normal: rgb(148, 255, 148);
+    --color-kpi-atencao: rgb(220, 143, 0);
+    --color-kpi-ruim: rgb(255, 9, 9);
+    --color-background-modal: rgb(88, 126, 184);
+    /* --color-border-grafico: #eeff83; */
 }
 
 section {
@@ -28,6 +36,7 @@ section {
     justify-content: space-evenly;
     flex-wrap: wrap;
     flex-direction: column;
+    /* font-weight: lighter; */
 }
 
 nav {
@@ -38,7 +47,7 @@ nav {
     flex-direction: column;
     background-color: var(--color-background-partes);
     border-radius: 15px;
-    filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
+    filter: drop-shadow(0px 4px 4px rgba(252, 242, 252, 0.25));
 }
 
 nav .logo img {
@@ -86,6 +95,19 @@ nav .nav-items .item {
     justify-content: space-between;
 }
 
+nav .nav-items .item-sair {
+    /* border: 2px solid yellow; */
+    width: 100%;
+    /* height: 20%; */
+    display: flex;
+    padding: 2%;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 nav .nav-items .item .groupOpcoes {
     /* border: 1px solid rebeccapurple; */
     width: 85%;
@@ -103,21 +125,21 @@ nav .nav-items .item .groupOpcoes {
     border-bottom: solid darkslateblue;
 }
 
-nav .nav-items .item .groupOpcoes-sair{
+nav .nav-items .item .groupOpcoes-sair {
     /* border: 2px solid yellow; */
     justify-content: center;
-    width: 85%;
+    width: 65%;
     flex-wrap: wrap;
     display: flex;
     align-items: center;
-    background-color: var(--color-opcoes);
+    background-color: var(--color-sair);
     border-radius: 5px;
     font-size: 15px;
     transition: 500ms;
     cursor: pointer;
     padding: inherit;
     border: none;
-    border-bottom: solid darkslateblue;
+    border-bottom: solid var(--color-sair-hover);
 }
 
 nav .nav-items .item .groupOpcoes i {
@@ -133,13 +155,172 @@ nav .nav-items .item .groupOpcoes:hover {
     background-color: var(--color-nav-hover);
 }
 
-nav .nav-items .item .groupOpcoes-sair:hover{
+nav .nav-items .item .groupOpcoes-sair:hover {
     background-color: var(--color-sair-hover);
 }
 
+/* -------------------------------------------------------- BREADCRUMB -------------------------------------------------------------- */
+.breadcrumb {
+    /* border: 1px solid red; */
+    height: 4vh;
+    width: 42vw;
+    display: flex;
+    border-radius: 7px;
+
+}
+
+.breadcrumb .breadcrumbList {
+    /* padding: 10px 16px; */
+    list-style: none;
+    /* background-color: var(--color-background-partes); */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.breadcrumb .breadcrumbList li {
+    border-right: 1px solid var(--color-background-partes);
+    border-radius: 5px;
+    width: 8vw;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-grafico);
+    padding: 2px;
+    box-shadow: 4px 0px 21px rgba(0, 0, 0, 0.5);
+    transition: 500ms;
+    cursor: pointer;
+}
+
+.breadcrumb .breadcrumbList li:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.breadcrumb .breadcrumbList .primeiro {
+    /* background-color: red; */
+    z-index: 3;
+}
+
+.breadcrumb .breadcrumbList .segundo {
+    z-index: 2;
+    left: -11px;
+    display: flex;
+    position: relative;
+    /* background: blue; */
+}
+
+.breadcrumb .breadcrumbList .terceiro {
+    /* background-color: green; */
+    left: -18px;
+    position: relative;
+    z-index: 1;
+}
+
+.breadcrumb .breadcrumbList .quarto {
+    /* background-color: blueviolet; */
+    position: relative;
+    left: -23px;
+    width: 9vw;
+    background-color: var(--color-breadcrumb-atual);
+    /* font-style:; */
+    color: black;
+}
+
+/* .breadcrumb .breadcrumbList li a {
+    display: block;
+    float: left;
+    height: 15px;
+    background-color: var( --color-opcoes);
+    text-align: center;
+    padding: 20px 30px 0 20px;
+    position: relative;
+    margin: 0 10px 0 0; 
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    line-height: 1px;
+    cursor:default;
+} */
+
+/* .breadcrumb .breadcrumbList li a:after {
+    content: "";  
+    position: absolute; 
+    right: -17px; 
+    top: 0;
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 17px solid var(--color-opcoes); 
+    z-index: 1;
+}
+
+.breadcrumb .breadcrumbList li a:before {
+    content: "";  
+    border-top: 17px solid transparent;
+    border-bottom: 17px solid transparent;
+    border-left: 17px solid #fff;
+    position: absolute; 
+    left: 0; 
+    top: 0;
+}
+
+.breadcrumb .breadcrumbList li {
+    display: inline;
+    font-size: 17px;
+}
+
+ul.breadcrumbList li+li:before {
+    padding: 8px;
+    color: white;
+    content: "/\00a0";
+}
+
+.breadcrumb .breadcrumbList li a {
+    color: #0275d8;
+    color: white;
+    text-decoration: none;
+} */
+
+/* .breadcrumb .breadcrumbList li a:hover {
+    background: #779519;
+}
+
+.breadcrumb .breadcrumbList li a:hover:after {
+    border-left-color: #779519;
+} 
+
+
+.breadcrumb .breadcrumbList li:first-child a {
+    border-top: 10px; 
+    border-bottom: 10px;
+}
+
+.breadcrumb .breadcrumbList li:first-child a:before {
+    display: none; 
+}
+
+.breadcrumb .breadcrumbList li:last-child a {
+    padding-right: 80px;
+    border-top: 10px; 
+    border-bottom: 10px;
+}
+
+.breadcrumb .breadcrumbList li:last-child a:after {
+    display: none; 
+}
+
+.breadcrumb .breadcrumbList li.estouAqui {
+    color: #ffcc00;
+    background: #000;
+} */
+
+/* ul.breadcrumbList li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+} */
+
 /* -------------------------------------------------------- TELA -------------------------------------------------------------------- */
 .main-content {
-    height: 100vh;
+    height: 95vh;
     width: 85%;
     display: flex;
     flex-wrap: wrap;
@@ -150,35 +331,116 @@ nav .nav-items .item .groupOpcoes-sair:hover{
 .kpis {
     /* border: 2px solid red; */
     width: 100%;
-    height: 15vh;
+    height: 13vh;
     /* background-color: var(--color-background-partes); */
-    border-radius: 15px;
+    border-radius: 12vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 0.8%;
+    padding-top: 0.2%;
+    padding-bottom: 0.5%;
 }
 
 .kpis .kpiInfo {
-    width: 15%;
+    width: 19%;
     background-color: var(--color-background-partes);
     border-radius: 5px;
     display: flex;
     align-items: center;
-    padding: 0.5%;
-    filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
+    padding: 0.4%;
+    filter: drop-shadow(0px 4px 4px rgba(252, 242, 252, 0.25));
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.kpis .kpiInfo .dado {
+    font-size: 28px;
+    width: 100%;
+    /* border: 1px solid; */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.kpis .kpiInfo .div_imagem {
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.kpis .kpiInfo .legendaIcon {
+    width: 2vw;
+    /* border: 1px solid; */
+}
+
+.kpis .kpiInfo .legendaIcon-x {
+    width: 1vw;
 }
 
 #id_kpi01 {
-    border: 2px solid rgb(64, 255, 47);
+    color: var(--color-kpi-normal);
 }
 
 #id_kpi02 {
-    border: 2px solid orange;
+    color: var(--color-kpi-atencao);
 }
 
 #id_kpi03 {
-    border: 2px solid red;
+    color: var(--color-kpi-ruim);
+}
+
+.kpis .kpiInfo .titulo {
+    font-size: 14px;
+}
+
+.kpis .kpiInfo .explicacaoDiv {
+    width: 100%;
+    display: flex;
+    /* padding: 2px; */
+    flex-wrap: wrap;
+}
+
+.kpis .kpiInfo .explicacaoDiv .linha {
+    width: 100%;
+    /* border: 1px solid; */
+    display: flex;
+    height: 3.4vh;
+    justify-content: space-between;
+}
+
+.kpis .kpiInfo .explicacaoDiv .explicacao {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    width: 4vw;
+}
+
+.kpis .kpiInfo .explicacaoDiv .numeros {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* flex-wrap: wrap; */
+    width: 5vw;
+}
+
+.kpis .kpiInfo .explicacaoDiv .imagem {
+    width: 1.8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kpis .kpiInfo .explicacaoDiv .imagem .legendaIcon {
+    width: 2vw;
+}
+
+.kpis .kpiInfo .explicacaoDiv .imagem .legendaIcon-x {
+    width: 1vw;
 }
 
 /* -------------------------------------------------------- DASH -------------------------------------------------------------------- */
@@ -188,5 +450,161 @@ nav .nav-items .item .groupOpcoes-sair:hover{
     background-color: var(--color-background-partes);
     display: flex;
     flex-wrap: wrap;
-    filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
+    /* filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25)); */
+
+    align-items: center;
+    /* height: 55%; */
+}
+
+.dashboard .topDash {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 55%;
+}
+
+.dashboard .bottomDash {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 45%;
+    margin-bottom: 1rem;
+}
+
+.dashboard .grafico {
+    /* width: 500px; */
+    max-width: 525px;
+    padding: 0.5rem;
+    /* filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25)); */
+}
+
+.dashboard canvas {
+    border-radius: 25px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* -------------------------------------------------------- MODAL ------------------------------------------------------------------- */
+
+.modalSair {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* background-color: white; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow: auto;
+    /* margin: 0 100% 0 0; */
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1000px rgba(0, 0, 0, 0.491);
+    /* transition: 500ms; */
+}
+
+.modalSair .modalSairDentro {
+    width: 30%;
+    min-width: 400px;
+    min-height: 300px;
+    background-color: var(--color-background-modal);
+    backdrop-filter: blur(10px);
+    height: 60%;
+    padding: 30px;
+    border-radius: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* .modalSair .modalSairDentro img {
+    width: 80%;
+} */
+
+.modalSair.abrir {
+    display: flex;
+}
+
+@keyframes abrir {
+    from {
+        /* opacity: 0; */
+        transform: translate3d(0, -20px, -5px);
+        transition: opacity 0.5s ease;
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 0.5s ease;
+    }
+}
+
+.abrir .modalSairDentro {
+    animation: abrirModal 0.5s;
+}
+
+/* .fecharModal {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 5%;
+    height: 8%;
+    border-radius: 50%;
+    border: 0;
+    background-color: rgb(143, 8, 8);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+} */
+
+.modalSair .modalSairDentro .divModal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 35vh;
+}
+
+.modalSair .modalSairDentro .divModal h2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modalSair .modalSairDentro .divModal p {
+    font-size: 16px;
+}
+
+.modalSair .modalSairDentro .divModal button {
+    width: 90%;
+    height: 5vh;
+}
+
+.modalSair .modalSairDentro .divModal .fecharModal {
+    background-color: var(--color-opcoes);
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    /* padding: inherit; */
+    border: none;
+    border-bottom: solid var(--color-nav-hover);
+    transition: 500ms;
+}
+
+.modalSair .modalSairDentro .divModal .botaoSair {
+    background-color: var(--color-sair);
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    /* padding: inherit; */
+    border: none;
+    border-bottom: solid var(--color-sair-hover);
+    transition: 500ms;
+}
+
+.modalSair .modalSairDentro .divModal .fecharModal:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.modalSair .modalSairDentro .divModal .botaoSair:hover {
+    background-color: var(--color-sair-hover);
 }

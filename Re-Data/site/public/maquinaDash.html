@@ -7,12 +7,25 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/maquinaDash.css">
     <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <main>
+        <div class="modalSair" id="modalSair">
+            <div class="modalSairDentro">
+                <!-- <button class="fecharModal" id="fecharModal">X</button> -->
+                <div class="divModal">
+                    <h2>Você tem certeza?</h2>
+                    <p>Realmente deseja sair da sua página de monitoramento?</p>
+                    <button class="fecharModal" id="fecharModal" onclick="cancelar()">Cancelar</button>
+                    <button class="botaoSair" onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
         <section>
             <nav>
+
                 <div class="logo">
                     <img src="./assets/icon/Logo High.png" alt="">
                 </div>
@@ -40,35 +53,107 @@
                     </li>
 
                     <!-- sair -->
-                    <a href="login.html" class="item">
-                        <li class="item">
-                            <button class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                    <!-- <a href="login.html" class="item"> -->
+                    <div class="item">
+                        <li class="item-sair">
+                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
                         </li>
-                    </a>
+                    </div>
+                    <!-- </a> -->
                 </ul>
+
             </nav>
+
+            <div class="breadcrumb">
+                <ul class="breadcrumbList">
+                    <li class="primeiro"><a href="#">Home</a></li>
+                    <li class="segundo"><a href="#">Projetos</a></li>
+                    <li class="terceiro"><a href="#">Dashboard</a></li>
+                    <li class="quarto"><a href="#">Máquina Dash</a></li>
+                </ul>
+            </div>
 
             <div class="main-content">
                 <div class="kpis">
-                    <div class="kpiInfo" id="id_kpi01">
-                        <p>Tempo de atividade maior do que : </p>
+                    <div class="kpiInfo">
+                        <!-- <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt=""> -->
+                        <p><i class="fas fa-clock"></i> Horas de atividade menor do que :</p>
+                        <p id="id_kpi01" class="dado">10h</p>
+                        <div class="div_imagem">
+                            <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt="">
+                        </div>
                     </div>
 
-                    <div class="kpiInfo" id="id_kpi02">
-                        <p>Uso de CPU maior do que : </p>
+                    <div class="kpiInfo">
+                        <p><i class="fas fa-microchip"></i> Uso de CPU maior do que : </p>
+                        <p id="id_kpi02" class="dado">82%</p>
+                        <div class="div_imagem">
+                            <img class="legendaIcon" src="./assets/imgs/atencao-removebg-preview.png" alt="">
+                        </div>
                     </div>
 
-                    <div class="kpiInfo" id="id_kpi03">
-                        <p>Uso de RAM maior do que : </p>
+                    <div class="kpiInfo">
+                        <p><i class="fas fa-laptop"></i> Uso de RAM maior do que : </p>
+                        <p id="id_kpi03" class="dado">96%</p>
+                        <div class="div_imagem">
+                            <img class="legendaIcon-x" src="./assets/imgs/erro-removebg-preview.png" alt="">
+                        </div>
                     </div>
+
+                    <!-- <div class="kpiInfo" id="id_kpi04">
+                        <p>Tempo de atividade maior do que: </p>
+                    </div> -->
 
                     <div class="kpiInfo" id="id_kpi04">
-                        <p>Tempo de atividade maior do que: </p>
+                        <!-- <p class="titulo">Legenda: </p> -->
+                        <div class="explicacaoDiv">
+                            <div class="linha">
+                                <p class="explicacao">
+                                    Normal:
+                                <div class="numeros">
+                                    0% a 75%
+                                </div>
+                                <div class="imagem">
+                                    <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt="">
+                                </div>
+                                </p>
+                            </div>
+
+                            <div class="linha">
+                                <p class="explicacao">
+                                    Atenção:
+                                <div class="numeros">
+                                    75% a 90%
+                                </div>
+                                <div class="imagem">
+                                    <img class="legendaIcon" src="./assets/imgs/atencao-removebg-preview.png" alt="">
+                                </div>
+                                </p>
+                            </div>
+
+                            <div class="linha">
+                                <p class="explicacao">
+                                    Ruim:
+                                <div class="numeros">
+                                    90% a 100%
+                                </div>
+                                <div class="imagem">
+                                    <img class="legendaIcon-x" src="./assets/imgs/erro-removebg-preview.png" alt="">
+                                </div>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="dashboard">
-
+                    <div class="topDash">
+                        <canvas id="usoCpuRam" class="grafico"></canvas>
+                        <canvas id="usoRede" class="grafico"></canvas>
+                    </div>
+                    <div class="bottomDash">
+                        <canvas id="usoVolume" class="grafico"></canvas>
+                    </div>
                 </div>
             </div>
 
@@ -77,3 +162,5 @@
 </body>
 
 </html>
+
+<script src="./js/maquinaDash.js"></script>
