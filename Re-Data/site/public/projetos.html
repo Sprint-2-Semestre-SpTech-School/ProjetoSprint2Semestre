@@ -7,6 +7,7 @@
     <title>Tela Projetos</title>
     <link rel="stylesheet" href="./css/projetos.css">
     <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -19,12 +20,12 @@
                 <ul class="nav-items">
                     <!-- Home ? -->
                     <li class="item">
-                        <button class="groupOpcoes"><i class="fas fa-home"></i> Home</button>
+                        <a href="./projetos.html" class="buttonHome"><button class="groupOpcoes"><i class="fas fa-home"></i> Home</button></a>
                     </li>
 
                     <!-- Projeto - dash - maquinas -->
                     <li class="item">
-                        <a href="./projetos.html" class="itemSelecionado"><button class="groupOpcoes"><i
+                        <a href="./projetos.html" class="itemSelected"><button class="groupOpcoes"><i
                                     class="fa-solid fa-calendar-days"></i> Projetos</button></a>
                         <a href="./DashProjeto.html" class="item"><button class="groupOpcoes"><i
                                     class="fas fa-tachometer"></i> Dashboard</button></a>
@@ -59,18 +60,29 @@
                         <div class="card-alert" id="dangerous">Alert</div>
                         <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
 
+                        <!-- QTD MÁQUINAS -->
+                        <div class="qtd-machines">
+                            <p>Máquinas Alocadas</p>
+                            <i>6</i>
+                        </div>
+
+                        <div class="nameDemand">
+                            <p>Nome Demanda</p>
+                            <i>Estoque</i>
+                        </div>
+
                         <div class="infoProject">
                             <div class="dtInicio">
-                                <p>Início:</p>
-                                <i>08/07/2024</i>
+                                <p>Inicio:</p>
+                                <i>06/03/2024</i>
                             </div>
                             <div class="responsavel">
                                 <p>Responsável:</p>
-                                <i>Fulano da Silva</i>
+                                <i>Jairo Santos</i>
                             </div>
                             <div class="dtTermino">
                                 <p>Término:</p>
-                                <i>16/04/2025</i>
+                                <i>16/06/2024</i>
                             </div>
                         </div>
 
@@ -81,10 +93,11 @@
 
                         <div class="statusProject">
                             <div class="status1">
-                                <p>2 máquinas em perigo!</p>
+                                <p>Máquinas em perigo: </p>
+                                <p>Máquinas em atenção: </p>
                             </div>
                             <div class="status1">
-                                <p>8 Sei lá!</p>
+                                <p>status: </p>
                             </div>
                         </div>
 
@@ -93,14 +106,117 @@
                         <div class="card-alert" id="warn">Alert</div>
                         <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
 
+                        <!-- QTD MÁQUINAS -->
+                        <div class="qtd-machines">
+                            <p>Máquinas Alocadas</p>
+                            <i>5</i>
+                        </div>
+
+                        <div class="nameDemand">
+                            <p>Nome Demanda</p>
+                            <i>Composição Textual</i>
+                        </div>
+
                         <div class="infoProject">
                             <div class="dtInicio">
-                                <p>Início:</p>
-                                <i>08/07/2024</i>
+                                <p>Inicio:</p>
+                                <i>25/05/2024</i>
                             </div>
                             <div class="responsavel">
                                 <p>Responsável:</p>
-                                <i>Ciclano da Silva</i>
+                                <i>Janaína Silva</i>
+                            </div>
+                            <div class="dtTermino">
+                                <p>Término:</p>
+                                <i>23/07/2024</i>
+                            </div>
+                        </div>
+
+                        <div class="local">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>Local</p>
+                        </div>
+
+                        <div class="statusProject">
+                            <div class="status1">
+                                <p>Máquinas perigo: </p>
+                                <p>Máquinas atenção: </p>
+                            </div>
+                            <div class="status1">
+                                <p>Status: </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="project-card">
+                        <div class="card-alert" id="ok">Alert</div>
+                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
+
+                        <!-- QTD MÁQUINAS -->
+                        <div class="qtd-machines">
+                            <p>Máquinas Alocadas</p>
+                            <i>10</i>
+                        </div>
+
+                        <div class="nameDemand">
+                            <p>Nome Demanda</p>
+                            <i>RH</i>
+                        </div>
+
+                        <div class="infoProject">
+                            <div class="dtInicio">
+                                <p>Inicio:</p>
+                                <i>14/08/2024</i>
+                            </div>
+                            <div class="responsavel">
+                                <p>Responsável:</p>
+                                <i>Jorge Igor</i>
+                            </div>
+                            <div class="dtTermino">
+                                <p>Término:</p>
+                                <i>20/09/2024</i>
+                            </div>
+                        </div>
+
+                        <div class="local">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>Local</p>
+                        </div>
+
+                        <div class="statusProject">
+                            <div class="status1">
+                                <p>Máquinas perigo: </p>
+                                <p>Máquinas atenção: </p>
+                            </div>
+                            <div class="status1">
+                                <p>Status: </p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="project-card">
+                        <div class="card-alert" id="dangerous">Alert</div>
+                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
+
+                        <!-- QTD MÁQUINAS -->
+                        <div class="qtd-machines">
+                            <p>Máquinas Alocadas</p>
+                            <i>3</i>
+                        </div>
+
+                        <div class="nameDemand">
+                            <p>Nome Demanda</p>
+                            <i>Faturamento</i>
+                        </div>
+
+                        <div class="infoProject">
+                            <div class="dtInicio">
+                                <p>Inicio:</p>
+                                <i>04/10/2024</i>
+                            </div>
+                            <div class="responsavel">
+                                <p>Responsável:</p>
+                                <i>Jamara Lima</i>
                             </div>
                             <div class="dtTermino">
                                 <p>Término:</p>
@@ -115,86 +231,21 @@
 
                         <div class="statusProject">
                             <div class="status1">
-                                <p>Abre teu olho hein</p>
+                                <p>Máquinas perigo: </p>
+                                <p>Máquinas atenção: </p>
                             </div>
                             <div class="status1">
-                                <p>2 máquinas "perigando"</p>
+                                <p>Status: </p>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="project-card">
-                        <div class="card-alert" id="ok">Alert</div>
-                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
-
-                        <div class="infoProject">
-                            <div class="dtInicio">
-                                <p>Início:</p>
-                                <i>08/07/2024</i>
-                            </div>
-                            <div class="responsavel">
-                                <p>Responsável:</p>
-                                <i>Beltrano da Silva</i>
-                            </div>
-                            <div class="dtTermino">
-                                <p>Término:</p>
-                                <i>16/04/2027</i>
-                            </div>
-                        </div>
-
-                        <div class="local">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <p>Local</p>
-                        </div>
-
-                        <div class="statusProject">
-                            <div class="status1">
-                                <p>Tudo joia</p>
-                            </div>
-                            <div class="status1">
-                                <p>Ta safe, irmao</p>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="project-card">
-                        <div class="card-alert" id="dangerous">Alert</div>
-                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
-
-                        <div class="infoProject">
-                            <div class="dtInicio">
-                                <p>Início:</p>
-                                <i>08/07/2027</i>
-                            </div>
-                            <div class="responsavel">
-                                <p>Responsável:</p>
-                                <i>Cansei da Silva</i>
-                            </div>
-                            <div class="dtTermino">
-                                <p>Término:</p>
-                                <i>16/04/2035</i>
-                            </div>
-                        </div>
-
-                        <div class="local">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <p>Local</p>
-                        </div>
-
-                        <div class="statusProject">
-                            <div class="status1">
-                                <p>20 pcs explodindo</p>
-                            </div>
-                            <div class="status1">
-                                <p>30 derretendo</p>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
+
             </div>
 
         </section>
     </main>
 </body>
+
+<script src="./js/projetos.js"></script>
