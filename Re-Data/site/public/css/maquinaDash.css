@@ -73,7 +73,7 @@ nav .nav-items .item .titulo {
     /* border: 2px solid magenta; */
     display: flex;
     width: 100%;
-    font-size: 12px;
+    font-size: 13px;
     border-radius: 5px;
     /* justify-content: center; */
     /* background-color: var(--color-titulo); */
@@ -117,7 +117,7 @@ nav .nav-items .item .groupOpcoes {
     /* justify-content: space-between; */
     background-color: var(--color-opcoes);
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 17px;
     transition: 500ms;
     cursor: pointer;
     padding: inherit;
@@ -349,7 +349,7 @@ ul.breadcrumbList li+li:before {
     align-items: center;
     padding: 0.4%;
     filter: drop-shadow(0px 4px 4px rgba(252, 242, 252, 0.25));
-    font-size: 14px;
+    font-size: 17px;
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;

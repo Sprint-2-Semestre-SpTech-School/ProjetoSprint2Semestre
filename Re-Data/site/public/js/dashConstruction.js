@@ -16,6 +16,24 @@ function sairConta() {
     }, "1000");
 }
 
+function telaProjeto() {
+    setTimeout(() => {
+        window.location = "projetos.html";
+    }, "100");
+}
+
+function dashProjeto() {
+    setTimeout(() => {
+        window.location = "DashProjeto.html";
+    }, "100");
+}
+
+function dashMaq() {
+    setTimeout(() => {
+        window.location = "maquinaDash.html";
+    }, "100");
+}
+
 const ctx = document.getElementById('cpuRam');
 console.log(ctx);
 new Chart(ctx, {

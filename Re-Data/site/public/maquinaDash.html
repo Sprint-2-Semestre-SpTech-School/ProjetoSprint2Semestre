@@ -31,17 +31,18 @@
                 </div>
                 <ul class="nav-items">
                     <!-- Home ? -->
-                    <li class="item">
+                    <!-- <li class="item">
                         <button class="groupOpcoes"><i class="fas fa-home"></i> Home</button>
-                    </li>
+                    </li> -->
 
                     <!-- Projeto - dash - maquinas -->
                     <li class="item">
                         <b class="titulo">
                             <p class="titulo">PROJETOS</p>
                         </b>
-                        <button class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
-                        <button class="groupOpcoes"><i class="fas fa-desktop"></i> Máquinas</button>
+                        <button onclick="telaProjeto()" class="groupOpcoes"><i class="fas fa-calendar-days"></i> Projetos</button>
+                        <button onclick="dashProjeto()" class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
+                        <!-- <button onclick="" class="groupOpcoes"><i class="fas fa-desktop"></i> Máquinas</button> -->
                     </li>
 
                     <!-- maquinas - dash -->
@@ -49,7 +50,7 @@
                         <b class="titulo">
                             <p class="titulo">MÁQUINAS</p>
                         </b>
-                        <button class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
+                        <button onclick="dashMaq()" class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
                     </li>
 
                     <!-- sair -->
@@ -66,7 +67,7 @@
 
             <div class="breadcrumb">
                 <ul class="breadcrumbList">
-                    <li class="primeiro"><a href="#">Home</a></li>
+                    <!-- <li class="primeiro"><a href="#">Home</a></li> -->
                     <li class="segundo"><a href="#">Projetos</a></li>
                     <li class="terceiro"><a href="#">Dashboard</a></li>
                     <li class="quarto"><a href="#">Máquina Dash</a></li>

@@ -502,6 +502,22 @@ nav .nav-items .item .groupOpcoes-sair:hover {
     font-size: 12px;
 }
 
+.project-card .statusProject .spaceButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-card .statusProject .spaceButton .button-go-project {
+    background-color: #FABF3F;
+    color: black;
+    border-radius: 5px; 
+    font-size: 12px;
+    cursor: pointer;
+}
+
 .project-card .local {
     gap: 10px;
     margin-top: 2%;
