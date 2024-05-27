@@ -12,6 +12,17 @@
 
 <body>
     <main>
+        <div class="modalSair" id="modalSair">
+            <div class="modalSairDentro">
+                <!-- <button class="fecharModal" id="fecharModal">X</button> -->
+                <div class="divModal">
+                    <h2>Você tem certeza?</h2>
+                    <p>Realmente deseja sair da sua página de monitoramento?</p>
+                    <button class="fecharModal" id="fecharModal" onclick="cancelar()">Cancelar</button>
+                    <button class="botaoSair" onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
         <section>
             <nav>
                 <div class="logo">
@@ -23,10 +34,11 @@
                     </li>
                     <li class="item">
                         <b class="titulo">
-                            <p class="titulo">PROJETOS</p>
+                            <a href="./projetos.html" class="itemSelecionado"><p class="titulo">PROJETOS</p></a>
                         </b>
+                        <button class="groupOpcoes"><i class="fa-solid fa-calendar-days"></i> Projetos</button>
                         <button class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
-                        <button class="groupOpcoes"><i class="fas fa-desktop"></i> Máquinas</button>
+                        <!-- <button class="groupOpcoes"><i class="fas fa-desktop"></i> Máquinas</button> -->
                     </li>
                     <li class="item">
                         <b class="titulo">
@@ -34,19 +46,75 @@
                         </b>
                         <button class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
                     </li>
-                    <a href="login.html" class="item">
-                        <li class="item">
-                            <button class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
+
+                    <div class="item">
+                        <li class="item-sair">
+                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
                         </li>
-                    </a>
+                    </div>
                 </ul>
             </nav>
+
             <div class="screen">
                 <div class="top">
+
+                    <div class="breadcrumb">
+                        <ul class="breadcrumbList">
+                            <li class="primeiro"><a href="#">Home</a></li>
+                            <li class="segundo"><a href="#">Projetos</a></li>
+                            <li class="terceiro"><a href="#">Dashboard</a></li>
+                            <li class="quarto"><a href="#">Máquina Dash</a></li>
+                        </ul>
+                    </div>
+
                     <div class="project">
                         <h1>Project Test</h1>
                     </div>
-                    <div class="legends">
+
+                    <div class="kpis">
+                        <div class="kpiInfo" id="id_kpi04">
+                            <!-- <p class="titulo">Legenda: </p> -->
+                            <div class="explicacaoDiv">
+                                <div class="linha">
+                                    <p class="explicacao">
+                                        Normal:
+                                    <div class="numeros">
+                                        0% a 75%
+                                    </div>
+                                    <div class="imagem">
+                                        <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt="">
+                                    </div>
+                                    </p>
+                                </div>
+
+                                <div class="linha">
+                                    <p class="explicacao">
+                                        Atenção:
+                                    <div class="numeros">
+                                        75% a 90%
+                                    </div>
+                                    <div class="imagem">
+                                        <img class="legendaIcon" src="./assets/imgs/atencao-removebg-preview.png"
+                                            alt="">
+                                    </div>
+                                    </p>
+                                </div>
+
+                                <div class="linha">
+                                    <p class="explicacao">
+                                        Ruim:
+                                    <div class="numeros">
+                                        90% a 100%
+                                    </div>
+                                    <div class="imagem">
+                                        <img class="legendaIcon-x" src="./assets/imgs/erro-removebg-preview.png" alt="">
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="legends">
                         <div class="legend">
                             <h1>VERDE</h1>
                         </div>
@@ -56,7 +124,7 @@
                         <div class="legend">
                             <h1>VERMELHO</h1>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="dashView">
                     <div class="options">

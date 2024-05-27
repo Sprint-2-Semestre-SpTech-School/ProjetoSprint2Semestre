@@ -12,6 +12,17 @@
 
 <body>
     <main>
+        <div class="modalSair" id="modalSair">
+            <div class="modalSairDentro">
+                <!-- <button class="fecharModal" id="fecharModal">X</button> -->
+                <div class="divModal">
+                    <h2>Você tem certeza?</h2>
+                    <p>Realmente deseja sair da sua página de monitoramento?</p>
+                    <button class="fecharModal" id="fecharModal" onclick="cancelar()">Cancelar</button>
+                    <button class="botaoSair" onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
         <section>
             <nav>
                 <div class="logo">
@@ -42,13 +53,22 @@
                     </li>
 
                     <!-- sair -->
-                    <a href="login.html" class="item">
-                        <li class="item">
-                            <button class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i>Sair</button>
+                    <div class="item">
+                        <li class="item-sair">
+                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
                         </li>
-                    </a>
+                    </div>
                 </ul>
             </nav>
+
+            <div class="breadcrumb">
+                <ul class="breadcrumbList">
+                    <li class="primeiro"><a href="#">Home</a></li>
+                    <li class="segundo"><a href="#">Projetos</a></li>
+                    <li class="terceiro"><a href="#">Dashboard</a></li>
+                    <li class="quarto"><a href="#">Máquina Dash</a></li>
+                </ul>
+            </div>
 
             <div class="main-content">
                 <div class="projectTools">
