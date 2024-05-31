@@ -51,7 +51,6 @@
                         <button onclick="dashMaq()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
                             Dashboard</button>
                     </li>
-
                     <div class="item">
                         <li class="item-sair">
                             <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i>
@@ -60,103 +59,100 @@
                     </div>
                 </ul>
             </nav>
-
             <div class="screen">
                 <div class="top">
-
-                    <div class="breadcrumb">
-                        <ul class="breadcrumbList">
-                            <!-- <li class="primeiro"><a href="#">Home</a></li> -->
-                            <li class="segundo"><a href="#">Projetos</a></li>
-                            <li class="terceiro"><a href="#">Dashboard</a></li>
-                            <li class="quarto"><a href="#">Máquina Dash</a></li>
-                        </ul>
+                    <div class="guide">
+                        <div class="breadcrumb">
+                            <ul class="breadcrumbList">
+                                <!-- <li class="primeiro"><a href="#">Home</a></li> -->
+                                <li class="segundo"><a href="#">Projetos</a></li>
+                                <li class="terceiro"><a href="#">Dashboard</a></li>
+                                <li class="quarto"><a href="#">Máquina Dash</a></li>
+                            </ul>
+                        </div>
+                        <div class="project">
+                            <h1>Project Test</h1>
+                        </div>
                     </div>
-
-                    <div class="project">
-                        <h1>Project Test - Máquinas conectadas: Tempo de projeto:</h1>
-                    </div>
-
-                    <div class="kpis">
-                        <div class="kpiInfo" id="id_kpi04">
-                            <!-- <p class="titulo">Legenda: </p> -->
-                            <div class="explicacaoDiv">
-                                <div class="linha">
-                                    <p class="explicacao">
-                                        Normal:
-                                    <div class="numeros">
-                                        0% a 75%
-                                    </div>
-                                    <div class="imagem">
-                                        <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt="">
-                                    </div>
-                                    </p>
-                                </div>
-
-                                <div class="linha">
-                                    <p class="explicacao">
-                                        Atenção:
-                                    <div class="numeros">
-                                        75% a 90%
-                                    </div>
-                                    <div class="imagem">
-                                        <img class="legendaIcon" src="./assets/imgs/atencao-removebg-preview.png"
-                                            alt="">
-                                    </div>
-                                    </p>
-                                </div>
-
-                                <div class="linha">
-                                    <p class="explicacao">
-                                        Ruim:
-                                    <div class="numeros">
-                                        90% a 100%
-                                    </div>
-                                    <div class="imagem">
-                                        <img class="legendaIcon-x" src="./assets/imgs/erro-removebg-preview.png" alt="">
-                                    </div>
-                                    </p>
-                                </div>
+                    <div class="status">
+                        <div class="machines">
+                            <div class="machine">
+                                <img src="./assets/imgs/monitor dash.png" alt="">
+                                <!-- <div class="infoHardware">
+                                    <ul class="info">
+                                        <li>Operando: Sim</li>
+                                        <li>Usuário: LuisGustavo</li>
+                                        <li>Destino: Extract</li>
+                                        <li>So: Windows</li>
+                                        <li>CPU: 11th Gen Intel(R) Core(TM) i5 11300H</li>
+                                        <li>Memória: 8192 RAM</li>
+                                        <li>Disco: SSD 512GB</li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                            <div class="machine">
+                                <img src="./assets/imgs/monitor dash.png" alt="">
+                            </div>
+                            <div class="machine">
+                                <img src="./assets/imgs/monitor dash.png" alt="">
+                            </div>
+                            <div class="machine">
+                                <img src="./assets/imgs/monitor dash.png" alt="">
+                            </div>
+                            <div class="machine">
+                                <img src="./assets/imgs/monitor dash.png" alt="">
                             </div>
                         </div>
+                        <div class="health-bar">
+                            <div class="bar">
+                                <div class="quarter"></div>
+                                <div class="quarter"></div>
+                                <div class="quarter"></div>
+                                <div class="quarter"></div>
+                                <div class="quarter"></div>
+                            </div>
+                        </div>
+                        <div class="health-number">
+                            <h1>50.5%</h1>
+                        </div>
                     </div>
-                    <!-- <div class="legends">
-                        <div class="legend">
-                            <h1>VERDE</h1>
-                        </div>
-                        <div class="legend">
-                            <h1>AMARELO</h1>
-                        </div>
-                        <div class="legend">
-                            <h1>VERMELHO</h1>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="dashView">
                     <div class="options">
                         <div class="metrics">
                             <div class="metric">
-                                <h1>Total de logs: 50</h1>
+                                <h1>Capturas: 50</h1>
                             </div>
                             <div class="metric">
-                                <h1>Alertas Vermelhos: 20 </h1>
+                                <h1>Alertas: 20 </h1>
                             </div>
                             <div class="metric">
-                                <h1>Alertas amarelos: 10</h1>
+                                <h1>Alertas: 10</h1>
                             </div>
-                            <div class="metric">
-                                <h1>Saúde do Projeto: 25</h1>
+                            <div class="metric-info">
+                                <div class="info">
+                                    <i class="fa-solid fa-circle-check"></i>
+                                    <h2>0% a 75%</h2>
+                                </div>
+                                <div class="info">
+                                    <i class="fa-solid fa-circle-exclamation"></i>
+                                    <h2>75% a 90%</h2>
+                                </div>
+                                <div class="info">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                    <h2>90% a 100%</h2>
+                                </div>
                             </div>
                         </div>
                         <div class="change-hardware">
                             <div class="hardware">
-                                <h1>h1</h1>
+                                <i class="fa-solid fa-microchip"></i>
                             </div>
                             <div class="hardware">
-                                <h1>h2</h1>
+                                <i class="fa-solid fa-hard-drive"></i>
                             </div>
                             <div class="hardware">
-                                <h1>h3</h1>
+                                <i class="fa-solid fa-wifi"></i>
                             </div>
                         </div>
                     </div>
@@ -171,7 +167,7 @@
                             <div class="kpis">
                                 <div class="double">
                                     <div class="kpi">A máquina que mais gerou logs negativos foi: Máquina 2 com x logs
-                                        na faixa de horário das 18h</div>
+                                    </div>
                                     <div class="kpi">
                                         O número de eventos criticos por hora é: x com o maior valor y
                                         por dia é: x com o maior valor y

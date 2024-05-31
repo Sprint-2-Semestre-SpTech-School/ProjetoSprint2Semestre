@@ -61,7 +61,7 @@ function entrar() {
                     sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
-                        window.location = "Dash Panel.html";
+                        window.location = "DashPanel.html";
                     }, 1000);
                 });
             } else {
