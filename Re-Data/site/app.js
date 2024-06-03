@@ -13,6 +13,7 @@ var indexRouter = require("./src/routes/index");
 var cadastroRouter = require("./src/routes/cadastro");
 var loginRouter = require("./src/routes/login");
 var dashboardRouter = require("./src/routes/dashboard");
+var projetosRouter = require("./src/routes/projetos");
 var dashProjetoRouter = require("./src/routes/dashProjeto");
 
 
@@ -26,6 +27,7 @@ app.use("/", indexRouter);
 app.use("/cadastro", cadastroRouter);
 app.use("/login", loginRouter);
 app.use("/dashboard", dashboardRouter);
+app.use("/projetos", projetosRouter);
 app.use("dashProjeto", dashProjetoRouter);
 
 app.listen(PORTA, function () {

@@ -23,7 +23,8 @@ function entrar(req, res) {
                             id: resultadoEntrar[0].id,
                             nomeUsuario: resultadoEntrar[0].nomeUsuario,
                             // nome: resultadoEntrar[0].nome,
-                            senha: resultadoEntrar[0].senha
+                            senha: resultadoEntrar[0].senha,
+                            fkEmpresa: resultadoEntrar[0].fkEmpresa
                         });
 
                     } else if (resultadoEntrar.length == 0) {

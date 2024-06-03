@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="listarProjetos()">
     <main>
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
@@ -48,13 +48,15 @@
                         <b class="titulo">
                             <p class="titulo">MÁQUINAS</p>
                         </b>
-                        <a href="./maquinaDash.html" class="item"><button class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button></a>
+                        <a href="./maquinaDash.html" class="item"><button class="groupOpcoes"><i
+                                    class="fas fa-tachometer"></i> Dashboard</button></a>
                     </li>
 
                     <!-- sair -->
                     <div class="item">
                         <li class="item-sair">
-                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i>
+                                Sair</button>
                         </li>
                     </div>
                 </ul>
@@ -74,43 +76,43 @@
                     <button class="buttonTools">Novo<i class="fa-solid fa-plus"></i></button>
                 </div>
 
-                <div class="content-projects">
-                    <div class="project-card">
+                <div id="div_projetos" class="content-projects">
+                    <!-- <div class="project-card">
                         <div class="card-alert" id="dangerous">Alert</div>
-                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
+                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div> -->
 
                         <!-- QTD MÁQUINAS -->
-                        <div class="qtd-machines">
+                        <!-- <div class="qtd-machines">
                             <p>Máquinas Alocadas</p>
-                            <i>6</i>
+                            <i>{qtdMaquinas}</i>
                         </div>
 
                         <div class="nameDemand">
                             <p>Nome Demanda</p>
-                            <i>Estoque</i>
+                            <i>{nomeDemanda}</i>
                         </div>
 
                         <div class="infoProject">
                             <div class="dtInicio">
                                 <p>Inicio:</p>
-                                <i>06/03/2024</i>
+                                <i>{dataInicio}</i>
                             </div>
                             <div class="responsavel">
                                 <p>Responsável:</p>
-                                <i>Jairo Santos</i>
+                                <i>{responsavel}</i>
                             </div>
                             <div class="dtTermino">
                                 <p>Término:</p>
-                                <i>16/06/2024</i>
+                                <i>{dataTermino}</i>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="local">
                             <i class="fa-solid fa-location-dot"></i>
                             <p>Local</p>
                         </div> -->
 
-                        <div class="statusProject">
+                        <!-- <div class="statusProject">
                             <div class="status1">
                                 <p>Máquinas em perigo: 1</p>
                                 <p>Máquinas em atenção: 0</p>
@@ -123,86 +125,86 @@
                     </div>
                     <div class="project-card">
                         <div class="card-alert" id="warn">Alert</div>
-                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
+                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div> -->
 
                         <!-- QTD MÁQUINAS -->
-                        <div class="qtd-machines">
+                        <!-- <div class="qtd-machines">
                             <p>Máquinas Alocadas</p>
-                            <i>5</i>
+                            <i>{qtdMaquinas}</i>
                         </div>
 
                         <div class="nameDemand">
                             <p>Nome Demanda</p>
-                            <i>Composição Textual</i>
+                            <i>{nomeDemanda}</i>
                         </div>
 
                         <div class="infoProject">
                             <div class="dtInicio">
                                 <p>Inicio:</p>
-                                <i>25/05/2024</i>
+                                <i>{dataInicio}</i>
                             </div>
                             <div class="responsavel">
                                 <p>Responsável:</p>
-                                <i>Janaína Silva</i>
+                                <i>{responsavel}</i>
                             </div>
                             <div class="dtTermino">
                                 <p>Término:</p>
-                                <i>23/07/2024</i>
+                                <i>{dataTermino}</i>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="local">
                             <i class="fa-solid fa-location-dot"></i>
                             <p>Local</p>
                         </div> -->
 
-                        <div class="statusProject">
+                        <!-- <div class="statusProject">
                             <div class="status1">
                                 <p>Máquinas em perigo: 0</p>
                                 <p>Máquinas em atenção: 2</p>
                             </div>
                             <div class="spaceButton">
-                                <button class="button-go-project">Acessar Projeto</button>
+                                <button onclick="acessarProjeto()" class="button-go-project">Acessar Projeto</button>
                             </div>
                         </div>
 
                     </div>
                     <div class="project-card">
                         <div class="card-alert" id="ok">Alert</div>
-                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
+                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div> -->
 
                         <!-- QTD MÁQUINAS -->
-                        <div class="qtd-machines">
+                        <!-- <div class="qtd-machines">
                             <p>Máquinas Alocadas</p>
-                            <i>10</i>
+                            <i id="div_qtdMaquinas">{qtdMaquinas}</i>
                         </div>
 
                         <div class="nameDemand">
                             <p>Nome Demanda</p>
-                            <i>RH</i>
+                            <i id="div_nomeDemanda">{nomeDemanda}</i>
                         </div>
 
                         <div class="infoProject">
                             <div class="dtInicio">
                                 <p>Inicio:</p>
-                                <i>14/08/2024</i>
+                                <i id="div_dtInicio">{dataInicio}</i>
                             </div>
                             <div class="responsavel">
                                 <p>Responsável:</p>
-                                <i>Jorge Igor</i>
+                                <i id="div_responsavel">{responsavel}</i>
                             </div>
                             <div class="dtTermino">
                                 <p>Término:</p>
-                                <i>20/09/2024</i>
+                                <i id="div_dtTermino">{dataTermino}</i>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="local">
                             <i class="fa-solid fa-location-dot"></i>
                             <p>Local</p>
                         </div> -->
 
-                        <div class="statusProject">
+                        <!-- <div class="statusProject">
                             <div class="status1">
                                 <p>Máquinas em perigo: 0</p>
                                 <p>Máquinas em atenção: 0</p>
@@ -215,40 +217,40 @@
                     </div>
                     <div class="project-card">
                         <div class="card-alert" id="dangerous">Alert</div>
-                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div>
+                        <div class="deleteProject"><i class="fa-solid fa-trash"></i></div> -->
 
                         <!-- QTD MÁQUINAS -->
-                        <div class="qtd-machines">
+                        <!-- <div class="qtd-machines">
                             <p>Máquinas Alocadas</p>
-                            <i>3</i>
+                            <i>{qtdMaquinas}</i>
                         </div>
 
                         <div class="nameDemand">
                             <p>Nome Demanda</p>
-                            <i>Faturamento</i>
+                            <i>{nomeDemanda}</i>
                         </div>
 
                         <div class="infoProject">
                             <div class="dtInicio">
                                 <p>Inicio:</p>
-                                <i>04/10/2024</i>
+                                <i>{dataInicio}</i>
                             </div>
                             <div class="responsavel">
                                 <p>Responsável:</p>
-                                <i>Jamara Lima</i>
+                                <i>{responsavel}</i>
                             </div>
-                            <div class="dtTermino">
-                                <p>Término:</p>
-                                <i>16/04/2025</i>
+                            <div class="dtTermino"> -->
+                                <!-- <p>Término:</p>
+                                <i>{dataTermino}</i>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- <div class="local">
                             <i class="fa-solid fa-location-dot"></i>
                             <p>Local</p>
                         </div> -->
 
-                        <div class="statusProject">
+                        <!-- <div class="statusProject">
                             <div class="status1">
                                 <p>Máquinas em perigo: 3</p>
                                 <p>Máquinas em atenção: 1</p>
@@ -256,8 +258,8 @@
                             <div class="spaceButton">
                                 <button class="button-go-project">Acessar Projeto</button>
                             </div>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </section>
