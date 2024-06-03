@@ -28,7 +28,7 @@ app.use("/cadastro", cadastroRouter);
 app.use("/login", loginRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/projetos", projetosRouter);
-app.use("dashProjeto", dashProjetoRouter);
+app.use("/dashProjeto", dashProjetoRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

@@ -1,4 +1,4 @@
-var dashboardModel = require("../models/dashboardModel");
+var dashboardModel = require("../models/dashProjetoModel");
 
 function getDadosDash(req, res) {
     var idProjeto = req.params.idProjeto;
@@ -11,7 +11,7 @@ function getDadosDash(req, res) {
                     res.status(200).json(resultado);
 
                 } else {
-                    res.status(204).send("Nenhum resultado encontrado!");
+                    res.status(204).send("Nenhum projeto encontrado!");
                 }
             }
         )
@@ -19,7 +19,7 @@ function getDadosDash(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "Houve um erro ao buscar a quantidade total de máquinas: ",
+                    "Erro ao buscar o projeto associado",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);

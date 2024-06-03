@@ -1,5 +1,4 @@
-let usoCpu, usoRam, bytesEscritas, bytesLeituras, escritas, leituras, pacotesEnviados, pacotesRecebidos;
-
+const registros = [];
 
 // Modal para sair
 function sair() {
@@ -231,7 +230,7 @@ new Chart(ctx4, {
 });
 
 function getDadosDash() {
-    fetch("/dashProjetoController/getItens/" + 400, {
+    fetch("/DashProjeto/getDadosDash/" + 400, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -239,8 +238,7 @@ function getDadosDash() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("Redirecionando")
-                window.location = "./battlePage.html";
+                registros.push(resposta);
             }, 5000);
             console.log(resposta);
         })
@@ -249,3 +247,5 @@ function getDadosDash() {
             console.log(`#ERRO: ${resposta}`);
         });
 }
+
+setInterval(getDadosDash, 5000);
