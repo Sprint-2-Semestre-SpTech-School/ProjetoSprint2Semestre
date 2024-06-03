@@ -1,3 +1,6 @@
+let usoCpu, usoRam, bytesEscritas, bytesLeituras, escritas, leituras, pacotesEnviados, pacotesRecebidos;
+
+
 // Modal para sair
 function sair() {
     const modalSairDentro = document.getElementById('modalSair')
@@ -226,3 +229,23 @@ new Chart(ctx4, {
         }
     }
 });
+
+function getDadosDash() {
+    fetch("/dashProjetoController/getItens/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("Redirecionando")
+                window.location = "./battlePage.html";
+            }, 5000);
+            console.log(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
