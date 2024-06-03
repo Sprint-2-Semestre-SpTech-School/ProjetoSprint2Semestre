@@ -1,4 +1,5 @@
 var idUsuario = sessionStorage.ID_USUARIO;
+console.log(idUsuario + ' id usuário');
 
 function showMachineInfo() {
     console.log(idUsuario);

@@ -59,9 +59,10 @@ function entrar() {
                     sessionStorage.NOME_USUARIO = json.nomeUsuario;
                     sessionStorage.SENHA_USUARIO = json.senha;
                     sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_EMPRESA = json.fkEmpresa;
 
                     setTimeout(function () {
-                        window.location = "DashPanel.html";
+                        window.location = "projetos.html";
                     }, 1000);
                 });
             } else {

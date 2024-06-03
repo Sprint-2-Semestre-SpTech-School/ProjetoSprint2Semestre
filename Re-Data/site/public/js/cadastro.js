@@ -20,12 +20,8 @@ function cadastrar() {
         cepVar == "" ||
         enderecoVar == "" ||
         numeroEndVar == "" ||
-        bairroVar == "" ||
-        complementoVar == ""
+        bairroVar == ""
     )
-    // {
-    //   return false;
-    // }
 
     {
         cardErro.style.display = "block";
@@ -54,21 +50,17 @@ function cadastrar() {
     }
 
     else {
-        // setInterval(sumirMensagem, 5000);
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
             "Indo para o login...";
     }
 
-    // Enviando o valor da nova input
     fetch("/cadastro/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
             nomeServer: nomeCompletoVar,
             emailServer: emailVar,
             telefoneServer: telefoneVar,
@@ -78,7 +70,8 @@ function cadastrar() {
             enderecoServer: enderecoVar,
             numeroEndServer: numeroEndVar,
             bairroServer: bairroVar,
-            complementoServer: complementoVar
+            complementoServer: complementoVar,
+            idEmpresa: sessionStorage.ID_EMPRESA
 
         }),
     })
@@ -86,6 +79,14 @@ function cadastrar() {
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
+
+                // resposta.json().then(json => {
+                //     console.log(json);
+                //     console.log(JSON.stringify(json));
+                //     sessionStorage.ID_EMPRESA = json.idEmpresa;
+
+                // });
+
                 cardErro.style.display = "block";
 
                 mensagem_erro.innerHTML =
@@ -95,8 +96,6 @@ function cadastrar() {
                     window.location = "login.html";
                 }, "2000");
 
-                // limparFormulario();
-                // finalizarAguardar();
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
@@ -104,16 +103,4 @@ function cadastrar() {
         .catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
         });
-    // return false;
 }
-        // .catch(function (resposta) {
-        //     console.log(`#ERRO: ${resposta}`);
-        //     // finalizarAguardar();
-        // });
-
-    // return false;
-
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none";
-    // }
-// }

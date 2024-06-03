@@ -48,23 +48,17 @@ function cadastrar(req, res) {
     }
 
     cadastroModel.cadastrar(nomeCompleto, email, telefone, nomeEmpresa, cnpj, cep, estado, endereco, numeroEnd, bairro, complemento)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-                if(resultado.length == 1) {
-                    res.status(200).send("Cadastro concluído")
-                } 
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
+    .then((resultado) => {
+        res.status(201).json(resultado);
+      }
+      ).catch((erro) => {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          erro.sqlMessage
         );
+        res.status(500).json(erro.sqlMessage);
+      });
 }
 // }
 
