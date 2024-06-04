@@ -15,6 +15,7 @@ var loginRouter = require("./src/routes/login");
 var dashboardRouter = require("./src/routes/dashboard");
 var projetosRouter = require("./src/routes/projetos");
 var dashProjetoRouter = require("./src/routes/dashProjeto");
+var kpisRouter = require("./src/routes/kpis");
 
 
 app.use(express.json());
@@ -29,6 +30,7 @@ app.use("/login", loginRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/projetos", projetosRouter);
 app.use("/dashProjeto", dashProjetoRouter);
+app.use("/kpis", kpisRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

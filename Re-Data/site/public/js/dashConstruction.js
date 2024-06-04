@@ -248,4 +248,87 @@ function getDadosDash() {
         });
 }
 
-setInterval(getDadosDash, 5000);
+// setInterval(getDadosDash, 20000);
+
+    function getDadosKpiCpuAlertas() {
+        fetch("/kpis/getDadosKpiCpuAlertas/" + 400, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(function (resposta) {
+            resposta.json().then(resposta => {
+                setTimeout(function () {
+                    registros.push(resposta);
+                }, 5000);
+                console.log(resposta);
+            })
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function getDadosKpiRamAlertas() {
+        fetch("/kpis/getDadosKpiCpuAlertas/" + 400, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(function (resposta) {
+            resposta.json().then(resposta => {
+                setTimeout(function () {
+                    registros.push(resposta);
+                }, 5000);
+                console.log(resposta);
+            })
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function getDadosKpiDiscoAlertas() {
+        fetch("/kpis/getDadosKpiDiscoAlertas/" + 400, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(function (resposta) {
+            resposta.json().then(resposta => {
+                setTimeout(function () {
+                    registros.push(resposta);
+                }, 5000);
+                console.log(resposta);
+            })
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function getDadosKpiRedeAlertas() {
+        fetch("/kpis/getDadosKpiRedeAlertas/" + 400, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(function (resposta) {
+            resposta.json().then(resposta => {
+                setTimeout(function () {
+                    registros.push(resposta);
+                }, 5000);
+                console.log(resposta);
+            })
+        })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+    }
+
+    function getDadosKpi() {
+        getDadosKpiCpuAlertas();
+        getDadosKpiRamAlertas();
+        getDadosKpiDiscoAlertas();
+        getDadosKpiRedeAlertas();
+    }
