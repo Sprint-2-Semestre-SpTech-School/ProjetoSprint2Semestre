@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivo USB</title>
+    <link rel="stylesheet" href="./css/dispositivoUsb.css">
+    <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="modalSair" id="modalSair">
+            <div class="modalSairDentro">
+                <!-- <button class="fecharModal" id="fecharModal">X</button> -->
+                <div class="divModal">
+                    <h2>Você tem certeza?</h2>
+                    <p>Realmente deseja sair da sua página de monitoramento?</p>
+                    <button class="fecharModal" id="fecharModal" onclick="cancelar()">Cancelar</button>
+                    <button class="botaoSair" onclick="sairConta()">Sair</button>
+                </div>
+            </div>
+        </div>
+        <section>
+            <nav>
+
+                <div class="logo">
+                    <img src="./assets/icon/Logo High.png" alt="">
+                </div>
+                <ul class="nav-items">
+                    <!-- Home ? -->
+                    <!-- <li class="item">
+                        <button class="groupOpcoes"><i class="fas fa-home"></i> Home</button>
+                    </li> -->
+
+                    <!-- Projeto - dash - maquinas -->
+                    <li class="item">
+                        <b class="titulo">
+                            <p class="titulo">PROJETOS</p>
+                        </b>
+                        <button onclick="telaProjeto()" class="groupOpcoes"><i class="fas fa-calendar-days"></i>
+                            Projetos</button>
+                        <button onclick="dashProjeto()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
+                            Dashboard</button>
+                        <!-- <button onclick="" class="groupOpcoes"><i class="fas fa-desktop"></i> Máquinas</button> -->
+                    </li>
+
+                    <!-- maquinas - dash -->
+                    <li class="item">
+                        <b class="titulo">
+                            <p class="titulo">MÁQUINAS</p>
+                        </b>
+                        <button onclick="dashMaq()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
+                            Dashboard</button>
+                    </li>
+
+                    <!-- sair -->
+                    <!-- <a href="login.html" class="item"> -->
+                    <div class="item">
+                        <li class="item-sair">
+                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i>
+                                Sair</button>
+                        </li>
+                    </div>
+                    <!-- </a> -->
+                </ul>
+
+            </nav>
+
+            <div class="breadcrumb">
+                <ul class="breadcrumbList">
+                    <!-- <li class="primeiro"><a href="#">Home</a></li> -->
+                    <li class="segundo"><a href="#">Projetos</a></li>
+                    <li class="terceiro"><a href="#">Dashboard</a></li>
+                    <li class="quarto"><a href="#">Máquina Dash</a></li>
+                    <li class="quinto"><a href="#">Dispositivos USB</a></li>
+                </ul>
+            </div>
+
+            <div class="main-content">
+                <div class="projectTools">
+                    <button class="buttonTools">Novo<i class="fa-solid fa-plus"></i></button>
+                </div>
+
+                <div class="usbContent">
+                    <h1>Gerenciamento de Dispositivos</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Device ID</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>USB ID</td>
+                                <td>Device ID aqui</td>
+                                <td>Mouse X</td>
+                                <td>
+                                    <button class="controleDispositivo" id="edit">Editar</button>
+                                    <button class="controleDispositivo" id="delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <form id="formularioAdicionar">
+                        <h2>Adicionar/Editar </h2>
+                        <label for="apelidoUsb">Apelido:</label>
+                        <input type="text" id="apelidoUsb" name="apelidoUsb" required><br>
+                        <label for="descUsb">Motivo</label>
+                        <input type="text" id="descUsb" name="descUsb" required><br>
+                        <button type="submit">Salvar</button>
+                    </form>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
+<script src="./js/dispositivoUsb.js"></script>
