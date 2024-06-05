@@ -90,30 +90,66 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Device ID</th>
+                                <th>Status</th>
                                 <th>Descrição</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <td>102030</td>
+                                <td>Liberado</td>
+                                <td>Mouse X Logitech</td>
+                                <td>
+                                    <button class="edit">Editar</button>
+                                    <button class="delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>303030</td>
+                                <td>Bloqueado</td>
+                                <td>Pen Drive Multilaser</td>
+                                <td>
+                                    <button class="edit">Editar</button>
+                                    <button class="delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>505000</td>
+                                <td>Liberado</td>
+                                <td>Teclado USB</td>
+                                <td>
+                                    <button class="edit">Editar</button>
+                                    <button class="delete">Excluir</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
                                 <td>USB ID</td>
-                                <td>Device ID aqui</td>
+                                <td>Liberado</td>
                                 <td>Mouse X</td>
                                 <td>
-                                    <button class="controleDispositivo" id="edit">Editar</button>
-                                    <button class="controleDispositivo" id="delete">Excluir</button>
+                                    <button class="edit">Editar</button>
+                                    <button class="delete">Excluir</button>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <form id="formularioAdicionar">
-                        <h2>Adicionar/Editar </h2>
+                    <form id="formularioAdicionar" class="formularioAdicionar hidden">
+                        <h2>Cadastrar uso de USB</h2>
+                        <h3>Registrar novo dispositivo para monitoramento.</h3>
                         <label for="apelidoUsb">Apelido:</label>
                         <input type="text" id="apelidoUsb" name="apelidoUsb" required><br>
-                        <label for="descUsb">Motivo</label>
-                        <input type="text" id="descUsb" name="descUsb" required><br>
-                        <button type="submit">Salvar</button>
+                        <label for="descUsb">Descrição</label>
+                        <textarea name="desc" id="desc" rows="10" cols="10" placeholder="Descrição do USB"></textarea>
+                        <button type="submit" id="saveButton">Salvar<i
+                                class="fa-solid fa-share-from-square"></i></button>
                     </form>
                 </div>
             </div>
