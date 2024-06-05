@@ -38,7 +38,7 @@ function dashMaq() {
 
 const ctx = document.getElementById('cpuRam');
 console.log(ctx);
-new Chart(ctx, {
+const cpuRamChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: ['00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
@@ -87,7 +87,7 @@ new Chart(ctx, {
 
 const ctx2 = document.getElementById('qtdLeiturasEscritas');
 console.log(ctx);
-new Chart(ctx2, {
+const discoQtdChart = new Chart(ctx2, {
     type: 'bar',
     data: {
         labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
@@ -131,7 +131,7 @@ new Chart(ctx2, {
 
 const ctx3 = document.getElementById('taxaLeiturasEscritas');
 console.log(ctx);
-new Chart(ctx3, {
+const discoBytesChart = new Chart(ctx3, {
     type: 'line',
     data: {
         labels: ['01:00', '02:00', '03:00', '04:00', '05:00'],
@@ -185,7 +185,7 @@ new Chart(ctx3, {
 
 const ctx4 = document.getElementById('pacotesEnviadosRecebidos');
 console.log(ctx);
-new Chart(ctx4, {
+const redeChart = new Chart(ctx4, {
     type: 'line',
     data: {
         labels: ['00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
@@ -237,10 +237,7 @@ function getDadosDash() {
         },
     }).then(function (resposta) {
         resposta.json().then(resposta => {
-            setTimeout(function () {
-                registros.push(resposta);
-            }, 5000);
-            console.log(resposta);
+            atualizarGraficos(resposta);
         })
     })
         .catch(function (resposta) {
@@ -248,7 +245,59 @@ function getDadosDash() {
         });
 }
 
-// setInterval(getDadosDash, 20000);
+function atualizarGraficos(resposta){
+    console.log ("Iniciando atualização dos gráficos...")
+
+    // Cpu & Ram
+    const cpuData = resposta.filter(item => item.nomeRegistro == "usoCpu");
+    const ramData = resposta.filter(item => item.nomeRegistro == "usoRam");
+    // Disco Bytes
+    const discoBytesLeiturasData = resposta.filter(item => item.nomeRegistro == "bytesLeitura");
+    const discoBytesEscritasData = resposta.filter(item => item.nomeRegistro == "bytesEscrita");
+    const discoTempoTransferenciaData = resposta.filter(item => item.nomeRegistro == "tempo de transferência");
+    // Rede
+    const redePacotesEnviadosData = resposta.filter(item => item.nomeRegistro == "Pacotes Enviados");
+    const redePacotesRecebidosData = resposta.filter(item => item.nomeRegistro == "Pacotes Recebidos")
+    // Disco Quantidade
+    const discoQtdLeiturasData = resposta.filter(item => item.nomeRegistro == "leituras");
+    const discoQtdEscriturasData = resposta.filter(item => item.nomeRegistro == "escritas");
+
+    console.log ("Chegou em labels e values")
+    const labelsCpu = cpuData.map(item => new Date(item.tempoCapturas).toLocaleTimeString()); // Pegar um valor pra base de tempo
+    const cpuValues = cpuData.map(item => parseFloat(item.mediaDados));
+    const ramValues = ramData.map(item => parseFloat(item.mediaDados));
+
+    const labelsDiscoBytes = discoBytesLeiturasData.map(item => new Date(item.tempoCapturas).toLocaleTimeString());
+    const discoBytesLeiturasValues = discoBytesLeiturasData.map(item => parseFloat(item.mediaDados));
+    const discoBytesEscritasValues = discoBytesEscritasData.map(item => parseFloat(item.mediaDados));
+    const discoTempoTransferenciaValues = discoTempoTransferenciaData.map(item => parseFloat(item.mediaDados));
+
+    const labelsRede = redePacotesEnviadosData.map(item => new Date(item.tempoCapturas).toLocaleTimeString());
+    const redePacotesEnviadosValues = redePacotesEnviadosData.map(item => parseFloat(item.mediaDados));
+    const redePacotesRecebidosValues = redePacotesRecebidosData.map(item => parseFloat(item.mediaDados));
+
+    console.log("Chegou nos datasets");
+    cpuRamChart.data.labels = labelsCpu;
+    cpuRamChart.data.datasets[0].data = cpuValues;
+    cpuRamChart.data.datasets[1].data = ramValues;
+
+    discoBytesChart.data.labels = labelsDiscoBytes;
+    discoBytesChart.data.datasets[0].data = discoBytesEscritasValues;
+    discoBytesChart.data.datasets[1].data = discoBytesLeiturasValues;
+    discoBytesChart.data.datasets[2].data = discoTempoTransferenciaValues;
+
+    redeChart.data.labels = labelsRede;
+    redeChart.data.datasets[0].data = redePacotesEnviadosValues;
+    redeChart.data.datasets[1].data = redePacotesRecebidosValues;
+    console.log("Terminou datasets");
+
+    cpuRamChart.update();
+    discoBytesChart.update();
+    redeChart.update();
+    console.log("Atualizando...");
+}
+
+setInterval(getDadosDash, 5000);
 
     function getDadosKpiCpuAlertas() {
         fetch("/kpis/getDadosKpiCpuAlertas/" + 400, {
@@ -262,6 +311,7 @@ function getDadosDash() {
                     registros.push(resposta);
                 }, 5000);
                 console.log(resposta);
+                alterarKpis(resposta);
             })
         })
             .catch(function (resposta) {
@@ -281,6 +331,7 @@ function getDadosDash() {
                     registros.push(resposta);
                 }, 5000);
                 console.log(resposta);
+                alterarKpis(resposta);
             })
         })
             .catch(function (resposta) {
@@ -300,6 +351,7 @@ function getDadosDash() {
                     registros.push(resposta);
                 }, 5000);
                 console.log(resposta);
+                alterarKpis(resposta);
             })
         })
             .catch(function (resposta) {
@@ -319,6 +371,7 @@ function getDadosDash() {
                     registros.push(resposta);
                 }, 5000);
                 console.log(resposta);
+                alterarKpis(resposta);
             })
         })
             .catch(function (resposta) {
@@ -331,4 +384,11 @@ function getDadosDash() {
         getDadosKpiRamAlertas();
         getDadosKpiDiscoAlertas();
         getDadosKpiRedeAlertas();
+    }
+
+    function alterarKpis(resposta) {
+        const textKpi = document.querySelector("#kpiAlertas");
+        const idMaquina = resposta.idMaquina;
+        const totalCapturas = resposta.totalCapturas;
+        console.log(idMaquina);
     }
