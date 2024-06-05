@@ -29,6 +29,7 @@ app.use("/cadastro", cadastroRouter);
 app.use("/login", loginRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/projetos", projetosRouter);
+
 app.use("/dashProjeto", dashProjetoRouter);
 app.use("/kpis", kpisRouter);
 
