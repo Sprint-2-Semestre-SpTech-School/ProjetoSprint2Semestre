@@ -1,36 +1,25 @@
 const hardwares = document.querySelectorAll(".hardware");
-let hardware = null;
+let selectedHardware = null;
 console.log(hardwares);
 
 hardwares.forEach((hardware, index) => {
     hardware.addEventListener("click", function () {
-        console.log("clicou");
         if (index === 0) {
-            hardware.style.backgroundColor = "grey";
-            hardware.style.color = "rgb(6, 7, 50)";
+            hardware.style.backgroundColor = "lime";
+            hardwares[1].style.backgroundColor = "";
+            hardwares[2].style.backgroundColor = "";
+            // function alterarKpisCpu();
         } else if (index === 1) {
-            hardware.style.display = "none";
-            
+            hardware.style.backgroundColor = "lime";
+            hardwares[0].style.backgroundColor = "";
+            hardwares[2].style.backgroundColor = "";
         } else {
-            hardware.style.display = "none";
-
+            hardware.style.backgroundColor = "lime";
+            hardwares[0].style.backgroundColor = "";
+            hardwares[1].style.backgroundColor = "";
         }
     });
 });
-
-
-// hardwares.forEach((hardware, index) => {
-//     hardware.addEventListener("click", function () {
-//         console.log(`Clicou no hardware ${index}`);
-//         if (index === 0) {
-//             console.log("Teste para o hardware 0");
-//         } else if (index === 1) {
-//             console.log("Teste para o hardware 1");
-//         } else {
-//             console.log("Teste para os demais hardwares");
-//         }
-//     });
-// });
 
 // Modal para sair
 function sair() {
@@ -374,6 +363,12 @@ function atualizarGraficos(resposta) {
 
 setInterval(getDadosDash, 5000);
 
+let registros = []; // Separar as respostas vindas
+let registroCpu;
+let registroRam;
+let registroDisco;
+let registroRede;
+
 function getDadosKpiCpuAlertas() {
     fetch("/kpis/getDadosKpiCpuAlertas/" + 400, {
         method: "GET",
@@ -382,8 +377,9 @@ function getDadosKpiCpuAlertas() {
         },
     }).then(function (resposta) {
         resposta.json().then(resposta => {
+            respostaCpu = resposta;
             setTimeout(function () {
-                registros.push(resposta);
+                registros.push(respostaCpu);
             }, 5000);
             console.log(resposta);
             alterarKpis(resposta);
@@ -402,8 +398,9 @@ function getDadosKpiRamAlertas() {
         },
     }).then(function (resposta) {
         resposta.json().then(resposta => {
+            respostaRam = resposta;
             setTimeout(function () {
-                registros.push(resposta);
+                registros.push(respostaRam);
             }, 5000);
             console.log(resposta);
             alterarKpis(resposta);
@@ -460,12 +457,8 @@ function getDadosKpi() {
     // getDadosKpiDiscoAlertas();
     // getDadosKpiRedeAlertas();
 }
-
 function alterarKpis(resposta) {
     const textKpi = document.querySelector("#kpiAlertas");
-    // const idMaquina = resposta.map(item => item.idMaquina);
-    // const qtdCapturas = resposta.map(item => item.totalCapturas);
-    // const totalCapturasCpu = resposta[0].totalCapturas;
-    console.log("IdMaquinaCpu " + idMaquina);
-    console.log("totalCapturas " + qtdCapturas);
+    console.log(registros);
+    setInterval(alterarKpis, 2000);
 }
