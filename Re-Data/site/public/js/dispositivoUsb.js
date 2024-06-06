@@ -35,8 +35,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Exibe o formulário quando o botão de editar for clicado
     document.querySelectorAll('.edit').forEach(function (button) {
         button.addEventListener('click', function () {
-            document.getElementById('formularioAdicionar').classList.remove('hidden');
+            document.getElementById('formularioEditar').classList.remove('hidden');
             // Aqui você pode adicionar o código para preencher o formulário com os dados do usuário a ser editado
         });
+    });
+
+    // Esconde o formulário quando o botão "Salvar" for clicado
+    document.getElementById('saveButton').addEventListener('click', function (event) {
+        event.preventDefault(); // Impede o envio do formulário para demonstração
+        document.getElementById('formularioEditar').classList.add('hidden');
     });
 });

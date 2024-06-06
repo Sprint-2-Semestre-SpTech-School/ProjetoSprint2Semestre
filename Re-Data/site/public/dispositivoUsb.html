@@ -81,15 +81,15 @@
 
             <div class="main-content">
 
+                <div class="projectTools">
+                    <button class="buttonTools">Novo USB<i class="fa-solid fa-plus"></i></button>
+                </div>
+
                 <div class="usbContent">
                     <h1>Gerenciamento de Dispositivos</h1>
                     <h3>Monitore os dispositivos conectados à sua máquina. Adicione, edite ou excluia
                         dispositivos com facilidade, garantindo a saúde de suas máquinas!
                     </h3>
-
-                    <div class="projectTools">
-                        <button class="buttonTools">Novo<i class="fa-solid fa-plus"></i></button>
-                    </div>
 
                     <!-- Blacklist -->
                     <table>
@@ -97,7 +97,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Status</th>
-                                <th>Descrição</th>
+                                <th>Nome</th>
+                                <th>Motivo</th>
                                 <th>Ações</th>
                             </tr>
                         </thead>
@@ -107,6 +108,7 @@
                                 <td>102030</td>
                                 <td>Liberado</td>
                                 <td>Mouse X Logitech</td>
+                                <td>Presença de software malicioso</td>
                                 <td>
                                     <button class="edit">Editar</button>
                                     <button class="delete">Excluir</button>
@@ -118,6 +120,7 @@
                                 <td>303030</td>
                                 <td>Bloqueado</td>
                                 <td>Pen Drive Multilaser</td>
+                                <td>Uso não autorizado</td>
                                 <td>
                                     <button class="edit">Editar</button>
                                     <button class="delete">Excluir</button>
@@ -129,6 +132,7 @@
                                 <td>505000</td>
                                 <td>Liberado</td>
                                 <td>Teclado USB</td>
+                                <td>Transferência suspeita de dados confidenciais</td>
                                 <td>
                                     <button class="edit">Editar</button>
                                     <button class="delete">Excluir</button>
@@ -140,6 +144,7 @@
                                 <td>USB ID</td>
                                 <td>Liberado</td>
                                 <td>Mouse X</td>
+                                <td>Dispositivo falsificado</td>
                                 <td>
                                     <button class="edit">Editar</button>
                                     <button class="delete">Excluir</button>
@@ -179,10 +184,24 @@
                         <div class="form-image"><i class="fa-brands fa-usb"></i></div>
                         <h2>Cadastrar uso de USB</h2>
                         <h3>Registrar novo dispositivo para monitoramento.</h3>
-                        <label for="apelidoUsb">Apelido:</label>
+                        <label for="idUsb">ID Dispositivo:</label>
+                        <input type="text" id="idUsb" name="idUsb" required><br>
+                        <label for="descUsb">Motivo do bloqueio</label>
+                        <textarea name="desc" id="desc" rows="10" cols="10" placeholder="Descrição do USB"
+                            required></textarea>
+                        <button type="submit" id="saveButton">Salvar<i
+                                class="fa-solid fa-share-from-square"></i></button>
+                    </form>
+
+                    <form id="formularioEditar" class="formularioEditar hidden">
+                        <div class="form-image"><i class="fa fa-edit"></i></div>
+                        <h2>Editar informações do USB</h2>
+                        <h3>Edite as informações sobre o dispositivo...</h3>
+                        <label for="apelidoUsb">Nome</label>
                         <input type="text" id="apelidoUsb" name="apelidoUsb" required><br>
-                        <label for="descUsb">Descrição</label>
-                        <textarea name="desc" id="desc" rows="10" cols="10" placeholder="Descrição do USB"></textarea>
+                        <label for="descUsb">Motivo do bloqueio</label>
+                        <textarea name="desc" id="desc" rows="10" cols="10" placeholder="Descrição do USB"
+                            required></textarea>
                         <button type="submit" id="saveButton">Salvar<i
                                 class="fa-solid fa-share-from-square"></i></button>
                     </form>
