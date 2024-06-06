@@ -374,9 +374,9 @@ ul.breadcrumbList li+li:before {
 
 .main-content .usbContent {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    padding: 25px;
+    gap: 25px;
     width: 100%;
     height: 100%;
     background-color: var(--color-background-partes);
@@ -397,8 +397,8 @@ ul.breadcrumbList li+li:before {
 }
 
 .main-content .usbContent h1 {
-    text-align: center;
     color: #FABF3F;
+    text-shadow: 2px 2px 4px #061980;
 }
 
 table {
@@ -449,26 +449,27 @@ tr:nth-child(even) {
 .edit {
     background-color: #FABF3F;
     color: #050e41;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 
 .edit:hover {
     background-color: darkslateblue;
     width: 25%;
     height: 15%;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 
 .delete {
     background-color: rgba(234, 34, 34, 0.72);
     color: #ffff;
+    transition: 0.7s;
 }
 
 .delete:hover {
     background-color: darkslateblue;
     width: 25%;
     height: 15%;
-    transition: 0.5s;
+    transition: 0.7s;
 }
 
 /* Form de adicionar USB */
