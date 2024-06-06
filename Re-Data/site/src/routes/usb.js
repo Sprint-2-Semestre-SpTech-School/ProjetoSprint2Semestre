@@ -4,9 +4,9 @@ var router = express.Router();
 var usbController = require("../controllers/usbController");
 
 router.post("/cadastrar", function (req, res) {
+    // função a ser chamada quando acessar /usb/cadastrar
     usbController.cadastrar(req, res);
 });
-
 
 
 module.exports = router;
