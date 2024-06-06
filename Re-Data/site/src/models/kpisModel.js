@@ -4,11 +4,14 @@ function getDadosKpiCpuAlertas(idProjeto) {
     console.log("Chegou no model para buscar os dados da KPI alertas de CPU", 400);
 
     var instrucao = `
-    select idMaquina, count(idRegistro) as totalCapturas from registro
-        join infoHardware on fkHardware = idHardware
-        join maquina on fkMaquina = idMaquina 
-        where tipoHardware = 'Cpu' and valorRegistro >= 70 and fkProjeto = ${idProjeto}
-        group by idMaquina order by totalCapturas desc limit 1;
+    SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, count(idRegistro) as totalCapturas
+        FROM registro
+        JOIN infoHardware ON fkHardware = idHardware
+        JOIN maquina ON fkMaquina = idMaquina 
+        WHERE tipoHardware = 'Cpu' AND valorRegistro >= 5 AND fkProjeto = ${idProjeto}
+        GROUP BY idMaquina
+        ORDER BY totalCapturas DESC
+        LIMIT 1;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -19,11 +22,14 @@ function getDadosKpiRamAlertas(idProjeto) {
     console.log("Chegou no model para buscar os dados da KPI alertas da Ram", 400);
 
     var instrucao = `
-    select idMaquina, count(idRegistro) as totalCapturas from registro
-        join infoHardware on fkHardware = idHardware
-        join maquina on fkMaquina = idMaquina 
-        where tipoHardware = 'Ram' and valorRegistro >= 70 and fkProjeto = ${idProjeto}
-        group by idMaquina order by totalCapturas desc limit 1;
+    SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, count(idRegistro) as totalCapturas
+        FROM registro
+        JOIN infoHardware ON fkHardware = idHardware
+        JOIN maquina ON fkMaquina = idMaquina 
+        WHERE tipoHardware = 'Ram' AND valorRegistro >= 5 AND fkProjeto = ${idProjeto}
+        GROUP BY idMaquina
+        ORDER BY totalCapturas DESC
+        LIMIT 1;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -34,11 +40,14 @@ function getDadosKpiDiscoAlertas(idProjeto) {
     console.log("Chegou no model para buscar os dados da KPI alertas de Disco", 400);
 
     var instrucao = `
-    select idMaquina, count(idRegistro) as totalCapturas from registro
-        join infoHardware on fkHardware = idHardware
-        join maquina on fkMaquina = idMaquina 
-        where tipoHardware = 'Disco' and valorRegistro >= 350 and nomeRegistro = 'tempo de transferência' and fkProjeto = ${idProjeto}
-        group by idMaquina order by totalCapturas desc limit 1;
+        SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, count(idRegistro) as totalCapturas
+        FROM registro
+        JOIN infoHardware ON fkHardware = idHardware
+        JOIN maquina ON fkMaquina = idMaquina 
+        WHERE tipoHardware = 'Disco' AND valorRegistro >= 350 AND nomeRegistro = "tempo de transferência" and fkProjeto = ${idProjeto}
+        GROUP BY idMaquina
+        ORDER BY totalCapturas DESC
+        LIMIT 1;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -49,11 +58,14 @@ function getDadosKpiRedeAlertas(idProjeto) {
     console.log("Chegou no model para buscar os dados da Kpi alertas de Rede", 400);
 
     var instrucao = `
-    select idMaquina, count(idRegistro) as totalCapturas from registro
-        join infoHardware on fkHardware = idHardware
-        join maquina on fkMaquina = idMaquina 
-        where tipoHardware = 'Rede' and valorRegistro <= 10 and nomeRegistro = 'Pacotes Recebidos' and fkProjeto = ${idProjeto}
-        group by idMaquina order by totalCapturas desc limit 1;
+        SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, count(idRegistro) as totalCapturas
+        FROM registro
+        JOIN infoHardware ON fkHardware = idHardware
+        JOIN maquina ON fkMaquina = idMaquina 
+        WHERE tipoHardware = 'Rede' AND valorRegistro <= 10 AND nomeRegistro = "Pacotes Recebidos" and fkProjeto = ${idProjeto}
+        GROUP BY idMaquina
+        ORDER BY totalCapturas DESC
+        LIMIT 1;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -322,7 +334,7 @@ module.exports = {
     getDadosKpiRamAlertas,
     getDadosKpiDiscoAlertas,
     getDadosKpiRedeAlertas,
-    
+
     getDadosKpiEventosCriticosCpu20Seg,
     getDadosKpiEventosCriticosCpu40Seg,
     getDadosKpiEventosCriticosCpu60Seg,

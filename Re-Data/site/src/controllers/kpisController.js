@@ -31,7 +31,7 @@ function getDadosKpiRamAlertas(req, res) {
     var idProjeto = req.params.idProjeto;
 
     console.log(`Estou no controller para pegar os dados da KPI`);
-    kpisModel.getDadosKpiCpuAlertas(idProjeto)
+    kpisModel.getDadosKpiRamAlertas(idProjeto)
         .then(
             function (resultado) {
                 if (resultado.length > 0) {
