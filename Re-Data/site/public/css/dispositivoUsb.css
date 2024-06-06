@@ -374,16 +374,16 @@ ul.breadcrumbList li+li:before {
 
 .main-content .usbContent {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    padding: 25px;
-    gap: 25px;
+    padding: 2%;
+    gap: 20px;
     width: 100%;
     height: 100%;
     background-color: var(--color-background-partes);
     filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
-    overflow: hidden;
-    overflow-y: scroll;
-    flex-wrap: wrap;
+    /* overflow: hidden;
+    overflow-y: scroll; */
 }
 
 .main-content .usbContent::-webkit-scrollbar {
@@ -401,12 +401,17 @@ ul.breadcrumbList li+li:before {
     text-shadow: 2px 2px 4px #061980;
 }
 
-table {
-    width: 60%;
-    border-collapse: collapse;
+.main-content .usbContent h3 {
+    color: #ffffffad;
+    font-style: italic;
+    font-weight: 400;
 }
 
-
+table {
+    width: 90%;
+    height: 50%;
+    border-collapse: collapse;
+}
 
 table,
 th,
@@ -449,27 +454,76 @@ tr:nth-child(even) {
 .edit {
     background-color: #FABF3F;
     color: #050e41;
+    width: 30%;
+    height: 100%;
     transition: 0.7s;
 }
 
 .edit:hover {
     background-color: darkslateblue;
-    width: 25%;
-    height: 15%;
-    transition: 0.7s;
+    width: 32%;
+    height: 100%;
 }
 
 .delete {
     background-color: rgba(234, 34, 34, 0.72);
     color: #ffff;
+    width: 30%;
+    height: 100%;
     transition: 0.7s;
 }
 
 .delete:hover {
     background-color: darkslateblue;
-    width: 25%;
-    height: 15%;
-    transition: 0.7s;
+    width: 32%;
+    height: 100%;
+}
+
+.usbContent .walletUsb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6%;
+    width: 90%;
+    height: 70%;
+    background-color: var(--color-background-modal);
+    border-radius: 10px;
+    padding: 2.5%;
+}
+
+.usbContent .walletUsb .divUsb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 15.5%;
+    height: 50%;
+    background-color: darkslateblue;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.59);
+}
+
+.usbContent .walletUsb .divUsb p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 6%;
+    font-weight: 400;
+}
+
+.usbContent .walletUsb .divUsb i {
+    color: #ffffff8e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 6%;
+    font-size: 3vh;
 }
 
 /* Form de adicionar USB */
@@ -490,6 +544,8 @@ form {
     padding: 20px;
     border-radius: 15px;
 }
+
+
 
 .hidden {
     display: none;

@@ -80,12 +80,18 @@
             </div>
 
             <div class="main-content">
-                <div class="projectTools">
-                    <button class="buttonTools">Novo<i class="fa-solid fa-plus"></i></button>
-                </div>
 
                 <div class="usbContent">
                     <h1>Gerenciamento de Dispositivos</h1>
+                    <h3>Monitore os dispositivos conectados à sua máquina. Adicione, edite ou excluia
+                        dispositivos com facilidade, garantindo a saúde de suas máquinas!
+                    </h3>
+
+                    <div class="projectTools">
+                        <button class="buttonTools">Novo<i class="fa-solid fa-plus"></i></button>
+                    </div>
+
+                    <!-- Blacklist -->
                     <table>
                         <thead>
                             <tr>
@@ -96,6 +102,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- Conteúdo Linhas Blacklist -->
                             <tr>
                                 <td>102030</td>
                                 <td>Liberado</td>
@@ -141,9 +148,35 @@
                         </tbody>
                     </table>
 
+                    <div class="walletUsb">
+                        <div class="divUsb"><i class="fa-solid fa-computer-mouse">
+                                <p class="usbInfo">ID: 1010</p>
+                                <p class="usbInfo">Nome: Mouse</p>
+                            </i></div>
+                        <div class="divUsb"><i class="fa-brands fa-usb">
+                                <p class="usbInfo">ID: 3010</p>
+                                <p class="usbInfo">Nome: Pen Drive</p>
+                            </i></div>
+                        <div class="divUsb"><i class="fa-solid fa-keyboard">
+                                <p class="usbInfo">ID: 1000</p>
+                                <p class="usbInfo">Nome: Teclado</p>
+                            </i></div>
+                        <div class="divUsb"><i class="fa-solid fa-memory">
+                                <p class="usbInfo">ID: 1010</p>
+                                <p class="usbInfo">Nome: Memory Card</p>
+                            </i></div>
+                        <div class="divUsb"><i class="fa-solid fa-computer-mouse">
+                                <p class="usbInfo">ID: 5010</p>
+                                <p class="usbInfo">Nome: Pen Drive</p>
+                            </i></div>
+                        <div class="divUsb"><i class="fa-brands fa-usb"></i></div>
+                        <div class="divUsb"><i class="fa-solid fa-keyboard"></i></div>
+                        <div class="divUsb"><i class="fa-solid fa-memory"></i></div>
+                    </div>
 
 
                     <form id="formularioAdicionar" class="formularioAdicionar hidden">
+                        <div class="form-image"><i class="fa-brands fa-usb"></i></div>
                         <h2>Cadastrar uso de USB</h2>
                         <h3>Registrar novo dispositivo para monitoramento.</h3>
                         <label for="apelidoUsb">Apelido:</label>
