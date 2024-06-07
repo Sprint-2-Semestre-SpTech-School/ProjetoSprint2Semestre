@@ -4,6 +4,8 @@ let selectedHardware = null;
 let idMaquinaCpu;
 let nomeRegistroCpu;
 let totalCapturasCpu;
+
+let hardwareSelecionado;
 // console.log(hardwares);
 
 hardwares.forEach((hardware, index) => {
@@ -12,15 +14,18 @@ hardwares.forEach((hardware, index) => {
             hardware.style.backgroundColor = "lime";
             hardwares[1].style.backgroundColor = "";
             hardwares[2].style.backgroundColor = "";
+            hardwareSelecionado = "cpu/ram"
             // function alterarKpisCpu();
         } else if (index === 1) {
             hardware.style.backgroundColor = "lime";
             hardwares[0].style.backgroundColor = "";
             hardwares[2].style.backgroundColor = "";
+            hardwareSelecionado = "disco";
         } else {
             hardware.style.backgroundColor = "lime";
             hardwares[0].style.backgroundColor = "";
             hardwares[1].style.backgroundColor = "";
+            hardwareSelecionado = "rede";
         }
     });
 });
@@ -386,7 +391,7 @@ function getDadosKpiCpuAlertas() {
                 idMaquinaCpu = resposta[0].idMaquina;
                 nomeRegistroCpu = resposta[0].nomeRegistro;
                 totalCapturasCpu = resposta[0].totalCapturas;
-                return valoresKpiCpuAlertas(idMaquinaCpu, nomeRegistroCpu, totalCapturasCpu);
+                // valoresKpiCpuAlertas(idMaquinaCpu, nomeRegistroCpu, totalCapturasCpu);
             }, 1000);
             // alterarKpis(resposta);
         })
@@ -404,10 +409,11 @@ function getDadosKpiRamAlertas() {
         },
     }).then(function (resposta) {
         resposta.json().then(resposta => {
-            respostaRam = resposta;
             setTimeout(function () {
-
-                return valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+                idMaquinaRam = resposta[0].idMaquina;
+                nomeRegistroRam = resposta[0].nomeRegistro;
+                totalCapturasRam = resposta[0].totalCapturas;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
             }, 1000);
             console.log(resposta);
             // alterarKpis(resposta);
@@ -427,8 +433,11 @@ function getDadosKpiDiscoAlertas() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-
-                return valoresKpiDiscoAlertas(idMaquinaDisco, nomeRegistroDisco, totalCapturasDisco);
+                console.log(resposta);
+                idMaquinaDisco = resposta[0].idMaquina;
+                nomeRegistroDisco = resposta[0].nomeRegistro;
+                totalCapturasDisco = resposta[0].totalCapturas;
+                // valoresKpiDiscoAlertas(idMaquinaDisco, nomeRegistroDisco, totalCapturasDisco);
             }, 1000);
             console.log(resposta);
             // alterarKpis(resposta);
@@ -448,9 +457,276 @@ function getDadosKpiRedeAlertas() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                return valoresKpiRedeAlertas(idMaquinaRede, nomeRegistroRede, totalCapturasRede);
+                idMaquinaRede = resposta[0].idMaquina;
+                nomeRegistroRede = resposta[0].nomeRegistro;
+                totalCapturasRede = resposta[0].totalCapturas;
+                // valoresKpiRedeAlertas(idMaquinaRede, nomeRegistroRede, totalCapturasRede);
             }, 1000);
             console.log(resposta);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosCpu20Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosCpu20Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosCpu20Seg = resposta[0].eventos_criticos;
+                maiorValorCpu20Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosCpu40Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosCpu40Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosCpu40Seg = resposta[0].eventos_criticos;
+                maiorValorCpu40Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosCpu60Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosCpu60Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosCpu60Seg = resposta[0].eventos_criticos;
+                maiorValorCpu60Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosRam20Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosRam20Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosRam20Seg = resposta[0].eventos_criticos;
+                maiorValorRam20Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosRam40Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosRam40Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosRam40Seg = resposta[0].eventos_criticos;
+                maiorValorRam40Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosRam60Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosRam60Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosRam60Seg = resposta[0].eventos_criticos;
+                maiorValorRam60Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosDisco20Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosDisco20Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosDisco20Seg = resposta[0].eventos_criticos;
+                maiorValorDisco20Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosDisco40Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosDisco40Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosDisco40Seg = resposta[0].eventos_criticos;
+                maiorValorDisco40Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosDisco60Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosDisco60Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosDisco60Seg = resposta[0].eventos_criticos;
+                maiorValorDisco60Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosRede20Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosRede20Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosRede20Seg = resposta[0].eventos_criticos;
+                maiorValorRede20Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosRede40Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosRede40Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosRede40Seg = resposta[0].eventos_criticos;
+                maiorValorRede40Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiEventosCriticosRede60Seg() {
+    fetch("/kpis/getDadosKpiEventosCriticosRede60Seg/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                eventosCriticosRede60Seg = resposta[0].eventos_criticos;
+                maiorValorRede60Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
             // alterarKpis(resposta);
         })
     })
@@ -462,21 +738,96 @@ function getDadosKpiRedeAlertas() {
 function getDadosKpi() {
     getDadosKpiCpuAlertas();
     getDadosKpiRamAlertas();
-    // getDadosKpiDiscoAlertas();
-    // getDadosKpiRedeAlertas();
+    getDadosKpiRedeAlertas();
+    getDadosKpiDiscoAlertas();
+
+    getDadosKpiEventosCriticosCpu20Seg();
+    getDadosKpiEventosCriticosCpu40Seg();
+    getDadosKpiEventosCriticosCpu60Seg();
+
+    getDadosKpiEventosCriticosRam20Seg();
+    getDadosKpiEventosCriticosRam40Seg();
+    getDadosKpiEventosCriticosRam60Seg();
+
+    getDadosKpiEventosCriticosDisco20Seg();
+    getDadosKpiEventosCriticosDisco40Seg();
+    getDadosKpiEventosCriticosDisco60Seg();
+
+    getDadosKpiEventosCriticosRede20Seg();
+    getDadosKpiEventosCriticosRede40Seg();
+    getDadosKpiEventosCriticosRede60Seg();
 }
 
-function valoresKpiCpuAlertas(idMaquina, nomeRegistro, totalCapturas) {
-    // console.log(idMaquina);
-    // console.log(nomeRegistro);
-    // console.log(totalCapturas);
+function atualizarKpis() {
+    let capturaTitulo = document.querySelector("#capturaTitulo");
+    let messageId = document.querySelector("#messageId");
+    let logQtd = document.querySelector("#logQtd");
+
+    let capturas2 = document.querySelector("#capture2");
+    let messageId2 = document.querySelector("#messageId2");
+    let logQtd2 = document.querySelector("#logQtd2");
+    // ------------------------------------------------------------ KPI 2 --------------------------------------------------------------
+    let titleEvents = document.querySelector("#titleEvents");
+
+    let capturas20s = document.querySelector("#capturas20s");
+    let capturas40s = document.querySelector("#capturas40s");
+    let capturas60s = document.querySelector("#capturas60s");
+
+    let valorTempo20s = document.querySelector("#value20s");
+    let valorTempo40s = document.querySelector("#value40s");
+    let valorTempo60s = document.querySelector("#value60s");
+
+    console.log(capturaTitulo);
+
+    if (hardwareSelecionado === "cpu/ram") {
+        capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroCpu} e ${nomeRegistroRam}`;
+        messageId.innerHTML = `Id: ${idMaquinaCpu}`;
+        messageId2.innerHTML = `Id: ${idMaquinaRam}`;
+        logQtd.innerHTML = `Logs: ${totalCapturasCpu}`;
+        logQtd2.innerHTML = `Logs: ${totalCapturasRam}`;
+        capturas2.style.visibility = "visible";
+        // ------------------------------------------------------------- KPI 2 ---------------------------------------------------------
+        titleEvents.innerHTML = `N° Eventos críticos e capturas em: ${nomeRegistroCpu}`;
+        capturas20s.innerHTML = `${eventosCriticosCpu20Seg}`;
+        capturas40s.innerHTML = `${eventosCriticosCpu40Seg}`;
+        capturas60s.innerHTML = `${eventosCriticosCpu60Seg}`;
+
+        valorTempo20s.innerHTML = `${maiorValorCpu20Seg}`;
+        valorTempo40s.innerHTML = `${maiorValorCpu40Seg}`;
+        valorTempo60s.innerHTML = `${maiorValorCpu60Seg}`;
+    } else if (hardwareSelecionado === "disco") {
+        capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroDisco}`
+        messageId.innerHTML = `Id: ${idMaquinaDisco}`
+        logQtd.innerHTML = `Logs: ${totalCapturasDisco}`;
+        capturas2.style.visibility = "hidden";
+        // ------------------------------------------------------------- KPI 2 ---------------------------------------------------------
+        titleEvents.innerHTML = `N° Eventos críticos e capturas em: ${nomeRegistroDisco}`;
+        capturas20s.innerHTML = `${eventosCriticosDisco20Seg}`;
+        capturas40s.innerHTML = `${eventosCriticosDisco40Seg}`;
+        capturas60s.innerHTML = `${eventosCriticosDisco60Seg}`;
+
+        valorTempo20s.innerHTML = `${maiorValorDisco20Seg}`;
+        valorTempo40s.innerHTML = `${maiorValorDisco40Seg}`;
+        valorTempo60s.innerHTML = `${maiorValorDisco60Seg}`;
+    } else {
+        capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroRede}`
+        messageId.innerHTML = `Id: ${idMaquinaRede}`
+        logQtd.innerHTML = `Logs: ${totalCapturasRede}`;
+        capturas2.style.visibility = "hidden";
+        // ------------------------------------------------------------- KPI 2 ---------------------------------------------------------
+        titleEvents.innerHTML = `N° Eventos críticos e capturas em: ${nomeRegistroRede}`
+        capturas20s.innerHTML = `${eventosCriticosRede20Seg}`;
+        capturas40s.innerHTML = `${eventosCriticosRede40Seg}`;
+        capturas60s.innerHTML = `${eventosCriticosRede60Seg}`;
+
+        valorTempo20s.innerHTML = `${maiorValorRede20Seg}`;
+        valorTempo40s.innerHTML = `${maiorValorRede40Seg}`;
+        valorTempo60s.innerHTML = `${maiorValorRede60Seg}`;
+    }
 }
 
-// setInterval(getValoresDashCpu, 1000);
+setInterval(atualizarKpis, 500);
+// setInterval(getDadosKpi, 500);
 
 
-// function getValoresDashCpu()
-// getValoresDashCpu(idMaquinaCpu, nomeRegistroCpu, totalCapturasCpu)
-
-// setInterval(getValoresDashCpu, 1000);
 

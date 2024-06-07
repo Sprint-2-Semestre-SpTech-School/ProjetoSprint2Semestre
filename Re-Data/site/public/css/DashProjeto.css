@@ -504,6 +504,27 @@ main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .captur
     font-size: 1.2rem;
 }
 
+main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .capture:nth-child(3) {
+    visibility: visible;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .event {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+    /* border: 5px outset red; */
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .event .time-icon {
+    display: flex;
+    gap: 1rem;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .event .captures {
+    display: flex;
+    gap: 1rem;
+}
+
 main section .screen .dashView .dashArea .bottom-dash .kpis .mono {
     width: 50%;
     height: 100%;

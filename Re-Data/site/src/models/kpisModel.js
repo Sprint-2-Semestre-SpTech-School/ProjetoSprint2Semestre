@@ -44,7 +44,7 @@ function getDadosKpiDiscoAlertas(idProjeto) {
         FROM registro
         JOIN infoHardware ON fkHardware = idHardware
         JOIN maquina ON fkMaquina = idMaquina 
-        WHERE tipoHardware = 'Disco' AND valorRegistro >= 350 AND nomeRegistro = "tempo de transferência" and fkProjeto = ${idProjeto}
+        WHERE tipoHardware = 'Disco' AND valorRegistro >= 10.00 AND nomeRegistro = "bytesEscrita" and fkProjeto = ${idProjeto}
         GROUP BY idMaquina
         ORDER BY totalCapturas DESC
         LIMIT 1;
@@ -84,7 +84,7 @@ function getDadosKpiEventosCriticosCpu20Seg(idProjeto) {
         JOIN maquina ON fkMaquina = idMaquina
         JOIN projeto ON fkProjeto = idProjeto
         WHERE tempoCapturas >= NOW() - INTERVAL 20 SECOND
-        AND valorRegistro >= 70
+        AND valorRegistro >= 1
         AND tipoHardware = "Cpu"
         AND nomeRegistro = "usoCpu"
         AND fkProjeto = ${idProjeto}
@@ -213,7 +213,7 @@ function getDadosKpiEventosCriticosDisco20Seg(idProjeto) {
         JOIN maquina ON fkMaquina = idMaquina
         JOIN projeto ON fkProjeto = idProjeto
         WHERE tempoCapturas >= NOW() - INTERVAL 20 SECOND
-        AND valorRegistro <= 1
+        AND valorRegistro <= 2
         AND tipoHardware = "Disco"
         AND nomeRegistro = "bytesEscrita"
         AND fkProjeto = ${idProjeto}
@@ -234,7 +234,7 @@ function getDadosKpiEventosCriticosDisco40Seg(idProjeto) {
         JOIN maquina ON fkMaquina = idMaquina
         JOIN projeto ON fkProjeto = idProjeto
         WHERE tempoCapturas >= NOW() - INTERVAL 40 SECOND
-        AND valorRegistro <= 1
+        AND valorRegistro <= 2
         AND tipoHardware = "Disco"
         AND nomeRegistro = "bytesEscrita"
         AND fkProjeto = ${idProjeto}
@@ -255,7 +255,7 @@ function getDadosKpiEventosCriticosDisco60Seg(idProjeto) {
         JOIN maquina ON fkMaquina = idMaquina
         JOIN projeto ON fkProjeto = idProjeto
         WHERE tempoCapturas >= NOW() - INTERVAL 60 SECOND
-        AND valorRegistro <= 1
+        AND valorRegistro <= 2
         AND tipoHardware = "Disco"
         AND nomeRegistro = "bytesEscrita"
         AND fkProjeto = ${idProjeto}
