@@ -57,6 +57,45 @@ function sairConta() {
     }, "1000");
 }
 
+// Modal [CRUD] - CREATE projetos sair
+function abrirModalCreate() {
+    const modal = document.getElementById('janela-modal-crud-create')
+
+    modal.classList.add('abrir')
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.id == 'close' || e.target.id == 'janela-modal-crud-create' || e.target.id == 'close-button') {
+            modal.classList.remove('abrir')
+        }
+    }) 
+}
+
+// Modal [CRUD] - UPDATE projetos sair
+function abrirModalUpdate() {
+    const modal = document.getElementById('janela-modal-crud-update')
+
+    modal.classList.add('abrir')
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.id == 'close' || e.target.id == 'janela-modal-crud-update' || e.target.id == 'close-button') {
+            modal.classList.remove('abrir')
+        }
+    }) 
+}
+
+// Modal [CRUD] - DELETE projetos sair
+function abrirModalDelete() {
+    const modal = document.getElementById('janela-modal-crud-delete')
+
+    modal.classList.add('abrir')
+
+    modal.addEventListener('click', (e) => {
+        if (e.target.id == 'close' || e.target.id == 'janela-modal-crud-delete' || e.target.id == 'close-button') {
+            modal.classList.remove('abrir')
+        }
+    }) 
+}
+
 var idEmpresa = sessionStorage.ID_EMPRESA;
 var info_projetos = null;
 function listarProjetos() {
