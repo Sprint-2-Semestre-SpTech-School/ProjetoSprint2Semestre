@@ -279,15 +279,15 @@ main .screen .top .status .health-bar .bar .quarter:nth-child(1) {
     background-color: red;
 }
 
-main .screen .top .status .health-bar .bar .quarter:nth-child(2){
+main .screen .top .status .health-bar .bar .quarter:nth-child(2) {
     background-color: orange;
 }
 
-main .screen .top .status .health-bar .bar .quarter:nth-child(3){
+main .screen .top .status .health-bar .bar .quarter:nth-child(3) {
     background-color: yellow;
 }
 
-main .screen .top .status .health-bar .bar .quarter:nth-child(4){
+main .screen .top .status .health-bar .bar .quarter:nth-child(4) {
     background-color: yellowgreen;
 }
 
@@ -315,7 +315,8 @@ main .screen .top .machine {
     display: flex;
     justify-content: center;
     width: 3rem;
-    background-color: rgb(3, 3, 34);;
+    background-color: rgb(3, 3, 34);
+    ;
     border: 2px solid white;
     border-radius: 25px;
 }
@@ -384,7 +385,7 @@ main section .screen .dashView .options .metrics .metric-info .info {
     text-align: center;
 }
 
-main section .screen .dashView .options .metrics .metric-info .info i{
+main section .screen .dashView .options .metrics .metric-info .info i {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -400,7 +401,7 @@ main section .screen .dashView .options .metrics .metric-info .info i{
     color: var(--color-kpi-atencao);
 }
 
-.fa-circle-xmark{
+.fa-circle-xmark {
     color: var(--color-kpi-ruim);
 }
 
@@ -495,6 +496,12 @@ main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi {
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
     text-align: center;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .capture {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
 }
 
 main section .screen .dashView .dashArea .bottom-dash .kpis .mono {

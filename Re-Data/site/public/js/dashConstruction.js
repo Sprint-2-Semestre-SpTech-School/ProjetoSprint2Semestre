@@ -1,6 +1,10 @@
 const hardwares = document.querySelectorAll(".hardware");
 let selectedHardware = null;
-console.log(hardwares);
+
+let idMaquinaCpu;
+let nomeRegistroCpu;
+let totalCapturasCpu;
+// console.log(hardwares);
 
 hardwares.forEach((hardware, index) => {
     hardware.addEventListener("click", function () {
@@ -58,7 +62,7 @@ function dashMaq() {
 }
 
 const ctx = document.getElementById('cpuRam');
-console.log(ctx);
+// console.log(ctx);
 const cpuRamChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -107,7 +111,7 @@ const cpuRamChart = new Chart(ctx, {
 });
 
 const ctx2 = document.getElementById('qtdLeiturasEscritas');
-console.log(ctx);
+// console.log(ctx);
 const discoQtdChart = new Chart(ctx2, {
     type: 'bar',
     data: {
@@ -151,7 +155,7 @@ const discoQtdChart = new Chart(ctx2, {
 });
 
 const ctx3 = document.getElementById('taxaLeiturasEscritas');
-console.log(ctx);
+// console.log(ctx);
 const discoBytesChart = new Chart(ctx3, {
     type: 'line',
     data: {
@@ -205,7 +209,7 @@ const discoBytesChart = new Chart(ctx3, {
 });
 
 const ctx4 = document.getElementById('pacotesEnviadosRecebidos');
-console.log(ctx);
+// console.log(ctx);
 const redeChart = new Chart(ctx4, {
     type: 'line',
     data: {
@@ -283,7 +287,7 @@ function atualizarGraficos(resposta) {
     const discoQtdLeiturasData = resposta.filter(item => item.nomeRegistro == "leituras");
     const discoQtdEscriturasData = resposta.filter(item => item.nomeRegistro == "escritas");
 
-    console.log("Chegou em labels e values")
+    // console.log("Chegou em labels e values")
     const labelsCpu = cpuData.map(item => new Date(item.tempoCapturas).toLocaleTimeString()); // Pegar um valor pra base de tempo
     const cpuValues = cpuData.map(item => parseFloat(item.mediaDados));
     const ramValues = ramData.map(item => parseFloat(item.mediaDados));
@@ -301,7 +305,7 @@ function atualizarGraficos(resposta) {
     // cpuRamChart.data.datasets[0].data = cpuValues;
     // cpuRamChart.data.datasets[1].data = ramValues;
 
-    console.log("Chegou nos datasets CPU e RAM");
+    // console.log("Chegou nos datasets CPU e RAM");
 
     if (cpuRamChart.data.labels.length >= 10) { // Tamanho máximo das labels de 10
         cpuRamChart.data.labels.shift(); // Remove primeiro elemento do Array 
@@ -321,7 +325,7 @@ function atualizarGraficos(resposta) {
     // discoBytesChart.data.datasets[1].data = discoBytesLeiturasValues;
     // discoBytesChart.data.datasets[2].data = discoTempoTransferenciaValues;
 
-    console.log("Chegou nos datasets discoBytes");
+    // console.log("Chegou nos datasets discoBytes");
 
     if (discoBytesChart.data.labels.length >= 10) {
         discoBytesChart.data.labels.shift();
@@ -352,13 +356,13 @@ function atualizarGraficos(resposta) {
     // redeChart.data.labels = labelsRede;
     // redeChart.data.datasets[0].data = redePacotesEnviadosValues;
     // redeChart.data.datasets[1].data = redePacotesRecebidosValues;
-    console.log("Terminou datasets");
+    // console.log("Terminou datasets");
 
     cpuRamChart.update();
     discoBytesChart.update();
     redeChart.update();
 
-    console.log("Atualizando...");
+    // console.log("Atualizando...");
 }
 
 setInterval(getDadosDash, 5000);
@@ -377,12 +381,14 @@ function getDadosKpiCpuAlertas() {
         },
     }).then(function (resposta) {
         resposta.json().then(resposta => {
-            respostaCpu = resposta;
+            console.log("RESPOSTA " + resposta);
             setTimeout(function () {
-                registros.push(respostaCpu);
-            }, 5000);
-            console.log(resposta);
-            alterarKpis(resposta);
+                idMaquinaCpu = resposta[0].idMaquina;
+                nomeRegistroCpu = resposta[0].nomeRegistro;
+                totalCapturasCpu = resposta[0].totalCapturas;
+                return valoresKpiCpuAlertas(idMaquinaCpu, nomeRegistroCpu, totalCapturasCpu);
+            }, 1000);
+            // alterarKpis(resposta);
         })
     })
         .catch(function (resposta) {
@@ -400,10 +406,11 @@ function getDadosKpiRamAlertas() {
         resposta.json().then(resposta => {
             respostaRam = resposta;
             setTimeout(function () {
-                registros.push(respostaRam);
-            }, 5000);
+
+                return valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
             console.log(resposta);
-            alterarKpis(resposta);
+            // alterarKpis(resposta);
         })
     })
         .catch(function (resposta) {
@@ -420,10 +427,11 @@ function getDadosKpiDiscoAlertas() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                registros.push(resposta);
-            }, 5000);
+
+                return valoresKpiDiscoAlertas(idMaquinaDisco, nomeRegistroDisco, totalCapturasDisco);
+            }, 1000);
             console.log(resposta);
-            alterarKpis(resposta);
+            // alterarKpis(resposta);
         })
     })
         .catch(function (resposta) {
@@ -440,10 +448,10 @@ function getDadosKpiRedeAlertas() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                registros.push(resposta);
-            }, 5000);
+                return valoresKpiRedeAlertas(idMaquinaRede, nomeRegistroRede, totalCapturasRede);
+            }, 1000);
             console.log(resposta);
-            alterarKpis(resposta);
+            // alterarKpis(resposta);
         })
     })
         .catch(function (resposta) {
@@ -457,8 +465,18 @@ function getDadosKpi() {
     // getDadosKpiDiscoAlertas();
     // getDadosKpiRedeAlertas();
 }
-function alterarKpis(resposta) {
-    const textKpi = document.querySelector("#kpiAlertas");
-    console.log(registros);
-    setInterval(alterarKpis, 2000);
+
+function valoresKpiCpuAlertas(idMaquina, nomeRegistro, totalCapturas) {
+    // console.log(idMaquina);
+    // console.log(nomeRegistro);
+    // console.log(totalCapturas);
 }
+
+// setInterval(getValoresDashCpu, 1000);
+
+
+// function getValoresDashCpu()
+// getValoresDashCpu(idMaquinaCpu, nomeRegistroCpu, totalCapturasCpu)
+
+// setInterval(getValoresDashCpu, 1000);
+
