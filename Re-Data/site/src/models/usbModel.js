@@ -10,14 +10,42 @@ var database = require("../database/config");
 // }
 
 function cadastrar(idDispositivo, motivoBloqueio) {
-    var instrucaoUsbCadastro = `
-        INSERT INTO blackList (fkDeviceId, motivoBloqueio) VALUES ('${idDispositivo}', '${motivoBloqueio}');
+    var verificarDispositivo = `
+    SELECT idDispositivo FROM dispositivoUsb WHERE idDispositivo = '${idDispositivo}';
+`;
+
+    console.log("Executando a instrução SQL para verificar idDispositivo: \n" + verificarDispositivo);
+
+    return database.executar(verificarDispositivo)
+        .then(result => {
+            if (result.length > 0) {
+                //Se dispositivo existe, capturar o último idMaquina.
+                var pegarUltimoIdMaquina = `
+        SELECT idMaquina FROM Maquina ORDER BY idMaquina DESC LIMIT 1;
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoUsbCadastro);
-    return database.executar(instrucaoUsbCadastro)
+                console.log("Executando a instrução SQL para obter o último idMaquina: \n" + pegarUltimoIdMaquina);
+
+                return database.executar(pegarUltimoIdMaquina);
+            } else {
+                throw new Error("Dispositivo não encontrado na tabela dispositivoUsb.");
+            }
+        })
+        .then(result => {
+            if (result.length > 0) {
+                var idMaquina = result[0].idMaquina;
+                console.log("Último idMaquina obtido: " + idMaquina)
+
+                var instrucaoUsbCadastro = `
+        INSERT INTO blackList (fkDeviceId, motivoBloqueio, fkMaquina) VALUES ('${idDispositivo}', '${motivoBloqueio}', '${idMaquina}');
+    `;
+                console.log("Executando a instrução SQL: \n" + instrucaoUsbCadastro);
+                return database.executar(instrucaoUsbCadastro);
+            } else {
+                throw new Error("Nenhuma máquina encontrada na tabela Maquina.");
+            }
+        })
         .then(result => {
             console.log("Resultado da inserção em blackList:", result);
-            console.log("Executando a instrução SQL: \n" + instrucaoUsbCadastro);
         })
         .catch(err => {
             console.error("Erro ao cadastrar dados: ", err);

@@ -14,7 +14,13 @@ function buscarDados(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCaptur
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    return database.executar(instrucao)
+        .then(result => {
+            console.log("Resultado da busca em Maquina:", result);
+
+            console.log("Resultado última maquina id:: \n" + selectIdEmpresa);
+        })
+
 }
 
 function buscarDadosVolume(idMaquina, tipoHardware, valorTotal, nomeRegistro, valorRegistro, fkMaquina, tempoCapturas) {
