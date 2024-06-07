@@ -776,6 +776,10 @@ function atualizarKpis() {
     let valorTempo20s = document.querySelector("#value20s");
     let valorTempo40s = document.querySelector("#value40s");
     let valorTempo60s = document.querySelector("#value60s");
+    // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
+    let metricaVerde = document.querySelector("#metricaVerde");
+    let metricaAmarela = document.querySelector("#metricaAmarela");
+    let metricaVermelha = document.querySelector("#metricaVermelha");
 
     console.log(capturaTitulo);
 
@@ -795,6 +799,11 @@ function atualizarKpis() {
         valorTempo20s.innerHTML = `${maiorValorCpu20Seg}`;
         valorTempo40s.innerHTML = `${maiorValorCpu40Seg}`;
         valorTempo60s.innerHTML = `${maiorValorCpu60Seg}`;
+        // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
+        metricaVerde.innerHTML = `0 a 70%`;
+        metricaAmarela.innerHTML = `70% a 85%`;
+        metricaVermelha.innerHTML = `Maior 85%`;
+
     } else if (hardwareSelecionado === "disco") {
         capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroDisco}`
         messageId.innerHTML = `Id: ${idMaquinaDisco}`
@@ -809,6 +818,10 @@ function atualizarKpis() {
         valorTempo20s.innerHTML = `${maiorValorDisco20Seg}`;
         valorTempo40s.innerHTML = `${maiorValorDisco40Seg}`;
         valorTempo60s.innerHTML = `${maiorValorDisco60Seg}`;
+        // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
+        metricaVerde.innerHTML = `Menor igual 1`;
+        metricaAmarela.innerHTML = `Menor igual 2`;
+        metricaVermelha.innerHTML = `Maior 5`;
     } else {
         capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroRede}`
         messageId.innerHTML = `Id: ${idMaquinaRede}`
@@ -823,11 +836,15 @@ function atualizarKpis() {
         valorTempo20s.innerHTML = `${maiorValorRede20Seg}`;
         valorTempo40s.innerHTML = `${maiorValorRede40Seg}`;
         valorTempo60s.innerHTML = `${maiorValorRede60Seg}`;
+        // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
+        metricaVerde.innerHTML = `Menor igual 1`;
+        metricaAmarela.innerHTML = `Menor igual 2`;
+        metricaVermelha.innerHTML = `Maior 5`;
     }
 }
 
 setInterval(atualizarKpis, 500);
-// setInterval(getDadosKpi, 500);
+setInterval(getDadosKpi, 500);
 
 
 

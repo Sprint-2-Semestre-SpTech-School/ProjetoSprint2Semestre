@@ -105,7 +105,7 @@ function getDadosKpiEventosCriticosCpu40Seg(idProjeto) {
         JOIN maquina ON fkMaquina = idMaquina
         JOIN projeto ON fkProjeto = idProjeto
         WHERE tempoCapturas >= NOW() - INTERVAL 40 SECOND
-        AND valorRegistro >= 70
+        AND valorRegistro >= 1
         AND tipoHardware = "Cpu"
         AND nomeRegistro = "usoCpu"
         AND fkProjeto = ${idProjeto}
@@ -126,7 +126,7 @@ function getDadosKpiEventosCriticosCpu60Seg(idProjeto) {
         JOIN maquina ON fkMaquina = idMaquina
         JOIN projeto ON fkProjeto = idProjeto
         WHERE tempoCapturas >= NOW() - INTERVAL 60 SECOND
-        AND valorRegistro >= 70
+        AND valorRegistro >= 1
         AND tipoHardware = "Cpu"
         AND nomeRegistro = "usoCpu"
         AND fkProjeto = ${idProjeto}
