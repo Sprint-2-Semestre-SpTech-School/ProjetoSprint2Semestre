@@ -377,7 +377,7 @@ ul.breadcrumbList li+li:before {
     align-items: center;
     flex-direction: column;
     padding-bottom: 10%;
-    gap: 25px;
+    gap: 35px;
     width: 100%;
     height: 100%;
     background-color: var(--color-background-partes);
@@ -514,6 +514,7 @@ tr:nth-child(even) {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 6%;
     width: 90%;
@@ -521,10 +522,12 @@ tr:nth-child(even) {
     background-color: transparent;
     /* box-shadow: 1px 2px 4px #061980; */
     border-radius: 10px;
-    padding: 5%;
+    /* padding: 5%; */
 }
 
-.usbContent .walletUsb .divUsb {
+
+
+/* .usbContent .walletUsb .divUsb {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -536,9 +539,10 @@ tr:nth-child(even) {
     border-radius: 8px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.59);
     padding-bottom: 3px;
-}
+} */
 
-.usbContent .walletUsb .divUsb p {
+
+/* .usbContent .usbContent .walletUsb .divUsb p {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -547,7 +551,7 @@ tr:nth-child(even) {
     font-size: 15px;
     padding-top: 6%;
     font-weight: 400;
-}
+} */
 
 .usbContent .walletUsb .divUsb i {
     color: #ffffff8e;
@@ -558,6 +562,33 @@ tr:nth-child(even) {
     align-items: center;
     margin-top: 6%;
     font-size: 3vh;
+}
+
+.main-content .usbContent .usbList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-content .usbContent .blacklist-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.main-content .usbContent h2 {
+    margin-right: 60%;
+    color: #007bff;
+    text-shadow: 1px 1px 2px #ffff;
+    /* border: 1px solid #007bff; */
+}
+
+.main-content .usbContent i {
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 20px;
 }
 
 /* Form de adicionar USB */
