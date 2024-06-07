@@ -26,11 +26,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('formularioAdicionar').classList.remove('hidden');
     });
 
-    // Esconde o formulário quando o botão "Salvar" for clicado
-    document.getElementById('saveButton').addEventListener('click', function (event) {
-        event.preventDefault(); // Impede o envio do formulário para demonstração
-        document.getElementById('formularioAdicionar').classList.add('hidden');
-    });
+    // // Esconde o formulário quando o botão "Salvar" for clicado
+    // document.getElementById('saveButton').addEventListener('click', function (event) {
+    //     event.preventDefault(); // Impede o envio do formulário para demonstração
+    //     document.getElementById('formularioAdicionar').classList.add('hidden');
+    // });
 
     // Exibe o formulário quando o botão de editar for clicado
     document.querySelectorAll('.edit').forEach(function (button) {
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Esconde o formulário quando o botão "Salvar" for clicado
-    document.getElementById('saveButton').addEventListener('click', function (event) {
-        event.preventDefault(); // Impede o envio do formulário para demonstração
-        document.getElementById('formularioEditar').classList.add('hidden');
-    });
+    // document.getElementById('saveButton').addEventListener('click', function (event) {
+    //     event.preventDefault(); // Impede o envio do formulário para demonstração
+    //     document.getElementById('formularioEditar').classList.add('hidden');
+    // });
 });

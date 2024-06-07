@@ -14,7 +14,14 @@ function cadastrar(idDispositivo, motivoBloqueio) {
         INSERT INTO blackList (fkDeviceId, motivoBloqueio) VALUES ('${idDispositivo}', '${motivoBloqueio}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoUsbCadastro);
-    return database.executar(instrucaoUsbCadastro);
+    return database.executar(instrucaoUsbCadastro)
+        .then(result => {
+            console.log("Resultado da inserção em blackList:", result);
+            console.log("Executando a instrução SQL: \n" + instrucaoUsbCadastro);
+        })
+        .catch(err => {
+            console.error("Erro ao cadastrar dados: ", err);
+        });
 }
 
 module.exports = {
