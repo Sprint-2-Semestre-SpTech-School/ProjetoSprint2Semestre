@@ -766,8 +766,11 @@ function atualizarKpis() {
     let capturas2 = document.querySelector("#capture2");
     let messageId2 = document.querySelector("#messageId2");
     let logQtd2 = document.querySelector("#logQtd2");
+
+    let grupo2 = document.querySelector("#group2");
     // ------------------------------------------------------------ KPI 2 --------------------------------------------------------------
     let titleEvents = document.querySelector("#titleEvents");
+    let titleEvents2 = document.querySelector("#titleEvents2");
 
     let capturas20s = document.querySelector("#capturas20s");
     let capturas40s = document.querySelector("#capturas40s");
@@ -776,6 +779,14 @@ function atualizarKpis() {
     let valorTempo20s = document.querySelector("#value20s");
     let valorTempo40s = document.querySelector("#value40s");
     let valorTempo60s = document.querySelector("#value60s");
+
+    let capturas20s2 = document.querySelector("#capturas20s2");
+    let capturas40s2 = document.querySelector("#capturas40s2");
+    let capturas60s2 = document.querySelector("#capturas60s2");
+
+    let valorTempo20s2 = document.querySelector("#value20s2");
+    let valorTempo40s2 = document.querySelector("#value40s2");
+    let valorTempo60s2 = document.querySelector("#value60s2");
     // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
     let metricaVerde = document.querySelector("#metricaVerde");
     let metricaAmarela = document.querySelector("#metricaAmarela");
@@ -796,9 +807,21 @@ function atualizarKpis() {
         capturas40s.innerHTML = `${eventosCriticosCpu40Seg}`;
         capturas60s.innerHTML = `${eventosCriticosCpu60Seg}`;
 
+        titleEvents2.innerHTML = `N° Eventos críticos e capturas em: ${nomeRegistroRam}`;
+
         valorTempo20s.innerHTML = `${maiorValorCpu20Seg}`;
         valorTempo40s.innerHTML = `${maiorValorCpu40Seg}`;
         valorTempo60s.innerHTML = `${maiorValorCpu60Seg}`;
+
+        capturas20s2.innerHTML = `${eventosCriticosRam20Seg}`;
+        capturas40s2.innerHTML = `${eventosCriticosRam40Seg}`;
+        capturas60s2.innerHTML = `${eventosCriticosRam60Seg}`;
+
+        valorTempo20s2.innerHTML = `${maiorValorRam20Seg}`;
+        valorTempo40s2.innerHTML = `${maiorValorRam40Seg}`;
+        valorTempo60s2.innerHTML = `${maiorValorRam60Seg}`;
+
+        group2.style.display = `block`;
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
         metricaVerde.innerHTML = `0 a 70%`;
         metricaAmarela.innerHTML = `70% a 85%`;
@@ -818,6 +841,8 @@ function atualizarKpis() {
         valorTempo20s.innerHTML = `${maiorValorDisco20Seg}`;
         valorTempo40s.innerHTML = `${maiorValorDisco40Seg}`;
         valorTempo60s.innerHTML = `${maiorValorDisco60Seg}`;
+
+        group2.style.display = `none`;
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
         metricaVerde.innerHTML = `Menor igual 1`;
         metricaAmarela.innerHTML = `Menor igual 2`;
@@ -836,6 +861,8 @@ function atualizarKpis() {
         valorTempo20s.innerHTML = `${maiorValorRede20Seg}`;
         valorTempo40s.innerHTML = `${maiorValorRede40Seg}`;
         valorTempo60s.innerHTML = `${maiorValorRede60Seg}`;
+
+        group2.style.display = `none`;
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
         metricaVerde.innerHTML = `Menor igual 1`;
         metricaAmarela.innerHTML = `Menor igual 2`;

@@ -171,7 +171,7 @@ function getDadosKpiEventosCriticosRam40Seg(idProjeto) {
         WHERE tempoCapturas >= NOW() - INTERVAL 40 SECOND
         AND valorRegistro >= 70
         AND tipoHardware = "Ram"
-        AND nomeRegistro = "usoRpu"
+        AND nomeRegistro = "usoRam"
         AND fkProjeto = ${idProjeto}
     `;
 

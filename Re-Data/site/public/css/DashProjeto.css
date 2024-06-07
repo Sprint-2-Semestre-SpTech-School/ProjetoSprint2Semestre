@@ -226,7 +226,7 @@ main section .screen {
     align-items: center;
     width: 90%;
     height: 100%;
-    gap: 1.5rem;
+    gap: 0.5rem;
 }
 
 main section .screen .top {
@@ -236,8 +236,10 @@ main section .screen .top {
 }
 
 .guide {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: 30%;
+    gap: 2rem;
 }
 
 main section .screen .top .guide .project {
@@ -250,6 +252,7 @@ main .screen .top .status {
     justify-content: center;
     width: 70%;
     height: 100%;
+    border: 5px solid rebeccapurple;
 }
 
 main .screen .top .status .health-bar {
@@ -258,7 +261,6 @@ main .screen .top .status .health-bar {
     justify-content: center;
     width: 80%;
     height: auto;
-    /* border: 5px solid red; */
 }
 
 main .screen .top .status .health-bar .bar {
@@ -323,7 +325,7 @@ main .screen .top .machine {
 
 main section .screen .dashView {
     width: 95%;
-    height: 85%;
+    height: 90%;
     background-color: var(--color-background-partes);
     border-radius: 25px 25px 0 0;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.5);
@@ -348,10 +350,12 @@ main section .screen .dashView .options .metrics .metric {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     height: 100%;
-    width: 15%;
+    width: 25%;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
+    /* border: 5px outset #FDAD00; */
 }
 
 main section .screen .dashView .options .metrics .metric:nth-child(1) {
@@ -359,7 +363,7 @@ main section .screen .dashView .options .metrics .metric:nth-child(1) {
 }
 
 main section .screen .dashView .options .metrics .metric:nth-child(2) {
-    background-color: var(--color-kpi-ruim);
+    background-color: #FDAD00;
 }
 
 main section .screen .dashView .options .metrics .metric:nth-child(3) {
@@ -491,11 +495,14 @@ main section .screen .dashView .dashArea .bottom-dash .kpis .double {
 }
 
 main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
     width: 100%;
     height: 45%;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
-    text-align: center;
 }
 
 main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .capture {
@@ -508,29 +515,43 @@ main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .captur
     visibility: visible;
 }
 
-main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .event {
-    display: flex;
-    justify-content: space-evenly;
-    font-size: 1.2rem;
-    /* border: 5px outset red; */
-}
-
-main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .event .time-icon {
-    display: flex;
-    gap: 1rem;
-}
-
-main section .screen .dashView .dashArea .bottom-dash .kpis .double .kpi .event .captures {
-    display: flex;
-    gap: 1rem;
-}
-
 main section .screen .dashView .dashArea .bottom-dash .kpis .mono {
     width: 50%;
     height: 100%;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
     border-radius: 25px;
     text-align: center;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .mono .kpi {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: 500ms;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .mono .kpi #group2 {
+    display: none;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .mono .kpi .event {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.2rem;
+    /* border: 5px outset red; */
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .mono .kpi .event .time-icon {
+    display: flex;
+    gap: 1rem;
+}
+
+main section .screen .dashView .dashArea .bottom-dash .kpis .mono .kpi .event .captures {
+    display: flex;
+    gap: 1rem;
 }
 
 /* -------------------------------------------------------- MODAL ------------------------------------------------------------------- */
