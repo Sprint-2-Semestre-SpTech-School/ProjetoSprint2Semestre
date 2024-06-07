@@ -17,6 +17,7 @@ var projetosRouter = require("./src/routes/projetos");
 var dashProjetoRouter = require("./src/routes/dashProjeto");
 var kpisRouter = require("./src/routes/kpis");
 var maquinaRouter = require("./src/routes/maquina");
+var usbRouter = require("./src/routes/usb");
 
 
 app.use(express.json());
@@ -30,6 +31,8 @@ app.use("/cadastro", cadastroRouter);
 app.use("/login", loginRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/projetos", projetosRouter);
+
+app.use("/usb", usbRouter);
 
 app.use("/dashProjeto", dashProjetoRouter);
 app.use("/kpis", kpisRouter);

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/dispositivoUsb.css">
     <script src="https://kit.fontawesome.com/7387ea8328.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dispositivoUsb.js"></script>
 </head>
 
 <body>
@@ -180,19 +181,23 @@
                     </div>
 
                     <form id="formularioAdicionar" class="formularioAdicionar hidden">
+
                         <div class="form-image"><i class="fa-brands fa-usb"></i></div>
+
                         <h2>Cadastrar uso de USB</h2>
                         <h3>Registrar novo dispositivo para monitoramento.</h3>
+
                         <label for="id_usb">ID Dispositivo:</label>
                         <input type="text" id="id_usb" name="id_usb" required><br>
+
                         <label for="motivo_bloqueio">Motivo do bloqueio</label>
-                        <textarea name="motivo_bloqueio" id="motivo_bloqueio" rows="10" cols="10"
-                            placeholder="Descrição do USB" required></textarea>
-                        <button type="submit" id="saveButton">Salvar<i
+                        <input type="text" name="motivo_bloqueio" id="motivo_bloqueio">
+
+                        <button type="submit" id="saveButton" onclick="cadastrar()">Salvar<i
                                 class="fa-solid fa-share-from-square"></i></button>
                     </form>
 
-                    <form id="formularioEditar" class="formularioEditar hidden">
+                    <!-- <form id="formularioEditar" class="formularioEditar hidden">
                         <div class="form-image"><i class="fa fa-edit"></i></div>
                         <h2>Editar informações do USB</h2>
                         <h3>Edite as informações sobre o dispositivo...</h3>
@@ -203,7 +208,7 @@
                             required></textarea>
                         <button type="submit" id="saveButton">Salvar<i
                                 class="fa-solid fa-share-from-square"></i></button>
-                    </form>
+                    </form> -->
                 </div>
             </div>
 
@@ -212,4 +217,66 @@
 </body>
 
 </html>
-<script src="./js/dispositivoUsb.js"></script>
+
+<script>
+    function cadastrar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var idDispositivo = id_usb.value;
+        var motivoBloqueio = motivo_bloqueio.value;
+        if (
+            idDispositivo == "" ||
+            motivoBloqueio == ""
+        ) {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML =
+                "(Mensagem de erro para todos os campos em branco)";
+
+            // finalizarAguardar();
+            return false;
+        } else {
+            // setInterval(sumirMensagem, 5000);
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usb/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idDispositivoServer: idDispositivo,
+                motivoBloqueioServer: motivoBloqueio
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Dispositivo adicionado na blacklist! Redirecionando para tela...";
+
+                    setTimeout(() => {
+                        window.location = "dispositivoUsb.html";
+                    }, "2000");
+
+                    // limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar adicionar o dispositivo!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        // return false;
+    }
+</script>
