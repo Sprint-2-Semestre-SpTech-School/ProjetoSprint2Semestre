@@ -105,15 +105,15 @@
                         </div>
                         <div class="health-bar">
                             <div class="bar">
-                                <div class="quarter"></div>
-                                <div class="quarter"></div>
-                                <div class="quarter"></div>
-                                <div class="quarter"></div>
-                                <div class="quarter"></div>
+                                <div class="quintil" id="quintil1"></div>
+                                <div class="quintil" id="quintil2"></div>
+                                <div class="quintil" id="quintil3"></div>
+                                <div class="quintil" id="quintil4"></div>
+                                <div class="quintil" id="quintil5"></div>
                             </div>
                         </div>
                         <div class="health-number">
-                            <h1>50.5%</h1>
+                            <h1 id="healthBarNumber">--%</h1>
                         </div>
                     </div>
                 </div>
@@ -121,10 +121,10 @@
                     <div class="options">
                         <div class="metrics">
                             <div class="metric">
-                                <h1 id="capturasTotal">Capturas do projeto: 50</h1>
+                                <h1 id="capturasTotal">Capturas do projeto: --</h1>
                             </div>
                             <div class="metric">
-                                <h1 id="capturaAtual">Captura atual: UsoCpu</h1>
+                                <h1 id="capturaAtual">Captura atual: --</h1>
                             </div>
                             <!-- <div class="metric">
                                 <h1>Alertas: 20 </h1>
@@ -135,15 +135,15 @@
                             <div class="metric-info">
                                 <div class="info">
                                     <i class="fa-solid fa-circle-check"></i>
-                                    <h2 id="metricaVerde">0% a 75%</h2>
+                                    <h2 id="metricaVerde">--</h2>
                                 </div>
                                 <div class="info">
                                     <i class="fa-solid fa-circle-exclamation"></i>
-                                    <h2 id="metricaAmarela">75% a 90%</h2>
+                                    <h2 id="metricaAmarela">--</h2>
                                 </div>
                                 <div class="info">
                                     <i class="fa-solid fa-circle-xmark"></i>
-                                    <h2 id="metricaVermelha">90% a 100%</h2>
+                                    <h2 id="metricaVermelha">--</h2>
                                 </div>
                             </div>
                         </div>
@@ -203,7 +203,10 @@
                                     <div class="kpi">
                                         <div class="percentage-machine">
                                             <i class="fa-solid fa-desktop"></i>
-                                            <p id="">A máquina x afeta o seu projeto negativamente em y%</p>
+                                            <p id="idMaquinaPorcentagem">Id: </p>
+                                        </div>
+                                        <div class="percentage">
+                                            <p id="porcentagem">Afeta o seu projeto negativamente em x%</p>
                                         </div>
                                     </div>
                                 </div>

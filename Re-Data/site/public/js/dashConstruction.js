@@ -96,6 +96,10 @@ const cpuRamChart = new Chart(ctx, {
                 beginAtZero: true,
             },
         },
+        animation: {
+            duration: 1500,
+            easing: 'easeInQuad'
+        },
         plugins: {
             title: {
                 display: true,
@@ -120,16 +124,16 @@ const ctx2 = document.getElementById('qtdLeiturasEscritas');
 const discoQtdChart = new Chart(ctx2, {
     type: 'bar',
     data: {
-        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+        labels: [],
         datasets: [{
             label: 'Escritas',
-            data: [5255, 7753, 3321, 1100, 3300, 1000, 7777],
+            data: [],
             borderWidth: 5,
             backgroundColor: '#3083f0',
         },
         {
             label: 'Lidas',
-            data: [3423, 2112, 3211, 3421, 3903, 2532, 2122],
+            data: [],
             borderWidth: 5,
             backgroundColor: '#FDAD00',
         }]
@@ -140,6 +144,10 @@ const discoQtdChart = new Chart(ctx2, {
             y: {
                 beginAtZero: true
             }
+        },
+        animation: {
+            duration: 1500,
+            easing: 'easeInQuad'
         },
         plugins: {
             title: {
@@ -195,6 +203,10 @@ const discoBytesChart = new Chart(ctx3, {
                 beginAtZero: true
             }
         },
+        animation: {
+            duration: 1500,
+            easing: 'easeInQuad'
+        },
         plugins: {
             title: {
                 display: true,
@@ -240,6 +252,10 @@ const redeChart = new Chart(ctx4, {
             y: {
                 beginAtZero: true
             }
+        },
+        animation: {
+            duration: 1500,
+            easing: 'easeInQuad'
         },
         plugins: {
             title: {
@@ -299,12 +315,18 @@ function atualizarGraficos(resposta) {
 
     const labelsDiscoBytes = discoBytesLeiturasData.map(item => new Date(item.tempoCapturas).toLocaleTimeString());
     const discoBytesLeiturasValues = discoBytesLeiturasData.map(item => parseFloat(item.mediaDados));
-    const discoBytesEscritasValues = discoBytesEscritasData.map(item => parseFloat(item.mediaDados));
-    const discoTempoTransferenciaValues = discoTempoTransferenciaData.map(item => parseFloat(item.mediaDados));
 
     const labelsRede = redePacotesEnviadosData.map(item => new Date(item.tempoCapturas).toLocaleTimeString());
     const redePacotesEnviadosValues = redePacotesEnviadosData.map(item => parseFloat(item.mediaDados));
     const redePacotesRecebidosValues = redePacotesRecebidosData.map(item => parseFloat(item.mediaDados));
+
+    const discoBytesEscritasValues = discoBytesEscritasData.map(item => parseFloat(item.mediaDados));
+    const discoTempoTransferenciaValues = discoTempoTransferenciaData.map(item => parseFloat(item.mediaDados));
+
+    const labelsDiscoQtd = discoQtdEscriturasData.map(item => new Date(item.tempoCapturas).toLocaleTimeString());
+
+    const discoQtdLeiturasValues = discoQtdLeiturasData.map(item => parseFloat(item.mediaDados));
+    const discoEscritasValues = discoQtdEscriturasData.map(item => parseFloat(item.mediaDados))
 
     // cpuRamChart.data.labels = labelsCpu;
     // cpuRamChart.data.datasets[0].data = cpuValues;
@@ -363,13 +385,24 @@ function atualizarGraficos(resposta) {
     // redeChart.data.datasets[1].data = redePacotesRecebidosValues;
     // console.log("Terminou datasets");
 
+    if (discoQtdChart.data.labels.length >= 10) {
+        discoQtdChart.data.labels.shift();
+    }
+    discoQtdChart.data.labels.push(labelsDiscoQtd[labelsDiscoQtd.length - 1]);
+
+    if (discoQtdChart.data.datasets[0].data.length >= 10) {
+        discoQtdChart.data.datasets[0].data.shift();
+        discoQtdChart.data.datasets[1].data.shift();
+    }
+    discoQtdChart.data.datasets[0].data.push(discoEscritasValues[discoEscritasValues.length - 1]);
+    discoQtdChart.data.datasets[1].data.push(discoQtdLeiturasValues[discoQtdLeiturasValues.length - 1]);
+
     cpuRamChart.update();
     discoBytesChart.update();
     redeChart.update();
-
+    discoQtdChart.update();
     // console.log("Atualizando...");
 }
-
 setInterval(getDadosDash, 5000);
 
 let registros = []; // Separar as respostas vindas
@@ -818,6 +851,9 @@ function atualizarKpis() {
     let metricaVerde = document.querySelector("#metricaVerde");
     let metricaAmarela = document.querySelector("#metricaAmarela");
     let metricaVermelha = document.querySelector("#metricaVermelha");
+    // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
+    let idMaquinaPorcentagem = document.querySelector("#idMaquinaPorcentagem");
+    let porcentagem = document.querySelector("#porcentagem");
 
     // console.log(capturaTitulo);
 
@@ -855,7 +891,9 @@ function atualizarKpis() {
         metricaVerde.innerHTML = `0 a 70%`;
         metricaAmarela.innerHTML = `70% a 85%`;
         metricaVermelha.innerHTML = `Maior 85%`;
-
+        // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
+        idMaquinaPorcentagem.innerHTML = `Id: ${idMaquinaCpu}`
+        porcentagem.innerHTML = `Afeta o seu projeto negativamente em ${(((totalCapturasCpu + totalCapturasRam) * 100) / capturasTotalProjeto).toFixed(4)}%`
     } else if (hardwareSelecionado === "disco") {
         capturaAtual.innerHTML = `Captura atual: ${nomeRegistroDisco}`;
 
@@ -878,6 +916,9 @@ function atualizarKpis() {
         metricaVerde.innerHTML = `Menor igual 1`;
         metricaAmarela.innerHTML = `Menor igual 2`;
         metricaVermelha.innerHTML = `Maior 5`;
+        // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
+        idMaquinaPorcentagem.innerHTML = `Id: ${idMaquinaDisco}`
+        porcentagem.innerHTML = `Afeta o seu projeto negativamente em ${((totalCapturasDisco * 100) / capturasTotalProjeto).toFixed(4)}%`
     } else {
         capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroRede}`
         messageId.innerHTML = `Id: ${idMaquinaRede}`
@@ -900,11 +941,49 @@ function atualizarKpis() {
         metricaVerde.innerHTML = `Menor igual 1`;
         metricaAmarela.innerHTML = `Menor igual 2`;
         metricaVermelha.innerHTML = `Maior 5`;
+        // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
+        idMaquinaPorcentagem.innerHTML = `Id: ${idMaquinaRede}`
+        porcentagem.innerHTML = `Afeta o seu projeto negativamente em ${((totalCapturasRede * 100) / capturasTotalProjeto).toFixed(4)}%`
+    }
+    let healthBarNumber = document.querySelector("#healthBarNumber");
+    let quintil = document.querySelectorAll(".quintil");
+
+    let totalCapturasNegativas = (totalCapturasCpu * 1.2) + (totalCapturasRam * 1.4) + (totalCapturasDisco * 1) + (totalCapturasRede * 1.2);
+    let healthBarValue = ((totalCapturasNegativas * 100 / capturasTotalProjeto - 100) * -1).toFixed(3);
+    healthBarNumber.innerHTML = `${healthBarValue}%`;
+
+    if (healthBarValue >= 80) {
+        quintil[4].style.border = `8px ridge white`;
+        quintil[3].style.border = `8px none white`;
+        quintil[2].style.border = `8px none white`;
+        quintil[1].style.border = `8px none white`;
+        quintil[0].style.border = `8px none white`;
+    } else if (healthBarValue >= 60) {
+        quintil[4].style.border = `8px none white`;
+        quintil[3].style.border = `8px ridge white`;
+        quintil[2].style.border = `8px none white`;
+        quintil[1].style.border = `8px none white`;
+        quintil[0].style.border = `8px none white`;
+    } else if (healthBarValue >= 40) {
+        quintil[4].style.border = `8px none white`;
+        quintil[3].style.border = `8px none white`;
+        quintil[2].style.border = `8px ridge white`;
+        quintil[1].style.border = `8px none white`;
+        quintil[0].style.border = `8px none white`;
+    } else if (healthBarValue >= 20) {
+        quintil[4].style.border = `8px none white`;
+        quintil[3].style.border = `8px none white`;
+        quintil[2].style.border = `8px none white`;
+        quintil[1].style.border = `8px ridge white`;
+        quintil[0].style.border = `8px none white`;
+    } else {
+        quintil[4].style.border = `8px none white`;
+        quintil[3].style.border = `8px none white`;
+        quintil[2].style.border = `8px none white`;
+        quintil[1].style.border = `8px none white`;
+        quintil[0].style.border = `8px ridge white`;
     }
 }
 
 setInterval(atualizarKpis, 500);
 setInterval(getDadosKpi, 500);
-
-
-
