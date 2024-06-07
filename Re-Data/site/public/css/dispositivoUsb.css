@@ -429,10 +429,19 @@ ul.breadcrumbList li+li:before {
     position: relative;
 }
 
+.main-content .usbContent .blacklist-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 15%;
+
+}
+
 table {
-    width: 90%;
+    width: 80%;
     height: 50%;
     border-collapse: collapse;
+    background-color: rgba(71, 61, 139, 0.295);
 }
 
 table,
@@ -509,8 +518,8 @@ tr:nth-child(even) {
     gap: 6%;
     width: 90%;
     height: 100%;
-    background-color: var(--color-background-modal);
-    box-shadow: 1px 2px 4px #061980;
+    background-color: transparent;
+    /* box-shadow: 1px 2px 4px #061980; */
     border-radius: 10px;
     padding: 5%;
 }
@@ -526,7 +535,7 @@ tr:nth-child(even) {
     background-color: darkslateblue;
     border-radius: 8px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.59);
-    padding-bottom: 5px;
+    padding-bottom: 3px;
 }
 
 .usbContent .walletUsb .divUsb p {
