@@ -386,7 +386,7 @@ function getDadosKpiCpuAlertas() {
         },
     }).then(function (resposta) {
         resposta.json().then(resposta => {
-            console.log("RESPOSTA " + resposta);
+            // console.log("RESPOSTA " + resposta);
             setTimeout(function () {
                 idMaquinaCpu = resposta[0].idMaquina;
                 nomeRegistroCpu = resposta[0].nomeRegistro;
@@ -480,7 +480,7 @@ function getDadosKpiEventosCriticosCpu20Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosCpu20Seg = resposta[0].eventos_criticos;
                 maiorValorCpu20Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -502,7 +502,7 @@ function getDadosKpiEventosCriticosCpu40Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosCpu40Seg = resposta[0].eventos_criticos;
                 maiorValorCpu40Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -524,7 +524,7 @@ function getDadosKpiEventosCriticosCpu60Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosCpu60Seg = resposta[0].eventos_criticos;
                 maiorValorCpu60Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -546,7 +546,7 @@ function getDadosKpiEventosCriticosRam20Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosRam20Seg = resposta[0].eventos_criticos;
                 maiorValorRam20Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -568,7 +568,7 @@ function getDadosKpiEventosCriticosRam40Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosRam40Seg = resposta[0].eventos_criticos;
                 maiorValorRam40Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -590,7 +590,7 @@ function getDadosKpiEventosCriticosRam60Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosRam60Seg = resposta[0].eventos_criticos;
                 maiorValorRam60Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -612,7 +612,7 @@ function getDadosKpiEventosCriticosDisco20Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosDisco20Seg = resposta[0].eventos_criticos;
                 maiorValorDisco20Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -634,7 +634,7 @@ function getDadosKpiEventosCriticosDisco40Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosDisco40Seg = resposta[0].eventos_criticos;
                 maiorValorDisco40Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -656,7 +656,7 @@ function getDadosKpiEventosCriticosDisco60Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosDisco60Seg = resposta[0].eventos_criticos;
                 maiorValorDisco60Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -678,7 +678,7 @@ function getDadosKpiEventosCriticosRede20Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosRede20Seg = resposta[0].eventos_criticos;
                 maiorValorRede20Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -700,7 +700,7 @@ function getDadosKpiEventosCriticosRede40Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosRede40Seg = resposta[0].eventos_criticos;
                 maiorValorRede40Seg = resposta[0].maior_valor;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
@@ -722,9 +722,30 @@ function getDadosKpiEventosCriticosRede60Seg() {
     }).then(function (resposta) {
         resposta.json().then(resposta => {
             setTimeout(function () {
-                console.log("resp" + resposta);
+                // console.log("resp" + resposta);
                 eventosCriticosRede60Seg = resposta[0].eventos_criticos;
                 maiorValorRede60Seg = resposta[0].maior_valor;
+                // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
+            }, 1000);
+            // alterarKpis(resposta);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function getDadosKpiTotalCapturasProjeto() {
+    fetch("/kpis/getDadosKpiTotalCapturasProjeto/" + 400, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                capturasTotalProjeto = resposta[0].capturas_projeto;
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
             }, 1000);
             // alterarKpis(resposta);
@@ -756,9 +777,15 @@ function getDadosKpi() {
     getDadosKpiEventosCriticosRede20Seg();
     getDadosKpiEventosCriticosRede40Seg();
     getDadosKpiEventosCriticosRede60Seg();
+
+    getDadosKpiTotalCapturasProjeto();
 }
 
 function atualizarKpis() {
+    let capturasTotal = document.querySelector("#capturasTotal");
+    capturasTotal.innerHTML = `Capturas do projeto: ${capturasTotalProjeto}`;
+    let capturaAtual = document.querySelector("#capturaAtual");
+
     let capturaTitulo = document.querySelector("#capturaTitulo");
     let messageId = document.querySelector("#messageId");
     let logQtd = document.querySelector("#logQtd");
@@ -792,7 +819,7 @@ function atualizarKpis() {
     let metricaAmarela = document.querySelector("#metricaAmarela");
     let metricaVermelha = document.querySelector("#metricaVermelha");
 
-    console.log(capturaTitulo);
+    // console.log(capturaTitulo);
 
     if (hardwareSelecionado === "cpu/ram") {
         capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroCpu} e ${nomeRegistroRam}`;
@@ -823,11 +850,15 @@ function atualizarKpis() {
 
         group2.style.display = `block`;
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
+        capturaAtual.innerHTML = `Captura atual: ${nomeRegistroCpu} e ${nomeRegistroRam}`;
+
         metricaVerde.innerHTML = `0 a 70%`;
         metricaAmarela.innerHTML = `70% a 85%`;
         metricaVermelha.innerHTML = `Maior 85%`;
 
     } else if (hardwareSelecionado === "disco") {
+        capturaAtual.innerHTML = `Captura atual: ${nomeRegistroDisco}`;
+
         capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroDisco}`
         messageId.innerHTML = `Id: ${idMaquinaDisco}`
         logQtd.innerHTML = `Logs: ${totalCapturasDisco}`;
@@ -864,6 +895,8 @@ function atualizarKpis() {
 
         group2.style.display = `none`;
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
+        capturaAtual.innerHTML = `Captura atual: ${nomeRegistroRede}`;
+
         metricaVerde.innerHTML = `Menor igual 1`;
         metricaAmarela.innerHTML = `Menor igual 2`;
         metricaVermelha.innerHTML = `Maior 5`;

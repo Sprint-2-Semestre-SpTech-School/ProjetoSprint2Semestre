@@ -329,6 +329,20 @@ function getDadosKpiEventosCriticosRede60Seg(idProjeto) {
     return database.executar(instrucao);
 }
 
+function getDadosKpiTotalCapturasProjeto(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
+    var instrucao = `
+    select count(idRegistro) as capturas_projeto from registro 
+    join Infohardware on fkHardware = idHardware
+    join maquina on idMaquina = fkMaquina 
+    where fkProjeto = ${idProjeto}
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     getDadosKpiCpuAlertas,
     getDadosKpiRamAlertas,
@@ -349,5 +363,7 @@ module.exports = {
 
     getDadosKpiEventosCriticosRede20Seg,
     getDadosKpiEventosCriticosRede40Seg,
-    getDadosKpiEventosCriticosRede60Seg
+    getDadosKpiEventosCriticosRede60Seg,
+
+    getDadosKpiTotalCapturasProjeto
 }

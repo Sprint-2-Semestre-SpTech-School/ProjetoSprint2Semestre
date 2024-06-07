@@ -67,4 +67,8 @@ router.get("/getDadosKpiEventosCriticosRede60Seg/:idProjeto", function (req, res
     kpisController.getDadosKpiEventosCriticosRede60Seg(req, res);
 });
 
+router.get("/getDadosKpiTotalCapturasProjeto/:idProjeto", function (req, res) {
+    kpisController.getDadosKpiTotalCapturasProjeto(req,res);
+});
+
 module.exports = router;

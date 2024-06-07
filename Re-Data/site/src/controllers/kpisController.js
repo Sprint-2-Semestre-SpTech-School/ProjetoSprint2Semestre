@@ -432,6 +432,33 @@ function getDadosKpiEventosCriticosRede60Seg(req, res) {
         );
 }
 
+function getDadosKpiTotalCapturasProjeto(req, res) {
+    var idProjeto = req.params.idProjeto;
+
+    console.log(`Estou no controller para pegar os dados da KPI`);
+    kpisModel.getDadosKpiTotalCapturasProjeto(idProjeto)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+
+                } else {
+                    res.status(204).send("Nenhum dado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Erro ao buscar o dado associado",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     getDadosKpiCpuAlertas,
     getDadosKpiRamAlertas,
@@ -452,5 +479,7 @@ module.exports = {
 
     getDadosKpiEventosCriticosRede20Seg,
     getDadosKpiEventosCriticosRede40Seg,
-    getDadosKpiEventosCriticosRede60Seg
+    getDadosKpiEventosCriticosRede60Seg,
+
+    getDadosKpiTotalCapturasProjeto
 }
