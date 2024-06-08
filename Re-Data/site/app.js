@@ -17,6 +17,7 @@ var projetosRouter = require("./src/routes/projetos");
 var dashProjetoRouter = require("./src/routes/dashProjeto");
 var kpisRouter = require("./src/routes/kpis");
 var maquinaRouter = require("./src/routes/maquina");
+var kpiMaquinaRouter = require("./src/routes/kpiMaquina");
 var usbRouter = require("./src/routes/usb");
 
 
@@ -37,6 +38,7 @@ app.use("/usb", usbRouter);
 app.use("/dashProjeto", dashProjetoRouter);
 app.use("/kpis", kpisRouter);
 app.use("/maquina", maquinaRouter);
+app.use("/kpiMaquina", kpiMaquinaRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

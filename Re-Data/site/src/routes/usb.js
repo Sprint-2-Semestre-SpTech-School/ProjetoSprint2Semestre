@@ -18,4 +18,8 @@ router.get("/listarUsbsBloqueados/:idMaquina", function (req, res) {
     usbController.buscarUsbsBloqueados(req, res);
 });
 
+router.put("/atualizarUsbDescricao/:idDispositivo", function (req, res) {
+    usbController.atualizarUsbDescricao(req, res);
+});
+
 module.exports = router;

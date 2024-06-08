@@ -127,45 +127,48 @@ function listarProjetos() {
             }
             info_projetos = lista_projetos
             lista_projetos.forEach(function (projeto) {
-                div_projetos.innerHTML += `
-                <div class="project-card">
-                
-                    <div class="qtd-machines">
-                        <p>Máquinas Alocadas</p>
-                        <i>${projeto.qtsMaquinas}</i>
-                    </div>
+                div_projects.innerHTML += `
+                    <div class="project-card">
+                        <div class="card-alert" id="dangerous">Alert</div>
+                        <div class="updateProject"><i onclick="abrirModalUpdate()" class="fa-solid fa-arrows-rotate"></i></div>
+                        <div class="deleteProject"><i onclick="abrirModalDelete()" class="fa-solid fa-trash"></i></div>
 
-                    <div class="nameDemand">
-                        <p>Nome Demanda</p>
-                        <i>${projeto.nomeDemanda}</i>
-                    </div>
+                        <div class="qtd-machines">
+                            <p>Máquinas Alocadas</p>
+                            <i>${projeto.qtsMaquinas}</i>
+                        </div>
 
-                    <div class="infoProject">
-                        <div class="dtInicio">
-                            <p>Inicio:</p>
-                            <i>${projeto.dataInicio}</i>
+                        <div class="nameDemand">
+                            <p>Nome Demanda</p>
+                            <i>${projeto.nomeDemanda}</i>
                         </div>
-                        <div class="responsavel">
-                            <p>Responsável:</p>
-                            <i>${projeto.responsavel}</i>
-                        </div>
-                        <div class="dtTermino">
-                            <p>Término:</p>
-                            <i>${projeto.dataTermino}</i>
-                        </div>
-                    </div>
 
-                    <div class="statusProject">
-                        <div class="status1">
-                            <p>Máquinas em perigo: 0</p>
-                            <p>Máquinas em atenção: 0</p>
+                        <div class="infoProject">
+                            <div class="dtInicio">
+                                <p>Inicio:</p>
+                                <i>${projeto.dataInicio}</i>
+                            </div>
+                            <div class="responsavel">
+                                <p>Responsável:</p>
+                                <i>${projeto.responsavel}</i>
+                            </div>
+                            <div class="dtTermino">
+                                <p>Término:</p>
+                                <i>${projeto.dataTermino}</i>
+                            </div>
                         </div>
-                        <div class="spaceButton">
-                            <button onclick="acessarProjeto()" class="button-go-project">Acessar Projeto</button>
-                        </div>
-                    </div>
 
-                </div>
+                        <div class="statusProject">
+                            <div class="status1">
+                                <p>Máquinas em perigo: 1</p>
+                                <p>Máquinas em atenção: 0</p>
+                            </div>
+                            <div class="spaceButton">
+                                <button class="button-go-project">Acessar Projeto</button>
+                            </div>
+                        </div>
+
+                    </div>
             `
             });
             var boxProjetos = document.querySelectorAll(".project-card");

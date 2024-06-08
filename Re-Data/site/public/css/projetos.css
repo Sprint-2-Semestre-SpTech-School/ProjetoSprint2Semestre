@@ -22,7 +22,7 @@ body {
     --color-sair-hover: rgb(150, 32, 14);
     --color-sair-borda: rgb(150, 32, 14);
     
-    --color-breadcrumb-atual: #98a40b;
+    --color-breadcrumb-atual: #FDAD00;
     --color-grafico: #061980;
     --color-kpi-normal: rgb(148, 255, 148);
     --color-kpi-atencao: rgb(220, 143, 0);
@@ -262,7 +262,7 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 
 .breadcrumb .breadcrumbList .segundo {
     z-index: 2;
-    left: -11px;
+    left: -1px;
     display: flex;
     position: relative;
     background-color: var(--color-breadcrumb-atual);
@@ -271,7 +271,7 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 
 .breadcrumb .breadcrumbList .terceiro {
     /* background-color: green; */
-    left: -18px;
+    left: -12px;
     position: relative;
     z-index: 1;
 }
@@ -279,10 +279,18 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 .breadcrumb .breadcrumbList .quarto {
     /* background-color: blueviolet; */
     position: relative;
-    left: -23px;
+    left: -22px;
     width: 9vw;
     /* font-style:; */
     color: black;
+}
+
+.breadcrumb .breadcrumbList .quinto {
+    position: relative;
+    left: -23px;
+    width: 9vw;
+    color: black;
+    z-index: -2;
 }
 
 /* -------------------------------------------------------- TELA -------------------------------------------------------------------- */
@@ -478,7 +486,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     height: 75vh;    
     flex-direction: row;
     background-color: var(--color-background-partes);
-    align-content: space-evenly;
+    /* align-content: space-evenly; */
     filter: drop-shadow(0px 4px 4px rgba(300, 100, 256, 0.25));
     overflow: hidden;
     overflow-y: scroll;

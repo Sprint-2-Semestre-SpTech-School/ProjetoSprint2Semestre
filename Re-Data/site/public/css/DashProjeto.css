@@ -196,7 +196,7 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 
 .guide .breadcrumb .breadcrumbList .segundo {
     z-index: 2;
-    left: -11px;
+    left: -1px;
     display: flex;
     position: relative;
     /* background: blue; */
@@ -204,7 +204,7 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 
 .guide .breadcrumb .breadcrumbList .terceiro {
     /* background-color: green; */
-    left: -18px;
+    left: -12px;
     position: relative;
     z-index: 1;
     background-color: var(--color-breadcrumb-atual);
@@ -213,9 +213,17 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 .guide .breadcrumb .breadcrumbList .quarto {
     /* background-color: blueviolet; */
     position: relative;
-    left: -23px;
+    left: -22px;
     width: 9vw;
     color: black;
+}
+
+.guide .breadcrumb .breadcrumbList .quinto {
+    position: relative;
+    left: -23px;    
+    width: 9vw;
+    color: black;
+    z-index: -2;
 }
 
 /* -------------------------------------------------NAV AND GENERAL SETTINGS-------------------------------------------------- */
@@ -252,7 +260,7 @@ main .screen .top .status {
     justify-content: center;
     width: 70%;
     height: 100%;
-    border: 5px solid rebeccapurple;
+    /* border: 5px solid rebeccapurple; */
 }
 
 main .screen .top .status .health-bar {

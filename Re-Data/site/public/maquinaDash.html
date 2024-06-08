@@ -10,11 +10,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="buscarDadosHardware()">
     <main>
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
-                <!-- <button class="fecharModal" id="fecharModal">X</button> -->
                 <div class="divModal">
                     <h2>Você tem certeza?</h2>
                     <p>Realmente deseja sair da sua página de monitoramento?</p>
@@ -30,19 +29,15 @@
                     <img src="./assets/icon/Logo High.png" alt="">
                 </div>
                 <ul class="nav-items">
-                    <!-- Home ? -->
-                    <!-- <li class="item">
-                        <button class="groupOpcoes"><i class="fas fa-home"></i> Home</button>
-                    </li> -->
-
                     <!-- Projeto - dash - maquinas -->
                     <li class="item">
                         <b class="titulo">
                             <p class="titulo">PROJETOS</p>
                         </b>
-                        <button onclick="telaProjeto()" class="groupOpcoes"><i class="fas fa-calendar-days"></i> Projetos</button>
-                        <button onclick="dashProjeto()" class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
-                        <!-- <button onclick="" class="groupOpcoes"><i class="fas fa-desktop"></i> Máquinas</button> -->
+                        <button onclick="telaProjeto()" class="groupOpcoes"><i class="fas fa-calendar-days"></i>
+                            Projetos</button>
+                        <button onclick="dashProjeto()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
+                            Dashboard</button>
                     </li>
 
                     <!-- maquinas - dash -->
@@ -50,14 +45,16 @@
                         <b class="titulo">
                             <p class="titulo">MÁQUINAS</p>
                         </b>
-                        <button onclick="dashMaq()" class="groupOpcoes"><i class="fas fa-tachometer"></i> Dashboard</button>
+                        <button onclick="dashMaq()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
+                            Dashboard</button>
                     </li>
 
                     <!-- sair -->
                     <!-- <a href="login.html" class="item"> -->
                     <div class="item">
                         <li class="item-sair">
-                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                            <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i>
+                                Sair</button>
                         </li>
                     </div>
                     <!-- </a> -->
@@ -67,46 +64,38 @@
 
             <div class="breadcrumb">
                 <ul class="breadcrumbList">
-                    <!-- <li class="primeiro"><a href="#">Home</a></li> -->
-                    <li class="segundo"><a href="#">Projetos</a></li>
-                    <li class="terceiro"><a href="#">Dashboard</a></li>
-                    <li class="quarto"><a href="#">Máquina Dash</a></li>
+                    <li class="segundo"><a href="projetos.html">Projetos</a></li>
+                    <li class="terceiro"><a href="DashProjeto.html">Dashboard</a></li>
+                    <li class="quarto"><a href="maquinaDash.html">Máquina Dash</a></li>
+                    <li class="quinto"><a href="dispositivoUsb.html">Dispositivos USB</a></li>
                 </ul>
             </div>
 
             <div class="main-content">
                 <div class="kpis">
                     <div class="kpiInfo">
-                        <!-- <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt=""> -->
-                        <p><i class="fas fa-clock"></i> Horas de atividade menor do que :</p>
-                        <p id="id_kpi01" class="dado">10h</p>
-                        <div class="div_imagem">
-                            <img class="legendaIcon" src="./assets/imgs/check-removebg-preview.png" alt="">
+                        <p class="tituloKpi"><i class="fas fa-clock"></i> Maior quantidade de escritas nos últimos 5min:
+                        </p>
+                        <p id="id_kpi01" class="dado">--</p>
+                        <div id="id_kpiImg01" class="div_imagem">
                         </div>
                     </div>
 
                     <div class="kpiInfo">
-                        <p><i class="fas fa-microchip"></i> Uso de CPU maior do que : </p>
-                        <p id="id_kpi02" class="dado">82%</p>
-                        <div class="div_imagem">
-                            <img class="legendaIcon" src="./assets/imgs/atencao-removebg-preview.png" alt="">
+                        <p class="tituloKpi"><i class="fas fa-microchip"></i> Maior uso de CPU nos últimos 5min: </p>
+                        <p id="id_kpi02" class="dado">--</p>
+                        <div id="id_kpiImg02" class="div_imagem">
                         </div>
                     </div>
 
                     <div class="kpiInfo">
-                        <p><i class="fas fa-laptop"></i> Uso de RAM maior do que : </p>
-                        <p id="id_kpi03" class="dado">96%</p>
-                        <div class="div_imagem">
-                            <img class="legendaIcon-x" src="./assets/imgs/erro-removebg-preview.png" alt="">
+                        <p class="tituloKpi"><i class="fas fa-laptop"></i> Maior uso de RAM nos últimos 5min: </p>
+                        <p id="id_kpi03" class="dado">--</p>
+                        <div id="id_kpiImg03" class="div_imagem">
                         </div>
                     </div>
-
-                    <!-- <div class="kpiInfo" id="id_kpi04">
-                        <p>Tempo de atividade maior do que: </p>
-                    </div> -->
 
                     <div class="kpiInfo" id="id_kpi04">
-                        <!-- <p class="titulo">Legenda: </p> -->
                         <div class="explicacaoDiv">
                             <div class="linha">
                                 <p class="explicacao">
@@ -149,10 +138,30 @@
 
                 <div class="dashboard" id="div_dashboard">
                     <div class="topDash" id="div_topDash">
-                        <canvas id="usoCpuRam" class="grafico"></canvas>
-                        <canvas id="qtdLeiturasEscritas" class="grafico"></canvas>
+                        <div class="alertas">
+                            <h1>Situações da máquina</h1>
+                            <div class="alertasMaquina">
+                                <div id="cardAlertaCpu" class="cardAlertaCpu">
+                                    <div id="msgAlertaCpu" class="msgAlerta msgAlertaCpu"></div>
+                                </div>
+
+                                <div id="cardAlertaRam" class="cardAlertaRam">
+                                    <div id="msgAlertaRam" class="msgAlerta msgAlertaRam"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="graficoGeral">
+                            <canvas id="usoCpuRam" class="grafico"></canvas>
+                            <canvas id="qtdLeiturasEscritas" class="grafico"></canvas>
+                        </div>
                     </div>
                     <div class="bottomDash">
+
+                        <div id="div_infoHardware" class="infoHardware">
+                        </div>
+
                         <canvas id="usoVolume" class="grafico"></canvas>
                     </div>
                 </div>

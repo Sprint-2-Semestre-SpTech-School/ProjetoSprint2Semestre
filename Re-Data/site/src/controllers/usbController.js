@@ -70,6 +70,22 @@ function buscarUsbsBloqueados(req, res) {
     });
 }
 
+function atualizarUsbDescricao(req, res) {
+    var idDispositivo = req.params.idDispositivo;
+    var novaDescricao = req.body.descricao;
+
+    usbModel.atualizarUsbDescricao(idDispositivo, novaDescricao).then((resultado) => {
+        if (resultado.affectedRows > 0) {
+            res.status(200).json({ mensagem: "Descrição atualizada com sucesso!" });
+        } else {
+            res.status(404).json({ mensagem: "Dispositivo não encontrado." });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao atualizar a descrição: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 
 // function listarUsbs(req, res) {
 //     var idDispositivo = req.params.idDispositivoServer;
@@ -93,5 +109,6 @@ function buscarUsbsBloqueados(req, res) {
 module.exports = {
     cadastrar,
     buscarUsbs,
-    buscarUsbsBloqueados
+    buscarUsbsBloqueados,
+    atualizarUsbDescricao
 }
