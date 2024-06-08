@@ -573,6 +573,13 @@ tr:nth-child(even) {
     width: 100%;
 }
 
+.main-content .usbContent .usb_list_bloqueado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .main-content .usbContent .blacklist-content {
     display: flex;
     justify-content: center;

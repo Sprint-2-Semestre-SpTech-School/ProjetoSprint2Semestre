@@ -1,3 +1,4 @@
+// const { buscarUsbsBloqueados } = require("../controllers/usbController");
 var database = require("../database/config");
 
 // function cadastrar(idDispositivo, motivoBloqueio) {
@@ -64,15 +65,28 @@ function buscarUsbs(idDispositivo, deviceId, descricaoUsb) {
 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarUsbs(): ", idDispositivo, deviceId, descricaoUsb)
 
-    var instrucao = `
+    var instrucaoBuscarUsbs = `
     SELECT * FROM dispositivoUsb; 
     `;
 
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucaoBuscarUsbs);
+    return database.executar(instrucaoBuscarUsbs);
+}
+
+function buscarUsbsBloqueados(idBlackList, motivoBloqueio, deviceId) {
+
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarUsbs(): ", idBlackList, motivoBloqueio, deviceId)
+
+    var instrucaoBuscarUsbsBloqueados = `
+    SELECT idBlackList, motivoBloqueio, fkDeviceId FROM blackList; 
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoBuscarUsbsBloqueados);
+    return database.executar(instrucaoBuscarUsbsBloqueados);
 }
 
 module.exports = {
     cadastrar,
-    buscarUsbs
+    buscarUsbs,
+    buscarUsbsBloqueados
 };

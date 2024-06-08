@@ -11,7 +11,7 @@
     <script src="./js/dispositivoUsb.js"></script>
 </head>
 
-<body onload="listarUsbs()">
+<body onload="listarUsbs(), listarUsbsBloqueados()">
     <main>
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
@@ -95,11 +95,12 @@
                     <h2>USB's conectados <i class="fa-brands fa-usb"></i></h2>
 
                     <div class="usb_list" id="usbLinha">
+
                         <table id="tabelaUsbConectado">
                             <thead>
                                 <tr>
                                     <div class="usb_list_content_titulo">
-                                        <th>Código</th>
+                                        <th>Código Dispositivo</th>
                                     </div>
                                     <div class="usb_list_content_titulo">
                                         <th>ID Device</th>
@@ -131,66 +132,32 @@
                     <!-- Blacklist -->
                     <div class="blacklist-content">
 
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Status</th>
-                                    <th>Nome</th>
-                                    <th>Motivo</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Conteúdo Linhas Blacklist -->
-                                <tr>
-                                    <td>102030</td>
-                                    <td>Liberado</td>
-                                    <td>Mouse X Logitech</td>
-                                    <td>Presença de software malicioso</td>
-                                    <td>
-                                        <button class="edit">Editar</button>
-                                        <button class="delete">Excluir</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>303030</td>
-                                    <td>Bloqueado</td>
-                                    <td>Pen Drive Multilaser</td>
-                                    <td>Uso não autorizado</td>
-                                    <td>
-                                        <button class="edit">Editar</button>
-                                        <button class="delete">Excluir</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>505000</td>
-                                    <td>Liberado</td>
-                                    <td>Teclado USB</td>
-                                    <td>Transferência suspeita de dados confidenciais</td>
-                                    <td>
-                                        <button class="edit">Editar</button>
-                                        <button class="delete">Excluir</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>USB ID</td>
-                                    <td>Liberado</td>
-                                    <td>Mouse X</td>
-                                    <td>Dispositivo falsificado</td>
-                                    <td>
-                                        <button class="edit">Editar</button>
-                                        <button class="delete">Excluir</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="usb_list_bloqueado" id="usbLinhaBloqueado">
+
+                            <table id="tabelaUsbBloqueado">
+                                <thead>
+                                    <tr>
+                                        <th>Código de Bloqueio</th>
+                                        <th>Motivo</th>
+                                        <th>Código Dispositivo</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Conteúdo Linhas Blacklist -->
+                                    <tr>
+                                        <td><i class="id_blacklist">{idBlackList}</i></td>
+                                        <td><i class="motivo_bloqueio_blacklist">{motivoBloqueio}</i></td>
+                                        <td><i class="id_dispositivo_blacklist">{fkDeviceId}</i></td>
+                                        <td>
+                                            <button class="edit">Editar</button>
+                                            <button class="delete">Excluir</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
                     </div>
 
                     <form id="formularioAdicionar" class="formularioAdicionar hidden">

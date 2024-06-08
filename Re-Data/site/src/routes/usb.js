@@ -8,9 +8,14 @@ router.post("/cadastrar", function (req, res) {
     usbController.cadastrar(req, res);
 });
 
-router.get("/:idMaquina", function (req, res) {
+router.get("/listarUsbs/:idMaquina", function (req, res) {
     // função a ser chamada quando acessar /usb/listar
     usbController.buscarUsbs(req, res);
+});
+
+router.get("/listarUsbsBloqueados/:idMaquina", function (req, res) {
+    // função a ser chamada quando acessar /usb/listar
+    usbController.buscarUsbsBloqueados(req, res);
 });
 
 module.exports = router;

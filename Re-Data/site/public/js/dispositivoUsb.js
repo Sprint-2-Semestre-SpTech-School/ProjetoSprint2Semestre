@@ -54,7 +54,7 @@ function listarUsbs() {
     console.log('Entrei na função listar usbs');
     console.log(idMaquina);
 
-    fetch(`/usb/${idMaquina}`, {
+    fetch(`/usb/listarUsbs/${idMaquina}`, {
         method: "GET",
     })
         .then(function (response) {
@@ -93,6 +93,83 @@ function listarUsbs() {
                         <button class="edit">Editar</button>
                     </td>
                 `;
+
+                var editButton = row.querySelector('.edit');
+                editButton.addEventListener('click', function () {
+                    document.getElementById('formularioEditar').classList.remove('hidden');
+
+                    // editarUsb(usb.idDispositivo, usb.idDevice, usb.descricao);
+                });
+            });
+            // var boxUsb = document.querySelectorAll(".usb_list");
+            // // var boxQtd = document.querySelectorAll(".nameDemand");
+            // for (var i = 0; i < boxUsb.length; i++) {
+            //     boxUsb[i].addEventListener('click', acessarProjeto);
+            //     // boxQtd[i].addEventListener('click', selectProjeto)
+            // }
+        })
+        .catch(function (error) {
+            console.error(`#ERRO: ${error}`);
+        });
+}
+
+function listarUsbsBloqueados() {
+    console.log('Entrei na função listar usbs bloqueados');
+    console.log(idMaquina);
+
+    fetch(`/usb/listarUsbsBloqueados/${idMaquina}`, {
+        method: "GET",
+    })
+        .then(function (response) {
+            console.log('entrei na then listar usbs bloqueados');
+            if (!response.ok) {
+                throw new Error('Erro ao carregar os dados');
+            }
+            return response.json();
+        })
+
+        .then(function (lista_usbs_bloqueados) {
+            console.log(lista_usbs_bloqueados);
+
+            // console.log(lista_projetos[0].qtsMaquinas);
+
+            // var qtdMaquinas = lista_projetos[0].qtsMaquinas
+            // console.log(qtdMaquinas);
+
+            var usb_list_bloqueados = document.getElementById("tabelaUsbBloqueado");
+
+            var tbody = usb_list_bloqueados.querySelector("tbody");
+            tbody.innerHTML = "";
+
+            if (!lista_usbs_bloqueados || lista_usbs_bloqueados.length === 0) {
+                console.error('Nenhum dado de usb encontrado.');
+                return;
+            }
+            info_usb_bloqueado = lista_usbs_bloqueados;
+            lista_usbs_bloqueados.forEach(function (usb) {
+                var row = usb_list_bloqueados.insertRow();
+                row.innerHTML = `
+                <td><i class="id_blacklist"></i>${usb.idBlackList}</td>
+                <td><i class="motivo_bloqueio_blacklist"></i>${usb.motivoBloqueio}</td>
+                <td><i class="id_dispositivo_blacklist"></i>${usb.fkDeviceId}</td>
+                <td>
+                    <button class="edit">Editar</button>
+                    <button class="delete">Excluir</button>
+                </td>
+                `;
+
+                var editButton = row.querySelector('.edit');
+                var delButton = row.querySelector('.delete');
+                editButton.addEventListener('click', function () {
+                    document.getElementById('formularioEditar').classList.remove('hidden');
+
+                    // Abre o formulário para editar
+                });
+                delButton.addEventListener('click', function () {
+                    document.getElementById('formularioEditar').classList.remove('hidden');
+
+                    // Abre o formulário para deletar
+                });
             });
             // var boxUsb = document.querySelectorAll(".usb_list");
             // // var boxQtd = document.querySelectorAll(".nameDemand");
