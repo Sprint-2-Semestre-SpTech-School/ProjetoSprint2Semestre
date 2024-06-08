@@ -8,5 +8,9 @@ router.post("/cadastrar", function (req, res) {
     usbController.cadastrar(req, res);
 });
 
+router.get("/:idMaquina", function (req, res) {
+    // função a ser chamada quando acessar /usb/listar
+    usbController.buscarUsbs(req, res);
+});
 
 module.exports = router;

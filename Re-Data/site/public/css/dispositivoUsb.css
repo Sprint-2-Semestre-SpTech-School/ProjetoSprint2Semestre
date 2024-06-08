@@ -448,6 +448,7 @@ table,
 th,
 td {
     border: 1px solid #ddd;
+    background-color: #050e41;
 }
 
 th,
@@ -459,6 +460,7 @@ td {
 th {
     background-color: var(--color-background-modal);
     color: #FABF3F;
+    text-shadow: 1px 1px #050e41;
 }
 
 /* Estilizando linhas da tabela CRUD */
@@ -485,14 +487,14 @@ tr:nth-child(even) {
 .edit {
     background-color: #FABF3F;
     color: #050e41;
-    width: 30%;
+    width: 40%;
     height: 100%;
     transition: 0.7s;
 }
 
 .edit:hover {
     background-color: darkslateblue;
-    width: 32%;
+    width: 45%;
     height: 100%;
 }
 
@@ -564,7 +566,7 @@ tr:nth-child(even) {
     font-size: 3vh;
 }
 
-.main-content .usbContent .usbList {
+.main-content .usbContent .usb_list {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -580,8 +582,8 @@ tr:nth-child(even) {
 
 .main-content .usbContent h2 {
     margin-right: 60%;
-    color: #007bff;
-    text-shadow: 1px 1px 2px #ffff;
+    color: #FABF3F;
+    text-shadow: 1px 1px 2px #061980;
     /* border: 1px solid #007bff; */
 }
 

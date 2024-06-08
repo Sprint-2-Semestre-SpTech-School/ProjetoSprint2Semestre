@@ -11,7 +11,7 @@
     <script src="./js/dispositivoUsb.js"></script>
 </head>
 
-<body>
+<body onload="listarUsbs()">
     <main>
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
@@ -94,22 +94,30 @@
 
                     <h2>USB's conectados <i class="fa-brands fa-usb"></i></h2>
 
-                    <div class="usbList">
-                        <table>
+                    <div class="usb_list" id="usbLinha">
+                        <table id="tabelaUsbConectado">
                             <thead>
                                 <tr>
-                                    <th>Código</th>
-                                    <th>ID Device</th>
-                                    <th>Descrição</th>
-                                    <th>Ações</th>
+                                    <div class="usb_list_content_titulo">
+                                        <th>Código</th>
+                                    </div>
+                                    <div class="usb_list_content_titulo">
+                                        <th>ID Device</th>
+                                    </div>
+                                    <div class="usb_list_content_titulo">
+                                        <th>Descrição</th>
+                                    </div>
+                                    <div class="usb_list_content_titulo">
+                                        <th>Ações</th>
+                                    </div>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Conteúdo USB List -->
                                 <tr>
-                                    <td>0000</td>
-                                    <td>1111</td>
-                                    <td>Nome</td>
+                                    <td><i class="id_dispositivo">{idDispositivo}</i></td>
+                                    <td><i class="device_id">{idDevice}</i></td>
+                                    <td><i class="descricao_usb">{descricao}</i></td>
                                     <td>
                                         <button class="edit">Editar</button>
                                     </td>
@@ -229,6 +237,7 @@
 </html>
 
 <script>
+
     function cadastrar() {
         // aguardar();
 
