@@ -85,8 +85,20 @@ function buscarUsbsBloqueados(idBlackList, motivoBloqueio, deviceId) {
     return database.executar(instrucaoBuscarUsbsBloqueados);
 }
 
+function atualizarUsbDescricao(idDispositivo, novaDescricao) {
+    var instrucaoAtualizarDescricao = `
+    UPDATE dispositivoUsb 
+    SET descricao = '${novaDescricao}'
+    WHERE idDispositivo = ${idDispositivo};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoAtualizarDescricao);
+    return database.executar(instrucaoAtualizarDescricao);
+}
+
 module.exports = {
     cadastrar,
     buscarUsbs,
-    buscarUsbsBloqueados
+    buscarUsbsBloqueados,
+    atualizarUsbDescricao
 };

@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('formularioAdicionar').classList.add('hidden');
 
     // Exibe o formulário quando o botão "Novo" for clicado
-    document.querySelector('.buttonTools').addEventListener('click', function () {
-        document.getElementById('formularioAdicionar').classList.remove('hidden');
-    });
+    // document.querySelector('.buttonTools').addEventListener('click', function () {
+    //     document.getElementById('formularioAdicionar').classList.remove('hidden');
+    // });
 
     // // Esconde o formulário quando o botão "Salvar" for clicado
     // document.getElementById('saveButton').addEventListener('click', function (event) {
@@ -45,6 +45,17 @@ document.addEventListener('DOMContentLoaded', function () {
     //     event.preventDefault(); // Impede o envio do formulário para demonstração
     //     document.getElementById('formularioEditar').classList.add('hidden');
     // });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var formularioEditar = document.getElementById('formularioEditar');
+    formularioEditar.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var idDispositivo = document.getElementById('id_usb_list').value;
+        var novaDescricao = document.getElementById('descricao_usb').value;
+        atualizarUsbDescricao(idDispositivo, novaDescricao);
+    });
 });
 
 var idMaquina = sessionStorage.ID_MAQUINA;
@@ -84,29 +95,39 @@ function listarUsbs() {
             }
             info_usb = lista_usbs
             lista_usbs.forEach(function (usb) {
-                var row = usb_list.insertRow();
-                row.innerHTML = `
-                    <td><i class="id_dispositivo">${usb.idDispositivo}</i></td>
+                var existingRow = document.querySelector(`.id_dispositivo[data-id="${usb.idDispositivo}"]`);
+                if (existingRow) {
+                    existingRow.closest('tr').innerHTML = `
+                    <td><i class="id_dispositivo" data-id="${usb.idDispositivo}">${usb.idDispositivo}</i></td>
                     <td><i class="device_id">${usb.idDevice}</i></td>
                     <td><i class="descricao_usb">${usb.descricao}</i></td>
                     <td>
                         <button class="edit">Editar</button>
                     </td>
                 `;
+                } else {
+                    var row = tbody.insertRow();
+                    row.innerHTML = `
+                    <td><i class="id_dispositivo" data-id="${usb.idDispositivo}">${usb.idDispositivo}</i></td>
+                    <td><i class="device_id">${usb.idDevice}</i></td>
+                    <td><i class="descricao_usb">${usb.descricao}</i></td>
+                    <td>
+                        <button class="edit">Editar</button>
+                    </td>
+                `;
+                }
+            });
+            tbody.querySelectorAll('.edit').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var row = button.closest('tr');
+                    var idDispositivo = row.querySelector('.id_dispositivo').dataset.id;
+                    var descricao = row.querySelector('.descricao_usb').textContent;
 
-                var editButton = row.querySelector('.edit');
-                editButton.addEventListener('click', function () {
                     document.getElementById('formularioEditar').classList.remove('hidden');
-
-                    // editarUsb(usb.idDispositivo, usb.idDevice, usb.descricao);
+                    document.getElementById('id_usb_list').value = idDispositivo;
+                    document.getElementById('descricao_usb').value = descricao;
                 });
             });
-            // var boxUsb = document.querySelectorAll(".usb_list");
-            // // var boxQtd = document.querySelectorAll(".nameDemand");
-            // for (var i = 0; i < boxUsb.length; i++) {
-            //     boxUsb[i].addEventListener('click', acessarProjeto);
-            //     // boxQtd[i].addEventListener('click', selectProjeto)
-            // }
         })
         .catch(function (error) {
             console.error(`#ERRO: ${error}`);
@@ -177,6 +198,30 @@ function listarUsbsBloqueados() {
             //     boxUsb[i].addEventListener('click', acessarProjeto);
             //     // boxQtd[i].addEventListener('click', selectProjeto)
             // }
+        })
+        .catch(function (error) {
+            console.error(`#ERRO: ${error}`);
+        });
+}
+
+function atualizarUsbDescricao(idDispositivo, novaDescricao) {
+    fetch(`/usb/atualizarUsbDescricao/${idDispositivo}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ descricao: novaDescricao })
+    })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar a descrição');
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            console.log('Descrição atualizada com sucesso:', data);
+            document.getElementById('formularioEditar').classList.add('hidden');
+            listarUsbs(); // Atualize a lista para refletir as mudanças
         })
         .catch(function (error) {
             console.error(`#ERRO: ${error}`);
