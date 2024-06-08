@@ -22,4 +22,6 @@ router.put("/atualizarUsbDescricao/:idDispositivo", function (req, res) {
     usbController.atualizarUsbDescricao(req, res);
 });
 
+
+
 module.exports = router;

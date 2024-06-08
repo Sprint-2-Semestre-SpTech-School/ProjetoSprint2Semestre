@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // });
 
     // Exibe o formulário quando o botão de editar for clicado
-    document.querySelectorAll('.edit').forEach(function (button) {
+    document.querySelectorAll('edit_usb').forEach(function (button) {
         button.addEventListener('click', function () {
             document.getElementById('formularioEditar').classList.remove('hidden');
             // Aqui você pode adicionar o código para preencher o formulário com os dados do usuário a ser editado
@@ -112,12 +112,12 @@ function listarUsbs() {
                     <td><i class="device_id">${usb.idDevice}</i></td>
                     <td><i class="descricao_usb">${usb.descricao}</i></td>
                     <td>
-                        <button class="edit">Editar</button>
+                        <button class="edit_usb">Editar</button>
                     </td>
                 `;
                 }
             });
-            tbody.querySelectorAll('.edit').forEach(function (button) {
+            tbody.querySelectorAll('.edit_usb').forEach(function (button) {
                 button.addEventListener('click', function () {
                     var row = button.closest('tr');
                     var idDispositivo = row.querySelector('.id_dispositivo').dataset.id;
@@ -174,7 +174,7 @@ function listarUsbsBloqueados() {
                 <td><i class="motivo_bloqueio_blacklist"></i>${usb.motivoBloqueio}</td>
                 <td><i class="id_dispositivo_blacklist"></i>${usb.fkDeviceId}</td>
                 <td>
-                    <button class="edit">Editar</button>
+                    <button class="edit_blacklist">Editar</button>
                     <button class="delete">Excluir</button>
                 </td>
                 `;

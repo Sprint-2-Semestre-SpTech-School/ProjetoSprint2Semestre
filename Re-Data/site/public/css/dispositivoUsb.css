@@ -484,7 +484,7 @@ tr:nth-child(even) {
     opacity: 0.8;
 }
 
-.edit {
+.edit_usb {
     background-color: #FABF3F;
     color: #050e41;
     width: 40%;
@@ -492,7 +492,7 @@ tr:nth-child(even) {
     transition: 0.7s;
 }
 
-.edit:hover {
+.edit_usb:hover {
     background-color: darkslateblue;
     width: 45%;
     height: 100%;
