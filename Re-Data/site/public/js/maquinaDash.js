@@ -169,10 +169,13 @@ const discoBytesChart = new Chart(ctx3, {
     },
 });
 
+// var idMaquina = sessionStorage.ID_MAQUINA;
+var idMaquina = 501;
+console.log(idMaquina)
 // PEGANDO DADOS DO INFO HARDWARE
 function buscarDadosHardware() {
-    console.log(500)
-    fetch("/maquina/buscarDadosHardware/" + 500, {
+    console.log(idMaquina)
+    fetch(`/maquina/buscarDadosHardware/${idMaquina}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -329,8 +332,8 @@ function buscarDadosHardware() {
 // PRIMEIRA KPI - TEMPO DE ATIVIDADE
 // var idMaquina = 500;
 function kpiMaquinaLeituras() {
-    console.log(500)
-    fetch("/kpiMaquina/kpiMaquinaLeituras/" + 500, {
+    console.log(idMaquina)
+    fetch(`/kpiMaquina/kpiMaquinaLeituras/${idMaquina}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -361,8 +364,8 @@ function kpiMaquinaLeituras() {
 
 // SEGUNDA KPI - USO DE CPU
 function kpiMaquinaCpu() {
-    console.log(500)
-    fetch("/kpiMaquina/kpiMaquinaCpu/" + 500, {
+    console.log(idMaquina)
+    fetch(`/kpiMaquina/kpiMaquinaCpu/${idMaquina}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -426,8 +429,8 @@ function kpiMaquinaCpu() {
 
 // TERCEIRA KPI - USO DE RAM
 function kpiMaquinaRam() {
-    console.log(500)
-    fetch("/kpiMaquina/kpiMaquinaRam/" + 500, {
+    console.log(idMaquina)
+    fetch(`/kpiMaquina/kpiMaquinaRam/${idMaquina}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -492,7 +495,7 @@ function kpiMaquinaRam() {
 function buscarDadosAlerta() {
 
     console.log('entrei no buscardadosalerta');
-    fetch("/maquina/buscarDadosAlerta/" + 500, {
+    fetch(`/maquina/buscarDadosAlerta/${idMaquina}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -522,7 +525,7 @@ function buscarDadosAlerta() {
 function buscarDadosAlertaRam() {
 
     console.log('entrei no buscardadosalerta');
-    fetch("/maquina/buscarDadosAlertaRam/" + 500, {
+    fetch(`/maquina/buscarDadosAlertaRam/${idMaquina}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -551,7 +554,7 @@ function buscarDadosAlertaRam() {
 
 // PEGANDO DADOS PARA OS DOIS GRÁFICOS DE CIMA
 function buscarDados() {
-    fetch("/maquina/buscarDados/" + 500, {
+    fetch(`/maquina/buscarDados/${idMaquina}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -568,7 +571,7 @@ function buscarDados() {
 
 // PEGANDO OS DADOS PARA O GRÁFICO DE BAIXO
 function buscarDadosVolume() {
-    fetch("/maquina/buscarDadosVolume/" + 500, {
+    fetch(`/maquina/buscarDadosVolume/${idMaquina}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

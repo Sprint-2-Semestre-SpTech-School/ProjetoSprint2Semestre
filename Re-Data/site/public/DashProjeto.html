@@ -10,11 +10,51 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="getDadosDash(), getDadosKpi()">
+<body onload="getDadosDash(), getDadosKpi(), listarMaquinas()">
     <main>
+        <div class="modalAddMaquina" id="modalAddMaquina">
+            <div class="modalAddMaquinaDentro">
+                <div id="fecharModal" class="close">
+                    <i id="fecharModal" class="fa-solid fa-circle-xmark fa-3xl"></i>
+                </div>
+                <div class="divModal">
+
+                    <div class="title">
+                        <h1>Adicione uma nova máquina</h1>
+                    </div>
+                    <div class="content">
+                        <div class="machineCrud">
+                            <div class="machine">
+                                <img src="./assets/imgs/monitor dash.png" alt="">
+                            </div>
+                            <!-- <select name="" id="">
+                                <option value="">IdMaquina1</option>
+                                <option value="">IdMaquina2</option>
+                                <option value="">IdMaquina3</option>
+                            </select> -->
+                            <!-- <div class="remove-machine">
+                                <i class="fa-solid fa-trash"></i>
+                                <button>Excluir máquina</button>
+                            </div> -->
+                        </div>
+                        <div class="parametrize">
+                            <h2>Preencha as informações</h2>
+                            <label for="">Destino:</label>
+                            <input id="input_destino" type="text">
+                            <label for="">Descrição:</label>
+                            <input id="input_descricao" type="text">
+                            <div class="buttons">
+                                <button onclick="adicionarMaquina()">Adicionar</button>
+                                <button id="fecharModal">Retornar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
-                <!-- <button class="fecharModal" id="fecharModal">X</button> -->
                 <div class="divModal">
                     <h2>Você tem certeza?</h2>
                     <p>Realmente deseja sair da sua página de monitoramento?</p>
@@ -25,6 +65,11 @@
         </div>
         <section>
             <nav>
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
                 <div class="logo">
                     <img src="./assets/icon/Logo High.png" alt="">
                 </div>
@@ -76,10 +121,10 @@
                         </div>
                     </div>
                     <div class="status">
-                        <div class="machines">
-                            <div class="machine">
+                        <div id="div_maquinas" class="machines">
+                            <!-- <div class="machine">
                                 <img src="./assets/imgs/monitor dash.png" alt="">
-                                <!-- <div class="infoHardware">
+                                <div class="infoHardware">
                                     <ul class="info">
                                         <li>Operando: Sim</li>
                                         <li>Usuário: LuisGustavo</li>
@@ -89,7 +134,7 @@
                                         <li>Memória: 8192 RAM</li>
                                         <li>Disco: SSD 512GB</li>
                                     </ul>
-                                </div> -->
+                                </div>
                             </div>
                             <div class="machine">
                                 <img src="./assets/imgs/monitor dash.png" alt="">
@@ -102,6 +147,11 @@
                             </div>
                             <div class="machine">
                                 <img src="./assets/imgs/monitor dash.png" alt="">
+                            </div> -->
+                            <div class="novaMaquina">
+                                <div class="machine">
+                                    <button class="addMaquinaBotao" onclick="addMaquina()">+</button>
+                                </div>
                             </div>
                         </div>
                         <div class="health-bar">
@@ -310,3 +360,6 @@
 </html>
 
 <script src="./js/dashConstruction.js"></script>
+<!-- <script>
+
+</script> -->

@@ -66,6 +66,155 @@ function dashMaq() {
     }, "100");
 }
 
+function addMaquina() {
+    const modalAddMaquinaDentro = document.getElementById('modalAddMaquina')
+    modalAddMaquinaDentro.classList.add('abrir')
+
+    modalAddMaquinaDentro.addEventListener('click', (e) => {
+        if (e.target.id == 'fecharModal' || e.target.id == 'modalAddMaquina') {
+            modalAddMaquinaDentro.classList.remove('abrir')
+        }
+    })
+}
+
+function adicionarMaquina() {
+    var destinoVar = document.getElementById('input_destino').value;
+    var descricaoVar = document.getElementById('input_descricao').value;
+
+    if (destinoVar == "" || descricaoVar == "") {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Preencha todos os campos";
+    } else {
+        cardErro.style.display = "none";
+        mensagem_erro.innerHTML = "Cadastrando máquina...";
+
+        fetch("/dashProjeto/adicionarMaquina", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                destinoServer: destinoVar,
+                descricaoServer: descricaoVar,
+                idMaquina: sessionStorage.ID_MAQUINA
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Adicionando máquina...";
+                    listarMaquinas(idProjeto); 
+
+                    setTimeout(() => {
+                        window.location = "DashProjeto.html";
+                    }, "2000");
+
+                } else {
+                    throw new Error("Houve um erro ao tentar realizar o cadastro!");
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = `Erro: ${resposta.message}`;
+            });
+        return false;
+    }
+}
+
+var idEmpresa = sessionStorage.ID_EMPRESA;
+console.log(idEmpresa);
+var idProjeto = 400;
+var info_maquinas = null;
+var idMaquina = sessionStorage.ID_MAQUINA;
+
+function listarMaquinas(idProjeto) {
+    console.log('entrei na função listar máquinas');
+    console.log(idProjeto);
+    console.log(idMaquina + ' id maquina');
+
+    fetch(`/dashProjeto/` + 400, {
+        method: "GET",
+    })
+    .then(function (response) {
+        console.log('entrei na then listar máquinas');
+        if (!response.ok) {
+            throw new Error('Erro ao carregar os dados');
+        }
+        return response.json();
+    })
+    .then(function (lista_maquinas) {
+        console.log('entrei no then das máquinas');
+        console.log(lista_maquinas);
+
+        if (!lista_maquinas || lista_maquinas.length === 0) {
+            console.error('Nenhum dado de máquina encontrado.');
+            return;
+        }
+
+        var div_maquinas = document.getElementById('div_maquinas');
+        if (!div_maquinas) {
+            console.error('Elemento div_maquinas não encontrado.');
+            return;
+        }
+
+        var telaMaquina = document.getElementById("div_maquinas");
+        // telaMaquina.innerHTML = ''; // Limpar o conteúdo anterior
+
+        // JSON.parse(sessionStorage.ID_MAQUINA).forEach(maquina => {
+        //     document.getElementById("div_maquinas").innerHTML += `
+        //         <div onclick="mostrarDashMaquina()" data-id="${maquina.idMaquina}" class="machine">
+        //             <img src="./assets/imgs/monitor dash.png" alt="">
+        //         </div>
+        //     `
+        // });
+
+        lista_maquinas.forEach(function (maquina) {
+            telaMaquina.innerHTML += `
+                <div data-id="${maquina.idMaquina}" class="machine">
+                    <img src="./assets/imgs/monitor dash.png" alt="">
+                </div>
+            `;
+        });
+
+        var boxMaquina = document.querySelectorAll(".machine");
+        for (var i = 0; i < boxMaquina.length; i++) {
+            boxMaquina[i].addEventListener('click', acessarDash);
+        }
+    })
+    .catch(function (error) {
+        console.error(`#ERRO: ${error}`);
+    });
+}
+
+function acessarDash() {
+    idMaquina = this.getAttribute('data-id')
+    // buscarDados();
+
+    setTimeout(() => {
+        window.location = "maquinaDash.html";
+    }, "1000");
+
+    // listar_armazens.innerHTML = ``
+    // posicao_tela = 2
+    // botao_armazen.style.display = "flex"
+    // botao_faz.style.display = "none"
+    // fazendas_empresa.style.display = "none"
+    // armazens.style.display = "block"
+}
+
+// function mostrarDashMaquina(idMaquina) {
+//     setTimeout(() => {
+//         window.location = "maquinaDash.html";
+//     }, "1000");
+
+//     // graficos.style.display = 'flex';
+//     // armazens.style.display = "none"
+//     buscarDados();
+// }
+
 const ctx = document.getElementById('cpuRam');
 // console.log(ctx);
 const cpuRamChart = new Chart(ctx, {

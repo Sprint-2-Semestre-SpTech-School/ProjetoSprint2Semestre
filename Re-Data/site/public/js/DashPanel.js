@@ -28,7 +28,7 @@ function showMachineInfo() {
 
 function newMachine() {
     const machines = document.querySelectorAll(".machine");
-    const modal = document.querySelector(".modalMachine")
+    const modal = document.querySelector(".modalMachine");
     const closeX = document.querySelector(".close");
     const closeReturn = document.querySelector("#closeButton");
     const overlay = document.querySelector(".overlay");
