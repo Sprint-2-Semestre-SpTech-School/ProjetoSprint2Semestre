@@ -212,8 +212,10 @@ function listarUsbsBloqueados() {
             }
             info_usb_bloqueado = lista_usbs_bloqueados;
             lista_usbs_bloqueados.forEach(function (usb) {
-                var row = usb_list_bloqueados.insertRow();
-                row.innerHTML = `
+
+                var existingRow = document.querySelector(`.id_bloqueio[data-id="${usb.idBlockList}"]`);
+                if (existingRow) {
+                    existingRow.closest('tr').innerHTML = `
                 <td><i class="id_blacklist"></i>${usb.idBlockList}</td>
                 <td><i class="motivo_bloqueio_blacklist"></i>${usb.motivoBloqueio}</td>
                 <td><i class="id_dispositivo_blacklist"></i>${usb.fkDeviceId}</td>
@@ -222,6 +224,18 @@ function listarUsbsBloqueados() {
                     <button class="delete">Excluir</button>
                 </td>
                 `;
+                } else {
+                    var row = tbody.insertRow();
+                    row.innerHTML = `
+                <td><i class="id_blacklist"></i>${usb.idBlockList}</td>
+                <td><i class="motivo_bloqueio_blacklist"></i>${usb.motivoBloqueio}</td>
+                <td><i class="id_dispositivo_blacklist"></i>${usb.fkDeviceId}</td>
+                <td>
+                    <button class="edit_blacklist">Editar</button>
+                    <button class="delete">Excluir</button>
+                </td>
+                `;
+                }
             });
             tbody.querySelectorAll('.edit_blacklist').forEach(function (button) {
                 button.addEventListener('click', function () {
@@ -277,7 +291,7 @@ function atualizarUsbMotivoBloqueio(idBlockList, novoMotivo) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ motivo: novoMotivo })
+        body: JSON.stringify({ motivoBloqueio: novoMotivo })
     })
         .then(function (response) {
             if (!response.ok) {
