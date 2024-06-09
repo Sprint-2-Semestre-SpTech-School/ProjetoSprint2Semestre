@@ -124,6 +124,27 @@ function adicionarMaquina() {
     }
 }
 
+// function buscarIdMaquina() {
+//     console.log('entrei na função buscar id máquina');
+//     console.log(idProjeto);
+//     fetch(`/dashProjeto/${idProjeto}`, {
+//         method: "GET",
+//     }).then(function (response) {
+//             console.log('entrei na then buscar id maquina');
+//             if (!response.ok) {
+//                 throw new Error('Erro ao carregar os dados');
+//             }
+//             return response.json();
+//         }).then(function (lista_id) {
+//             console.log(lista_id);
+
+//             console.log(lista_projetos[0].idMaquina);
+
+//             var idDaVezMaquina = lista_projetos[0].idMaquina
+//             console.log(idDaVezMaquina);
+//         })
+// }
+
 var idEmpresa = sessionStorage.ID_EMPRESA;
 console.log(idEmpresa);
 var idProjeto = 400;
@@ -171,9 +192,9 @@ function listarMaquinas(idProjeto) {
         //     `
         // });
 
-        lista_maquinas.forEach(function (maquina) {
+        lista_maquinas.forEach(function (projeto) {
             telaMaquina.innerHTML += `
-                <div data-id="${maquina.idMaquina}" class="machine">
+                <div data-id="${projeto.idMaquina}" class="machine">
                     <img src="./assets/imgs/monitor dash.png" alt="">
                 </div>
             `;

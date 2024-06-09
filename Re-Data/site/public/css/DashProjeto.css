@@ -324,6 +324,7 @@ main .screen .top .machines {
     height: 3rem;
     border-radius: 25px;
     background-color: var(--color-background-partes);
+    /* overflow-x: auto; */
 }
 
 main .screen .top .machine {
@@ -331,9 +332,29 @@ main .screen .top .machine {
     justify-content: center;
     width: 3rem;
     background-color: rgb(3, 3, 34);
-    ;
     border: 2px solid white;
     border-radius: 25px;
+    flex: 0 0 auto;
+    cursor: pointer;
+    transition: ease 500ms;
+}
+
+main .screen .top .machine:hover {
+    background-color: var(--color-background-modal);
+    width: 3.2rem;
+    height: 3.3rem;
+    /* transition: 2s ease-in-out; */
+}
+
+main .screen .top .machine .addMaquinaBotao {
+    background: none;
+    width: 100%;
+    border: none;
+    font-size: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 main section .screen .dashView {
@@ -686,3 +707,261 @@ main section .screen .dashView .dashArea .bottom-dash .kpis .mono .kpi .event .c
 .modalSair .modalSairDentro .divModal .botaoSair:hover {
     background-color: var(--color-sair-hover);
 }
+
+/* -------------------------------------------------------- MODAL ADD MÁQUINA ------------------------------------------------------- */
+
+.modalAddMaquina {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* background-color: white; */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    overflow: auto;
+    /* margin: 0 100% 0 0; */
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 1000px rgba(0, 0, 0, 0.491);
+    /* transition: 500ms; */
+}
+
+.modalAddMaquina .modalAddMaquinaDentro {
+    width: 47%;
+    min-width: 400px;
+    min-height: 300px;
+    background-color: var(--color-background-modal);
+    backdrop-filter: blur(10px);
+    height: 65%;
+    padding: 30px;
+    border-radius: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.modalAddMaquina.abrir {
+    display: flex;
+}
+
+@keyframes abrir {
+    from {
+        /* opacity: 0; */
+        transform: translate3d(0, -20px, -5px);
+        transition: opacity 0.5s ease;
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 0.5s ease;
+    }
+}
+
+.abrir .modalAddMaquinaDentro {
+    animation: abrirModal 0.5s;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 48vh;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .title {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    text-shadow: 2px 2px 2px black;
+    justify-content: center;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .title h2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .close {
+    display: flex;
+    float: right;
+    justify-content: end;
+    width: 5%;
+    font-size: 36px;
+    top: -258px;
+    position: relative;
+    left: 811px;
+    cursor: pointer;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content {
+    display: inline-flex;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 37vw;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .machineCrud {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 39%;
+    height: 100%;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .machineCrud .machine img {
+    /* border: 1px solid; */
+    height: 42vh;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .machineCrud select {
+    font-size: 1rem;
+    width: 15rem;
+    height: 2.5rem;
+    background-color: var(--color-opcoes);
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .machineCrud .remove-machine {
+    font-size: 3.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 30%;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .machineCrud .remove-machine button {
+    font-size: 1rem;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--color-opcoes);
+    transition: 500ms;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .machineCrud .remove-machine button:hover {
+    /* width: 8.5rem; */
+    background-color: var(--color-nav-hover);
+    cursor: pointer;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .parametrize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 18vw;
+    text-shadow: 2px 2px 2px black;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .parametrize label {
+    font-size: 20px;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .parametrize input {
+    font-size: 1rem;
+    color: black;
+    width: 15rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .parametrize .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    }
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .parametrize .buttons button {
+    width: 7rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--color-opcoes);
+    transition: 500ms;
+    cursor: pointer;
+    font-size: 18px;
+    border-bottom: solid darkslateblue;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .content .parametrize .buttons button:hover {
+    /* background-color: transparent; */
+    /* width: 11rem; */
+    /* height: 3.2rem; */
+    background-color: var(--color-nav-hover);
+    cursor: pointer;}
+
+/* .modalAddMaquina .modalAddMaquinaDentro .divModal p {
+    font-size: 16px;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal button {
+    width: 90%;
+    height: 5vh;
+} */
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .fecharModal {
+    background-color: var(--color-opcoes);
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    /* padding: inherit; */
+    border: none;
+    border-bottom: solid var(--color-nav-hover);
+    transition: 500ms;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .botaoSair {
+    background-color: var(--color-sair);
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+    /* padding: inherit; */
+    border: none;
+    border-bottom: solid var(--color-sair-hover);
+    transition: 500ms;
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .fecharModal:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.modalAddMaquina .modalAddMaquinaDentro .divModal .botaoSair:hover {
+    background-color: var(--color-sair-hover);
+}
+
+.alerta_erro{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    border-radius: 4px;
+    border: #7588db 3px solid;
+    padding: 10px;
+    margin-left: 30%;
+    margin-bottom: 40%;
+    position: absolute;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+  }
