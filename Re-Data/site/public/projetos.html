@@ -12,6 +12,11 @@
 
 <body onload="listarProjetos()">
     <main>
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
                 <!-- <button class="fecharModal" id="fecharModal">X</button> -->
@@ -71,7 +76,7 @@
                 </div>
 
                 <div id="div_projects" class="content-projects">
-                    <!-- <div class="project-card">
+                    <div id="project-card" class="project-card">
                         <div class="card-alert" id="dangerous">Alert</div>
                         <div class="updateProject"><i onclick="abrirModalUpdate()" class="fa-solid fa-arrows-rotate"></i></div>
                         <div class="deleteProject"><i onclick="abrirModalDelete()" class="fa-solid fa-trash"></i></div>
@@ -112,7 +117,7 @@
                         </div>
 
                     </div>
-                    <div class="project-card">
+                    <!-- <div id="project-card" class="project-card">
                         <div class="card-alert" id="warn">Alert</div>
                         <div class="updateProject"><i onclick="abrirModalUpdate()" class="fa-solid fa-arrows-rotate"></i></div>
                         <div class="deleteProject"><i onclick="abrirModalDelete()" class="fa-solid fa-trash"></i></div>
@@ -235,14 +240,14 @@
                                 <button class="button-go-project">Acessar Projeto</button>
                             </div>
                         </div>
-                    </div> -->
-                </div>
+                    </div>
+                </div> -->
 
                 <!-- MODAL CREATE -->
                 <div id="janela-modal-crud-create" class="modalCreateProject">
                     <div class="modalProjectDentro">
                         <div class="title">
-                            <h1>Ative um novo projeto!</h1>
+                            <h1>Cadastre um novo projeto!</h1>
                         </div>
                         <div class="close">
                             <i id="close" class="fa-solid fa-circle-xmark fa-3xl"></i>
@@ -260,16 +265,16 @@
                             </div>
                             <div class="parametrize">
                                 <h2>Preencha as informações</h2>
-                                <label for="">Nome demanda:</label>
-                                <input type="text">
-                                <label for="">Inicio:</label>
-                                <input type="date">
-                                <label for="">Responsável:</label>
-                                <input type="text">
-                                <label for="">Término:</label>
-                                <input type="date">
+                                <span for="">Nome demanda:</span>
+                                <input class="input_texto" id="input_nomeDemanda_create" type="text">
+                                <span for="">Inicio:</span>
+                                <input class="input_data" id="input_dataInicio_create" type="datetime-local">
+                                <span for="">Responsável:</span>
+                                <input class="input_texto" id="input_responsavel_create" type="text">
+                                <span for="">Término:</span>
+                                <input class="input_data" id="input_dataTermino_create" type="datetime-local">
                                 <div class="buttons">
-                                    <button>Ativar</button>
+                                    <button onclick="cadastrarProjeto()">Cadastrar</button>
                                     <button id="close-button">Retornar</button>
                                 </div>
                             </div>
@@ -298,15 +303,15 @@
                             </div>
                             <div class="parametrize">
                                 <h2>Preencha as informações</h2>
-                                <h2>que deseja modificar</h2>
-                                <label for="">Nome demanda:</label>
-                                <input type="text">
-                                <label for="">Inicio:</label>
-                                <input type="date">
-                                <label for="">Responsável:</label>
-                                <input type="text">
-                                <label for="">Término:</label>
-                                <input type="date">
+                                <h2 class="second-h2">que deseja modificar</h2>
+                                <span for="">Nome demanda:</span>
+                                <input class="input_texto" id="input_nomeDemanda_update" type="text">
+                                <span for="">Inicio:</span>
+                                <input class="input_data" id="input_dataInicio_update" type="datetime-local">
+                                <span for="">Responsável:</span>
+                                <input class="input_texto" id="input_responsavel_update" type="text">
+                                <span for="">Término:</span>
+                                <input class="input_data" id="input_dataTermino_update" type="datetime-local">
                                 <div class="buttons">
                                     <button>Salvar</button>
                                     <button id="close-button">Retornar</button>

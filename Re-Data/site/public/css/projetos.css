@@ -179,7 +179,7 @@ nav .nav-items .itemSelected .groupOpcoes {
     cursor: pointer;
     padding: inherit;
     border: none;
-    border-bottom: solid #FABF3F;
+    border-bottom: solid darkslateblue;
 }
 
 nav .nav-items .item .groupOpcoes-sair {
@@ -335,6 +335,26 @@ nav .nav-items .item .groupOpcoes-sair:hover {
 .main-content .projectTools .buttonTools i {
     padding: 5px;
 }
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    border-radius: 4px;
+    border: #7588db 3px solid;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 45%;
+    margin-bottom: 40%;
+    position: absolute;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+  }
 
 /* .main-content .content-projects .modalProject {
     display: flex;
@@ -584,6 +604,22 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     border-radius: 50%;
 }
 
+.content-projects .project-card .qtd-machines {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 45px 0;
+    /* height: 20%; */
+}
+
+.content-projects .project-card .qtd-machines i {
+    background-color: black;
+    padding: 0 5px;
+    border-radius: 50%;
+}
+
 .content-projects .project-card .nameDemand {
     display: flex;
     flex-direction: column;
@@ -724,11 +760,11 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 
 .main-content .modalCreateProject .modalProjectDentro {
     width: 60%;
-    min-width: 400px;
-    min-height: 300px;
+    /* min-width: 400px;
+    min-height: 300px; */
     background-color: var(--color-background-modal);
     backdrop-filter: blur(10px);
-    height: 75%;
+    height: 85%;
     padding: 30px;
     border-radius: 26px;
     display: flex;
@@ -742,6 +778,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     text-align: center;
     width: 100%;
     text-shadow: 2px 2px 2px black;
+    padding: 0 0 10px 0;
     /* display: flex;
     position: relative;
     top: -220px; */
@@ -756,9 +793,9 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 }
 
 .main-content .modalCreateProject .modalProjectDentro .close {
-    position: relative;
-    top: -92px;
-    left: 580px;
+    position: absolute;
+    top: -7px;
+    left: 981px; 
     cursor: pointer;
 }
 
@@ -899,7 +936,15 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     color: black;
 }
 
-.main-content .modalCreateProject .modalProjectDentro .content .parametrize label {
+.main-content .modalCreateProject .modalProjectDentro .content .parametrize .input_texto {
+    padding-left: 4%;
+}
+
+.main-content .modalCreateProject .modalProjectDentro .content .parametrize .input_data {
+    padding-left: 20%;
+}
+
+.main-content .modalCreateProject .modalProjectDentro .content .parametrize span {
     color: black;
     font-size: 19px;
 }
@@ -973,11 +1018,11 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 
 .main-content .modalUpdateProject .modalProjectDentro {
     width: 60%;
-    min-width: 400px;
-    min-height: 300px;
+    /* min-width: 400px;
+    min-height: 300px; */
     background-color: var(--color-background-modal);
     backdrop-filter: blur(10px);
-    height: 75%;
+    height: 90%;
     padding: 30px;
     border-radius: 26px;
     display: flex;
@@ -991,6 +1036,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     text-align: center;
     width: 100%;
     text-shadow: 2px 2px 2px black;
+    padding: 40px 0 0 0;
     /* display: flex;
     position: relative;
     top: -220px; */
@@ -1006,8 +1052,8 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 
 .main-content .modalUpdateProject .modalProjectDentro .close {
     position: relative;
-    top: -92px;
-    left: 580px;
+    top: -65px;
+    left: 490px;
     cursor: pointer;
 }
 
@@ -1142,15 +1188,31 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     align-items: center;
     justify-content: space-around;
     height: 100%;
+    padding-bottom: 70px;
 }
 
 .main-content .modalUpdateProject .modalProjectDentro .content .parametrize h2 {
     color: black;
 }
 
-.main-content .modalUpdateProject .modalProjectDentro .content .parametrize label {
+.main-content .modalUpdateProject .modalProjectDentro .content .parametrize .second-h2 {
+    color: black;
+    padding: 0 0 10px 0;
+}
+
+.main-content .modalUpdateProject .modalProjectDentro .content .parametrize .input_texto {
+    padding-left: 4%;
+}
+
+.main-content .modalUpdateProject .modalProjectDentro .content .parametrize .input_data {
+    padding-left: 20%;
+}
+
+.main-content .modalUpdateProject .modalProjectDentro .content .parametrize span {
     color: black;
     font-size: 19px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .main-content .modalUpdateProject .modalProjectDentro .content input {
@@ -1170,7 +1232,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    padding: 20px 0 0 0;
+    padding: 30px 0 0 0;
     /* display: flex;
     flex-direction: column;
     align-items: center;
@@ -1222,11 +1284,11 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 
 .main-content .modalDeleteProject .modalProjectDentro {
     width: 60%;
-    min-width: 400px;
-    min-height: 300px;
+    /* min-width: 400px;
+    min-height: 300px; */
     background-color: var(--color-background-modal);
     backdrop-filter: blur(10px);
-    height: 40%;
+    height: 55%;
     padding: 30px;
     border-radius: 26px;
     display: flex;
@@ -1255,8 +1317,8 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 
 .main-content .modalDeleteProject .modalProjectDentro .close {
     position: relative;
-    top: -92px;
-    left: 580px;
+    top: -98px;
+    left: 490px;
     cursor: pointer;
 }
 
