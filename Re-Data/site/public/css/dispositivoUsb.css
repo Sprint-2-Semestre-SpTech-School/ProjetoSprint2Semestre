@@ -512,6 +512,20 @@ tr:nth-child(even) {
     height: 100%;
 }
 
+.edit_blacklist {
+    background-color: #FABF3F;
+    color: #050e41;
+    width: 40%;
+    height: 100%;
+    transition: 0.7s;
+}
+
+.edit_blacklist:hover {
+    background-color: darkslateblue;
+    width: 45%;
+    height: 100%;
+}
+
 .usbContent .walletUsb {
     display: flex;
     justify-content: center;

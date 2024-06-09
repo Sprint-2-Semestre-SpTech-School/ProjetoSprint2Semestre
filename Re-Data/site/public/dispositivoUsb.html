@@ -144,14 +144,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Conteúdo Linhas Blacklist -->
+                                    <!-- Conteúdo Linhas Blocklist -->
                                     <tr>
-                                        <td><i class="id_blacklist">{idBlackList}</i></td>
+                                        <td><i class="id_blacklist">{idBlockList}</i></td>
                                         <td><i class="motivo_bloqueio_blacklist">{motivoBloqueio}</i></td>
                                         <td><i class="id_dispositivo_blacklist">{fkDeviceId}</i></td>
                                         <td>
-                                            <button class="edit_blacklist">Editar</button>
-                                            <button class="delete">Excluir</button>
+                                            <!-- <button class="edit_blacklist">Editar</button> -->
+                                            <button class="delete" data-id="{idBlockList}">Excluir</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -164,8 +164,8 @@
 
                         <div class="form-image"><i class="fa-brands fa-usb"></i></div>
 
-                        <h2>Cadastrar uso de USB</h2>
-                        <h3>Registrar novo dispositivo para monitoramento.</h3>
+                        <h2>Bloquear dispositivo</h2>
+                        <h3>Insira as informações para bloquear seu dispositio.</h3>
 
                         <label for="id_usb">ID Dispositivo:</label>
                         <input type="text" id="id_usb" name="id_usb" required><br>
@@ -184,16 +184,35 @@
                         <h2>Editar informações do USB</h2>
                         <h3>Edite as informações sobre o dispositivo...</h3>
 
-                        <label for="id_usb_list">Nome</label>
+                        <label for="id_usb_list">Código Dispositivo:</label>
                         <input type="text" id="id_usb_list" name="id_usb_list" required><br>
 
-                        <label for="descricao_usb">Motivo do bloqueio</label>
+                        <label for="descricao_usb">Nova descrição:</label>
                         <textarea name="descricao_usb" id="descricao_usb" rows="10" cols="10"
                             placeholder="Descrição do USB" required></textarea>
 
                         <button type="submit" id="saveButton">Salvar<i
                                 class="fa-solid fa-share-from-square"></i></button>
                     </form>
+
+                    <form id="formularioEditarMotivo" class="formularioEditarMotivo hidden">
+
+                        <div class="form-image"><i class="fa fa-edit"></i></div>
+
+                        <h2>Editar informações do USB</h2>
+                        <h3>Edite as informações sobre o dispositivo...</h3>
+
+                        <label for="id_usb_blocklist">Código de Bloqueio:</label>
+                        <input type="text" id="id_usb_blocklist" name="id_usb_blocklist" required><br>
+
+                        <label for="novo_motivo">Motivo do bloqueio</label>
+                        <textarea name="novo_motivo" id="novo_motivo" rows="10" cols="10" placeholder="Descrição do USB"
+                            required></textarea>
+
+                        <button type="submit" id="saveButtonMotivo">Salvar<i
+                                class="fa-solid fa-share-from-square"></i></button>
+                    </form>
+
                 </div>
             </div>
 
@@ -246,7 +265,7 @@
                     cardErro.style.display = "block";
 
                     mensagem_erro.innerHTML =
-                        "Dispositivo adicionado na blacklist! Redirecionando para tela...";
+                        "Dispositivo adicionado na blocklist! Redirecionando para tela...";
 
                     setTimeout(() => {
                         window.location = "dispositivoUsb.html";

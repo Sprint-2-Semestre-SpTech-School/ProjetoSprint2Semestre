@@ -22,6 +22,8 @@ router.put("/atualizarUsbDescricao/:idDispositivo", function (req, res) {
     usbController.atualizarUsbDescricao(req, res);
 });
 
-
+router.put("/atualizarUsbMotivoBloqueio/:idBlockList", function (req, res) {
+    usbController.atualizarUsbMotivoBloqueio(req, res);
+});
 
 module.exports = router;

@@ -52,11 +52,11 @@ function buscarUsbs(req, res) {
 }
 
 function buscarUsbsBloqueados(req, res) {
-    var idBlackList = req.params.idBlackListServer;
+    var idBlockList = req.params.idBlockListServer;
     var motivoBloqueio = req.params.motivoBloqueioServer;
     var deviceId = req.params.deviceIdServer;
 
-    usbModel.buscarUsbsBloqueados(idBlackList, motivoBloqueio, deviceId).then((resultado) => {
+    usbModel.buscarUsbsBloqueados(idBlockList, motivoBloqueio, deviceId).then((resultado) => {
         if (resultado.length > 0) {
             console.log(resultado)
             res.status(201).json(resultado);
@@ -87,6 +87,23 @@ function atualizarUsbDescricao(req, res) {
     });
 }
 
+function atualizarUsbMotivoBloqueio(req, res) {
+    var idBlockList = req.params.idBlockList;
+    var novoMotivo = req.body.motivoBloqueio;
+
+    usbModel.atualizarUsbMotivoBloqueio(idBlockList, novoMotivo).then((resultado) => {
+        if (resultado.affectedRows > 0) {
+            res.status(200).json({ mensagem: "Motivo bloqueio atualizada com sucesso!" });
+        } else {
+            res.status(404).json({ mensagem: "Registro id blocklist não encontrado." });
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao atualizar motivo: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 // function listarUsbs(req, res) {
 //     var idDispositivo = req.params.idDispositivoServer;
 //     var deviceId = req.params.deviceIdServer;
@@ -110,5 +127,6 @@ module.exports = {
     cadastrar,
     buscarUsbs,
     buscarUsbsBloqueados,
-    atualizarUsbDescricao
+    atualizarUsbDescricao,
+    atualizarUsbMotivoBloqueio
 }

@@ -18,27 +18,24 @@ function sairConta() {
 
 // Formulario
 document.addEventListener('DOMContentLoaded', function () {
-    // Esconde o formulário quando a página carregar
+    // Formulario adicionar na blacklist
     document.getElementById('formularioAdicionar').classList.add('hidden');
 
+    // Formulário edição dispositivoUsb
+    document.getElementById('formularioEditar').classList.add('hidden');
+
     // Exibe o formulário quando o botão "Novo" for clicado
-    // document.querySelector('.buttonTools').addEventListener('click', function () {
-    //     document.getElementById('formularioAdicionar').classList.remove('hidden');
-    // });
+    document.querySelector('.buttonTools').addEventListener('click', function () {
+        document.getElementById('formularioAdicionar').classList.remove('hidden');
+    });
 
-    // // Esconde o formulário quando o botão "Salvar" for clicado
-    // document.getElementById('saveButton').addEventListener('click', function (event) {
-    //     event.preventDefault(); // Impede o envio do formulário para demonstração
-    //     document.getElementById('formularioAdicionar').classList.add('hidden');
-    // });
-
-    // Exibe o formulário quando o botão de editar for clicado
+    // Exibe o formulário do dispositivo usb quando o botão de editar for clicado
     document.querySelectorAll('edit_usb').forEach(function (button) {
         button.addEventListener('click', function () {
             document.getElementById('formularioEditar').classList.remove('hidden');
-            // Aqui você pode adicionar o código para preencher o formulário com os dados do usuário a ser editado
         });
     });
+
 
     // Esconde o formulário quando o botão "Salvar" for clicado
     // document.getElementById('saveButton').addEventListener('click', function (event) {
@@ -46,6 +43,17 @@ document.addEventListener('DOMContentLoaded', function () {
     //     document.getElementById('formularioEditar').classList.add('hidden');
     // });
 });
+
+// document.addEventListener('DOMContentLoaded', function () {
+
+//     var formularioAdicionar = document.getElementById('formularioAdicionar');
+//     formularioAdicionar.addEventListener('submit', function (event) {
+//         event.preventDefault();
+//         var fkDeviceId = document.getElementById('id_usb').value;
+//         var motivoBloqueio = document.getElementById('motivo_bloqueio').value;
+//         cadastrar(fkDeviceId, motivoBloqueio);
+//     });
+// });
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -57,6 +65,42 @@ document.addEventListener('DOMContentLoaded', function () {
         atualizarUsbDescricao(idDispositivo, novaDescricao);
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    var formularioEditarMotivo = document.getElementById('formularioEditarMotivo');
+    formularioEditarMotivo.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var idBlockList = document.getElementById('id_usb_blocklist').value;
+        var novoMotivo = document.getElementById('novo_motivo').value;
+        // console.log("idBlockList: ", idBlockList);
+        atualizarUsbMotivoBloqueio(idBlockList, novoMotivo);
+    });
+});
+
+// Procura pelo botão e vê se o id existe.
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('edit_blacklist')) {
+        var row = e.target.closest('tr');
+        var idBlockList = row.querySelector('.id_blacklist').textContent;
+        var motivoBloqueio = row.querySelector('.motivo_bloqueio_blacklist').textContent;
+
+        document.getElementById('formularioEditarMotivo').classList.remove('hidden');
+        document.getElementById('id_usb_blacklist').value = idBlockList;
+        document.getElementById('novo_motivo').value = motivoBloqueio;
+    }
+});
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     var formularioEditarMotivo = document.getElementById('formularioEditarMotivo');
+//     formularioEditarMotivo.addEventListener('submit', function (event) {
+//         event.preventDefault();
+//         var idBlackList = document.getElementById('id_usb_blacklist').value;
+//         var novoMotivoBloqueio = document.getElementById('novo_motivo').value;
+//         atualizarUsbMotivoBloqueio(idBlackList, novoMotivoBloqueio);
+//     });
+// });
+
 
 var idMaquina = sessionStorage.ID_MAQUINA;
 var info_usb = null;
@@ -170,7 +214,7 @@ function listarUsbsBloqueados() {
             lista_usbs_bloqueados.forEach(function (usb) {
                 var row = usb_list_bloqueados.insertRow();
                 row.innerHTML = `
-                <td><i class="id_blacklist"></i>${usb.idBlackList}</td>
+                <td><i class="id_blacklist"></i>${usb.idBlockList}</td>
                 <td><i class="motivo_bloqueio_blacklist"></i>${usb.motivoBloqueio}</td>
                 <td><i class="id_dispositivo_blacklist"></i>${usb.fkDeviceId}</td>
                 <td>
@@ -178,18 +222,17 @@ function listarUsbsBloqueados() {
                     <button class="delete">Excluir</button>
                 </td>
                 `;
+            });
+            tbody.querySelectorAll('.edit_blacklist').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var row = button.closest('tr');
+                    var idBlockList = row.querySelector('.id_blacklist').textContent;
+                    var motivoBloqueio = row.querySelector('.motivo_bloqueio_blacklist').textContent;
 
-                var editButton = row.querySelector('.edit');
-                var delButton = row.querySelector('.delete');
-                editButton.addEventListener('click', function () {
-                    document.getElementById('formularioEditar').classList.remove('hidden');
-
-                    // Abre o formulário para editar
-                });
-                delButton.addEventListener('click', function () {
-                    document.getElementById('formularioEditar').classList.remove('hidden');
-
-                    // Abre o formulário para deletar
+                    // Exibir o formulário de edição com os dados preenchidos
+                    document.getElementById('formularioEditarMotivo').classList.remove('hidden');
+                    document.getElementById('id_usb_blacklist').value = idBlockList;
+                    document.getElementById('novo_motivo').value = motivoBloqueio;
                 });
             });
             // var boxUsb = document.querySelectorAll(".usb_list");
@@ -222,6 +265,30 @@ function atualizarUsbDescricao(idDispositivo, novaDescricao) {
             console.log('Descrição atualizada com sucesso:', data);
             document.getElementById('formularioEditar').classList.add('hidden');
             listarUsbs(); // Atualize a lista para refletir as mudanças
+        })
+        .catch(function (error) {
+            console.error(`#ERRO: ${error}`);
+        });
+}
+
+function atualizarUsbMotivoBloqueio(idBlockList, novoMotivo) {
+    fetch(`/usb/atualizarUsbMotivoBloqueio/${idBlockList}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ motivo: novoMotivo })
+    })
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar o motivo bloqueio');
+            }
+            return response.json();
+        })
+        .then(function (data) {
+            console.log('Motivo bloqueio atualizada com sucesso:', data);
+            document.getElementById('formularioEditarMotivo').classList.add('hidden');
+            listarUsbsBloqueados(); // Atualize a lista para refletir as mudanças
         })
         .catch(function (error) {
             console.error(`#ERRO: ${error}`);
