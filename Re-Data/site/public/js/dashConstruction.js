@@ -6,7 +6,6 @@ let nomeRegistroCpu;
 let totalCapturasCpu;
 
 let hardwareSelecionado;
-// console.log(hardwares);
 
 hardwares.forEach((hardware, index) => {
     hardware.addEventListener("click", function () {
@@ -77,6 +76,28 @@ function addMaquina() {
     })
 }
 
+function editarModal() {
+    const modalEditarMaquinaDentro = document.getElementById('modalEditarMaquina')
+    modalEditarMaquinaDentro.classList.add('abrir')
+
+    modalEditarMaquinaDentro.addEventListener('click', (e) => {
+        if (e.target.id == 'fecharModal' || e.target.id == 'modalEditarMaquina') {
+            modalEditarMaquinaDentro.classList.remove('abrir')
+        }
+    })
+}
+
+function deletarModal() {
+    const modalExcluirDentro = document.getElementById('modalExcluir')
+    modalExcluirDentro.classList.add('abrir')
+
+    modalExcluirDentro.addEventListener('click', (e) => {
+        if (e.target.id == 'fecharModal' || e.target.id == 'modalExcluir') {
+            modalExcluirDentro.classList.remove('abrir')
+        }
+    })
+}
+
 function adicionarMaquina() {
     var destinoVar = document.getElementById('input_destino').value;
     var descricaoVar = document.getElementById('input_descricao').value;
@@ -96,6 +117,7 @@ function adicionarMaquina() {
             body: JSON.stringify({
                 destinoServer: destinoVar,
                 descricaoServer: descricaoVar,
+                // fkProjeto: fkProjetoServer,
                 idMaquina: sessionStorage.ID_MAQUINA
             }),
         })
@@ -105,7 +127,7 @@ function adicionarMaquina() {
                 if (resposta.ok) {
                     cardErro.style.display = "block";
                     mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Adicionando máquina...";
-                    listarMaquinas(idProjeto); 
+                    listarMaquinas(400);
 
                     setTimeout(() => {
                         window.location = "DashProjeto.html";
@@ -124,120 +146,146 @@ function adicionarMaquina() {
     }
 }
 
-// function buscarIdMaquina() {
-//     console.log('entrei na função buscar id máquina');
-//     console.log(idProjeto);
-//     fetch(`/dashProjeto/${idProjeto}`, {
-//         method: "GET",
-//     }).then(function (response) {
-//             console.log('entrei na then buscar id maquina');
-//             if (!response.ok) {
-//                 throw new Error('Erro ao carregar os dados');
-//             }
-//             return response.json();
-//         }).then(function (lista_id) {
-//             console.log(lista_id);
-
-//             console.log(lista_projetos[0].idMaquina);
-
-//             var idDaVezMaquina = lista_projetos[0].idMaquina
-//             console.log(idDaVezMaquina);
-//         })
-// }
-
 var idEmpresa = sessionStorage.ID_EMPRESA;
 console.log(idEmpresa);
-var idProjeto = 400;
 var info_maquinas = null;
-var idMaquina = sessionStorage.ID_MAQUINA;
+let listaMaq = [];
+let maquinaBolinha = null;
 
 function listarMaquinas(idProjeto) {
     console.log('entrei na função listar máquinas');
     console.log(idProjeto);
-    console.log(idMaquina + ' id maquina');
 
     fetch(`/dashProjeto/` + 400, {
         method: "GET",
     })
-    .then(function (response) {
-        console.log('entrei na then listar máquinas');
-        if (!response.ok) {
-            throw new Error('Erro ao carregar os dados');
-        }
-        return response.json();
-    })
-    .then(function (lista_maquinas) {
-        console.log('entrei no then das máquinas');
-        console.log(lista_maquinas);
+        .then(function (response) {
+            console.log('entrei na then listar máquinas');
+            if (!response.ok) {
+                throw new Error('Erro ao carregar os dados');
+            }
+            return response.json();
+        })
+        .then(function (lista_maquinas) {
+            console.log('entrei no then das máquinas');
+            console.log(lista_maquinas);
 
-        if (!lista_maquinas || lista_maquinas.length === 0) {
-            console.error('Nenhum dado de máquina encontrado.');
-            return;
-        }
+            if (!lista_maquinas || lista_maquinas.length === 0) {
+                console.error('Nenhum dado de máquina encontrado.');
+                return;
+            }
 
-        var div_maquinas = document.getElementById('div_maquinas');
-        if (!div_maquinas) {
-            console.error('Elemento div_maquinas não encontrado.');
-            return;
-        }
+            var div_maquinas = document.getElementById('div_maquinas');
+            if (!div_maquinas) {
+                console.error('Elemento div_maquinas não encontrado.');
+                return;
+            }
 
-        var telaMaquina = document.getElementById("div_maquinas");
-        // telaMaquina.innerHTML = ''; // Limpar o conteúdo anterior
+            var telaMaquina = document.getElementById("div_maquinas");
 
-        // JSON.parse(sessionStorage.ID_MAQUINA).forEach(maquina => {
-        //     document.getElementById("div_maquinas").innerHTML += `
-        //         <div onclick="mostrarDashMaquina()" data-id="${maquina.idMaquina}" class="machine">
-        //             <img src="./assets/imgs/monitor dash.png" alt="">
-        //         </div>
-        //     `
-        // });
-
-        lista_maquinas.forEach(function (projeto) {
-            telaMaquina.innerHTML += `
-                <div data-id="${projeto.idMaquina}" class="machine">
-                    <img src="./assets/imgs/monitor dash.png" alt="">
+            lista_maquinas.forEach(function (projeto) {
+                telaMaquina.innerHTML += `
+                <div data-id="${projeto.idMaquina}" class="maquinaImg">
+                    <div class="machine">
+                        <img src="./assets/imgs/monitor dash.png" alt="">
+                    </div>
+                    <div class="icons">
+                        <i onclick="editarModal()" class="fa-solid fa-pen-to-square"></i>
+                        <i onclick="deletarModal()" class="fa-regular fa-trash"></i>
+                    </div>
                 </div>
             `;
+                listaMaq.push(projeto.idMaquina);
+            });
+
+            console.log('lista maq:');
+            console.log(listaMaq);
+
+            maquinaBolinha = document.querySelectorAll('.machine');
+
+            entrarDashMaquina();
+
+            var idMaquinaImagem = sessionStorage.ID_MAQUINA;
+            console.log(idMaquinaImagem + ' id máquina');
+
+            // var boxMaquina = document.querySelectorAll(".machine");
+            // for (var i = 0; i < boxMaquina.length; i++) {
+            //     boxMaquina[i].addEventListener('click', entrarDashMaquina(idMaquina));
+            // }
+
+        })
+        .catch(function (error) {
+            console.error(`#ERRO: ${error}`);
         });
+}
+var idMaquinaRota = 0;
 
-        var boxMaquina = document.querySelectorAll(".machine");
-        for (var i = 0; i < boxMaquina.length; i++) {
-            boxMaquina[i].addEventListener('click', acessarDash);
-        }
+function entrarDashMaquina() {    
+
+    maquinaBolinha.forEach((maquina, index) => {
+        maquina.addEventListener("click", function () {
+            console.log('entrei na função entrar dash máquina');
+
+            idMaquinaRota = listaMaq[index];
+
+            console.log(`idMaquinaRota: ${idMaquinaRota}`);
+
+            fetch(`/dashProjeto/${idMaquinaRota}`, {
+                method: "GET",
+            }).then(function (response = idMaquinaRota) {
+
+                console.log('entrei na then entrar dash maquina');
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os dados');
+                }
+                return response.json();
+            })
+
+            setTimeout(() => {
+                window.location = `maquinaDash.html?idMaquinaRota=${idMaquinaRota}`;
+            }, "1000");
+        })
     })
-    .catch(function (error) {
-        console.error(`#ERRO: ${error}`);
-    });
+
 }
 
-function acessarDash() {
-    idMaquina = this.getAttribute('data-id')
-    // buscarDados();
+// var idMaquina = projeto.idMaquina;
+function editarMaquina() {
 
-    setTimeout(() => {
-        window.location = "maquinaDash.html";
-    }, "1000");
+    // console.log("cliquei em editar - " + idMaquina);
 
-    // listar_armazens.innerHTML = ``
-    // posicao_tela = 2
-    // botao_armazen.style.display = "flex"
-    // botao_faz.style.display = "none"
-    // fazendas_empresa.style.display = "none"
-    // armazens.style.display = "block"
+    maquinaBolinha.forEach((maquina, index) => {
+        maquina.addEventListener("click", function () {
+            console.log('entrei na função entrar dash máquina');
+
+            idMaquinaRota = listaMaq[index];
+
+            console.log(`idMaquinaRota: ${idMaquinaRota}`);
+
+            fetch(`/dashProjeto/${idMaquinaRota}`, {
+                method: "PUT",
+            }).then(function (response = idMaquinaRota) {
+
+                console.log('entrei na then editar máquina');
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os dados');
+                }
+                return response.json();
+            })
+
+            // setTimeout(() => {
+            //     window.location = `maquinaDash.html?idMaquinaRota=${idMaquinaRota}`;
+            // }, "1000");
+        })
+    })
+
+    // sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
+    // window.alert("Você será redirecionado à página de edição do aviso de id número: " + idMaquina);
+    // window.location = "DashProjeto.html"
+
 }
-
-// function mostrarDashMaquina(idMaquina) {
-//     setTimeout(() => {
-//         window.location = "maquinaDash.html";
-//     }, "1000");
-
-//     // graficos.style.display = 'flex';
-//     // armazens.style.display = "none"
-//     buscarDados();
-// }
 
 const ctx = document.getElementById('cpuRam');
-// console.log(ctx);
 const cpuRamChart = new Chart(ctx, {
     type: 'line',
     data: {

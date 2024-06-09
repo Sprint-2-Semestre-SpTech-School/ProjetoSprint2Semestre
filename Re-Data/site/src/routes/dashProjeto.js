@@ -19,4 +19,12 @@ router.get("/buscaridMaquina", function (req, res) {
     dashboardController.buscarIdMaquina(req, res);
 });
 
+router.get("/:idMaquina", function (req, res) {
+    dashboardController.entrarDashMaquina(req, res);
+});
+
+router.put("/editarMaquina/:idMaquina", function (req, res) {
+    dashboardController.editarMaquina(req, res);
+});
+
 module.exports = router;

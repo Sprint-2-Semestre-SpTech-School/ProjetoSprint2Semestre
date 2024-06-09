@@ -102,10 +102,49 @@ function listarMaquinasPorProjeto(req, res) {
     });
 }
 
+function entrarDashMaquina(req, res) {
+    var idMaquina = req.params.idMaquina;
+    dashboardModel.entrarDashMaquina(idMaquina).then((resultado) => {
+      if (resultado.length > 0) {
+        console.log(resultado)
+        res.status(201).json(resultado);
+      } else {
+        res.status(204).json([]);
+      }
+    }).catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar as máquinas: ", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function editarMaquina(req, res) {
+  var novoDestino = req.body.descricao;
+  var novaDescricao = req.params.descricao;
+  var idMaquina = req.params.idMaquina;
+
+  avisoModel.editarMaquina(novoDestino, novaDescricao, idMaquina)
+      .then(
+          function (resultado) {
+              res.json(resultado);
+          }
+      )
+      .catch(
+          function (erro) {
+              console.log(erro);
+              console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+              res.status(500).json(erro.sqlMessage);
+          }
+      );
+
+}
+
 module.exports = {
     getDadosDash,
     adicionarMaquina,
     buscaridMaquina,
     buscarMaquinasPorProjeto,
-    listarMaquinasPorProjeto
+    listarMaquinasPorProjeto,
+    entrarDashMaquina, 
+    editarMaquina
 }

@@ -169,13 +169,50 @@ const discoBytesChart = new Chart(ctx3, {
     },
 });
 
-// var idMaquina = sessionStorage.ID_MAQUINA;
-var idMaquina = 501;
-console.log(idMaquina)
+var idEmpresa = sessionStorage.ID_EMPRESA;
+console.log(idEmpresa);
+
+// var idMaquinaRota = response;
+
+const urlParams = new URLSearchParams(window.location.search);
+const idMaquinaRota = urlParams.get('idMaquinaRota');
+
+console.log(idMaquinaRota);
+
+// function entrarDashMaquina() {    
+
+//     maquinaBolinha.forEach((maquina, index) => {
+//         maquina.addEventListener("click", function () {
+//             console.log('entrei na função entrar dash máquina');
+
+//             idMaquinaRota = listaMaq[index];
+
+//             fetch(`/dashProjeto/${idMaquinaRota}`, {
+//                 method: "GET",
+//             }).then(function (response = idMaquinaRota) {
+
+//                 console.log('entrei na then entrar dash maquina');
+//                 if (!response.ok) {
+//                     throw new Error('Erro ao carregar os dados');
+//                 }
+//                 return response.json();
+//             })
+
+//             setTimeout(() => {
+//                 window.location = "maquinaDash.html";
+//             }, "1000");
+//         })
+//     })
+
+// }
+
+// var idMaquinaRota = sessionStorage.ID_MAQUINA;
+// var idMaquinaRota = 501;
+console.log(idMaquinaRota)
 // PEGANDO DADOS DO INFO HARDWARE
 function buscarDadosHardware() {
-    console.log(idMaquina)
-    fetch(`/maquina/buscarDadosHardware/${idMaquina}`, {
+    console.log(idMaquinaRota)
+    fetch(`/maquina/buscarDadosHardware/${idMaquinaRota}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -330,10 +367,9 @@ function buscarDadosHardware() {
 }
 
 // PRIMEIRA KPI - TEMPO DE ATIVIDADE
-// var idMaquina = 500;
 function kpiMaquinaLeituras() {
-    console.log(idMaquina)
-    fetch(`/kpiMaquina/kpiMaquinaLeituras/${idMaquina}`, {
+    console.log(idMaquinaRota)
+    fetch(`/kpiMaquina/kpiMaquinaLeituras/${idMaquinaRota}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -364,8 +400,8 @@ function kpiMaquinaLeituras() {
 
 // SEGUNDA KPI - USO DE CPU
 function kpiMaquinaCpu() {
-    console.log(idMaquina)
-    fetch(`/kpiMaquina/kpiMaquinaCpu/${idMaquina}`, {
+    console.log(idMaquinaRota)
+    fetch(`/kpiMaquina/kpiMaquinaCpu/${idMaquinaRota}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -429,8 +465,8 @@ function kpiMaquinaCpu() {
 
 // TERCEIRA KPI - USO DE RAM
 function kpiMaquinaRam() {
-    console.log(idMaquina)
-    fetch(`/kpiMaquina/kpiMaquinaRam/${idMaquina}`, {
+    console.log(idMaquinaRota)
+    fetch(`/kpiMaquina/kpiMaquinaRam/${idMaquinaRota}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -495,7 +531,7 @@ function kpiMaquinaRam() {
 function buscarDadosAlerta() {
 
     console.log('entrei no buscardadosalerta');
-    fetch(`/maquina/buscarDadosAlerta/${idMaquina}`, {
+    fetch(`/maquina/buscarDadosAlerta/${idMaquinaRota}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -525,7 +561,7 @@ function buscarDadosAlerta() {
 function buscarDadosAlertaRam() {
 
     console.log('entrei no buscardadosalerta');
-    fetch(`/maquina/buscarDadosAlertaRam/${idMaquina}`, {
+    fetch(`/maquina/buscarDadosAlertaRam/${idMaquinaRota}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -554,7 +590,7 @@ function buscarDadosAlertaRam() {
 
 // PEGANDO DADOS PARA OS DOIS GRÁFICOS DE CIMA
 function buscarDados() {
-    fetch(`/maquina/buscarDados/${idMaquina}`, {
+    fetch(`/maquina/buscarDados/${idMaquinaRota}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -571,7 +607,7 @@ function buscarDados() {
 
 // PEGANDO OS DADOS PARA O GRÁFICO DE BAIXO
 function buscarDadosVolume() {
-    fetch(`/maquina/buscarDadosVolume/${idMaquina}`, {
+    fetch(`/maquina/buscarDadosVolume/${idMaquinaRota}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

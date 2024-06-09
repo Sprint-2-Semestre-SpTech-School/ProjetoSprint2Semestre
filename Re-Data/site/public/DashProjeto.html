@@ -23,8 +23,8 @@
                         <h1>Adicione uma nova máquina</h1>
                     </div>
                     <div class="content">
-                        <div class="machineCrud">
-                            <div class="machine">
+                        <div class="crud">
+                            <div class="addMaquina">
                                 <img src="./assets/imgs/monitor dash.png" alt="">
                             </div>
                             <!-- <select name="" id="">
@@ -49,6 +49,72 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modalEditarMaquina" id="modalEditarMaquina">
+            <div class="modalEditarMaquinaDentro">
+                <div id="fecharModal" class="close">
+                    <i id="fecharModal" class="fa-solid fa-circle-xmark fa-3xl"></i>
+                </div>
+                <div class="divModal">
+
+                    <div class="title">
+                        <h1>Edite sua máquina</h1>
+                    </div>
+                    <div class="content">
+                        <div class="crud">
+                            <div class="addMaquina">
+                                <img src="./assets/imgs/lapis-removebg-preview.png" alt="">
+                            </div>
+                            <!-- <select name="" id="">
+                                <option value="">IdMaquina1</option>
+                                <option value="">IdMaquina2</option>
+                                <option value="">IdMaquina3</option>
+                            </select> -->
+                            <!-- <div class="remove-machine">
+                                <i class="fa-solid fa-trash"></i>
+                                <button>Excluir máquina</button>
+                            </div> -->
+                        </div>
+                        <div class="parametrize">
+                            <h2>Preencha as informações</h2>
+                            <label for="">Destino:</label>
+                            <input id="input_destino" type="text">
+                            <label for="">Descrição:</label>
+                            <input id="input_descricao" type="text">
+                            <div class="buttons">
+                                <button onclick="editarMaquina()">Editar</button>
+                                <button id="fecharModal">Retornar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modalExcluir" id="modalExcluir">
+            <div class="modalExcluirDentro">
+                <div class="divModal">
+                    <div class="crud">
+                        <div class="imagem">
+                            <img src="./assets/imgs/lixeira-removebg-preview.png" alt="">
+                        </div>
+                        <!-- <select name="" id="">
+                            <option value="">IdMaquina1</option>
+                            <option value="">IdMaquina2</option>
+                            <option value="">IdMaquina3</option>
+                        </select> -->
+                        <!-- <div class="remove-machine">
+                            <i class="fa-solid fa-trash"></i>
+                            <button>Excluir máquina</button>
+                        </div> -->
+                    </div>
+                    <h2>Você tem certeza?</h2>
+                    <p>Realmente deseja excluir essa máquina?</p>
+                    <button class="fecharModal" id="fecharModal" onclick="cancelar()">Cancelar</button>
+                    <button class="botaoSair" onclick="excluir()">Excluir</button>
                 </div>
             </div>
         </div>
@@ -149,7 +215,7 @@
                                 <img src="./assets/imgs/monitor dash.png" alt="">
                             </div> -->
                             <div class="novaMaquina">
-                                <div class="machine">
+                                <div class="addMachine">
                                     <button class="addMaquinaBotao" onclick="addMaquina()">+</button>
                                 </div>
                             </div>
