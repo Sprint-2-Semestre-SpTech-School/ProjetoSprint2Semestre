@@ -7,7 +7,7 @@ function getDadosDash(idProjeto) {
     SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, AVG(valorRegistro) AS mediaDados
 FROM registro 
 JOIN infoHardware ON fkHardware = idHardware
-JOIN maquina ON fkMaquina = 500
+JOIN maquina ON fkMaquina = 506
 JOIN projeto ON fkProjeto = idProjeto
 WHERE idProjeto = ${idProjeto} 
 GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina;
@@ -21,7 +21,7 @@ function adicionarMaquina(destino, descricao) {
     console.log("Chegou no model para buscar os dados da Dashboard", destino, descricao);
 
     var instrucao = `
-        insert into maquina (destino, descricao, fkProjeto, fkEmpresa) VALUES ('${destino}', '${descricao}', 400, 1);
+        insert into maquina (destino, descricao, fkProjeto, fkEmpresa) VALUES ('${destino}', '${descricao}', 401, 1);
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);

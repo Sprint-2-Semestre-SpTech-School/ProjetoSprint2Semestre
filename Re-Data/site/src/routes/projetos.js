@@ -3,7 +3,7 @@ var router = express.Router();
 
 var projetosController = require("../controllers/projetosController");
 
-router.post("/projetos", function (req, res) {
+router.post("/cadastrarProjeto", function (req, res) {
     projetosController.cadastrarProjeto(req, res);
 });
 
@@ -19,8 +19,12 @@ router.get("/:idEmpresa", function (req, res) {
     projetosController.qtdMaquinasPorProjeto(req, res);
 });
 
-// router.post("/:criar", function (req, res) {
-//     projetosController.criarProjeto(req, res);
-// });
+router.put("/editarProjeto/:idProjeto", function (req, res) {
+    projetoController.editarProjeto(req, res);
+});
+
+router.get("/:idProjeto", function (req, res) {
+    projetoController.entrarDashProjeto(req, res);
+});
 
 module.exports = router;
