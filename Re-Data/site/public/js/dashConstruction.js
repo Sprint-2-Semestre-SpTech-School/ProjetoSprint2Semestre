@@ -6,6 +6,7 @@ let nomeRegistroCpu;
 let totalCapturasCpu;
 
 let hardwareSelecionado;
+var idProjeto = 400;
 
 hardwares.forEach((hardware, index) => {
     hardware.addEventListener("click", function () {
@@ -76,28 +77,6 @@ function addMaquina() {
     })
 }
 
-function editarModal() {
-    const modalEditarMaquinaDentro = document.getElementById('modalEditarMaquina')
-    modalEditarMaquinaDentro.classList.add('abrir')
-
-    modalEditarMaquinaDentro.addEventListener('click', (e) => {
-        if (e.target.id == 'fecharModal' || e.target.id == 'modalEditarMaquina') {
-            modalEditarMaquinaDentro.classList.remove('abrir')
-        }
-    })
-}
-
-function deletarModal() {
-    const modalExcluirDentro = document.getElementById('modalExcluir')
-    modalExcluirDentro.classList.add('abrir')
-
-    modalExcluirDentro.addEventListener('click', (e) => {
-        if (e.target.id == 'fecharModal' || e.target.id == 'modalExcluir') {
-            modalExcluirDentro.classList.remove('abrir')
-        }
-    })
-}
-
 function adicionarMaquina() {
     var destinoVar = document.getElementById('input_destino').value;
     var descricaoVar = document.getElementById('input_descricao').value;
@@ -151,6 +130,7 @@ console.log(idEmpresa);
 var info_maquinas = null;
 let listaMaq = [];
 let maquinaBolinha = null;
+var idProjeto = 400;
 
 function listarMaquinas(idProjeto) {
     console.log('entrei na função listar máquinas');
@@ -188,10 +168,6 @@ function listarMaquinas(idProjeto) {
                 <div data-id="${projeto.idMaquina}" class="maquinaImg">
                     <div class="machine">
                         <img src="./assets/imgs/monitor dash.png" alt="">
-                    </div>
-                    <div class="icons">
-                        <i onclick="editarModal()" class="fa-solid fa-pen-to-square"></i>
-                        <i onclick="deletarModal()" class="fa-regular fa-trash"></i>
                     </div>
                 </div>
             `;
@@ -246,42 +222,6 @@ function entrarDashMaquina() {
             }, "1000");
         })
     })
-
-}
-
-// var idMaquina = projeto.idMaquina;
-function editarMaquina() {
-
-    // console.log("cliquei em editar - " + idMaquina);
-
-    maquinaBolinha.forEach((maquina, index) => {
-        maquina.addEventListener("click", function () {
-            console.log('entrei na função entrar dash máquina');
-
-            idMaquinaRota = listaMaq[index];
-
-            console.log(`idMaquinaRota: ${idMaquinaRota}`);
-
-            fetch(`/dashProjeto/${idMaquinaRota}`, {
-                method: "PUT",
-            }).then(function (response = idMaquinaRota) {
-
-                console.log('entrei na then editar máquina');
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar os dados');
-                }
-                return response.json();
-            })
-
-            // setTimeout(() => {
-            //     window.location = `maquinaDash.html?idMaquinaRota=${idMaquinaRota}`;
-            // }, "1000");
-        })
-    })
-
-    // sessionStorage.ID_POSTAGEM_EDITANDO = idAviso;
-    // window.alert("Você será redirecionado à página de edição do aviso de id número: " + idMaquina);
-    // window.location = "DashProjeto.html"
 
 }
 
@@ -494,7 +434,7 @@ const redeChart = new Chart(ctx4, {
 });
 
 function getDadosDash() {
-    fetch("/DashProjeto/getDadosDash/" + 400, {
+    fetch(`/dashProjeto/getDadosDash/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

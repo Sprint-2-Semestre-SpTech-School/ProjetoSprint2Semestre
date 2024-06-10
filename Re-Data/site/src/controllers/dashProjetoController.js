@@ -118,27 +118,6 @@ function entrarDashMaquina(req, res) {
     });
 }
 
-function editarMaquina(req, res) {
-  var novoDestino = req.body.descricao;
-  var novaDescricao = req.params.descricao;
-  var idMaquina = req.params.idMaquina;
-
-  avisoModel.editarMaquina(novoDestino, novaDescricao, idMaquina)
-      .then(
-          function (resultado) {
-              res.json(resultado);
-          }
-      )
-      .catch(
-          function (erro) {
-              console.log(erro);
-              console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
-              res.status(500).json(erro.sqlMessage);
-          }
-      );
-
-}
-
 module.exports = {
     getDadosDash,
     adicionarMaquina,
@@ -146,5 +125,4 @@ module.exports = {
     buscarMaquinasPorProjeto,
     listarMaquinasPorProjeto,
     entrarDashMaquina, 
-    editarMaquina
 }

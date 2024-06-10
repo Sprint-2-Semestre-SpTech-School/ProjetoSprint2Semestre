@@ -7,7 +7,7 @@ function getDadosDash(idProjeto) {
     SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, AVG(valorRegistro) AS mediaDados
 FROM registro 
 JOIN infoHardware ON fkHardware = idHardware
-JOIN maquina ON fkMaquina = ${idMaquina}
+JOIN maquina ON fkMaquina = 500
 JOIN projeto ON fkProjeto = idProjeto
 WHERE idProjeto = ${idProjeto} 
 GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina;
@@ -66,20 +66,10 @@ function entrarDashMaquina(idMaquina) {
     return database.executar(instrucao);
 }
 
-function editarMaquina(novoDestino, novaDescricao, idMaquina) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarMaquina(): ", novoDestino, novaDescricao);
-    var instrucaoSql = `
-        UPDATE maquina SET destino = ${novoDestino}, descricao = ${novaDescricao} WHERE idMaquina = ${idMaquina};
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
-
 module.exports = {
     getDadosDash,
     adicionarMaquina,
     buscaridMaquina,
     buscarMaquinasPorProjeto,
     entrarDashMaquina,
-    editarMaquina
 }

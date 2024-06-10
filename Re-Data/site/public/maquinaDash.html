@@ -10,8 +10,65 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="buscarDadosHardware()">
+<body onload="buscarDadosHardware(), buscarInfosMaquina()">
     <main>
+        <div class="modalEditarMaquina" id="modalEditarMaquina">
+            <div class="modalEditarMaquinaDentro">
+                <div id="fecharModal" class="close">
+                    <i id="fecharModal" class="fa-solid fa-circle-xmark fa-3xl"></i>
+                </div>
+                <div class="divModal">
+
+                    <div class="title">
+                        <h1>Edite sua máquina</h1>
+                    </div>
+                    <div class="content">
+                        <div class="crud">
+                            <div class="addMaquina">
+                                <img src="./assets/imgs/lapis-removebg-preview.png" alt="">
+                            </div>
+                            <!-- <select name="" id="">
+                                <option value="">IdMaquina1</option>
+                                <option value="">IdMaquina2</option>
+                                <option value="">IdMaquina3</option>
+                            </select> -->
+                            <!-- <div class="remove-machine">
+                                <i class="fa-solid fa-trash"></i>
+                                <button>Excluir máquina</button>
+                            </div> -->
+                        </div>
+                        <div class="parametrize">
+                            <h2>Preencha as informações</h2>
+                            <label for="">Destino:</label>
+                            <input id="input_destino" type="text">
+                            <label for="">Descrição:</label>
+                            <input id="input_descricao" type="text">
+                            <div class="buttons">
+                                <button onclick="editarMaquina()">Editar</button>
+                                <button id="fecharModal">Retornar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modalExcluir" id="modalExcluir">
+            <div class="modalExcluirDentro">
+                <div class="divModal">
+                    <div class="crud">
+                        <div class="imagem">
+                            <img src="./assets/imgs/lixeira-removebg-preview.png" alt="">
+                        </div>
+                    </div>
+                    <h2>Você tem certeza?</h2>
+                    <p>Realmente deseja excluir essa máquina?</p>
+                    <button class="fecharModal" id="fecharModal" onclick="cancelar()">Cancelar</button>
+                    <button class="botaoSair" onclick="deletarMaquina()">Excluir</button>
+                </div>
+            </div>
+        </div>
+
         <div class="modalSair" id="modalSair">
             <div class="modalSairDentro">
                 <div class="divModal">
@@ -24,7 +81,6 @@
         </div>
         <section>
             <nav>
-
                 <div class="logo">
                     <img src="./assets/icon/Logo High.png" alt="">
                 </div>
@@ -47,28 +103,42 @@
                         </b>
                         <button onclick="dashMaq()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
                             Dashboard</button>
+
+                        <button onclick="editarModal()" class="groupOpcoes"><i class="fa-solid fa-pen-to-square"></i>
+                            Editar</button>
+                        <button onclick="deletarModal()" class="groupOpcoes"><i class="fa-regular fa-trash"></i>
+                            Excluir</button>
                     </li>
 
                     <!-- sair -->
-                    <!-- <a href="login.html" class="item"> -->
                     <div class="item">
                         <li class="item-sair">
                             <button onclick="sair()" class="groupOpcoes-sair"><i class="fas fa-sign-out-alt"></i>
                                 Sair</button>
                         </li>
                     </div>
-                    <!-- </a> -->
                 </ul>
-
             </nav>
 
-            <div class="breadcrumb">
-                <ul class="breadcrumbList">
-                    <li class="segundo"><a href="projetos.html">Projetos</a></li>
-                    <li class="terceiro"><a href="DashProjeto.html">Dashboard</a></li>
-                    <li class="quarto"><a href="maquinaDash.html">Máquina Dash</a></li>
-                    <li class="quinto"><a href="dispositivoUsb.html">Dispositivos USB</a></li>
-                </ul>
+            <div class="top">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+                <div class="breadcrumb">
+                    <ul class="breadcrumbList">
+                        <li class="segundo"><a href="projetos.html">Projetos</a></li>
+                        <li class="terceiro"><a href="DashProjeto.html">Dashboard</a></li>
+                        <li class="quarto"><a href="maquinaDash.html">Máquina Dash</a></li>
+                        <li class="quinto"><a href="dispositivoUsb.html">Dispositivos USB</a></li>
+                    </ul>
+                </div>
+
+                <div id="div_infoMaquina" class="infos">
+                    <h2>Máquina destinada a</h2>
+                    <p>Descrição</p>
+                </div>
             </div>
 
             <div class="main-content">

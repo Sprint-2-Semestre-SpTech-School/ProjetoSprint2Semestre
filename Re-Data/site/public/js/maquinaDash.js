@@ -12,6 +12,30 @@ function sair() {
     })
 }
 
+// Modal p editar máquina
+function editarModal() {
+    const modalEditarMaquinaDentro = document.getElementById('modalEditarMaquina')
+    modalEditarMaquinaDentro.classList.add('abrir')
+
+    modalEditarMaquinaDentro.addEventListener('click', (e) => {
+        if (e.target.id == 'fecharModal' || e.target.id == 'modalEditarMaquina') {
+            modalEditarMaquinaDentro.classList.remove('abrir')
+        }
+    })
+}
+
+// Modal para deletar máquina
+function deletarModal() {
+    const modalExcluirDentro = document.getElementById('modalExcluir')
+    modalExcluirDentro.classList.add('abrir')
+
+    modalExcluirDentro.addEventListener('click', (e) => {
+        if (e.target.id == 'fecharModal' || e.target.id == 'modalExcluir') {
+            modalExcluirDentro.classList.remove('abrir')
+        }
+    })
+}
+
 function sairConta() {
     setTimeout(() => {
         window.location = "login.html";
@@ -162,7 +186,6 @@ const discoBytesChart = new Chart(ctx3, {
                 color: 'white',
                 font: {
                     size: 20,
-                    // weigth: 'lighter',
                 }
             }
         }
@@ -172,43 +195,130 @@ const discoBytesChart = new Chart(ctx3, {
 var idEmpresa = sessionStorage.ID_EMPRESA;
 console.log(idEmpresa);
 
-// var idMaquinaRota = response;
-
 const urlParams = new URLSearchParams(window.location.search);
 const idMaquinaRota = urlParams.get('idMaquinaRota');
+var idMaquina = idMaquinaRota;
 
-console.log(idMaquinaRota);
+var destinoTela;
+var descricaoTela;
 
-// function entrarDashMaquina() {    
+console.log(idMaquina);
 
-//     maquinaBolinha.forEach((maquina, index) => {
-//         maquina.addEventListener("click", function () {
-//             console.log('entrei na função entrar dash máquina');
+// PEGANDO DADOS DO INFO HARDWARE
+function buscarInfosMaquina() {
+    console.log(idMaquinaRota)
+    fetch(`/maquina/buscarInfosMaquina/${idMaquinaRota}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
 
-//             idMaquinaRota = listaMaq[index];
+        .then(function (resposta) {
+            console.log("Dados recebidos: ", JSON.stringify(resposta));
+            resposta.json()
+                .then((json) => {
+                    console.log(json);
+                    console.log(json[0].destino);
 
-//             fetch(`/dashProjeto/${idMaquinaRota}`, {
-//                 method: "GET",
-//             }).then(function (response = idMaquinaRota) {
+                    console.log(json);
+                    console.log(json[0].descricao);
 
-//                 console.log('entrei na then entrar dash maquina');
-//                 if (!response.ok) {
-//                     throw new Error('Erro ao carregar os dados');
-//                 }
-//                 return response.json();
-//             })
 
-//             setTimeout(() => {
-//                 window.location = "maquinaDash.html";
-//             }, "1000");
-//         })
-//     })
+                    destinoTela = json[0].destino
+                    console.log(destinoTela);
 
-// }
+                    descricaoTela = json[0].descricao
+                    console.log(descricaoTela);
 
-// var idMaquinaRota = sessionStorage.ID_MAQUINA;
-// var idMaquinaRota = 501;
-console.log(idMaquinaRota)
+                    var telaInfoMaquina = document.getElementById("div_infoMaquina")
+                    telaInfoMaquina.innerHTML = `
+                        <h2>Máquina destinada a ${destinoTela}</h2>
+                        <p>${descricaoTela}</p>
+                `;
+                })
+        })
+
+        .catch(function (erro) {
+            console.error('Erro desconhecido na API.');
+        }
+        );
+}
+
+function editarMaquina(novaDescricao, novoDestino) {
+
+    console.log(descricaoTela);
+    console.log(destinoTela);
+
+    var novoDestino = input_destino.value;
+    var novaDescricao = input_descricao.value;
+
+    if (novoDestino == "") {
+        novoDestino = destinoTela;
+    } else if (novaDescricao == "") {
+        novaDescricao = descricaoTela;
+    }
+
+    fetch(`/maquina/editarMaquina/${idMaquinaRota}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            destino: input_destino.value,
+            descricao: input_descricao.value
+        })
+    })
+        .then(function (resposta) {
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML =
+                    "Atualizando dados...";
+
+                // window.alert("Máquina atualizada com sucesso!");
+                buscarInfosMaquina();
+                // window.location = "maquinaDash.html"
+
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a edição! Código da resposta: " + resposta.status);
+            }
+
+            setInterval(sumirMensagem, 5000);
+
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none";
+}
+
+function deletarMaquina() {
+    console.log("Criar função de apagar máquina escolhida - ID" + idMaquinaRota);
+    fetch(`/maquina/deletarMaquina/${idMaquinaRota}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            window.alert("Máquina deletada com sucesso pelo usuário");
+            window.location = "DashProjeto.html"
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+}
+
 // PEGANDO DADOS DO INFO HARDWARE
 function buscarDadosHardware() {
     console.log(idMaquinaRota)

@@ -23,4 +23,16 @@ router.get("/buscarDadosAlertaRam/:idMaquina", function (req, res) {
     maquinaController.buscarDadosAlertaRam(req, res);
 });
 
+router.get("/buscarInfosMaquina/:idMaquina", function (req, res) {
+    maquinaController.buscarInfosMaquina(req, res);
+});
+
+router.put("/editarMaquina/:idMaquina", function (req, res) {
+    maquinaController.editarMaquina(req, res);
+});
+
+router.delete("/deletarMaquina/:idMaquina", function (req, res) {
+    maquinaController.deletarMaquina(req, res);
+});
+
 module.exports = router;
