@@ -3,18 +3,19 @@ var database = require("../database/config");
 
 function cadastrar(idDispositivo, motivoBloqueio) {
     var verificarDispositivo = `
-    SELECT idDispositivo FROM dispositivoUsb WHERE idDispositivo = '${idDispositivo}';
-`;
+        SELECT idDispositivo FROM dispositivoUsb WHERE idDispositivo = '${idDispositivo}';
+    `;
 
     console.log("Executando a instrução SQL para verificar idDispositivo: \n" + verificarDispositivo);
 
-    return database.executar(verificarDispositivo)
+    database.executar(verificarDispositivo)
         .then(result => {
+            console.log("Resultado da verificação do dispositivo:", result);
             if (result.length > 0) {
-                //Se dispositivo existe, capturar o último idMaquina.
+                // Se dispositivo existe, capturar o último idMaquina.
                 var pegarUltimoIdMaquina = `
-        SELECT idMaquina FROM Maquina ORDER BY idMaquina DESC LIMIT 1;
-    `;
+                    SELECT idMaquina FROM Maquina ORDER BY idMaquina DESC LIMIT 1;
+                `;
                 console.log("Executando a instrução SQL para obter o último idMaquina: \n" + pegarUltimoIdMaquina);
 
                 return database.executar(pegarUltimoIdMaquina);
@@ -23,26 +24,29 @@ function cadastrar(idDispositivo, motivoBloqueio) {
             }
         })
         .then(result => {
+            console.log("Resultado da obtenção do último idMaquina:", result);
             if (result.length > 0) {
                 var idMaquina = result[0].idMaquina;
-                console.log("Último idMaquina obtido: " + idMaquina)
+                console.log("Último idMaquina obtido: " + idMaquina);
 
                 var instrucaoUsbCadastro = `
-        INSERT INTO blockList (fkDeviceId, motivoBloqueio, fkMaquina) VALUES ('${idDispositivo}', '${motivoBloqueio}', '${idMaquina}');
-    `;
-                console.log("Executando a instrução SQL: \n" + instrucaoUsbCadastro);
+                    INSERT INTO blockList (fkDeviceId, motivoBloqueio, fkMaquina) VALUES ('${idDispositivo}', '${motivoBloqueio}', '${idMaquina}');
+                `;
+                console.log("Executando a instrução SQL para cadastrar na blockList: \n" + instrucaoUsbCadastro);
+
                 return database.executar(instrucaoUsbCadastro);
             } else {
                 throw new Error("Nenhuma máquina encontrada na tabela Maquina.");
             }
         })
         .then(result => {
-            console.log("Resultado da inserção em blackList:", result);
+            console.log("Resultado da inserção em blockList:", result);
         })
         .catch(err => {
             console.error("Erro ao cadastrar dados: ", err);
         });
 }
+
 
 function buscarUsbs(idDispositivo, deviceId, descricaoUsb) {
 

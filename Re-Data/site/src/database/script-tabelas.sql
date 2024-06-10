@@ -79,8 +79,8 @@ CONSTRAINT `fk_Projeto_Empresa1`
 
 CREATE TABLE IF NOT EXISTS `Maquina` (
 `idMaquina` INT NOT NULL auto_increment,
-`usuario` VARCHAR(45) NOT NULL,
-`sistemaOperacional` VARCHAR(45) NOT NULL,
+`usuario` VARCHAR(45) NULL,
+`sistemaOperacional` VARCHAR(45) NULL,
 `temperatura` DOUBLE NULL,
 `tempoAtividade` INT NULL,
 `fkProjeto` INT NOT NULL,
