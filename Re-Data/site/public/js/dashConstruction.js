@@ -6,7 +6,6 @@ let nomeRegistroCpu;
 let totalCapturasCpu;
 
 let hardwareSelecionado;
-var idProjeto = 400;
 
 hardwares.forEach((hardware, index) => {
     hardware.addEventListener("click", function () {
@@ -106,7 +105,7 @@ function adicionarMaquina() {
                 if (resposta.ok) {
                     cardErro.style.display = "block";
                     mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Adicionando máquina...";
-                    listarMaquinas(400);
+                    listarMaquinas(401);
 
                     setTimeout(() => {
                         window.location = "DashProjeto.html";
@@ -130,13 +129,16 @@ console.log(idEmpresa);
 var info_maquinas = null;
 let listaMaq = [];
 let maquinaBolinha = null;
-var idProjeto = 400;
+
+const urlParams = new URLSearchParams(window.location.search);
+const idProjetoRota = urlParams.get('idProjetoRota');
+var idProjeto = idProjetoRota;
 
 function listarMaquinas(idProjeto) {
     console.log('entrei na função listar máquinas');
     console.log(idProjeto);
 
-    fetch(`/dashProjeto/` + 400, {
+    fetch(`/dashProjeto/` + 401, {
         method: "GET",
     })
         .then(function (response) {
@@ -570,7 +572,7 @@ let registroDisco;
 let registroRede;
 
 function getDadosKpiCpuAlertas() {
-    fetch("/kpis/getDadosKpiCpuAlertas/" + 400, {
+    fetch("/kpis/getDadosKpiCpuAlertas/" + 401, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -593,7 +595,7 @@ function getDadosKpiCpuAlertas() {
 }
 
 function getDadosKpiRamAlertas() {
-    fetch("/kpis/getDadosKpiRamAlertas/" + 400, {
+    fetch("/kpis/getDadosKpiRamAlertas/" + 401, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -616,7 +618,7 @@ function getDadosKpiRamAlertas() {
 }
 
 function getDadosKpiDiscoAlertas() {
-    fetch("/kpis/getDadosKpiDiscoAlertas/" + 400, {
+    fetch("/kpis/getDadosKpiDiscoAlertas/" + 401, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -640,7 +642,7 @@ function getDadosKpiDiscoAlertas() {
 }
 
 function getDadosKpiRedeAlertas() {
-    fetch("/kpis/getDadosKpiRedeAlertas/" + 400, {
+    fetch("/kpis/getDadosKpiRedeAlertas/" + 401, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -663,7 +665,7 @@ function getDadosKpiRedeAlertas() {
 }
 
 function getDadosKpiEventosCriticosCpu20Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosCpu20Seg/" + 400, {
+    fetch("/kpis/getDadosKpiEventosCriticosCpu20Seg/" + 401, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -685,7 +687,7 @@ function getDadosKpiEventosCriticosCpu20Seg() {
 }
 
 function getDadosKpiEventosCriticosCpu40Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosCpu40Seg/" + 400, {
+    fetch("/kpis/getDadosKpiEventosCriticosCpu40Seg/" + 401, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

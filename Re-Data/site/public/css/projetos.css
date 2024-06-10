@@ -1022,7 +1022,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     min-height: 300px; */
     background-color: var(--color-background-modal);
     backdrop-filter: blur(10px);
-    height: 90%;
+    height: 97%;
     padding: 30px;
     border-radius: 26px;
     display: flex;
@@ -1069,7 +1069,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 .main-content .modalUpdateProject .modalProjectDentro .content {
     display: inline-flex;
     justify-content: space-evenly;
-    height: 100%;
+    height: 103%;
     width: 100%;
     /* display: flex;
     flex-direction: column;
@@ -1084,7 +1084,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     align-items: center;
     gap: 15px;
     width: 30%;
-    height: 100%;
+    height: 104%;
     /* display: flex;
     flex-direction: column;
     align-items: center;
@@ -1187,7 +1187,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    height: 100%;
+    height: 107%;
     padding-bottom: 70px;
 }
 
@@ -1206,6 +1206,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 
 .main-content .modalUpdateProject .modalProjectDentro .content .parametrize .input_data {
     padding-left: 20%;
+    height: 3vh;
 }
 
 .main-content .modalUpdateProject .modalProjectDentro .content .parametrize span {
@@ -1219,7 +1220,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     font-size: 1rem;
     color: black;
     width: 15rem;
-    height: 2.5rem;
+    height: 1.5rem;
     border: none;
     border-radius: 10px;
     /* display: flex;

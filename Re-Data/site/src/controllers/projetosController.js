@@ -2,19 +2,23 @@ var projetosModel = require("../models/projetosModel");
 
 function cadastrarProjeto(req, res) {
 
-  var nomeDemandaCreate = req.body.nomeDemandaServer;
-  var dataInicioCreate = req.body.dataInicioServer;
-  var responsavelCreate = req.body.responsavel;
-  var dataTerminoCreate = req.body.dataTerminoServer;
+  var nomeDemanda = req.body.nomeDemandaServer;
+  var dataInicio = req.body.dataInicioServer;
+  var responsavel = req.body.responsavelServer;
+  var descricao = req.body.descricaoServer;
+  var dataTermino = req.body.dataTerminoServer;
+  var idEmpresa = req.body.idEmpresa;
 
-  if (nomeDemandaCreate == undefined || dataInicioCreate == undefined || responsavelCreate == undefined || dataTerminoCreate == undefined) {
+  if (nomeDemanda == undefined || dataInicio == undefined || responsavel == undefined || descricao == undefined || dataTermino == undefined || idEmpresa == undefined) {
       res.status(400).send("nomeDemanda está undefined!");
       res.status(400).send("dataInicio está undefined!");
-      res.status(400).send("responsavel está undefined!");
       res.status(400).send("dataTermino está undefined!");
+      res.status(400).send("responsavel está undefined!");
+      res.status(400).send("descrição está undefined!");
+      res.status(400).send("idEmpresa está undefined!");
   }
 
-  projetosModel.cadastrarProjeto(nomeDemandaCreate, dataInicioCreate, responsavelCreate, dataTerminoCreate).then(function (resposta) {
+  projetosModel.cadastrarProjeto(nomeDemanda, dataInicio, responsavel, descricao, dataTermino, idEmpresa).then(function (resposta) {
       res.status(200).send("Projeto criado com sucesso");
   }).catch(function (erro) {
       res.status(500).json(erro.sqlMessage);
@@ -75,45 +79,49 @@ function qtdMaquinasPorProjeto(req, res) {
     });
 }
 
-// function criarProjeto(req, res) {
+function editarProjeto(req, res) {
+  var novoNomeDemanda = req.body.nomeDemandaServer;
+  var novaDataInicio = req.body.dataInicioServer;
+  var novoResponsavel = req.body.responsavelServer;
+  var novaDescricao = req.body.descricaoServer;
+  var novaDataTermino = req.body.dataTerminoServer;
 
-//   var nomeDemanda = req.body.nomeDemandaServer;
-//   var dataInicio = req.body.dataInicioServer;
-//   var responsavel = req.body.responsavelServer;
-//   var dataTermino = req.body.dataTerminoServer;
+  maquinaModel.editarProjeto(novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino)
+      .then(
+          function (resultado) {
+              res.json(resultado);
+          }
+      )
+      .catch(
+          function (erro) {
+              console.log(erro);
+              console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+              res.status(500).json(erro.sqlMessage);
+          }
+      );
+}
 
-//   if (nomeDemanda == undefined) {
-//     res.status(400).send("Seu nomeDemanda está undefined!");
-//   }
-//   if (dataInicio == undefined) {
-//     res.status(400).send("Seu dataInicio está undefined!");
-//   }
-//   if (responsavel == undefined) {
-//     res.status(400).send("Seu responsável está undefined!");
-//   }
-//   if (dataTermino == undefined) {
-//     res.status(400).send("Seu dataTermino está undefined!");
-//   }
-
-//   projetosModel.criarProjeto(nomeDemanda, dataInicio, responsavel, dataTermino) 
-//   .then((resultado) => {
-//     res.status(201).json(resultado);
-//   }
-//   ).catch((erro) => {
-//     console.log(erro);
-//         console.log(
-//           "\nHouve um erro ao realizar a criação do Projeto! Erro: ",
-//           erro.sqlMessage
-//         );
-//         res.status(500).json(erro.sqlMessage);
-//         });
-
-// }
+function entrarDashProjeto(req, res) {
+  var idProjeto = req.params.idProjeto;
+  maquinaModel.entrarDashProjeto(idProjeto).then((resultado) => {
+    if (resultado.length > 0) {
+      console.log(resultado)
+      res.status(201).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+    console.log("Houve um erro ao buscar os projetos: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
 
 module.exports = {
   cadastrarProjeto,
   buscarProjetosPorEmpresa,
   listarProjetosPorEmpresa,
-  qtdMaquinasPorProjeto
-  // criarProjeto
+  qtdMaquinasPorProjeto,
+  editarProjeto,
+  entrarDashProjeto
 }

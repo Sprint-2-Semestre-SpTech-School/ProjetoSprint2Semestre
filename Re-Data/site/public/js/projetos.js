@@ -1,124 +1,29 @@
-// const ctx = document.getElementById('myChart');
-// console.log(ctx);
-// new Chart(ctx, {
-//     type: 'doughnut',
-//     data: {
-//         labels: ['Total Máquinas', 'Atenção', 'Perigo'],
-//         datasets: [
-//         {
-//             label: 'Máquinas',
-//             data: [20, 0, 2],
-//             backgroundColor: '#FDAD00',
-//             borderColor: 'white',
-//             borderWidth: 2,
-//             fill: true
-//         }]
-//     },
-//     options: {
-//         maintainAspectRatio: false,
-//         scales: {
-//             y: {
-//                 beginAtZero: true,
-//             },
-//         },
-//         plugins: {
-//             title: {
-//                 display: true,
-//                 text: "Quantidade de máquinas alocadas",
-//                 color: 'white',
-//                 font: {
-//                     size: 10,
-//                 }
-//             }
-//         },
-//         elements: {
-//             line: {
-//                 cubicInterpolationMode: 'monotone'
-//             }
-//         }
-//     }
-// });
+var idEmpresa = sessionStorage.ID_EMPRESA;
+console.log(idEmpresa);
 
-// function cadastrarProjeto() {
-
-//     var nomeDemandaCreate = input_nomeDemanda_create.value;
-//     var dataInicioCreate = input_dataInicio_create.value;
-//     var responsavelCreate = input_responsavel_create.value;
-//     var dataTerminoCreate = input_dataTermino_create.value;
-
-//     console.log("nomeDemanda: ", nomeDemandaCreate);
-//     console.log("dataInicioCreate: ", dataInicioCreate);
-//     console.log("responsavelCreate: ", responsavelCreate);
-//     console.log("dataTerminoCreate: ", dataTerminoCreate)
-
-//     if (
-//         nomeDemandaCreate == "" ||
-//         dataInicioCreate == "" ||
-//         responsavelCreate == "" ||
-//         dataTerminoCreate == "" 
-//     ) {
-//         cardErro.style.display = "block";
-//         mensagem_erro.innerHTML =
-//             "(Mensagem de erro para todos os campos em branco)";
-
-//         return false;
-//     } else {
-        
-//     }
-
-//     fetch("/projetos/cadastrarProjeto", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//             nomeDemandaServer: nomeDemandaCreate,
-//             dataInicioServer: dataInicioCreate,
-//             responsavelServer: responsavelCreate,
-//             dataTerminoServer: dataTerminoCreate
-//         }),
-//     })
-//         .then(function (resposta) {
-//             console.log("resposta: ", resposta);
-
-//             if (resposta.ok) {
-//                 cardErro.style.display = "block";
-
-//                 mensagem_erro.innerHTML =
-//                     "Projeto adicionado, Redirecionando para tela...";
-
-//                 setTimeout(() => {
-//                     window.location = "projetos.html";
-//                 }, "2000");
-
-//             } else {
-//                 throw "Houve um erro ao tentar cadastrar o projeto!";
-//             }
-//         })
-//         .catch(function (resposta) {
-//             console.log(`#ERRO: ${resposta}`);
-
-//         });
-
-// }
+let listaProjetos = [];
+let projetoQuadrado = null;
 
 function cadastrarProjeto() {
 
-    var nomeDemandaCreate = input_nomeDemanda_create.value;
-    var dataInicioCreate = input_dataInicio_create.value;
-    var responsavelCreate = input_responsavel_create.value;
-    var dataTerminoCreate = input_dataTermino_create.value;
+    var nomeDemanda = input_nomeDemanda_create.value;
+    var dataInicio = input_dataInicio_create.value;
+    var responsavel = input_responsavel_create.value;
+    var descricao = input_descricao_create.value;
+    var dataTermino = input_dataTermino_create.value;
     
-    console.log("nomeDemanda: ", nomeDemandaCreate);
-    console.log("dataInicioCreate: ", dataInicioCreate);
-    console.log("responsavelCreate: ", responsavelCreate);
-    console.log("dataTerminoCreate: ", dataTerminoCreate)
+    console.log("nomeDemanda: ", nomeDemanda);
+    console.log("dataInicio: ", dataInicio);
+    console.log("responsavel: ", responsavel);
+    console.log("responsavel: ", descricao);
+    console.log("dataTermino: ", dataTermino)
     
     if (
-        nomeDemandaCreate == "" ||
-        dataInicioCreate == "" ||
-        responsavelCreate == "" ||
-        dataTerminoCreate == "" 
+        nomeDemanda == "" ||
+        dataInicio == "" ||
+        responsavel == "" ||
+        descricao == "" ||
+        dataTermino == "" 
     ) {
         cardErro.style.display = "block";
         mensagem_erro.innerHTML =
@@ -135,10 +40,12 @@ function cadastrarProjeto() {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            nomeDemandaServer: nomeDemandaCreate,
-            dataInicioServer: dataInicioCreate,
-            responsavelServer: responsavelCreate,
-            dataTerminoServer: dataTerminoCreate
+            nomeDemandaServer: nomeDemanda,
+            dataInicioServer: dataInicio,
+            responsavelServer: responsavel,
+            descricaoServer: descricao,
+            dataTerminoServer: dataTermino,
+            idEmpresa: sessionStorage.ID_EMPRESA
         }),
     })
         .then(function (resposta) {
@@ -165,7 +72,72 @@ function cadastrarProjeto() {
     
 }
 
-var idEmpresa = sessionStorage.ID_EMPRESA;
+function editarProjeto(novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino) {
+
+    console.log(descricaoTela);
+    console.log(destinoTela);
+
+    var novoNomeDemanda = input_nomeDemanda_create.value;
+    var novaDataInicio = input_dataInicio_create.value;
+    var novoResponsavel = input_responsavel_create.value;
+    var novaDescricao = input_descricao_create.value;
+    var novaDataTermino = input_dataTermino_create.value;
+
+    
+    if (novoNomeDemanda == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novaDataInicio == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novoResponsavel == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novaDescricao == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novaDataTermino == "") {
+        console.log('entrei if novo nome demanda');
+    }
+
+    fetch(`/projetos/editarProjeto/${idProjeto}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nomeDemandaServer: input_nomeDemanda_create.value,
+            dataInicioServer: input_dataInicio_create.value,
+            responsavelServer: input_responsavel_create.value,
+            descricaoServer: input_descricao_create.value,
+            dataTerminoServer: input_dataTermino_create.value,
+
+        })
+    })
+        .then(function (resposta) {
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML =
+                    "Atualizando dados...";
+
+                // window.alert("Máquina atualizada com sucesso!");
+                listarProjetos();
+                // window.location = "maquinaDash.html"
+
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a edição! Código da resposta: " + resposta.status);
+            }
+
+            setInterval(sumirMensagem, 5000);
+
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none";
+}
+
 var info_projetos = null;
 function listarProjetos() {
     console.log('entrei na função listar projetos');
@@ -228,31 +200,66 @@ function listarProjetos() {
                         </div>
 
                         <div class="statusProject">
-                            <div class="status1">
-                                <p>Máquinas em perigo: 0</p>
-                                <p>Máquinas em atenção: 0</p>
-                            </div>
                             <div class="spaceButton">
-                                <button class="button-go-project">Acessar Projeto</button>
+                                <button data-id="${projeto.idProjeto}" class="button-go-project">Acessar Projeto</button>
                             </div>
                         </div>
 
                     </div>
-            `
+            `;
+            listaProjetos.push(projeto.idProjeto);
             });
-            var boxProjetos = document.querySelectorAll(".project-card");
-            // var boxQtd = document.querySelectorAll(".nameDemand");
-            for (var i = 0; i < boxProjetos.length; i++) {
-                boxProjetos[i].addEventListener('click', acessarProjeto);
-                // boxQtd[i].addEventListener('click', selectProjeto)
-            }
+
+            console.log('lista projeto:');
+            console.log(listaProjetos);
+
+            projetoQuadrado = document.querySelectorAll('.project-card');
+
+            entrarDashProjeto();
+
+            // var boxProjetos = document.querySelectorAll(".project-card");
+            // // var boxQtd = document.querySelectorAll(".nameDemand");
+            // for (var i = 0; i < boxProjetos.length; i++) {
+            //     boxProjetos[i].addEventListener('click', acessarProjeto);
+            //     // boxQtd[i].addEventListener('click', selectProjeto)
+            // }
         })
         .catch(function (error) {
             console.error(`#ERRO: ${error}`);
         });
 }
 
+var idProjetoRota = 0;
+function entrarDashProjeto() {    
 
+    projetoQuadrado.forEach((projeto, index) => {
+        projeto.addEventListener("click", function () {
+            console.log('entrei na função entrar dash projeto');
+
+            idProjetoRota = listaProjetos[index];
+
+            console.log(`idProjetoRota: ${idProjetoRota}`);
+
+            fetch(`/projetos/${idProjetoRota}`, {
+                method: "GET",
+            }).then(function (response = idProjetoRota) {
+
+                console.log('entrei na then entrar dash projeto');
+                if (!response.ok) {
+                    throw new Error('Erro ao carregar os dados');
+                }
+                return response.json();
+            })
+
+            setTimeout(() => {
+                window.location = `DashProjeto.html?idProjetoRota=${idProjetoRota}`;
+            }, "1000");
+        })
+    })
+
+}
+
+console.log(idProjetoRota);
 
 // Modal para sair
 function sair() {
