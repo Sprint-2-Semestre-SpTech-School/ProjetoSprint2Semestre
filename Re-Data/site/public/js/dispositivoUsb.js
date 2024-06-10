@@ -36,6 +36,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    document.querySelectorAll('.buttonDeletar').forEach(function (button) {
+        button.addEventListener('click', function () {
+            console.log("Botão exclusão clicado.");
+            document.getElementById('formularioDeletar').classList.remove('hidden');
+        });
+    });
+
+    // document.querySelectorAll('.delete').forEach(function (button) {
+    //     button.addEventListener('click', function () {
+    //         document.getElementById('DeleteForm').classList.remove('hidden');
+    //     });
+    // });
 
     // Esconde o formulário quando o botão "Salvar" for clicado
     // document.getElementById('saveButton').addEventListener('click', function (event) {
@@ -68,6 +80,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    var formularioDeletar = document.getElementById('formularioDeletar');
+    formularioDeletar.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var idDelete = document.getElementById('deleteId').value;
+        atualizarUsbDescricao(idDelete);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+
     var formularioEditarMotivo = document.getElementById('formularioEditarMotivo');
     formularioEditarMotivo.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -91,16 +113,26 @@ document.addEventListener('click', function (e) {
     }
 });
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     var formularioEditarMotivo = document.getElementById('formularioEditarMotivo');
-//     formularioEditarMotivo.addEventListener('submit', function (event) {
-//         event.preventDefault();
-//         var idBlackList = document.getElementById('id_usb_blacklist').value;
-//         var novoMotivoBloqueio = document.getElementById('novo_motivo').value;
-//         atualizarUsbMotivoBloqueio(idBlackList, novoMotivoBloqueio);
-//     });
-// });
+document.addEventListener('DOMContentLoaded', function () {
 
+    var formularioDeletar = document.getElementById('formularioDeletar');
+    formularioDeletar.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var idBlockList = document.getElementById('deleteId').value;
+
+        deletarUsbBloqueado(idBlockList);
+    });
+});
+
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('delete')) {
+        var row = e.target.closest('tr');
+        var idBlockList = row.querySelector('.id_blacklist').textContent;
+
+        document.getElementById('formularioDeletar').classList.remove('hidden');
+        document.getElementById('deleteId').value = idBlockList;
+    }
+});
 
 var idMaquina = sessionStorage.ID_MAQUINA;
 var info_usb = null;
@@ -307,4 +339,27 @@ function atualizarUsbMotivoBloqueio(idBlockList, novoMotivo) {
         .catch(function (error) {
             console.error(`#ERRO: ${error}`);
         });
+}
+
+function deletarUsbBloqueado(idBlockList) {
+    // console.log("Criar função de apagar usb escolhido - ID" + idBlockList);
+    fetch(`/usb/deletarUsbBloqueado/${idBlockList}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            window.alert("Usb deletado com sucesso!");
+            // window.location = "/dashboard/mural.html"
+        } else if (resposta.status == 404) {
+            console.log(resposta);
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a exclusão! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 }

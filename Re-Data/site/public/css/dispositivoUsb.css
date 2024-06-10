@@ -506,6 +506,51 @@ tr:nth-child(even) {
     transition: 0.7s;
 }
 
+#DeleteForm {
+    width: 35%;
+    box-shadow: 2px 2px 4px 4px #061980;
+}
+
+#DeleteForm p {
+    font-size: 20px;
+    margin-bottom: 13px;
+    text-shadow: 1px 1px 2px #050e41;
+    font-weight: 500;
+}
+
+#DeleteForm button {
+    width: 25%;
+    height: 8%;
+    background-color: var(--color-grafico);
+    border-radius: 10px;
+    transition: 0.5;
+}
+
+#DeleteForm button:hover {
+    width: 27%;
+    height: 8%;
+    background-color: #007bff;
+    color: #050e41;
+    border-radius: 10px;
+}
+
+#DeleteForm #cancelDeleteButton {
+    width: 25%;
+    height: 8%;
+    background-color: #ffff;
+    border: 1px solid #ffff;
+    color: #050e41;
+
+}
+
+#DeleteForm #cancelDeleteButton:hover {
+    width: 27%;
+    height: 8%;
+    background-color: #FABF3F;
+    border: 1px solid #ffff;
+    color: #050e41;
+}
+
 .delete:hover {
     background-color: darkslateblue;
     width: 32%;

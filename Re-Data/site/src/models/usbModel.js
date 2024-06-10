@@ -44,14 +44,6 @@ function cadastrar(idDispositivo, motivoBloqueio) {
         });
 }
 
-// function listar() {
-//     var instrucaoListagemUsb = `
-//         SELECT * FROM dispositivoUsb;
-//     `;
-//     console.log("Executando a instrução SQL: \n" + instrucaoListagemUsb);
-//     return database.executar(instrucaoListagemUsb);
-// }
-
 function buscarUsbs(idDispositivo, deviceId, descricaoUsb) {
 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscarUsbs(): ", idDispositivo, deviceId, descricaoUsb)
@@ -99,10 +91,20 @@ function atualizarUsbMotivoBloqueio(idBlockList, motivoBloqueio) {
     return database.executar(instrucaoAtualizarMotivoBloqueio);
 }
 
+function deletarUsbBloqueado(idBlockList) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarUsbBloqueado():", idBlockList);
+    var instrucaoDeletarUsbBloqueado = `
+        DELETE FROM blockList WHERE idBlockList = ${idBlockList};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoDeletarUsbBloqueado);
+    return database.executar(instrucaoDeletarUsbBloqueado);
+}
+
 module.exports = {
     cadastrar,
     buscarUsbs,
     buscarUsbsBloqueados,
     atualizarUsbDescricao,
-    atualizarUsbMotivoBloqueio
+    atualizarUsbMotivoBloqueio,
+    deletarUsbBloqueado
 };

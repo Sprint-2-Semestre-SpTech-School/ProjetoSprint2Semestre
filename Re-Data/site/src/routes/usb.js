@@ -26,4 +26,8 @@ router.put("/atualizarUsbMotivoBloqueio/:idBlockList", function (req, res) {
     usbController.atualizarUsbMotivoBloqueio(req, res);
 });
 
+router.delete("/deletarUsbBloqueado/:idBlockList", function (req, res) {
+    usbController.deletarUsbBloqueado(req, res);
+});
+
 module.exports = router;

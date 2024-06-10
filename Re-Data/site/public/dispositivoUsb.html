@@ -150,8 +150,8 @@
                                         <td><i class="motivo_bloqueio_blacklist">{motivoBloqueio}</i></td>
                                         <td><i class="id_dispositivo_blacklist">{fkDeviceId}</i></td>
                                         <td>
-                                            <!-- <button class="edit_blacklist">Editar</button> -->
-                                            <button class="delete" data-id="{idBlockList}">Excluir</button>
+                                            <button class="edit_blacklist">Editar</button>
+                                            <button class="delete">Excluir</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -211,6 +211,18 @@
 
                         <button type="submit" id="saveButtonMotivo">Salvar<i
                                 class="fa-solid fa-share-from-square"></i></button>
+                    </form>
+
+                    <form id="formularioDeletar" class="formularioDeletar hidden">
+
+                        <p>Tem certeza de que deseja excluir este usb?</p>
+
+                        <input type="text" id="deleteId" name="deleteId">
+
+                        <button type="submit" id="confirmDeleteButton">Confirmar</button>
+
+                        <button type="button" id="cancelDeleteButton">Cancelar</button>
+
                     </form>
 
                 </div>

@@ -104,29 +104,29 @@ function atualizarUsbMotivoBloqueio(req, res) {
     });
 }
 
-// function listarUsbs(req, res) {
-//     var idDispositivo = req.params.idDispositivoServer;
-//     var deviceId = req.params.deviceIdServer;
-//     var descricaoUsb = req.params.descricaoUsbServer;
+function deletarUsbBloqueado(req, res) {
+    var idBlockList = req.params.idBlockList;
 
-//     usbModel.listarUsbs(idDispositivo, deviceId, descricaoUsb).then((resultado) => {
-//         if (resultado.length > 0) {
-//             console.log(resultado)
-//             res.status(201).json(resultado);
-//         } else {
-//             res.status(204).json([]);
-//         }
-//     }).catch(function (erro) {
-//         console.log(erro);
-//         console.log("Houve um erro ao buscar dados dos usbs: ", erro.sqlMessage);
-//         res.status(500).json(erro.sqlMessage);
-//     });
-// }
+    usbModel.deletarUsbBloqueado(idBlockList)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o usb bloqueado: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
 
 module.exports = {
     cadastrar,
     buscarUsbs,
     buscarUsbsBloqueados,
     atualizarUsbDescricao,
-    atualizarUsbMotivoBloqueio
+    atualizarUsbMotivoBloqueio,
+    deletarUsbBloqueado
 }
