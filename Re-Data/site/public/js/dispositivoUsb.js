@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+
     // document.querySelectorAll('.delete').forEach(function (button) {
     //     button.addEventListener('click', function () {
     //         document.getElementById('DeleteForm').classList.remove('hidden');
@@ -50,9 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // });
 
     // Esconde o formulário quando o botão "Salvar" for clicado
-    // document.getElementById('saveButton').addEventListener('click', function (event) {
+    document.getElementById('cancelDeleteButton').addEventListener('click', function (event) {
+        event.preventDefault(); // Impede o envio do formulário para demonstração
+        document.getElementById('formularioDeletar').classList.add('hidden');
+    });
+
+    // document.getElementById('confirmDeleteButton').addEventListener('click', function (event) {
     //     event.preventDefault(); // Impede o envio do formulário para demonstração
-    //     document.getElementById('formularioEditar').classList.add('hidden');
+    //     document.getElementById('formularioDeletar').classList.add('hidden');
     // });
 });
 
@@ -352,7 +358,7 @@ function deletarUsbBloqueado(idBlockList) {
 
         if (resposta.ok) {
             window.alert("Usb deletado com sucesso!");
-            // window.location = "/dashboard/mural.html"
+            window.location = "dispositivoUsb.html"
         } else if (resposta.status == 404) {
             console.log(resposta);
             window.alert("Deu 404!");
