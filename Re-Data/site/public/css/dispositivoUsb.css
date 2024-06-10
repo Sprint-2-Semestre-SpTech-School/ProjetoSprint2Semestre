@@ -506,19 +506,19 @@ tr:nth-child(even) {
     transition: 0.7s;
 }
 
-#DeleteForm {
+#formularioDeletar {
     width: 35%;
     box-shadow: 2px 2px 4px 4px #061980;
 }
 
-#DeleteForm p {
+#formularioDeletar p {
     font-size: 20px;
     margin-bottom: 13px;
     text-shadow: 1px 1px 2px #050e41;
     font-weight: 500;
 }
 
-#DeleteForm button {
+#formularioDeletar button {
     width: 25%;
     height: 8%;
     background-color: var(--color-grafico);
@@ -526,7 +526,7 @@ tr:nth-child(even) {
     transition: 0.5;
 }
 
-#DeleteForm button:hover {
+#formularioDeletar button:hover {
     width: 27%;
     height: 8%;
     background-color: #007bff;
@@ -534,7 +534,7 @@ tr:nth-child(even) {
     border-radius: 10px;
 }
 
-#DeleteForm #cancelDeleteButton {
+#formularioDeletar #cancelDeleteButton button {
     width: 25%;
     height: 8%;
     background-color: #ffff;
@@ -543,7 +543,7 @@ tr:nth-child(even) {
 
 }
 
-#DeleteForm #cancelDeleteButton:hover {
+#formularioDeletar #cancelDeleteButton:hover {
     width: 27%;
     height: 8%;
     background-color: #FABF3F;
