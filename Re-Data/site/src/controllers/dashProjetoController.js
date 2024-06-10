@@ -30,6 +30,8 @@ function getDadosDash(req, res) {
 function adicionarMaquina(req, res) {
     var destino = req.body.destinoServer;
     var descricao = req.body.descricaoServer;
+    var idProjeto = req.body.idProjetoServer;
+    var idEmpresa = req.body.idEmpresaServer;
 
     if (destino == undefined) {
         return res.status(400).send("Seu destino está undefined!");
@@ -38,7 +40,7 @@ function adicionarMaquina(req, res) {
     }
 
 
-    dashboardModel.adicionarMaquina(destino, descricao)
+    dashboardModel.adicionarMaquina(destino, descricao, idProjeto, idEmpresa)
     .then((resultado) => {
         res.status(201).json(resultado);
       }

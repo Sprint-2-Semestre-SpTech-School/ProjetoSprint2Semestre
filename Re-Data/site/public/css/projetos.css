@@ -349,6 +349,54 @@ nav .nav-items .item .groupOpcoes-sair:hover {
     margin-bottom: 40%;
     position: absolute;
   }
+
+  .main-content .projectTools .buttonTools2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin-top: 25%;
+    padding: 30%;
+    background-color: var(--color-background-modal);
+    color: #ffff;
+    font-size: 13px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.main-content .projectTools .buttonTools2:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    margin-top: 25%;
+    padding: 30%;
+    background-color: darkslateblue;
+    font-size: 14px;
+    border: 1px solid #FABF3F;
+    border-radius: 10px;
+}
+
+.main-content .projectTools .buttonTools2 i {
+    padding: 5px;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 230px;
+    border-radius: 4px;
+    border: #7588db 3px solid;
+    padding: 10px;
+    margin-top: 1%;
+    margin-left: 45%;
+    margin-bottom: 40%;
+    position: absolute;
+  }
   
   .card_erro #mensagem_erro{
     font-weight: 500;
@@ -704,6 +752,8 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     border-radius: 5px; 
     font-size: 12px;
     cursor: pointer;
+    width: 6vw;
+    height: 5vh;
 }
 
 .project-card .local {
@@ -1022,7 +1072,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     min-height: 300px; */
     background-color: var(--color-background-modal);
     backdrop-filter: blur(10px);
-    height: 97%;
+    height: 81%;
     padding: 30px;
     border-radius: 26px;
     display: flex;

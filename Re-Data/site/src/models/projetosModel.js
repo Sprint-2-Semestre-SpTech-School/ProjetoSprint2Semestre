@@ -37,10 +37,22 @@ function buscarProjetosPorEmpresa(idEmpresa, idProjeto, nomeDemanda, dataInicio,
     return database.executar(instrucao);
 }
 
-function editarProjeto(nomeDemanda, dataInicio, responsavel, descricao, dataTermino, idProjeto) {
-    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarProjeto(): ", nomeDemanda, dataInicio, responsavel, descricao, dataTermino, idProjeto);
+function buscaridProjeto(idEmpresa) {
+
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function buscaridEmpresa(): ", idProjeto)
+
+    var instrucao = `
+        select idProjeto from projeto where fkEmpresa = ${idEmpresa};
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function editarProjeto(novoNomeDemanda, novaDataInicio, novaDataTermino, novaDescricao, novoResponsavel, idProjeto) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarProjeto(): ", novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino, idProjeto);
     var instrucaoSql = `
-        UPDATE projeto SET nomeDemanda = '${nomeDemanda}', dataInicio = '${dataInicio}', dataTermino = '${dataTermino}', descricao = '${descricao}', responsavel = '${responsavel}' WHERE idProjeto = ${idProjeto};
+        UPDATE projeto SET nomeDemanda = '${novoNomeDemanda}', dataInicio = '${novaDataInicio}', dataTermino = '${novaDataTermino}', descricao = '${novaDescricao}', responsavel = '${novoResponsavel}' WHERE idProjeto = ${idProjeto};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -58,9 +70,83 @@ function entrarDashProjeto(idProjeto) {
     return database.executar(instrucao);
 }
 
+async function deletarProjeto(idProjeto) {
+    console.log("Iniciando o processo de exclusão para o projeto com ID:", idProjeto);
+
+    try {
+        // 1. Selecionar todos os ids de maquinas relacionados ao projeto
+        const selectMaquinasQuery = `
+            SELECT idMaquina
+            FROM maquina
+            WHERE fkProjeto = ${idProjeto};
+        `;
+        console.log("Executando a instrução SQL: \n" + selectMaquinasQuery);
+        const maquinaResults = await database.executar(selectMaquinasQuery);
+
+        if (maquinaResults.length > 0) {
+            // Iterar por todas as maquinas relacionadas ao projeto
+            for (let maquina of maquinaResults) {
+                const idMaquina = maquina.idMaquina;
+                
+                // 2. Selecionar todos os ids de infoHardware relacionados à máquina
+                const selectInfoQuery = `
+                    SELECT idHardware
+                    FROM infoHardware
+                    WHERE fkMaquina = ${idMaquina};
+                `;
+                console.log("Executando a instrução SQL: \n" + selectInfoQuery);
+                const hardwareResults = await database.executar(selectInfoQuery);
+                
+                if (hardwareResults.length > 0) {
+                    // 3. Excluir registros da tabela `registro` relacionados aos `idHardware`
+                    const hardwareIds = hardwareResults.map(row => row.idHardware);
+                    const deleteRegistroQuery = `
+                        DELETE FROM registro
+                        WHERE fkHardware IN (${hardwareIds.join(',')});
+                    `;
+                    console.log("Executando a instrução SQL: \n" + deleteRegistroQuery);
+                    await database.executar(deleteRegistroQuery);
+
+                    // 4. Excluir registros da tabela `infoHardware` relacionados à máquina
+                    const deleteInfoQuery = `
+                        DELETE FROM infoHardware
+                        WHERE fkMaquina = ${idMaquina};
+                    `;
+                    console.log("Executando a instrução SQL: \n" + deleteInfoQuery);
+                    await database.executar(deleteInfoQuery);
+                }
+
+                // 5. Excluir o registro da tabela `maquina`
+                const deleteMaquinaQuery = `
+                    DELETE FROM maquina
+                    WHERE idMaquina = ${idMaquina};
+                `;
+                console.log("Executando a instrução SQL: \n" + deleteMaquinaQuery);
+                await database.executar(deleteMaquinaQuery);
+            }
+        }
+
+        // 6. Excluir o registro da tabela `projeto`
+        const deleteProjetoQuery = `
+            DELETE FROM projeto
+            WHERE idProjeto = ${idProjeto};
+        `;
+        console.log("Executando a instrução SQL: \n" + deleteProjetoQuery);
+        await database.executar(deleteProjetoQuery);
+
+        console.log("Projeto excluído com sucesso.");
+    } catch (error) {
+        console.error("Erro ao excluir o projeto:", error);
+    }
+}
+
+
+
 module.exports = {
     cadastrarProjeto,
     buscarProjetosPorEmpresa,
+    buscaridProjeto,
     editarProjeto,
-    entrarDashProjeto
+    entrarDashProjeto,
+    deletarProjeto
 };

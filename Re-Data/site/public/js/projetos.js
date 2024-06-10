@@ -72,67 +72,7 @@ function cadastrarProjeto() {
     
 }
 
-function editarProjeto(novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino) {
-
-    console.log(descricaoTela);
-    console.log(destinoTela);
-
-    var novoNomeDemanda = input_nomeDemanda_create.value;
-    var novaDataInicio = input_dataInicio_create.value;
-    var novoResponsavel = input_responsavel_create.value;
-    var novaDescricao = input_descricao_create.value;
-    var novaDataTermino = input_dataTermino_create.value;
-
-    
-    if (novoNomeDemanda == "") {
-        console.log('entrei if novo nome demanda');
-    } else if (novaDataInicio == "") {
-        console.log('entrei if novo nome demanda');
-    } else if (novoResponsavel == "") {
-        console.log('entrei if novo nome demanda');
-    } else if (novaDescricao == "") {
-        console.log('entrei if novo nome demanda');
-    } else if (novaDataTermino == "") {
-        console.log('entrei if novo nome demanda');
-    }
-
-    fetch(`/projetos/editarProjeto/${idProjeto}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            nomeDemandaServer: input_nomeDemanda_create.value,
-            dataInicioServer: input_dataInicio_create.value,
-            responsavelServer: input_responsavel_create.value,
-            descricaoServer: input_descricao_create.value,
-            dataTerminoServer: input_dataTermino_create.value,
-
-        })
-    })
-        .then(function (resposta) {
-
-            if (resposta.ok) {
-                cardErro.style.display = "block";
-                mensagem_erro.innerHTML =
-                    "Atualizando dados...";
-
-                // window.alert("Máquina atualizada com sucesso!");
-                listarProjetos();
-                // window.location = "maquinaDash.html"
-
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a edição! Código da resposta: " + resposta.status);
-            }
-
-            setInterval(sumirMensagem, 5000);
-
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-}
+// var idProjeto = sessionStorage.setItem("idProjetoAtual", projeto.id);
 
 function sumirMensagem() {
     cardErro.style.display = "none";
@@ -152,27 +92,23 @@ function listarProjetos() {
             }
             return response.json();
         })
-
-
         .then(function (lista_projetos) {
             console.log(lista_projetos);
-
-            // console.log(lista_projetos[0].qtsMaquinas);
-
-            // var qtdMaquinas = lista_projetos[0].qtsMaquinas
-            // console.log(qtdMaquinas);
 
             if (!lista_projetos || lista_projetos.length === 0) {
                 console.error('Nenhum dado de projeto encontrado.');
                 return;
             }
-            info_projetos = lista_projetos
+            info_projetos = lista_projetos;
+            const div_projects = document.getElementById('div_projects'); // Certifique-se de que div_projects está definido
+            div_projects.innerHTML = ''; // Limpa o conteúdo existente
+
             lista_projetos.forEach(function (projeto) {
                 div_projects.innerHTML += `
                     <div class="project-card">
                         <div class="card-alert" id="dangerous">Alert</div>
-                        <div class="updateProject"><i onclick="abrirModalUpdate()" class="fa-solid fa-arrows-rotate"></i></div>
-                        <div class="deleteProject"><i onclick="abrirModalDelete()" class="fa-solid fa-trash"></i></div>
+                        <div class="updateProject"><i onclick="abrirModalUpdate(${projeto.id})" class="fa-solid fa-arrows-rotate"></i></div>
+                        <div class="deleteProject"><i onclick="abrirModalDelete(${projeto.id})" class="fa-solid fa-trash"></i></div>
 
                         <div class="qtd-machines">
                             <p>Máquinas Alocadas</p>
@@ -199,21 +135,21 @@ function listarProjetos() {
                             </div>
                         </div>
 
-                        <div class="statusProject">
+                        <div data-id="${projeto.id}" class="statusProject">
                             <div class="spaceButton">
-                                <button data-id="${projeto.idProjeto}" class="button-go-project">Acessar Projeto</button>
+                                <button class="button-go-project">Acessar Projeto</button>
                             </div>
                         </div>
-
                     </div>
-            `;
-            listaProjetos.push(projeto.idProjeto);
+                `;
+                listaProjetos.push(projeto.id);
             });
 
             console.log('lista projeto:');
             console.log(listaProjetos);
 
-            projetoQuadrado = document.querySelectorAll('.project-card');
+            projetoQuadrado = document.querySelectorAll('.statusProject');
+            // window.onload('projetos.html'); // Remova ou corrija esta linha, pois está incorreta
 
             entrarDashProjeto();
 
@@ -229,34 +165,77 @@ function listarProjetos() {
         });
 }
 
-var idProjetoRota = 0;
-function entrarDashProjeto() {    
 
-    projetoQuadrado.forEach((projeto, index) => {
+var idProjetoRota = 0;
+
+function entrarDashProjeto() {
+    // const projetoQuadrado = document.querySelectorAll('.statusProject');
+
+    projetoQuadrado.forEach((projeto) => {
         projeto.addEventListener("click", function () {
             console.log('entrei na função entrar dash projeto');
 
-            idProjetoRota = listaProjetos[index];
-
+            const idProjetoRota = projeto.getAttribute('data-id');
             console.log(`idProjetoRota: ${idProjetoRota}`);
-
-            fetch(`/projetos/${idProjetoRota}`, {
-                method: "GET",
-            }).then(function (response = idProjetoRota) {
-
-                console.log('entrei na then entrar dash projeto');
-                if (!response.ok) {
-                    throw new Error('Erro ao carregar os dados');
-                }
-                return response.json();
-            })
-
+            sessionStorage.ID_PROJETO_ROTA = idProjetoRota;
             setTimeout(() => {
                 window.location = `DashProjeto.html?idProjetoRota=${idProjetoRota}`;
-            }, "1000");
-        })
-    })
+            }, 1000);
+        });
+    });
+}
 
+
+// function entrarDashProjeto() {    
+
+//     projetoQuadrado.forEach((projeto, id) => {
+//         projeto.addEventListener("click", function () {
+//             console.log('entrei na função entrar dash projeto');
+
+//             idProjetoRota = listaProjetos[id];
+
+//             console.log(`idProjetoRota: ${idProjetoRota}`);
+//             console.log("id" + id)
+
+//             fetch(`/projetos/${idProjetoRota}`, {
+//                 method: "GET",
+//             }).then(function (response = idProjetoRota) {
+
+//                 console.log('entrei na then entrar dash projeto');
+//                 if (!response.ok) {
+//                     throw new Error('Erro ao carregar os dados');
+//                 }
+//                 return response.json();
+//             })
+
+//             setTimeout(() => {
+//                 window.location = `DashProjeto.html?idProjetoRota=${idProjetoRota}`;
+//             }, "1000");
+//         })
+//     })
+
+// }
+
+function deletarProjeto(id) {
+    console.log("Criar função de apagar máquina escolhida - ID" + id);
+    fetch(`/projetos/deletarProjeto/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function (resposta) {
+
+        if (resposta.ok) {
+            window.alert("Projeto deletado com sucesso pelo usuário");
+            window.location = "projetos.html"
+        } else if (resposta.status == 404) {
+            window.alert("Deu 404!");
+        } else {
+            throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
 }
 
 console.log(idProjetoRota);
@@ -293,29 +272,213 @@ function abrirModalCreate() {
 }
 
 // Modal [CRUD] - UPDATE projetos sair
-function abrirModalUpdate() {
-    const modal = document.getElementById('janela-modal-crud-update')
 
-    modal.classList.add('abrir')
+function abrirModalUpdate(id) {
+    const modalContainer = document.getElementById('modal-container');
+    console.log(modalContainer);
+
+    // Verifica se o modal já está no DOM, se não, insere-o
+    modalContainer.innerHTML = `
+        <div id="janela-modal-crud-update" class="modalUpdateProject">
+            <div class="modalProjectDentro">
+                <div class="title">
+                    <h1>Atualize seu projeto!</h1>
+                </div>
+                <div class="close">
+                    <i id="close" class="fa-solid fa-circle-xmark fa-3xl"></i>
+                </div>
+                <div class="content">
+                    <div class="projetoCrud">
+                        <div class="card-crud">
+                            <div class="conteudo">
+                                <div class="imgProjeto">
+                                    <img src="./assets/imgs/projeto.png" alt="">
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="parametrize">
+                        <h2>Preencha as informações</h2>
+                        <h2 class="second-h2">que deseja modificar</h2>
+                        <span>Nome demanda:</span>
+                        <input class="input_texto" id="input_nomeDemanda_update" type="text">
+                        <span>Inicio:</span>
+                        <input class="input_data" id="input_dataInicio_update" type="datetime-local">
+                        <span>Término:</span>
+                        <input class="input_data" id="input_dataTermino_update" type="datetime-local">
+                        <span>Descrição:</span>
+                        <input class="input_texto" id="input_descricao_update" type="text">
+                        <span>Responsável:</span>
+                        <input class="input_texto" id="input_responsavel_update" type="text">
+
+                        <div class="buttons">
+                            <button id="save-button" data-id="${id}">Salvar</button>
+                            <button id="close-button">Retornar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const modal = document.getElementById('janela-modal-crud-update');
+    modal.classList.add('abrir');
+
+    console.log("ID GRANDÃO: " + id);
 
     modal.addEventListener('click', (e) => {
-        if (e.target.id == 'close' || e.target.id == 'janela-modal-crud-update' || e.target.id == 'close-button') {
-            modal.classList.remove('abrir')
+        if (e.target.id === 'close' || e.target.id === 'janela-modal-crud-update' || e.target.id === 'close-button') {
+            modal.classList.remove('abrir');
         }
-    }) 
+    });
+
+    // Adiciona o evento de clique ao botão "Salvar"
+    const saveButton = document.getElementById('save-button');
+    saveButton.addEventListener('click', () => {
+        editarProjeto('novoNomeDemanda', 'novaDataInicio', 'novoResponsavel', 'novaDescricao', 'novaDataTermino', id);
+    });
 }
 
+function editarProjeto(novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino, id) {
+
+    // console.log(descricaoTela);
+    // console.log(destinoTela);
+
+    var novoNomeDemanda = input_nomeDemanda_update.value;
+    var novaDataInicio = input_dataInicio_update.value;
+    var novaDataTermino = input_dataTermino_update.value;
+    var novaDescricao = input_descricao_update.value;
+    var novoResponsavel = input_responsavel_update.value;
+    console.log(id + ' id id id');
+    
+    if (novoNomeDemanda == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novaDataInicio == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novoResponsavel == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novaDescricao == "") {
+        console.log('entrei if novo nome demanda');
+    } else if (novaDataTermino == "") {
+        console.log('entrei if novo nome demanda');
+    }
+
+
+    // projetoQuadrado.forEach((projeto, index) => {
+    //     projeto.addEventListener("click", function () {
+    //         console.log('entrei na função entrar dash projeto');
+
+    //         idProjetoRota = listaProjetos[index-1];
+
+    //         console.log(`idProjetoRota: ${idProjetoRota}`);
+    //         console.log("Index" + index);
+
+    console.log(id);
+            fetch(`/projetos/editarProjeto/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"  
+                },
+                body: JSON.stringify({
+                    nomeDemanda: novoNomeDemanda,
+                    dataInicio: novaDataInicio,
+                    dataTermino: novaDataTermino,
+                    descricao: novaDescricao,
+                    responsavel: novoResponsavel,
+                    idProjeto: id     
+                })
+            })
+                .then(function (resposta) {
+        
+                    console.log(id)
+                    if (resposta.ok) {
+                        cardErro.style.display = "block";
+                        mensagem_erro.innerHTML =
+                            "Atualizando dados...";
+        
+                        // window.alert("Máquina atualizada com sucesso!");
+                        listarProjetos();
+                        // window.location = "maquinaDash.html"
+        
+                    } else if (resposta.status == 404) {
+                        window.alert("Deu 404!");
+                    } else {
+                        throw ("Houve um erro ao tentar realizar a edição! Código da resposta: " + resposta.status);
+                    }
+        
+                    setInterval(sumirMensagem, 5000);
+        
+                }).catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
+}
+
+
+
+// function abrirModalUpdate(id) {
+//     const modal = document.getElementById('janela-modal-crud-update');
+
+//     console.log("ID GRANDÃO: " + id)
+//     modal.classList.add('abrir')
+
+//     modal.addEventListener('click', (e) => {
+//         if (e.target.id == 'close' || e.target.id == 'janela-modal-crud-update' || e.target.id == 'close-button') {
+//             modal.classList.remove('abrir');
+//         }
+//     }) 
+// }
+
 // Modal [CRUD] - DELETE projetos sair
-function abrirModalDelete() {
-    const modal = document.getElementById('janela-modal-crud-delete')
 
-    modal.classList.add('abrir')
+// function abrirModalUpdate(id) {
+//     const modalContainer = document.getElementById('modal-container');
+//     console.log(modalContainer);
 
-    modal.addEventListener('click', (e) => {
-        if (e.target.id == 'close' || e.target.id == 'janela-modal-crud-delete' || e.target.id == 'close-button') {
-            modal.classList.remove('abrir')
-        }
-    }) 
+//     <div id="modal-container-delete">
+
+function abrirModalDelete(id) {
+    const modalContainerDelete = document.getElementById('modal-container-delete');
+    console.log(modalContainerDelete);
+
+    modalContainerDelete.innerHTML = `
+                <div id="janela-modal-crud-delete" class="modalDeleteProject">
+                    <div class="modalProjectDentro">
+                        <div class="title">
+                            <h1>Exclua seu projeto!</h1>
+                        </div>
+                        <div class="close">
+                            <i id="close" class="fa-solid fa-circle-xmark fa-3xl"></i>
+                        </div>
+                        <div class="content">
+                            <div class="confirm">
+                                <h2>Deseja excluir esse projeto?</h2>
+                                <h2>Após a exclusão ele não poderá ser recuperado!</h2>
+                            </div>
+                            <div class="buttons">
+                                <button id="delete-button" data-id="${id}">Confirmar</button>
+                                <button id="close-button">Retornar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const modal = document.getElementById('janela-modal-crud-delete');
+            modal.classList.add('abrir');
+
+            console.log("ID GRANDÃO: " + id);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target.id === 'close' || e.target.id === 'janela-modal-crud-delete' || e.target.id === 'delete-button') {
+                    modal.classList.remove('abrir');
+                }
+            });
+
+            // Adiciona o evento de clique ao botão "Salvar"
+            const closebutton = document.getElementById('delete-button');
+            closebutton.addEventListener('click', () => {
+                deletarProjeto(id);
+            });
 }
 
 // function criarProjeto() {

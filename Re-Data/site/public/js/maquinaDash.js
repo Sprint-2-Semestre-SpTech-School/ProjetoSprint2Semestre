@@ -60,6 +60,12 @@ function dashMaq() {
     }, "100");
 }
 
+function usbPagina() {
+    setTimeout(() => {
+        window.location = "dispositivoUsb.html";
+    }, "100");
+}
+
 const ctx = document.getElementById('usoCpuRam');
 console.log(ctx);
 const cpuRamChart = new Chart(ctx, {
@@ -342,9 +348,6 @@ function buscarDadosHardware() {
                     console.log(json);
                     console.log(json[0].valorTotal);
 
-                    console.log(json);
-                    console.log(json[0].unidadeCaptacao);
-
                     var tipoHardwareTela1 = json[0].tipoHardware;
                     var tipoHardwareTela2 = json[1].tipoHardware;
                     var tipoHardwareTela3 = json[2].tipoHardware;
@@ -372,23 +375,12 @@ function buscarDadosHardware() {
                     console.log(valorTotalTela3);
                     console.log(valorTotalTela4);
 
-                    var unidadeCaptacaoTela1 = json[0].unidadeCaptacao
-                    var unidadeCaptacaoTela2 = json[1].unidadeCaptacao;
-                    var unidadeCaptacaoTela3 = json[2].unidadeCaptacao;
-                    var unidadeCaptacaoTela4 = json[3].unidadeCaptacao;
-                    console.log(unidadeCaptacaoTela1);
-                    console.log(unidadeCaptacaoTela2);
-                    console.log(unidadeCaptacaoTela3);
-                    console.log(unidadeCaptacaoTela4);
-
                     var nomeHardwareTela = json[0].nomeHardware
                     console.log(nomeHardwareTela);
 
                     var valorTotalTela = json[0].valorTotal
                     console.log(valorTotalTela);
 
-                    var unidadeCaptacaoTela = json[0].unidadeCaptacao
-                    console.log(unidadeCaptacaoTela);
 
                     var telaInfoHardware = document.getElementById("div_infoHardware")
                     telaInfoHardware.innerHTML = `
@@ -404,9 +396,6 @@ function buscarDadosHardware() {
                             <p>Nome do hardware</p>
                         </div>
 
-                        <div class="valorUnidadeTitulo">
-                            <p>Valor Total</p>
-                         </div>
                     </div>
 
                     <div class="infos">                          
@@ -420,7 +409,7 @@ function buscarDadosHardware() {
                             </div>
 
                             <div class="valorUnidade">
-                                <p>${valorTotalTela1}${unidadeCaptacaoTela1}</p>
+                                <p>${valorTotalTela1}</p>
                             </div>
                         </div>
 
@@ -434,7 +423,7 @@ function buscarDadosHardware() {
                             </div>
 
                             <div class="valorUnidade">
-                                <p>${valorTotalTela2}${unidadeCaptacaoTela2}</p>
+                                <p>${valorTotalTela2}</p>
                             </div>
                         </div>                   
 
@@ -448,7 +437,7 @@ function buscarDadosHardware() {
                             </div>
 
                             <div class="valorUnidade">
-                                <p>${valorTotalTela3}${unidadeCaptacaoTela3}</p>
+                                <p>${valorTotalTela3}</p>
                             </div>
                         </div>
 
@@ -462,7 +451,7 @@ function buscarDadosHardware() {
                             </div>
 
                             <div class="valorUnidade">
-                                <p>${valorTotalTela4}${unidadeCaptacaoTela4}</p>
+                                <p>${valorTotalTela4}</p>
                             </div>
                         </div>
                     </div>

@@ -59,7 +59,9 @@ function entrar() {
                     sessionStorage.NOME_USUARIO = json.nomeUsuario;
                     sessionStorage.SENHA_USUARIO = json.senha;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.ID_EMPRESA = json.fkEmpresa;
+                    sessionStorage.ID_EMPRESA = json.idEmpresa;
+
+                    // console.log("EMPRESA ID: ", idEmpresa);
 
                     setTimeout(function () {
                         window.location = "projetos.html";

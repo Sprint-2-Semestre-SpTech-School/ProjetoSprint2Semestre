@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="getDadosDash(), getDadosKpi(), listarMaquinas()">
+<body onload="getDadosDash(), getDadosKpi(), listarMaquinas(), pegarId()">
     <main>
         <div class="modalAddMaquina" id="modalAddMaquina">
             <div class="modalAddMaquinaDentro">
@@ -83,7 +83,7 @@
                                 <p class="titulo">PROJETOS</p>
                             </a>
                         </b>
-                        <button onclick="telaProjeto()" class="groupOpcoes"><i class="fa-solid fa-calendar-days"></i>
+                        <button  onclick="telaProjeto()" class="groupOpcoes"><i class="fa-solid fa-calendar-days"></i>
                             Projetos</button>
                         <button onclick="dashProjeto()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
                             Dashboard</button>

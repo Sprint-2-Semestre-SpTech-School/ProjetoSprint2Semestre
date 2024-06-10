@@ -20,11 +20,19 @@ router.get("/:idEmpresa", function (req, res) {
 });
 
 router.put("/editarProjeto/:idProjeto", function (req, res) {
-    projetoController.editarProjeto(req, res);
+    projetosController.editarProjeto(req, res);
 });
 
 router.get("/:idProjeto", function (req, res) {
-    projetoController.entrarDashProjeto(req, res);
+    projetosController.entrarDashProjeto(req, res);
+});
+
+router.get("/buscaridProjeto", function (req, res) {
+    projetosController.buscarIdProjeto(req, res);
+});
+
+router.delete("/deletarProjeto/:idProjeto", function (req, res) {
+    projetosController.deletarProjeto(req, res);
 });
 
 module.exports = router;

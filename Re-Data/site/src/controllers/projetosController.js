@@ -79,14 +79,32 @@ function qtdMaquinasPorProjeto(req, res) {
     });
 }
 
-function editarProjeto(req, res) {
-  var novoNomeDemanda = req.body.nomeDemandaServer;
-  var novaDataInicio = req.body.dataInicioServer;
-  var novoResponsavel = req.body.responsavelServer;
-  var novaDescricao = req.body.descricaoServer;
-  var novaDataTermino = req.body.dataTerminoServer;
+function buscaridProjeto(req, res) {
+  var idProjeto = req.params.idProjeto;
 
-  maquinaModel.editarProjeto(novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino)
+  projetosModel.buscaridProjeto(idProjeto).then((resultado) => {
+    if (resultado.length > 0) {
+      console.log(resultado)
+      res.status(201).json(resultado);
+    } else {
+      res.status(204).json([]);
+    }
+  }).catch(function (erro) {
+    console.log(erro);
+    console.log("Houve um erro ao buscar dados dos projetos: ", erro.sqlMessage);
+    res.status(500).json(erro.sqlMessage);
+  });
+}
+
+function editarProjeto(req, res) {
+  var novoNomeDemanda = req.body.nomeDemanda;
+  var novaDataInicio = req.body.dataInicio;
+  var novaDataTermino = req.body.dataTermino;
+  var novaDescricao = req.body.descricao;
+  var novoResponsavel = req.body.responsavel;
+  var idProjeto = req.params.idProjeto;
+
+  projetosModel.editarProjeto(novoNomeDemanda, novaDataInicio, novaDataTermino, novaDescricao, novoResponsavel, idProjeto)
       .then(
           function (resultado) {
               res.json(resultado);
@@ -103,7 +121,7 @@ function editarProjeto(req, res) {
 
 function entrarDashProjeto(req, res) {
   var idProjeto = req.params.idProjeto;
-  maquinaModel.entrarDashProjeto(idProjeto).then((resultado) => {
+  projetosModel.entrarDashProjeto(idProjeto).then((resultado) => {
     if (resultado.length > 0) {
       console.log(resultado)
       res.status(201).json(resultado);
@@ -117,11 +135,31 @@ function entrarDashProjeto(req, res) {
   });
 }
 
+function deletarProjeto(req, res) {
+  var idProjeto = req.params.idProjeto;
+
+  projetosModel.deletarProjeto(idProjeto)
+      .then(
+          function (resultado) {
+              res.json(resultado);
+          }
+      )
+      .catch(
+          function (erro) {
+              console.log(erro);
+              console.log("Houve um erro ao deletar a máquina: ", erro.sqlMessage);
+              res.status(500).json(erro.sqlMessage);
+          }
+      );
+}
+
 module.exports = {
   cadastrarProjeto,
   buscarProjetosPorEmpresa,
   listarProjetosPorEmpresa,
   qtdMaquinasPorProjeto,
+  buscaridProjeto,
   editarProjeto,
-  entrarDashProjeto
+  entrarDashProjeto,
+  deletarProjeto
 }

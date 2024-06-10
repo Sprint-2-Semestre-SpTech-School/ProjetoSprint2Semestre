@@ -5,6 +5,22 @@ let idMaquinaCpu;
 let nomeRegistroCpu;
 let totalCapturasCpu;
 
+// function pegarId() {
+    const urlParams2 = new URLSearchParams(window.location.search);
+    const idProjeto = urlParams2.get('idProjetoRota');
+
+    if (idProjeto != null ) {localStorage.setItem("idProjetoAtual", idProjeto);}
+    // var idProjetoCerto = idProjeto;
+// }
+
+console.log('Id projeto: ' + idProjeto);
+
+var idEmpresa = sessionStorage.ID_EMPRESA;
+var idProjetoSession = sessionStorage.ID_PROJETO;
+console.log(sessionStorage.ID_PROJETO_ROTA);
+
+console.log(idEmpresa);
+
 let hardwareSelecionado;
 
 hardwares.forEach((hardware, index) => {
@@ -95,8 +111,9 @@ function adicionarMaquina() {
             body: JSON.stringify({
                 destinoServer: destinoVar,
                 descricaoServer: descricaoVar,
-                // fkProjeto: fkProjetoServer,
-                idMaquina: sessionStorage.ID_MAQUINA
+                idProjetoServer: sessionStorage.ID_PROJETO_ROTA,
+                idEmpresaServer: idEmpresa
+                // idMaquina: sessionStorage.ID_MAQUINA
             }),
         })
             .then(function (resposta) {
@@ -105,11 +122,12 @@ function adicionarMaquina() {
                 if (resposta.ok) {
                     cardErro.style.display = "block";
                     mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Adicionando máquina...";
-                    listarMaquinas(401);
 
-                    setTimeout(() => {
-                        window.location = "DashProjeto.html";
-                    }, "2000");
+                    // setTimeout(() => {
+                    //     window.location = "DashProjeto.html";
+                    // }, "2000");
+                    listarMaquinas();
+                    location.reload();
 
                 } else {
                     throw new Error("Houve um erro ao tentar realizar o cadastro!");
@@ -124,21 +142,19 @@ function adicionarMaquina() {
     }
 }
 
-var idEmpresa = sessionStorage.ID_EMPRESA;
 console.log(idEmpresa);
 var info_maquinas = null;
 let listaMaq = [];
 let maquinaBolinha = null;
 
-const urlParams = new URLSearchParams(window.location.search);
-const idProjetoRota = urlParams.get('idProjetoRota');
-var idProjeto = idProjetoRota;
-
-function listarMaquinas(idProjeto) {
+function listarMaquinas() {
     console.log('entrei na função listar máquinas');
-    console.log(idProjeto);
+    // console.log(idProjeto);
 
-    fetch(`/dashProjeto/` + 401, {
+    // const urlParams2 = new URLSearchParams(window.location.search);
+    // const idProjeto = urlParams2.get('idProjetoRota');
+
+    fetch(`/dashProjeto/${localStorage.idProjetoAtual}`, {
         method: "GET",
     })
         .then(function (response) {
@@ -196,7 +212,6 @@ function listarMaquinas(idProjeto) {
             console.error(`#ERRO: ${error}`);
         });
 }
-var idMaquinaRota = 0;
 
 function entrarDashMaquina() {    
 

@@ -37,6 +37,9 @@
 
                     <!-- Projeto - dash - maquinas -->
                     <li class="item">
+                        <b class="titulo">
+                            <p class="titulo">PROJETOS</p>
+                        </b>
                         <a href="./projetos.html" class="itemSelected"><button class="groupOpcoes"><i
                                     class="fa-solid fa-calendar-days"></i> Projetos</button></a>
                         <a href="./DashProjeto.html" class="item"><button class="groupOpcoes"><i
@@ -47,6 +50,9 @@
 
                     <!-- maquinas - dash -->
                     <li class="item">
+                        <b class="titulo">
+                            <p class="titulo">MÁQUINAS</p>
+                        </b>
                         <a href="./maquinaDash.html" class="item"><button class="groupOpcoes"><i
                                     class="fas fa-tachometer"></i> Dashboard</button></a>
                     </li>
@@ -75,8 +81,12 @@
                     <button onclick="abrirModalCreate()" class="buttonTools">Novo Projeto<i class="fa-solid fa-plus"></i></button>
                 </div>
 
+                <div class="projectTools">
+                    <button onclick="download()" class="buttonTools2">Fazer Download<i class="fa-solid fa-download"></i></button>
+                </div>
+
                 <div id="div_projects" class="content-projects">
-                    <div id="project-card" class="project-card">
+                    <!-- <div id="project-card" class="project-card">
                         <div class="card-alert" id="dangerous">Alert</div>
                         <div class="updateProject"><i onclick="abrirModalUpdate()" class="fa-solid fa-arrows-rotate"></i></div>
                         <div class="deleteProject"><i onclick="abrirModalDelete()" class="fa-solid fa-trash"></i></div>
@@ -114,7 +124,7 @@
                             <div class="spaceButton">
                                 <button class="button-go-project">Acessar Projeto</button>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -160,7 +170,10 @@
                 </div>
 
                 <!-- MODAL UPDATE -->
-                <div id="janela-modal-crud-update" class="modalUpdateProject">
+                <div id="modal-container">
+
+                </div>
+                <!-- <div id="janela-modal-crud-update" class="modalUpdateProject">
                     <div class="modalProjectDentro">
                         <div class="title">
                             <h1>Atualize seu projeto!</h1>
@@ -188,20 +201,23 @@
                                 <span for="">Responsável:</span>
                                 <input class="input_texto" id="input_responsavel_update" type="text">
                                 <span for="">Descrição:</span>
-                                <input class="input_texto" id="input_descricao_create" type="text">
+                                <input class="input_texto" id="input_descricao_update" type="text">
                                 <span for="">Término:</span>
                                 <input class="input_data" id="input_dataTermino_update" type="datetime-local">
                                 <div class="buttons">
-                                    <button>Salvar</button>
+                                    <button onclick="editarProjeto()">Salvar</button>
                                     <button id="close-button">Retornar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- MODAL DELETE -->
-                <div id="janela-modal-crud-delete" class="modalDeleteProject">
+                <div id="modal-container-delete">
+
+                </div>
+                <!-- <div id="janela-modal-crud-delete" class="modalDeleteProject">
                     <div class="modalProjectDentro">
                         <div class="title">
                             <h1>Exclua seu projeto!</h1>
@@ -220,7 +236,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </section>

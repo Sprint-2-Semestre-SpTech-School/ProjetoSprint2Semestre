@@ -24,7 +24,7 @@ function entrar(req, res) {
                             nomeUsuario: resultadoEntrar[0].nomeUsuario,
                             // nome: resultadoEntrar[0].nome,
                             senha: resultadoEntrar[0].senha,
-                            fkEmpresa: resultadoEntrar[0].fkEmpresa
+                            idEmpresa: resultadoEntrar[0].idEmpresa 
                         });
 
                     } else if (resultadoEntrar.length == 0) {

@@ -37,7 +37,7 @@ function buscarDadosHardware(idMaquina) {
     // console.log("Chegou no model para buscar os dados da Dashboard", idMaquina);
 
     var instrucao = `
-        select idHardware, tipoHardware, nomeHardware, valorTotal, unidadeCaptacao, fkMaquina
+        select idHardware, tipoHardware, nomeHardware, valorTotal, fkMaquina
             from infoHardware
                 where fkMaquina = ${idMaquina} limit 4;
     `;
@@ -147,31 +147,6 @@ async function deletarMaquina(idMaquina) {
         console.error("Erro ao excluir a máquina:", error);
     }
 }
-
-
-// async function deletarMaquina(idMaquina) {
-//     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarMaquina():", idMaquina);
-
-//     var selectInfo = `
-//         select idHardware, tipoHardware, nomeHardware, valorTotal, unidadeCaptacao, fkMaquina
-//             from infoHardware
-//                 where fkMaquina = ${idMaquina} limit 4;
-//     `;
-
-//     var instrucaoInfo = `
-//         DELETE FROM infoHardware WHERE fkMaquina = ${idMaquina};    
-//     `;
-
-//     console.log("Executando a instrução SQL: \n" + instrucaoInfo);
-//     // return database.executar(instrucaoSql);
-//     const result = await database.executar(instrucaoInfo);
-//     console.log("Resultado da inserção em empresa:", result);
-//     var instrucaoMaquina = `
-//                 DELETE FROM maquina WHERE idMaquina = ${idMaquina};
-//             `;
-//     console.log("Executando a instrução SQL: \n" + instrucaoMaquina);
-//     return await database.executar(instrucaoMaquina);
-// }
 
 module.exports = {
     buscarDados,
