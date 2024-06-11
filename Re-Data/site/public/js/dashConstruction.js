@@ -508,7 +508,6 @@ function atualizarGraficos(resposta) {
     // cpuRamChart.data.datasets[1].data = ramValues;
 
     // console.log("Chegou nos datasets CPU e RAM");
-
     if (cpuRamChart.data.labels.length >= 10) { // Tamanho máximo das labels de 10
         cpuRamChart.data.labels.shift(); // Remove primeiro elemento do Array 
     }
@@ -587,7 +586,7 @@ let registroDisco;
 let registroRede;
 
 function getDadosKpiCpuAlertas() {
-    fetch("/kpis/getDadosKpiCpuAlertas/" + 401, {
+    fetch(`/kpis/getDadosKpiCpuAlertas/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -610,7 +609,7 @@ function getDadosKpiCpuAlertas() {
 }
 
 function getDadosKpiRamAlertas() {
-    fetch("/kpis/getDadosKpiRamAlertas/" + 401, {
+fetch(`/kpis/getDadosKpiRamAlertas/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -633,7 +632,7 @@ function getDadosKpiRamAlertas() {
 }
 
 function getDadosKpiDiscoAlertas() {
-    fetch("/kpis/getDadosKpiDiscoAlertas/" + 401, {
+    fetch(`/kpis/getDadosKpiDiscoAlertas/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -657,7 +656,7 @@ function getDadosKpiDiscoAlertas() {
 }
 
 function getDadosKpiRedeAlertas() {
-    fetch("/kpis/getDadosKpiRedeAlertas/" + 401, {
+    fetch(`/kpis/getDadosKpiRedeAlertas/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -680,7 +679,7 @@ function getDadosKpiRedeAlertas() {
 }
 
 function getDadosKpiEventosCriticosCpu20Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosCpu20Seg/" + 401, {
+    fetch(`/kpis/getDadosKpiEventosCriticosCpu20Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -702,7 +701,7 @@ function getDadosKpiEventosCriticosCpu20Seg() {
 }
 
 function getDadosKpiEventosCriticosCpu40Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosCpu40Seg/" + 401, {
+    fetch(`/kpis/getDadosKpiEventosCriticosCpu40Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -724,7 +723,7 @@ function getDadosKpiEventosCriticosCpu40Seg() {
 }
 
 function getDadosKpiEventosCriticosCpu60Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosCpu60Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosCpu60Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -746,7 +745,7 @@ function getDadosKpiEventosCriticosCpu60Seg() {
 }
 
 function getDadosKpiEventosCriticosRam20Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosRam20Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosRam20Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -768,7 +767,7 @@ function getDadosKpiEventosCriticosRam20Seg() {
 }
 
 function getDadosKpiEventosCriticosRam40Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosRam40Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosRam40Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -790,7 +789,7 @@ function getDadosKpiEventosCriticosRam40Seg() {
 }
 
 function getDadosKpiEventosCriticosRam60Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosRam60Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosRam60Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -812,7 +811,7 @@ function getDadosKpiEventosCriticosRam60Seg() {
 }
 
 function getDadosKpiEventosCriticosDisco20Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosDisco20Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosDisco20Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -834,7 +833,7 @@ function getDadosKpiEventosCriticosDisco20Seg() {
 }
 
 function getDadosKpiEventosCriticosDisco40Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosDisco40Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosDisco40Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -856,7 +855,7 @@ function getDadosKpiEventosCriticosDisco40Seg() {
 }
 
 function getDadosKpiEventosCriticosDisco60Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosDisco60Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosDisco60Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -878,7 +877,7 @@ function getDadosKpiEventosCriticosDisco60Seg() {
 }
 
 function getDadosKpiEventosCriticosRede20Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosRede20Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosRede20Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -900,7 +899,7 @@ function getDadosKpiEventosCriticosRede20Seg() {
 }
 
 function getDadosKpiEventosCriticosRede40Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosRede40Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosRede40Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -922,7 +921,7 @@ function getDadosKpiEventosCriticosRede40Seg() {
 }
 
 function getDadosKpiEventosCriticosRede60Seg() {
-    fetch("/kpis/getDadosKpiEventosCriticosRede60Seg/" + 400, {
+    fetch(`/kpis/getDadosKpiEventosCriticosRede60Seg/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -944,7 +943,7 @@ function getDadosKpiEventosCriticosRede60Seg() {
 }
 
 function getDadosKpiTotalCapturasProjeto() {
-    fetch("/kpis/getDadosKpiTotalCapturasProjeto/" + 400, {
+    fetch(`/kpis/getDadosKpiTotalCapturasProjeto/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

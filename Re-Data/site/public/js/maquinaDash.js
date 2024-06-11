@@ -71,10 +71,10 @@ console.log(ctx);
 const cpuRamChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
+        labels: [],
         datasets: [{
             label: 'CPU',
-            data: [43, 40, 32, 20, 18, 15, 13, 14, 15],
+            data: [],
             backgroundColor: '#061980',
             borderColor: '#c7eaf6',
             borderWidth: 2,
@@ -82,7 +82,7 @@ const cpuRamChart = new Chart(ctx, {
         },
         {
             label: 'RAM',
-            data: [70, 73, 74, 72, 80, 78, 76, 75, 74],
+            data: [],
             backgroundColor: '#e8e052',
             borderColor: '#eeff83',
             borderWidth: 2,
@@ -120,16 +120,16 @@ console.log(ctx);
 const discoChart = new Chart(ctx2, {
     type: 'bar',
     data: {
-        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+        labels: [],
         datasets: [{
             label: 'Escritas',
-            data: [5255, 7753, 3321, 1100, 3300, 1000, 7777],
+            data: [],
             borderWidth: 5,
             backgroundColor: '#3083f0',
         },
         {
             label: 'Lidas',
-            data: [3423, 2112, 3211, 3421, 3903, 2532, 2122],
+            data: [],
             borderWidth: 5,
             backgroundColor: '#e8e052',
         }]
@@ -164,17 +164,17 @@ console.log(ctx3);
 const discoBytesChart = new Chart(ctx3, {
     type: 'bar',
     data: {
-        labels: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'],
+        labels: [],
         datasets: [
             {
                 label: 'Utilizado',
-                data: [43, 4, 90, 95, 50, 60, 23, 41, 20],
+                data: [],
                 borderColor: '#eeff83',
                 backgroundColor: '#e8e052',
             },
             {
                 label: 'Disponível',
-                data: [43, 40, 50, 55, 58, 70, 73, 84, 85],
+                data: [],
                 borderColor: '#061980',
                 backgroundColor: '#061980',
             }

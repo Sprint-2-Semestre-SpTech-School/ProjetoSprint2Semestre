@@ -88,7 +88,7 @@ async function deletarProjeto(idProjeto) {
             // Iterar por todas as maquinas relacionadas ao projeto
             for (let maquina of maquinaResults) {
                 const idMaquina = maquina.idMaquina;
-                
+
                 // 2. Selecionar todos os ids de infoHardware relacionados à máquina
                 const selectInfoQuery = `
                     SELECT idHardware
@@ -97,7 +97,7 @@ async function deletarProjeto(idProjeto) {
                 `;
                 console.log("Executando a instrução SQL: \n" + selectInfoQuery);
                 const hardwareResults = await database.executar(selectInfoQuery);
-                
+
                 if (hardwareResults.length > 0) {
                     // 3. Excluir registros da tabela `registro` relacionados aos `idHardware`
                     const hardwareIds = hardwareResults.map(row => row.idHardware);

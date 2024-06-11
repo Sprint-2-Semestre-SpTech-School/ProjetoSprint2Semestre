@@ -7,7 +7,7 @@ function getDadosDash(idProjeto) {
     SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, AVG(valorRegistro) AS mediaDados
 FROM registro 
 JOIN infoHardware ON fkHardware = idHardware
-JOIN maquina ON fkMaquina = ${idMaquina}
+JOIN maquina ON fkMaquina
 JOIN projeto ON fkProjeto = idProjeto
 WHERE idProjeto = ${idProjeto} 
 GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina;
