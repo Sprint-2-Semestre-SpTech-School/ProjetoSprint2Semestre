@@ -108,7 +108,7 @@ function listarProjetos() {
             lista_projetos.forEach(function (projeto) {
                 div_projects.innerHTML += `
                     <div class="project-card">
-                        <div class="card-alert" id="dangerous">Alert</div>
+                    <img src="./assets/imgs/projeto.png" alt="">
                         <div class="updateProject"><i onclick="abrirModalUpdate(${projeto.id})" class="fa-solid fa-arrows-rotate"></i></div>
                         <div class="deleteProject"><i onclick="abrirModalDelete(${projeto.id})" class="fa-solid fa-trash"></i></div>
 
@@ -146,7 +146,6 @@ function listarProjetos() {
                 `;
                 listaProjetos.push(projeto.id);
             });
-
             console.log('lista projeto:');
             console.log(listaProjetos);
 

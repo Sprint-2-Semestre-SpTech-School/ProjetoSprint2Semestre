@@ -85,7 +85,7 @@ function voltar() {
     console.log(idProjeto + ' id do projeto');
 
     setTimeout(() => {
-        window.location = `DashProjeto.html?idProjeto=${idProjeto}`;
+        window.location = `DashProjeto.html?idProjetoRota=${idProjeto}`;
     }, "1000");
 }
 

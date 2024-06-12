@@ -19,9 +19,9 @@ function buscarProjetosPorEmpresa(idEmpresa, idProjeto, nomeDemanda, dataInicio,
     SELECT 
     p.idProjeto as id, 
     p.nomeDemanda, 
-    FORMAT(p.dataInicio, 'dd/MM/yyyy - HH:mm') as dataInicio, 
+    p.dataInicio as dataInicio, 
     p.responsavel, 
-    FORMAT(p.dataTermino, 'dd/MM/yyyy - HH:mm') as dataTermino, 
+    p.dataTermino as dataTermino, 
     COUNT(m.idMaquina) as qtsMaquinas
 FROM Projeto p
 LEFT JOIN Maquina m ON p.idProjeto = m.fkProjeto
@@ -31,7 +31,6 @@ GROUP BY
     p.dataInicio, 
     p.responsavel, 
     p.dataTermino;
-
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);

@@ -590,17 +590,12 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     border-radius: 10px;
 }
 
-.main-content .content-projects .project-card .card-alert {
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    top: 5px;
-    left: 5px;
-    width: 30%;
-    height: 4%;
-    border-radius: 15px;
+.main-content .content-projects .project-card img {
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 10%;
+    border-radius: 25px;
+    border: 5px outset var(--color-background-kpi);
 }
 
 #dangerous {
