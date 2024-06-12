@@ -21,7 +21,7 @@ body {
     --color-sair: rgb(203, 30, 4);
     --color-sair-hover: rgb(150, 32, 14);
     --color-sair-borda: rgb(150, 32, 14);
-    
+
     --color-breadcrumb-atual: #FDAD00;
     --color-grafico: #061980;
     --color-kpi-normal: rgb(148, 255, 148);
@@ -302,6 +302,12 @@ nav .nav-items .item .groupOpcoes-sair:hover {
     flex-wrap: wrap;
 }
 
+.main-content .projectTools {
+    display: flex;
+    justify-content: center;
+    width: 10rem;
+}
+
 .main-content .projectTools .buttonTools {
     display: flex;
     justify-content: center;
@@ -348,9 +354,9 @@ nav .nav-items .item .groupOpcoes-sair:hover {
     margin-left: 45%;
     margin-bottom: 40%;
     position: absolute;
-  }
+}
 
-  .main-content .projectTools .buttonTools2 {
+.main-content .projectTools .buttonTools2 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -396,13 +402,13 @@ nav .nav-items .item .groupOpcoes-sair:hover {
     margin-left: 45%;
     margin-bottom: 40%;
     position: absolute;
-  }
-  
-  .card_erro #mensagem_erro{
+}
+
+.card_erro #mensagem_erro {
     font-weight: 500;
     font-size: 20px;
     color: black;
-  }
+}
 
 /* .main-content .content-projects .modalProject {
     display: flex;
@@ -551,7 +557,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 75vh;    
+    height: 75vh;
     flex-direction: row;
     background-color: var(--color-background-partes);
     /* align-content: space-evenly; */
@@ -749,7 +755,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 .project-card .statusProject .spaceButton .button-go-project {
     background-color: #FABF3F;
     color: black;
-    border-radius: 5px; 
+    border-radius: 5px;
     font-size: 12px;
     cursor: pointer;
     width: 6vw;
@@ -845,7 +851,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
 .main-content .modalCreateProject .modalProjectDentro .close {
     position: absolute;
     top: -7px;
-    left: 981px; 
+    left: 981px;
     cursor: pointer;
 }
 
@@ -1495,6 +1501,7 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
         transform: translate3d(0, -20px, -5px);
         transition: opacity 0.5s ease;
     }
+
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);

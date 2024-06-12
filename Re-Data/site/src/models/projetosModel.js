@@ -3,7 +3,7 @@ var database = require("../database/config");
 function cadastrarProjeto(nomeDemanda, dataInicio, responsavel, descricao, dataTermino, idEmpresa) {
 
     var instrucao = `
-       INSERT INTO Projeto (nomeDemanda, dataInicio, dataTermino, descricao, responsavel, fkEmpresa) 
+    INSERT INTO Projeto (nomeDemanda, dataInicio, dataTermino, descricao, responsavel, fkEmpresa) 
                 VALUES ('${nomeDemanda}', '${dataInicio}', '${dataTermino}', '${descricao}', '${responsavel}','${idEmpresa}');    
     `;
 
@@ -23,15 +23,9 @@ function buscarProjetosPorEmpresa(idEmpresa, idProjeto, nomeDemanda, dataInicio,
     p.responsavel, 
     FORMAT(p.dataTermino, 'dd/MM/yyyy - HH:mm') as dataTermino, 
     COUNT(m.idMaquina) as qtsMaquinas
-<<<<<<< HEAD
-FROM projeto p
-LEFT JOIN maquina m ON p.idProjeto = m.fkProjeto
-GROUP BY 
-=======
-  FROM Projeto p
-  LEFT JOIN Maquina m ON p.idProjeto = m.fkProjeto
-  GROUP BY 
->>>>>>> e8f841c (padronizando nome das tabelas nos cruds)
+    FROM Projeto p
+    LEFT JOIN Maquina m ON p.idProjeto = m.fkProjeto
+    GROUP BY 
     p.idProjeto, 
     p.nomeDemanda, 
     p.dataInicio, 
@@ -59,11 +53,7 @@ function buscaridProjeto(idEmpresa) {
 function editarProjeto(novoNomeDemanda, novaDataInicio, novaDataTermino, novaDescricao, novoResponsavel, idProjeto) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarProjeto(): ", novoNomeDemanda, novaDataInicio, novoResponsavel, novaDescricao, novaDataTermino, idProjeto);
     var instrucaoSql = `
-<<<<<<< HEAD
-        UPDATE projeto SET nomeDemanda = '${novoNomeDemanda}', dataInicio = '${novaDataInicio}', dataTermino = '${novaDataTermino}', descricao = '${novaDescricao}', responsavel = '${novoResponsavel}' WHERE idProjeto = ${idProjeto};
-=======
         UPDATE Projeto SET nomeDemanda = '${nomeDemanda}', dataInicio = '${dataInicio}', dataTermino = '${dataTermino}', descricao = '${descricao}', responsavel = '${responsavel}' WHERE idProjeto = ${idProjeto};
->>>>>>> e8f841c (padronizando nome das tabelas nos cruds)
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

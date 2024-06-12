@@ -7,10 +7,12 @@ let projetoQuadrado = null;
 function cadastrarProjeto() {
 
     var nomeDemanda = input_nomeDemanda_create.value;
-    var dataInicio = input_dataInicio_create.value;
+    var dataInicio = new Date(input_dataInicio_create.value);
+    const dataInicioFormatada = dataInicio.toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' });
     var responsavel = input_responsavel_create.value;
     var descricao = input_descricao_create.value;
-    var dataTermino = input_dataTermino_create.value;
+    var dataTermino = new Date(input_dataInicio_create.value);
+    const dataTerminoFormatada = dataTermino.toLocaleDateString('pt-BR', { year: 'numeric', month: '2-digit', day: '2-digit' });
     
     console.log("nomeDemanda: ", nomeDemanda);
     console.log("dataInicio: ", dataInicio);

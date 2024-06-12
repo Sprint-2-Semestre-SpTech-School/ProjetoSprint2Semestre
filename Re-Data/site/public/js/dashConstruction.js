@@ -578,6 +578,7 @@ function atualizarGraficos(resposta) {
     // console.log("Atualizando...");
 }
 setInterval(getDadosDash, 5000);
+setInterval(atualizarGraficos, 5000);
 
 let registros = []; // Separar as respostas vindas
 let registroCpu;
