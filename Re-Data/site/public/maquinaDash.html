@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="buscarDadosHardware(), buscarInfosMaquina()">
+<body onload="buscarDadosHardware(), buscarInfosMaquina(), mostrarBotaoVoltar()">
     <main>
         <div class="modalEditarMaquina" id="modalEditarMaquina">
             <div class="modalEditarMaquinaDentro">
@@ -210,17 +210,24 @@
 
                 <div class="dashboard" id="div_dashboard">
                     <div class="topDash" id="div_topDash">
+                        <div class="divBotaoClass">
+                            <div id="div_botao" class="botao">
+                                <button data-id="idProjeto" onclick="voltar()">Voltar para dashboard</button>
+                            </div>
+                        </div>
                         <div class="alertas">
-                            <h1>Situações da máquina</h1>
-                            <div class="alertasMaquina">
-                                <div id="cardAlertaCpu" class="cardAlertaCpu">
-                                    <div id="msgAlertaCpu" class="msgAlerta msgAlertaCpu"></div>
+                            <div class="infoAlertas">
+                                <h1>Situações da máquina</h1>
+                                <div class="alertasMaquina">
+                                    <div id="cardAlertaCpu" class="cardAlertaCpu">
+                                        <div id="msgAlertaCpu" class="msgAlerta msgAlertaCpu"></div>
+                                    </div>
+    
+                                    <div id="cardAlertaRam" class="cardAlertaRam">
+                                        <div id="msgAlertaRam" class="msgAlerta msgAlertaRam"></div>
+                                    </div>
+    
                                 </div>
-
-                                <div id="cardAlertaRam" class="cardAlertaRam">
-                                    <div id="msgAlertaRam" class="msgAlerta msgAlertaRam"></div>
-                                </div>
-
                             </div>
                         </div>
 

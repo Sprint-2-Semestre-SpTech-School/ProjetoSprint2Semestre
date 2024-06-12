@@ -1,4 +1,12 @@
 // const { kpiMaquinaPacotes } = require("../../src/models/kpiMaquinaModel");
+var idEmpresa = sessionStorage.ID_EMPRESA;
+console.log(idEmpresa);
+
+const urlParams = new URLSearchParams(window.location.search);
+const idMaquinaRota = urlParams.get('idMaquinaRota');
+var idMaquina = idMaquinaRota;
+var idProjeto = sessionStorage.ID_PROJETO_ROTA;
+console.log(idProjeto);
 
 // Modal para sair
 function sair() {
@@ -64,6 +72,21 @@ function usbPagina() {
     setTimeout(() => {
         window.location = "dispositivoUsb.html";
     }, "100");
+}
+
+function voltar() {
+    console.log('entrei na função mostrar botão voltar');
+    console.log(idProjeto);
+ 
+    // div_botao.innerHTML += `
+    //     <button data-id="${idProjeto}" onclick="voltar()">Voltar para dashboard</button>
+    // `;
+                
+    console.log(idProjeto + ' id do projeto');
+
+    setTimeout(() => {
+        window.location = `DashProjeto.html?idProjeto=${idProjeto}`;
+    }, "1000");
 }
 
 const ctx = document.getElementById('usoCpuRam');
@@ -197,13 +220,6 @@ const discoBytesChart = new Chart(ctx3, {
         }
     },
 });
-
-var idEmpresa = sessionStorage.ID_EMPRESA;
-console.log(idEmpresa);
-
-const urlParams = new URLSearchParams(window.location.search);
-const idMaquinaRota = urlParams.get('idMaquinaRota');
-var idMaquina = idMaquinaRota;
 
 var destinoTela;
 var descricaoTela;

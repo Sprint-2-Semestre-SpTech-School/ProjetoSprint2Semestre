@@ -430,6 +430,47 @@ nav .nav-items .item .fa-regular {
     margin-right: 21px;
 }
 
+.dashboard .topDash .divBotaoClass {
+    width: 10vw;
+    bottom: 175px;
+    position: relative;
+}
+
+.dashboard .topDash .divBotaoClass .botao {
+    width: 100%;
+}
+
+.dashboard .topDash .divBotaoClass .botao button {
+    /* color: white; */
+    width: 10vw;
+    background-color: var(--color-opcoes);
+    border: none;
+    border-radius: 5px;
+    height: 3vh;
+    cursor: pointer;
+    transition: 500ms;
+    border-bottom: solid darkslateblue;
+    font-size: 15px;
+}
+
+.dashboard .topDash .botao button:hover {
+    background-color: var(--color-nav-hover);
+}
+
+.dashboard .topDash .alertas .infoAlertas {
+    width: 100%;
+    /* border: 1px solid; */
+    height: 23vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dashboard .topDash .alertas .infoAlertas h1 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .alertasMaquina {
     display: flex;
     justify-content: space-around;

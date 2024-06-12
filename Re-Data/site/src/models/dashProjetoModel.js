@@ -21,7 +21,7 @@ function adicionarMaquina(destino, descricao, idProjeto, idEmpresa) {
     console.log("Chegou no model para buscar os dados da Dashboard", destino, descricao, idProjeto, idEmpresa);
 
     var instrucao = `
-        insert into maquina (destino, descricao, fkProjeto, fkEmpresa) VALUES ('${destino}', '${descricao}', ${idProjeto}, ${idEmpresa});
+        insert into maquina (usuario, sistemaOperacional, destino, descricao, fkProjeto, fkEmpresa) VALUES ('ReData.INC', 'SPtechPI', '${destino}', '${descricao}', ${idProjeto}, ${idEmpresa});
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
