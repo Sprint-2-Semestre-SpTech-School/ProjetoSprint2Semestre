@@ -1,82 +1,87 @@
 var database = require("../database/config");
 
 function buscarDados(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal) {
-    // console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
+    console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
 
     var instrucao = `
         SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, valorTotal as memoriaTotal
-        FROM registro 
-        JOIN infoHardware ON fkHardware = idHardware
-        JOIN maquina ON fkMaquina = ${idMaquina}
-        JOIN projeto ON fkProjeto = idProjeto
+        FROM Registro 
+        JOIN InfoHardware ON fkHardware = idHardware
+        JOIN Maquina ON fkMaquina = ${idMaquina}
+        JOIN Projeto ON fkProjeto = idProjeto
         WHERE idProjeto = 400
         GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, memoriaTotal;
     `;
 
-    // console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function buscarDadosVolume(idMaquina, tipoHardware, valorTotal, nomeRegistro, valorRegistro, fkMaquina, tempoCapturas) {
-    // console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, tipoHardware, valorTotal, nomeRegistro, valorRegistro, fkMaquina, tempoCapturas);
+    console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, tipoHardware, valorTotal, nomeRegistro, valorRegistro, fkMaquina, tempoCapturas);
 
     var instrucao = `
     select i.tipoHardware, i.valorTotal as memoriaTotal, r.nomeRegistro, r.valorRegistro, i.fkMaquina, m.idMaquina, (i.valorTotal - r.valorRegistro) as memoriaUtilizada, tempoCapturas
-        from maquina as m
-            join infoHardware as i on m.idMaquina = i.fkMaquina
-                join registro as r
+        from Maquina as m
+            join InfoHardware as i on m.idMaquina = i.fkMaquina
+                join Registro as r
                     on r.fkHardware = i.idHardware
                         where i.tipoHardware = 'Disco' and i.fkMaquina = ${idMaquina};
     `;
 
-    // console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function buscarDadosHardware(idMaquina) {
-    // console.log("Chegou no model para buscar os dados da Dashboard", idMaquina);
+    console.log("Chegou no model para buscar os dados da Dashboard", idMaquina);
 
     var instrucao = `
+<<<<<<< HEAD
         select idHardware, tipoHardware, nomeHardware, valorTotal, fkMaquina
             from infoHardware
+=======
+        select idHardware, tipoHardware, nomeHardware, valorTotal, unidadeCaptacao, fkMaquina
+            from InfoHardware
+>>>>>>> e8f841c (padronizando nome das tabelas nos cruds)
                 where fkMaquina = ${idMaquina} limit 4;
     `;
 
-    // console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function buscarDadosAlerta(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal) {
-    // console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
+    console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
 
     var instrucao = `
         SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro as usoCpu, valorTotal as memoriaTotal
-        FROM registro 
-        JOIN infoHardware ON fkHardware = idHardware
-        JOIN maquina ON fkMaquina = ${idMaquina}
-        JOIN projeto ON fkProjeto = idProjeto
+        FROM Registro 
+        JOIN InfoHardware ON fkHardware = idHardware
+        JOIN Maquina ON fkMaquina = ${idMaquina}
+        JOIN Projeto ON fkProjeto = idProjeto
         WHERE idProjeto = 400 AND nomeRegistro = 'usoCpu'
         GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, memoriaTotal;
     `;
 
-    // console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
 function buscarDadosAlertaRam(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal) {
-    // console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
+    console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
 
     var instrucao = `
         SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro as usoRam, valorTotal as memoriaTotal
-        FROM registro 
-        JOIN infoHardware ON fkHardware = idHardware
-        JOIN maquina ON fkMaquina = ${idMaquina}
-        JOIN projeto ON fkProjeto = idProjeto
+        FROM Registro 
+        JOIN InfoHardware ON fkHardware = idHardware
+        JOIN Maquina ON fkMaquina = ${idMaquina}
+        JOIN Projeto ON fkProjeto = idProjeto
         WHERE idProjeto = 400 AND nomeRegistro = 'usoRam'
         GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, memoriaTotal;
     `;
 
-    // console.log("Executando a instrução SQL: \n" + instrucao);
+    console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
@@ -85,7 +90,7 @@ function buscarInfosMaquina(idMaquina) {
 
     var instrucao = `
         select descricao, destino
-            from maquina
+            from Maquina
                 where idMaquina = ${idMaquina} limit 2;
     `;
 
@@ -96,7 +101,7 @@ function buscarInfosMaquina(idMaquina) {
 function editarMaquina(novoDestino, novaDescricao, idMaquina) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarMaquina(): ", novoDestino, novaDescricao, idMaquina);
     var instrucaoSql = `
-        UPDATE maquina SET destino = '${novoDestino}', descricao = '${novaDescricao}' WHERE idMaquina = ${idMaquina};
+        UPDATE Maquina SET destino = '${novoDestino}', descricao = '${novaDescricao}' WHERE idMaquina = ${idMaquina};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -109,17 +114,17 @@ async function deletarMaquina(idMaquina) {
         // 1. Selecionar todos os ids de infoHardware relacionados à máquina
         const selectInfoQuery = `
             SELECT idHardware
-            FROM infoHardware
+            FROM InfoHardware
             WHERE fkMaquina = ${idMaquina};
         `;
         console.log("Executando a instrução SQL: \n" + selectInfoQuery);
         const hardwareResults = await database.executar(selectInfoQuery);
-        
+
         if (hardwareResults.length > 0) {
             // 2. Excluir registros da tabela `registro` relacionados aos `idHardware`
             const hardwareIds = hardwareResults.map(row => row.idHardware);
             const deleteRegistroQuery = `
-                DELETE FROM registro
+                DELETE FROM Registro
                 WHERE fkHardware IN (${hardwareIds.join(',')});
             `;
             console.log("Executando a instrução SQL: \n" + deleteRegistroQuery);
@@ -127,7 +132,7 @@ async function deletarMaquina(idMaquina) {
 
             // 3. Excluir registros da tabela `infoHardware` relacionados à máquina
             const deleteInfoQuery = `
-                DELETE FROM infoHardware
+                DELETE FROM InfoHardware
                 WHERE fkMaquina = ${idMaquina};
             `;
             console.log("Executando a instrução SQL: \n" + deleteInfoQuery);
@@ -136,7 +141,7 @@ async function deletarMaquina(idMaquina) {
 
         // 4. Excluir o registro da tabela `maquina`
         const deleteMaquinaQuery = `
-            DELETE FROM maquina
+            DELETE FROM Maquina
             WHERE idMaquina = ${idMaquina};
         `;
         console.log("Executando a instrução SQL: \n" + deleteMaquinaQuery);

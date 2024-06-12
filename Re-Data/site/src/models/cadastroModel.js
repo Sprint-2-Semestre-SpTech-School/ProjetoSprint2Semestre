@@ -29,7 +29,7 @@ function cadastrar(nomeCompleto, email, telefone, nomeEmpresa, cnpj, cep, estado
                 `;
 
                 var instrucaoLocalizacao = `
-                    INSERT INTO localizacaoEmpresa (CEP, estado, logradouro, numero, bairro, complemento, fkEmpresa) VALUES ('${cep}', '${estado}', '${endereco}', '${numeroEnd}', '${bairro}', '${complemento}', ${fkEmpresa});
+                    INSERT INTO LocalizacaoEmpresa (CEP, estado, logradouro, numero, bairro, complemento, fkEmpresa) VALUES ('${cep}', '${estado}', '${endereco}', '${numeroEnd}', '${bairro}', '${complemento}', ${fkEmpresa});
                 `;
                 console.log("Executando a instrução SQL: \n" + instrucaoLocalizacao);
                 database.executar(instrucaoLocalizacao);
