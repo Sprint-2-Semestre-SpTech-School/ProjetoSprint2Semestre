@@ -37,13 +37,8 @@ function buscarDadosHardware(idMaquina) {
     console.log("Chegou no model para buscar os dados da Dashboard", idMaquina);
 
     var instrucao = `
-<<<<<<< HEAD
         select idHardware, tipoHardware, nomeHardware, valorTotal, fkMaquina
-            from infoHardware
-=======
-        select idHardware, tipoHardware, nomeHardware, valorTotal, unidadeCaptacao, fkMaquina
             from InfoHardware
->>>>>>> e8f841c (padronizando nome das tabelas nos cruds)
                 where fkMaquina = ${idMaquina} limit 4;
     `;
 
