@@ -44,7 +44,7 @@ function getDadosKpiDiscoAlertas(idProjeto) {
         FROM Registro
         JOIN InfoHardware ON fkHardware = idHardware
         JOIN Maquina ON fkMaquina = idMaquina 
-        WHERE tipoHardware = 'Disco' AND valorRegistro >= 10.00 AND nomeRegistro = "bytesEscrita" and fkProjeto = ${idProjeto}
+        WHERE tipoHardware = 'Disco' AND valorRegistro <= 2.00 AND nomeRegistro = "bytesEscrita" and fkProjeto = ${idProjeto}
         GROUP BY idMaquina
         ORDER BY totalCapturas DESC
         LIMIT 1;
