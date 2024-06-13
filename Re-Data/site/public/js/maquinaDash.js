@@ -77,7 +77,6 @@ function usbPagina() {
 function voltar() {
     console.log('entrei na função mostrar botão voltar');
     console.log(idProjeto);
- 
     // div_botao.innerHTML += `
     //     <button data-id="${idProjeto}" onclick="voltar()">Voltar para dashboard</button>
     // `;

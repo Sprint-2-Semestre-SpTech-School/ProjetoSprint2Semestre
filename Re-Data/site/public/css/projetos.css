@@ -596,6 +596,11 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     margin-bottom: 10%;
     border-radius: 25px;
     border: 5px outset var(--color-background-kpi);
+    transition: 500ms;
+}
+
+.main-content .content-projects .project-card img:hover{
+    scale: 1.2;
 }
 
 #dangerous {
@@ -755,6 +760,11 @@ main .panel .main-content .content-projects .modalProject .content .parametrize 
     cursor: pointer;
     width: 6vw;
     height: 5vh;
+    transition: 500ms;
+}
+
+.project-card .statusProject .spaceButton .button-go-project:hover {
+    scale: 1.2;
 }
 
 .project-card .local {

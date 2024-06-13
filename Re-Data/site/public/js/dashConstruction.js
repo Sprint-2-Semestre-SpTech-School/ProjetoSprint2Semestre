@@ -6,11 +6,11 @@ let nomeRegistroCpu;
 let totalCapturasCpu;
 
 // function pegarId() {
-    const urlParams2 = new URLSearchParams(window.location.search);
-    const idProjeto = urlParams2.get('idProjetoRota');
+const urlParams2 = new URLSearchParams(window.location.search);
+const idProjeto = urlParams2.get('idProjetoRota');
 
-    if (idProjeto != null ) {localStorage.setItem("idProjetoAtual", idProjeto);}
-    // var idProjetoCerto = idProjeto;
+if (idProjeto != null) { localStorage.setItem("idProjetoAtual", idProjeto); }
+// var idProjetoCerto = idProjeto;
 // }
 
 console.log('Id projeto: ' + idProjeto);
@@ -213,7 +213,7 @@ function listarMaquinas() {
         });
 }
 
-function entrarDashMaquina() {    
+function entrarDashMaquina() {
 
     maquinaBolinha.forEach((maquina, index) => {
         maquina.addEventListener("click", function () {
@@ -610,7 +610,7 @@ function getDadosKpiCpuAlertas() {
 }
 
 function getDadosKpiRamAlertas() {
-fetch(`/kpis/getDadosKpiRamAlertas/${idProjeto}`, {
+    fetch(`/kpis/getDadosKpiRamAlertas/${idProjeto}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -691,6 +691,7 @@ function getDadosKpiEventosCriticosCpu20Seg() {
                 // console.log("resp" + resposta);
                 eventosCriticosCpu20Seg = resposta[0].eventos_criticos;
                 maiorValorCpu20Seg = resposta[0].maior_valor;
+                console.log("Maior Valor Cpu 60s " + maiorValorCpu60Seg)
                 // valoresKpiRamAlertas(idMaquinaRam, nomeRegistroRam, totalCapturasRam);
             }, 1000);
             // alterarKpis(resposta);
@@ -1069,6 +1070,14 @@ function atualizarKpis() {
         // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
         idMaquinaPorcentagem.innerHTML = `Id: ${idMaquinaCpu}`
         porcentagem.innerHTML = `Afeta o seu projeto negativamente em ${(((totalCapturasCpu + totalCapturasRam) * 100) / capturasTotalProjeto).toFixed(4)}%`
+        // ------------------------------------------------------------- TROCAR NULL ---------------------------------------------------------
+        trocarNulls(valorTempo20s, maiorValorCpu20Seg);
+        trocarNulls(valorTempo40s, maiorValorCpu40Seg);
+        trocarNulls(valorTempo60s, maiorValorCpu60Seg);
+
+        trocarNulls(valorTempo20s2, maiorValorRam20Seg);
+        trocarNulls(valorTempo40s2, maiorValorRam40Seg);
+        trocarNulls(valorTempo60s2, maiorValorRam60Seg);
     } else if (hardwareSelecionado === "disco") {
         capturaAtual.innerHTML = `Captura atual: ${nomeRegistroDisco}`;
 
@@ -1079,7 +1088,6 @@ function atualizarKpis() {
         // ------------------------------------------------------------- KPI 2 ---------------------------------------------------------
         titleEvents.innerHTML = `N° Eventos críticos e capturas em: ${nomeRegistroDisco}`;
         capturas20s.innerHTML = `${eventosCriticosDisco20Seg}`;
-        capturas40s.innerHTML = `${eventosCriticosDisco40Seg}`;
         capturas60s.innerHTML = `${eventosCriticosDisco60Seg}`;
 
         valorTempo20s.innerHTML = `${maiorValorDisco20Seg}`;
@@ -1088,12 +1096,16 @@ function atualizarKpis() {
 
         group2.style.display = `none`;
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
-        metricaVerde.innerHTML = `Menor igual 1`;
-        metricaAmarela.innerHTML = `Menor igual 2`;
-        metricaVermelha.innerHTML = `Maior 5`;
+        metricaVerde.innerHTML = `Maior do que 2`;
+        metricaAmarela.innerHTML = `Entre 1 e 2`;
+        metricaVermelha.innerHTML = `Menor do que 1`;
         // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
         idMaquinaPorcentagem.innerHTML = `Id: ${idMaquinaDisco}`
         porcentagem.innerHTML = `Afeta o seu projeto negativamente em ${((totalCapturasDisco * 100) / capturasTotalProjeto).toFixed(4)}%`
+        trocarNulls(valorTempo20s, maiorValorDisco20Seg);
+        trocarNulls(valorTempo40s, maiorValorDisco40Seg);
+        trocarNulls(valorTempo60s, maiorValorDisco60Seg);
+        // ------------------------------------------------------------- TROCAR NULL ---------------------------------------------------------
     } else {
         capturaTitulo.innerHTML = `Capturas em alerta ${nomeRegistroRede}`
         messageId.innerHTML = `Id: ${idMaquinaRede}`
@@ -1113,12 +1125,17 @@ function atualizarKpis() {
         // -------------------------------------------------------- MÉTRICAS --------------------------------------------------------
         capturaAtual.innerHTML = `Captura atual: ${nomeRegistroRede}`;
 
-        metricaVerde.innerHTML = `Menor igual 1`;
-        metricaAmarela.innerHTML = `Menor igual 2`;
-        metricaVermelha.innerHTML = `Maior 5`;
+        metricaVerde.innerHTML = `Maior do que 7`;
+        metricaAmarela.innerHTML = `Menor do que 7`;
+        metricaVermelha.innerHTML = `Menor do que 3`;
         // ------------------------------------------------------------- KPI 3 ---------------------------------------------------------
         idMaquinaPorcentagem.innerHTML = `Id: ${idMaquinaRede}`
         porcentagem.innerHTML = `Afeta o seu projeto negativamente em ${((totalCapturasRede * 100) / capturasTotalProjeto).toFixed(4)}%`
+
+        trocarNulls(valorTempo20s, maiorValorRede20Seg);
+        trocarNulls(valorTempo40s, maiorValorRede40Seg);
+        trocarNulls(valorTempo60s, maiorValorRede60Seg);
+        // ------------------------------------------------------------- TROCAR NULL ---------------------------------------------------------
     }
     let healthBarNumber = document.querySelector("#healthBarNumber");
     let quintil = document.querySelectorAll(".quintil");
@@ -1157,6 +1174,15 @@ function atualizarKpis() {
         quintil[2].style.border = `8px none white`;
         quintil[1].style.border = `8px none white`;
         quintil[0].style.border = `8px ridge white`;
+    }
+
+    function trocarNulls(elemento, valor, mensagem = "Nenhum") {
+        elemento.innerHTML = valor !== null && valor !== undefined ? valor : mensagem
+    }
+
+    const withoutMachineText = document.querySelector("#withoutMachine");
+    if (maquinaBolinha.length    > 0) {
+        withoutMachineText.style.display = "none";
     }
 }
 

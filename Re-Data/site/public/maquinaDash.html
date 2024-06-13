@@ -92,7 +92,7 @@
                         </b>
                         <button onclick="telaProjeto()" class="groupOpcoes"><i class="fas fa-calendar-days"></i>
                             Projetos</button>
-                        <button onclick="dashProjeto()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
+                        <button onclick="voltar()" class="groupOpcoes"><i class="fas fa-tachometer"></i>
                             Dashboard</button>
                     </li>
 
@@ -131,7 +131,7 @@
                 <div class="breadcrumb">
                     <ul class="breadcrumbList">
                         <li class="segundo"><a href="projetos.html">Projetos</a></li>
-                        <li class="terceiro"><a href="DashProjeto.html">Dashboard</a></li>
+                        <li class="terceiro" onclick="voltar()"><a href="DashProjeto.html">Dashboard</a></li>
                         <li class="quarto"><a href="maquinaDash.html">Máquina Dash</a></li>
                         <li class="quinto"><a href="dispositivoUsb.html">Dispositivos USB</a></li>
                     </ul>
@@ -210,11 +210,6 @@
 
                 <div class="dashboard" id="div_dashboard">
                     <div class="topDash" id="div_topDash">
-                        <div class="divBotaoClass">
-                            <div id="div_botao" class="botao">
-                                <button data-id="idProjeto" onclick="voltar()">Voltar para dashboard</button>
-                            </div>
-                        </div>
                         <div class="alertas">
                             <div class="infoAlertas">
                                 <h1>Situações da máquina</h1>
@@ -222,11 +217,11 @@
                                     <div id="cardAlertaCpu" class="cardAlertaCpu">
                                         <div id="msgAlertaCpu" class="msgAlerta msgAlertaCpu"></div>
                                     </div>
-    
+
                                     <div id="cardAlertaRam" class="cardAlertaRam">
                                         <div id="msgAlertaRam" class="msgAlerta msgAlertaRam"></div>
                                     </div>
-    
+
                                 </div>
                             </div>
                         </div>

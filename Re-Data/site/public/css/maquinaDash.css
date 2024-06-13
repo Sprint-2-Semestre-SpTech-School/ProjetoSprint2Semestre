@@ -431,9 +431,8 @@ nav .nav-items .item .fa-regular {
 }
 
 .dashboard .topDash .divBotaoClass {
-    width: 10vw;
-    bottom: 175px;
-    position: relative;
+    top: 50px;
+    border: 5px solid wheat;
 }
 
 .dashboard .topDash .divBotaoClass .botao {

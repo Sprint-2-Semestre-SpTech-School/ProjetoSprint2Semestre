@@ -390,13 +390,20 @@ main .screen .top .machines .novaMaquina .addMachine:hover {
 
 main .screen .top .machines .novaMaquina .addMaquinaBotao {
     height: 100%;
+    width: 100%;
     background: none;
     border: none;
-    font-size: 41px;
+    font-size: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+}
+
+#without {
+    display: flex;
+    align-items: center;
+    display: block;
 }
 
 main section .screen .dashView {
