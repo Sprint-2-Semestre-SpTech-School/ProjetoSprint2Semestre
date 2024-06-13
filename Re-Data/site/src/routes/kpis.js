@@ -71,4 +71,8 @@ router.get("/getDadosKpiTotalCapturasProjeto/:idProjeto", function (req, res) {
     kpisController.getDadosKpiTotalCapturasProjeto(req,res);
 });
 
+router.get("/getDadosProjeto/:idProjeto", function (req, res) {
+    kpisController.getDadosProjeto(req,res);
+});
+
 module.exports = router;

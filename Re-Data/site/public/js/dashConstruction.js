@@ -965,6 +965,26 @@ function getDadosKpiTotalCapturasProjeto() {
         });
 }
 
+function getDadosProjeto() {
+    fetch(`/kpis/getDadosProjeto/${idProjeto}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    }).then(function (resposta) {
+        resposta.json().then(resposta => {
+            setTimeout(function () {
+                console.log("resp" + resposta);
+                nomeProjeto = resposta[0].nomeDemanda;
+                descricaoProjeto = resposta[0].descricao;
+            }, 1000);
+        })
+    })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+}
+
 function getDadosKpi() {
     getDadosKpiCpuAlertas();
     getDadosKpiRamAlertas();
@@ -988,9 +1008,15 @@ function getDadosKpi() {
     getDadosKpiEventosCriticosRede60Seg();
 
     getDadosKpiTotalCapturasProjeto();
+    getDadosProjeto();
 }
 
 function atualizarKpis() {
+    const withoutMachineText = document.querySelector("#withoutMachine");
+    if (maquinaBolinha.length > 0) {
+        withoutMachineText.style.display = "none";
+    }
+
     let capturasTotal = document.querySelector("#capturasTotal");
     capturasTotal.innerHTML = `Capturas do projeto: ${capturasTotalProjeto}`;
     let capturaAtual = document.querySelector("#capturaAtual");
@@ -1144,6 +1170,12 @@ function atualizarKpis() {
     let healthBarValue = ((totalCapturasNegativas * 100 / capturasTotalProjeto - 100) * -1).toFixed(3);
     healthBarNumber.innerHTML = `${healthBarValue}%`;
 
+    const projetoNome = document.querySelector("#projetoNome");
+    projetoNome.innerHTML = `${nomeProjeto}`
+
+    const projetoDesc = document.querySelector("#projetoDesc");
+    projetoDesc.innerHTML = `${descricaoProjeto}`
+
     if (healthBarValue >= 80) {
         quintil[4].style.border = `8px ridge white`;
         quintil[3].style.border = `8px none white`;
@@ -1178,11 +1210,6 @@ function atualizarKpis() {
 
     function trocarNulls(elemento, valor, mensagem = "Nenhum") {
         elemento.innerHTML = valor !== null && valor !== undefined ? valor : mensagem
-    }
-
-    const withoutMachineText = document.querySelector("#withoutMachine");
-    if (maquinaBolinha.length    > 0) {
-        withoutMachineText.style.display = "none";
     }
 }
 

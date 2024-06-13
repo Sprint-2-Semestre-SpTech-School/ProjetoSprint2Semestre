@@ -80,7 +80,7 @@ function voltar() {
     // div_botao.innerHTML += `
     //     <button data-id="${idProjeto}" onclick="voltar()">Voltar para dashboard</button>
     // `;
-                
+
     console.log(idProjeto + ' id do projeto');
 
     setTimeout(() => {
@@ -363,6 +363,8 @@ function buscarDadosHardware() {
                     console.log(json);
                     console.log(json[0].valorTotal);
 
+                    console.log(json)
+
                     var tipoHardwareTela1 = json[0].tipoHardware;
                     var tipoHardwareTela2 = json[1].tipoHardware;
                     var tipoHardwareTela3 = json[2].tipoHardware;
@@ -389,6 +391,16 @@ function buscarDadosHardware() {
                     console.log(valorTotalTela2);
                     console.log(valorTotalTela3);
                     console.log(valorTotalTela4);
+
+                    var unidCaptacao1 = json[0].unidadeCaptacao;
+                    console.log("Unidade captação" + json[0].unidadeCaptacao);
+                    var unidCaptacao2 = json[1].unidadeCaptacao;
+                    var unidCaptacao3 = json[2].unidadeCaptacao;
+                    // var unidCaptacao4 = json[3].unidadeCaptacao;
+                    // console.log(unidadeCaptacao);
+                    // console.log(unidadeCaptacao);
+                    // console.log(unidadeCaptacao);
+                    // console.log(unidadeCaptacao);
 
                     var nomeHardwareTela = json[0].nomeHardware
                     console.log(nomeHardwareTela);
@@ -425,6 +437,7 @@ function buscarDadosHardware() {
 
                             <div class="valorUnidade">
                                 <p>${valorTotalTela1}</p>
+                                <p>${unidCaptacao1}</p>
                             </div>
                         </div>
 
@@ -434,11 +447,12 @@ function buscarDadosHardware() {
                             </div>
 
                             <div class="nome">
-                                <p>${nomeHardwareTela2}</p>
+                                <p>Não disponível</p>
                             </div>
 
                             <div class="valorUnidade">
                                 <p>${valorTotalTela2}</p>
+                                <p>${unidCaptacao2}</p>
                             </div>
                         </div>                   
 
@@ -453,6 +467,7 @@ function buscarDadosHardware() {
 
                             <div class="valorUnidade">
                                 <p>${valorTotalTela3}</p>
+                                <p>${unidCaptacao3}</p>
                             </div>
                         </div>
 
@@ -466,7 +481,7 @@ function buscarDadosHardware() {
                             </div>
 
                             <div class="valorUnidade">
-                                <p>${valorTotalTela4}</p>
+                                <p>Nenhum</p>
                             </div>
                         </div>
                     </div>
