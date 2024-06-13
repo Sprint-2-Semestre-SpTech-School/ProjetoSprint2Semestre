@@ -13,7 +13,10 @@ function cadastrar(nomeCompleto, email, telefone, nomeEmpresa, cnpj, cep, estado
         .then(result => {
             console.log("Resultado da inserção em empresa:", result);
             var selectIdEmpresa = `
-                SELECT idEmpresa FROM empresa WHERE nomeEmpresa = '${nomeEmpresa}' AND CNPJ = '${cnpj}' ORDER BY idEmpresa DESC LIMIT 1;
+                SELECT TOP 1 idEmpresa
+                FROM Empresa
+                WHERE nomeEmpresa = '${nomeEmpresa}' AND CNPJ = '${cnpj}'
+                ORDER BY idEmpresa DESC;
             `;
             console.log("Executando a instrução SQL: \n" + selectIdEmpresa);
             return database.executar(selectIdEmpresa);

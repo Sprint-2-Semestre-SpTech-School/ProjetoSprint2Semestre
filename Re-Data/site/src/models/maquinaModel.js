@@ -4,103 +4,113 @@ function buscarDados(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCaptur
     console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
 
     var instrucao = `
-        SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, valorTotal as memoriaTotal
+        SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, valorTotal AS memoriaTotal
         FROM Registro 
         JOIN InfoHardware ON fkHardware = idHardware
         JOIN Maquina ON fkMaquina = ${idMaquina}
         JOIN Projeto ON fkProjeto = idProjeto
         WHERE idProjeto = 400
-        GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, memoriaTotal;
+        GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, valorTotal;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
 
 function buscarDadosVolume(idMaquina, tipoHardware, valorTotal, nomeRegistro, valorRegistro, fkMaquina, tempoCapturas) {
     console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, tipoHardware, valorTotal, nomeRegistro, valorRegistro, fkMaquina, tempoCapturas);
 
     var instrucao = `
-    select i.tipoHardware, i.valorTotal as memoriaTotal, r.nomeRegistro, r.valorRegistro, i.fkMaquina, m.idMaquina, (i.valorTotal - r.valorRegistro) as memoriaUtilizada, tempoCapturas
-        from Maquina as m
-            join InfoHardware as i on m.idMaquina = i.fkMaquina
-                join Registro as r
-                    on r.fkHardware = i.idHardware
-                        where i.tipoHardware = 'Disco' and i.fkMaquina = ${idMaquina};
+    SELECT i.tipoHardware, i.valorTotal AS memoriaTotal, r.nomeRegistro, r.valorRegistro, i.fkMaquina, m.idMaquina, (i.valorTotal - r.valorRegistro) AS memoriaUtilizada, tempoCapturas
+    FROM Maquina AS m
+    JOIN InfoHardware AS i ON m.idMaquina = i.fkMaquina
+    JOIN Registro AS r ON r.fkHardware = i.idHardware
+    WHERE i.tipoHardware = 'Disco' AND i.fkMaquina = ${idMaquina};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
 
 function buscarDadosHardware(idMaquina) {
     console.log("Chegou no model para buscar os dados da Dashboard", idMaquina);
 
     var instrucao = `
-        select idHardware, tipoHardware, nomeHardware, valorTotal, unidadeCaptacao, fkMaquina
-            from InfoHardware
-                where fkMaquina = ${idMaquina} limit 4;
+        SELECT idHardware, tipoHardware, nomeHardware, valorTotal, unidadeCaptacao, fkMaquina
+        FROM InfoHardware
+        WHERE fkMaquina = ${idMaquina}
+        LIMIT 4;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
 
 function buscarDadosAlerta(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal) {
     console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
 
     var instrucao = `
-        SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro as usoCpu, valorTotal as memoriaTotal
+        SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro AS usoCpu, valorTotal AS memoriaTotal
         FROM Registro 
         JOIN InfoHardware ON fkHardware = idHardware
         JOIN Maquina ON fkMaquina = ${idMaquina}
         JOIN Projeto ON fkProjeto = idProjeto
         WHERE idProjeto = 400 AND nomeRegistro = 'usoCpu'
-        GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, memoriaTotal;
+        GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, valorTotal;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
 
 function buscarDadosAlertaRam(idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal) {
     console.log("Chegou no model para buscar os dados da Dashboard", idMaquina, idProjeto, idRegistro, nomeRegistro, tempoCapturas, valorRegistro, valorTotal);
 
     var instrucao = `
-        SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro as usoRam, valorTotal as memoriaTotal
+        SELECT idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro AS usoRam, valorTotal AS memoriaTotal
         FROM Registro 
         JOIN InfoHardware ON fkHardware = idHardware
         JOIN Maquina ON fkMaquina = ${idMaquina}
         JOIN Projeto ON fkProjeto = idProjeto
         WHERE idProjeto = 400 AND nomeRegistro = 'usoRam'
-        GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, memoriaTotal;
+        GROUP BY idRegistro, nomeRegistro, tempoCapturas, idProjeto, idMaquina, valorRegistro, valorTotal;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
 
 function buscarInfosMaquina(idMaquina) {
     console.log("Chegou no model para buscar as infos da máquina", idMaquina);
 
     var instrucao = `
-        select descricao, destino
-            from Maquina
-                where idMaquina = ${idMaquina} limit 2;
+        SELECT descricao, destino
+        FROM Maquina
+        WHERE idMaquina = ${idMaquina}
+        LIMIT 2;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
+
 function editarMaquina(novoDestino, novaDescricao, idMaquina) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editarMaquina(): ", novoDestino, novaDescricao, idMaquina);
+    
     var instrucaoSql = `
         UPDATE Maquina SET destino = '${novoDestino}', descricao = '${novaDescricao}' WHERE idMaquina = ${idMaquina};
     `;
+    
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 
 async function deletarMaquina(idMaquina) {
     console.log("Iniciando o processo de exclusão para a máquina com ID:", idMaquina);
@@ -147,6 +157,7 @@ async function deletarMaquina(idMaquina) {
         console.error("Erro ao excluir a máquina:", error);
     }
 }
+
 
 module.exports = {
     buscarDados,
