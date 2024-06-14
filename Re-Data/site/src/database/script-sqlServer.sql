@@ -6,14 +6,6 @@ END;
 GO
 
 -- Create the database
-CREATE DATABASE redata;
-GO
-
--- Use the newly created database
-USE redata;
-GO
-
--- Create the Empresa table
 CREATE TABLE Empresa (
     idEmpresa INT IDENTITY(1,1) PRIMARY KEY,
     nomeEmpresa VARCHAR(45) NOT NULL,
@@ -68,7 +60,7 @@ CREATE TABLE Projeto (
     responsavel VARCHAR(45) NULL,
     fkEmpresa INT NOT NULL,
     CONSTRAINT fk_Projeto_Empresa1 FOREIGN KEY (fkEmpresa) REFERENCES Empresa (idEmpresa),
-    CONSTRAINT UQ_Projeto UNIQUE (idProjeto, fkEmpresa) -- Ensure combination is unique
+    CONSTRAINT UQ_Projeto UNIQUE (idProjeto, fkEmpresa)
 );
 GO
 
@@ -102,8 +94,8 @@ CREATE TABLE BlockList (
     motivoBloqueio VARCHAR(250) NULL,
     fkDeviceId INT NOT NULL,
     fkMaquina INT NOT NULL,
-    CONSTRAINT fk_Maquina_has_DispositivosUSB_DispositivosUSB1 FOREIGN KEY (fkDeviceId) REFERENCES DispositivoUsb (idDispositivo),
-    CONSTRAINT fk_Blocklist_Maquina1 FOREIGN KEY (fkMaquina) REFERENCES Maquina (idMaquina)
+    CONSTRAINT fk_BlockList_DispositivoUsb1 FOREIGN KEY (fkDeviceId) REFERENCES DispositivoUsb (idDispositivo),
+    CONSTRAINT fk_BlockList_Maquina1 FOREIGN KEY (fkMaquina) REFERENCES Maquina (idMaquina)
 );
 GO
 
@@ -126,6 +118,6 @@ CREATE TABLE Registro (
     valorRegistro DECIMAL(20,4) NULL,
     tempoCapturas DATETIME NULL,
     fkHardware INT NOT NULL,
-    CONSTRAINT fk_registro_InfoHardware1 FOREIGN KEY (fkHardware) REFERENCES InfoHardware (idHardware)
+    CONSTRAINT fk_Registro_InfoHardware1 FOREIGN KEY (fkHardware) REFERENCES InfoHardware (idHardware)
 );
 GO

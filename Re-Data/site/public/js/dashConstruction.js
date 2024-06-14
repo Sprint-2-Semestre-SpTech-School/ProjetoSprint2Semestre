@@ -272,7 +272,7 @@ const cpuRamChart = new Chart(ctx, {
             },
         },
         animation: {
-            duration: 1500,
+            duration: 500,
             easing: 'easeInQuad'
         },
         plugins: {
@@ -321,7 +321,7 @@ const discoQtdChart = new Chart(ctx2, {
             }
         },
         animation: {
-            duration: 1500,
+            duration: 500,
             easing: 'easeInQuad'
         },
         plugins: {
@@ -379,7 +379,7 @@ const discoBytesChart = new Chart(ctx3, {
             }
         },
         animation: {
-            duration: 1500,
+            duration: 500,
             easing: 'easeInQuad'
         },
         plugins: {
@@ -429,7 +429,7 @@ const redeChart = new Chart(ctx4, {
             }
         },
         animation: {
-            duration: 1500,
+            duration: 500,
             easing: 'easeInQuad'
         },
         plugins: {
@@ -471,6 +471,7 @@ function atualizarGraficos(resposta) {
 
     // Cpu & Ram
     const cpuData = resposta.filter(item => item.nomeRegistro == "usoCpu");
+    console.log("Cpu Data" + cpuData);
     const ramData = resposta.filter(item => item.nomeRegistro == "usoRam");
     // Disco Bytes
     const discoBytesLeiturasData = resposta.filter(item => item.nomeRegistro == "bytesLeitura");
@@ -1213,5 +1214,5 @@ function atualizarKpis() {
     }
 }
 
-setInterval(atualizarKpis, 500);
-setInterval(getDadosKpi, 500);
+setInterval(atualizarKpis, 1000);
+setInterval(getDadosKpi, 1000);

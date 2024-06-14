@@ -498,7 +498,7 @@ function buscarDadosHardware() {
 // PRIMEIRA KPI - TEMPO DE ATIVIDADE
 function kpiMaquinaLeituras() {
     console.log(idMaquinaRota)
-    fetch(`/kpiMaquina/kpiMaquinaLeituras/${idMaquinaRota}`, {
+    fetch(`/kpiMaquina/kpiMaquinaLeituras/${idMaquinaRota}/${idProjeto}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -530,7 +530,7 @@ function kpiMaquinaLeituras() {
 // SEGUNDA KPI - USO DE CPU
 function kpiMaquinaCpu() {
     console.log(idMaquinaRota)
-    fetch(`/kpiMaquina/kpiMaquinaCpu/${idMaquinaRota}`, {
+    fetch(`/kpiMaquina/kpiMaquinaCpu/${idMaquinaRota}/${idProjeto}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -595,7 +595,7 @@ function kpiMaquinaCpu() {
 // TERCEIRA KPI - USO DE RAM
 function kpiMaquinaRam() {
     console.log(idMaquinaRota)
-    fetch(`/kpiMaquina/kpiMaquinaRam/${idMaquinaRota}`, {
+    fetch(`/kpiMaquina/kpiMaquinaRam/${idMaquinaRota}/${idProjeto}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

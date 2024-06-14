@@ -1,17 +1,16 @@
-var database = require("../database/config");
+var database = require("../database/config")
 
 function getDadosKpiCpuAlertas(idProjeto) {
     console.log("Chegou no model para buscar os dados da KPI alertas de CPU", idProjeto);
 
     var instrucao = `
-    SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, COUNT(idRegistro) as totalCapturas
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina 
-    WHERE tipoHardware = 'Cpu' AND valorRegistro >= 5 AND fkProjeto = ${idProjeto}
-    GROUP BY idMaquina
-    ORDER BY totalCapturas DESC
-    OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;
+    SELECT TOP 1 idMaquina, MAX(nomeRegistro) AS nomeRegistro, COUNT(idRegistro) AS totalCapturas
+FROM Registro
+INNER JOIN InfoHardware ON Registro.fkHardware = InfoHardware.idHardware
+INNER JOIN Maquina ON InfoHardware.fkMaquina = Maquina.idMaquina
+WHERE InfoHardware.tipoHardware = 'Cpu' AND Registro.valorRegistro >= 5 AND Maquina.fkProjeto = ${idProjeto}
+GROUP BY Maquina.idMaquina
+ORDER BY totalCapturas DESC;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -19,17 +18,16 @@ function getDadosKpiCpuAlertas(idProjeto) {
 }
 
 function getDadosKpiRamAlertas(idProjeto) {
-    console.log("Chegou no model para buscar os dados da KPI alertas da Ram", idProjeto);
+    console.log("Chegou no model para buscar os dados da KPI alertas da Ram", 400);
 
     var instrucao = `
-    SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, COUNT(idRegistro) as totalCapturas
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina 
-    WHERE tipoHardware = 'Ram' AND valorRegistro >= 5 AND fkProjeto = ${idProjeto}
-    GROUP BY idMaquina
-    ORDER BY totalCapturas DESC
-    OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;
+    SELECT TOP 1 m.idMaquina, MAX(r.nomeRegistro) AS nomeRegistro, COUNT(r.idRegistro) AS totalCapturas
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+WHERE ih.tipoHardware = 'Ram' AND r.valorRegistro >= 5 AND m.fkProjeto = ${idProjeto}
+GROUP BY m.idMaquina
+ORDER BY totalCapturas DESC;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -37,17 +35,16 @@ function getDadosKpiRamAlertas(idProjeto) {
 }
 
 function getDadosKpiDiscoAlertas(idProjeto) {
-    console.log("Chegou no model para buscar os dados da KPI alertas de Disco", idProjeto);
+    console.log("Chegou no model para buscar os dados da KPI alertas de Disco", 400);
 
     var instrucao = `
-    SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, COUNT(idRegistro) as totalCapturas
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina 
-    WHERE tipoHardware = 'Disco' AND valorRegistro <= 2.00 AND nomeRegistro = 'bytesEscrita' AND fkProjeto = ${idProjeto}
-    GROUP BY idMaquina
-    ORDER BY totalCapturas DESC
-    OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;
+        SELECT TOP 1 m.idMaquina, MAX(r.nomeRegistro) AS nomeRegistro, COUNT(r.idRegistro) AS totalCapturas
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+WHERE ih.tipoHardware = 'Disco' AND r.valorRegistro <= 2.00 AND r.nomeRegistro = 'bytesEscrita' AND m.fkProjeto = ${idProjeto}
+GROUP BY m.idMaquina
+ORDER BY totalCapturas DESC;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -55,37 +52,50 @@ function getDadosKpiDiscoAlertas(idProjeto) {
 }
 
 function getDadosKpiRedeAlertas(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi alertas de Rede", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi alertas de Rede", 400);
 
     var instrucao = `
-    SELECT idMaquina, MAX(nomeRegistro) as nomeRegistro, COUNT(idRegistro) as totalCapturas
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina 
-    WHERE tipoHardware = 'Rede' AND nomeRegistro = 'Pacotes Recebidos' AND fkProjeto = ${idProjeto}
-    GROUP BY idMaquina
-    ORDER BY totalCapturas DESC
-    OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;
+       SELECT TOP 1 
+    m.idMaquina, 
+    MAX(r.nomeRegistro) AS nomeRegistro, 
+    COUNT(r.idRegistro) AS totalCapturas
+FROM 
+    Registro r
+INNER JOIN 
+    InfoHardware i ON r.fkHardware = i.idHardware
+INNER JOIN 
+    Maquina m ON fkMaquina = m.idMaquina
+WHERE 
+    i.tipoHardware = 'Rede' 
+    AND r.nomeRegistro = 'Pacotes Recebidos' 
+    AND fkProjeto = ${idProjeto}
+GROUP BY 
+    m.idMaquina
+ORDER BY 
+    totalCapturas DESC;
     `;
+    // AND valorRegistro <= 10
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-
+// =========================================================== FUNÇÕES KPI 2 
+// =================================================== CPU ================================================================
 function getDadosKpiEventosCriticosCpu20Seg(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
 
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
-    AND valorRegistro >= 5
-    AND tipoHardware = 'Cpu'
-    AND nomeRegistro = 'usoCpu'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
+AND r.valorRegistro >= 5
+AND ih.tipoHardware = 'Cpu'
+AND r.nomeRegistro = 'usoCpu'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -93,19 +103,20 @@ function getDadosKpiEventosCriticosCpu20Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosCpu40Seg(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
 
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
-    AND valorRegistro >= 5
-    AND tipoHardware = 'Cpu'
-    AND nomeRegistro = 'usoCpu'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
+AND r.valorRegistro >= 5
+AND ih.tipoHardware = 'Cpu'
+AND r.nomeRegistro = 'usoCpu'
+AND m.fkProjeto = ${idProjeto}
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -113,39 +124,42 @@ function getDadosKpiEventosCriticosCpu40Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosCpu60Seg(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
 
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
-    AND valorRegistro >= 5
-    AND tipoHardware = 'Cpu'
-    AND nomeRegistro = 'usoCpu'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
+AND r.valorRegistro >= 5
+AND ih.tipoHardware = 'Cpu'
+AND r.nomeRegistro = 'usoCpu'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
+// =================================================== Ram ================================================================
 function getDadosKpiEventosCriticosRam20Seg(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi eventos da Ram", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
 
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
-    AND valorRegistro >= 70
-    AND tipoHardware = 'Ram'
-    AND nomeRegistro = 'usoRam'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
+AND r.valorRegistro >= 70
+AND ih.tipoHardware = 'Ram'
+AND r.nomeRegistro = 'usoRam'
+AND m.fkProjeto = ${idProjeto}
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -153,19 +167,20 @@ function getDadosKpiEventosCriticosRam20Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosRam40Seg(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi eventos da Ram", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
 
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
-    AND valorRegistro >= 70
-    AND tipoHardware = 'Ram'
-    AND nomeRegistro = 'usoRam'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
+AND r.valorRegistro >= 70
+AND ih.tipoHardware = 'Ram'
+AND r.nomeRegistro = 'usoRam'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -173,37 +188,43 @@ function getDadosKpiEventosCriticosRam40Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosRam60Seg(idProjeto) {
-    console.log("Chegou no model para buscar os dados da Kpi eventos da Ram", idProjeto);
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
 
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
-    AND valorRegistro >= 70
-    AND tipoHardware = 'Ram'
-    AND nomeRegistro = 'usoRam'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
+AND r.valorRegistro >= 70
+AND ih.tipoHardware = 'Ram'
+AND r.nomeRegistro = 'usoRam'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
+// =================================================== Disco ================================================================
+
 function getDadosKpiEventosCriticosDisco20Seg(idProjeto) {
+    // console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
-    AND valorRegistro <= 2
-    AND tipoHardware = 'Disco'
-    AND nomeRegistro = 'bytesEscrita'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
+AND r.valorRegistro <= 2
+AND ih.tipoHardware = 'Disco'
+AND r.nomeRegistro = 'bytesEscrita'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -211,17 +232,20 @@ function getDadosKpiEventosCriticosDisco20Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosDisco40Seg(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
-    AND valorRegistro <= 2
-    AND tipoHardware = 'Disco'
-    AND nomeRegistro = 'bytesEscrita'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
+AND r.valorRegistro <= 2
+AND ih.tipoHardware = 'Disco'
+AND r.nomeRegistro = 'bytesEscrita'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -229,35 +253,42 @@ function getDadosKpiEventosCriticosDisco40Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosDisco60Seg(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
-    AND valorRegistro <= 2
-    AND tipoHardware = 'Disco'
-    AND nomeRegistro = 'bytesEscrita'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
+AND r.valorRegistro <= 2
+AND ih.tipoHardware = 'Disco'
+AND r.nomeRegistro = 'bytesEscrita'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
 
+// =================================================== Rede ================================================================
 function getDadosKpiEventosCriticosRede20Seg(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
-    AND valorRegistro <= 7
-    AND tipoHardware = 'Rede'
-    AND nomeRegistro = 'Pacotes Recebidos'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -20, GETDATE())
+AND r.valorRegistro <= 7
+AND ih.tipoHardware = 'Rede'
+AND r.nomeRegistro = 'Pacotes Recebidos'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -265,17 +296,20 @@ function getDadosKpiEventosCriticosRede20Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosRede40Seg(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
-    AND valorRegistro <= 7
-    AND tipoHardware = 'Rede'
-    AND nomeRegistro = 'Pacotes Recebidos'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -40, GETDATE())
+AND r.valorRegistro <= 7
+AND ih.tipoHardware = 'Rede'
+AND r.nomeRegistro = 'Pacotes Recebidos'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -283,17 +317,20 @@ function getDadosKpiEventosCriticosRede40Seg(idProjeto) {
 }
 
 function getDadosKpiEventosCriticosRede60Seg(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(*) AS eventos_criticos, MAX(valorRegistro) as maior_valor
-    FROM Registro
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON fkMaquina = idMaquina
-    JOIN Projeto ON fkProjeto = idProjeto
-    WHERE tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
-    AND valorRegistro <= 7
-    AND tipoHardware = 'Rede'
-    AND nomeRegistro = 'Pacotes Recebidos'
-    AND fkProjeto = ${idProjeto};
+    SELECT COUNT(*) AS eventos_criticos,
+       MAX(valorRegistro) AS maior_valor
+FROM Registro r
+INNER JOIN InfoHardware ih ON r.fkHardware = ih.idHardware
+INNER JOIN Maquina m ON ih.fkMaquina = m.idMaquina
+INNER JOIN Projeto p ON m.fkProjeto = p.idProjeto
+WHERE r.tempoCapturas >= DATEADD(SECOND, -60, GETDATE())
+AND r.valorRegistro <= 7
+AND ih.tipoHardware = 'Rede'
+AND r.nomeRegistro = 'Pacotes Recebidos'
+AND m.fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -301,12 +338,13 @@ function getDadosKpiEventosCriticosRede60Seg(idProjeto) {
 }
 
 function getDadosKpiTotalCapturasProjeto(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT COUNT(idRegistro) AS capturas_projeto 
-    FROM Registro 
-    JOIN InfoHardware ON fkHardware = idHardware
-    JOIN Maquina ON idMaquina = fkMaquina 
-    WHERE fkProjeto = ${idProjeto};
+    select count(idRegistro) as capturas_projeto from registro 
+    join Infohardware on fkHardware = idHardware
+    join maquina on idMaquina = fkMaquina 
+    where fkProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -314,10 +352,10 @@ function getDadosKpiTotalCapturasProjeto(idProjeto) {
 }
 
 function getDadosProjeto(idProjeto) {
+    console.log("Chegou no model para buscar os dados da Kpi eventos da Cpu", 400);
+
     var instrucao = `
-    SELECT nomeDemanda, descricao 
-    FROM Projeto 
-    WHERE idProjeto = ${idProjeto};
+    select nomeDemanda, descricao from Projeto where idProjeto = ${idProjeto};
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucao);
@@ -348,4 +386,4 @@ module.exports = {
 
     getDadosKpiTotalCapturasProjeto,
     getDadosProjeto
-};
+}

@@ -2,6 +2,7 @@ var kpiMaquinaModel = require("../models/kpiMaquinaModel");
 
 function kpiMaquinaLeituras(req, res) {
     var idMaquina = req.params.idMaquina;
+    var idProjeto = req.params.idProjeto;
 
     console.log(`Estou no controller para pegar os dados da KPI da máquina`);
     kpiMaquinaModel.kpiMaquinaLeituras(idMaquina)
@@ -29,6 +30,7 @@ function kpiMaquinaLeituras(req, res) {
 
 function kpiMaquinaCpu(req, res) {
     var idMaquina = req.params.idMaquina;
+    var idProjeto = req.params.idProjeto;
 
     console.log(`Estou no controller para pegar os dados da KPI da máquina`);
     kpiMaquinaModel.kpiMaquinaCpu(idMaquina)
@@ -56,6 +58,7 @@ function kpiMaquinaCpu(req, res) {
 
 function kpiMaquinaRam(req, res) {
     var idMaquina = req.params.idMaquina;
+    var idProjeto = req.params.idProjeto;
 
     console.log(`Estou no controller para pegar os dados da KPI da máquina`);
     kpiMaquinaModel.kpiMaquinaRam(idMaquina)
